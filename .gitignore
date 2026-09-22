@@ -1,0 +1,25 @@
+# Heavy raw scientific datasets
+paleodems/
+*.nc
+
+# Experimental / temporary bake renders
+textures_temp/
+scratch/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# AWS SAM build artifacts
+.aws-sam/
+
+# OS / Editor clutter
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

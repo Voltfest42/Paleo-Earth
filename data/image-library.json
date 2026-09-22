@@ -1,0 +1,124 @@
+{
+  "images": [
+    {
+      "id": "trilobite_cambrian_tamura",
+      "filename": "trilobite_cambrian_nobu_tamura.jpg",
+      "title": "Trilobite (Cambrian)",
+      "credit": "Nobu Tamura",
+      "license": "CC BY 3.0",
+      "description": "A detailed reconstruction of a Cambrian trilobite, Paradoxides, swimming above the muddy seafloor in warm, shallow tropical seas.",
+      "tags": ["cambrian", "ordovician", "marine_invertebrate", "trilobite", "arthropod", "paleozoic"],
+      "keyframes": ["early_cambrian", "mid_cambrian", "late_cambrian", "early_ordovician", "mid_ordovician", "cambrian_explosion"]
+    },
+    {
+      "id": "anomalocaris_cambrian_bogdanov",
+      "filename": "anomalocaris_cambrian_dmitry_bogdanov.jpg",
+      "title": "Anomalocaris canadensis",
+      "credit": "Dmitry Bogdanov",
+      "license": "CC BY 3.0",
+      "description": "Anomalocaris, the apex predator of the Cambrian seas, sweeping its grasping frontal appendages toward a cluster of trilobites.",
+      "tags": ["cambrian", "marine_invertebrate", "anomalocaris", "apex_predator", "arthropod", "paleozoic"],
+      "keyframes": ["early_cambrian", "mid_cambrian", "late_cambrian", "cambrian_explosion"]
+    },
+    {
+      "id": "dunkleosteus_devonian_bogdanov",
+      "filename": "dunkleosteus_late_devonian_dmitry_bogdanov.jpg",
+      "title": "Dunkleosteus terrelli",
+      "credit": "Dmitry Bogdanov",
+      "license": "CC BY 3.0",
+      "description": "The massive armored placoderm Dunkleosteus terrelli, its bony scissor jaws agape, dominating the Late Devonian seas.",
+      "tags": ["devonian", "fish", "placoderm", "dunkleosteus", "apex_predator", "paleozoic", "marine"],
+      "keyframes": ["late_devonian", "mid_devonian", "late_devonian_extinction"]
+    },
+    {
+      "id": "carboniferous_forest_bogdanov",
+      "filename": "carboniferous_forest_lycopsid_dmitry_bogdanov.jpg",
+      "title": "Carboniferous Coal Forest",
+      "credit": "Dmitry Bogdanov",
+      "license": "CC BY 3.0",
+      "description": "A lush Carboniferous coal swamp forest with towering Lepidodendron lycopod trees, giant horsetails, and a giant dragonfly gliding through the humid air.",
+      "tags": ["carboniferous", "plant", "lycopsid", "forest", "paleozoic", "meganeura", "insect", "land_plant"],
+      "keyframes": ["early_carboniferous", "mid_carboniferous", "late_carboniferous", "carboniferous_rainforest_collapse"]
+    },
+    {
+      "id": "dimetrodon_permian_tamura",
+      "filename": "dimetrodon_early_permian_nobu_tamura.jpg",
+      "title": "Dimetrodon grandis",
+      "credit": "Nobu Tamura",
+      "license": "CC BY 3.0",
+      "description": "Dimetrodon grandis, a large sail-backed pelycosaur synapsid, basking on a rocky Early Permian floodplain with its impressive dorsal sail raised to absorb heat.",
+      "tags": ["permian", "reptile", "pelycosaur", "dimetrodon", "synapsid", "paleozoic", "land_vertebrate"],
+      "keyframes": ["early_permian", "mid_permian"]
+    },
+    {
+      "id": "lystrosaurus_triassic_bogdanov",
+      "filename": "lystrosaurus_early_triassic_dmitry_bogdanov.jpg",
+      "title": "Lystrosaurus murrayi",
+      "credit": "Dmitry Bogdanov",
+      "license": "CC BY 3.0",
+      "description": "A herd of the stocky, pig-like dicynodont therapsid Lystrosaurus foraging in the sparse, recovering vegetation of the Early Triassic aftermath.",
+      "tags": ["triassic", "therapsid", "dicynodont", "lystrosaurus", "mammal_like_reptile", "mesozoic", "land_vertebrate"],
+      "keyframes": ["early_triassic", "mid_triassic", "permian_triassic_extinction"]
+    },
+    {
+      "id": "ichthyosaur_jurassic_tamura",
+      "filename": "ichthyosaurus_jurassic_nobu_tamura.jpg",
+      "title": "Ophthalmosaurus icenicus",
+      "credit": "Nobu Tamura",
+      "license": "CC BY 3.0",
+      "description": "Ophthalmosaurus, a dolphin-shaped Jurassic ichthyosaur with its distinctive enormous eyes, leaping from a warm Mesozoic sea.",
+      "tags": ["jurassic", "reptile", "ichthyosaur", "marine_reptile", "mesozoic", "ophthalmosaurus", "marine"],
+      "keyframes": ["mid_jurassic", "late_jurassic", "early_jurassic", "jurassic_marine_revolution"]
+    },
+    {
+      "id": "brachiosaurus_jurassic_csotonyi",
+      "filename": "brachiosaurus_late_jurassic_julius_csotonyi.jpg",
+      "title": "Brachiosaurus altithorax",
+      "credit": "Julius Csotonyi",
+      "license": "CC BY 4.0",
+      "description": "A towering Brachiosaurus altithorax stretches its long neck into the high canopy of a Late Jurassic conifer forest, while a smaller Stegosaurus grazes in the background.",
+      "tags": ["jurassic", "dinosaur", "sauropod", "brachiosaurus", "herbivore", "mesozoic", "land_vertebrate"],
+      "keyframes": ["late_jurassic", "mid_jurassic"]
+    },
+    {
+      "id": "quetzalcoatlus_cretaceous_csotonyi",
+      "filename": "quetzalcoatlus_late_cretaceous_julius_csotonyi.jpg",
+      "title": "Quetzalcoatlus northropi",
+      "credit": "Julius Csotonyi",
+      "license": "CC BY 4.0",
+      "description": "The colossal azhdarchid pterosaur Quetzalcoatlus northropi strides across a Late Cretaceous floodplain, its eleven-meter wingspan held half-open as it scans for prey.",
+      "tags": ["cretaceous", "pterosaur", "quetzalcoatlus", "flying_reptile", "mesozoic", "azhdarchid"],
+      "keyframes": ["late_cretaceous", "mid_cretaceous", "kpg_extinction"]
+    },
+    {
+      "id": "tyrannosaurus_cretaceous_csotonyi",
+      "filename": "tyrannosaurus_rex_late_cretaceous_julius_csotonyi.jpg",
+      "title": "Tyrannosaurus rex",
+      "credit": "Julius Csotonyi",
+      "license": "CC BY 4.0",
+      "description": "Tyrannosaurus rex, feathered along its back and neck, stalking through a Late Cretaceous floodplain forest with a dramatic sunset sky behind it.",
+      "tags": ["cretaceous", "dinosaur", "theropod", "tyrannosaurus", "apex_predator", "mesozoic", "land_vertebrate"],
+      "keyframes": ["late_cretaceous", "kpg_extinction"]
+    },
+    {
+      "id": "mosasaurus_cretaceous_bogdanov",
+      "filename": "mosasaurus_hoffmannii_late_cretaceous_dmitry_bogdanov.jpg",
+      "title": "Mosasaurus hoffmannii",
+      "credit": "Dmitry Bogdanov",
+      "license": "CC BY 3.0",
+      "description": "The enormous marine lizard Mosasaurus hoffmannii bursting through the surface of the Late Cretaceous Western Interior Seaway, jaws wide open around an ammonite.",
+      "tags": ["cretaceous", "reptile", "mosasaur", "mosasaurus", "marine_reptile", "mesozoic", "apex_predator", "marine"],
+      "keyframes": ["late_cretaceous", "mid_cretaceous", "kpg_extinction"]
+    },
+    {
+      "id": "pakicetus_eocene_tamura",
+      "filename": "pakicetus_inachus_eocene_nobu_tamura.jpg",
+      "title": "Pakicetus inachus",
+      "credit": "Nobu Tamura",
+      "license": "CC BY 3.0",
+      "description": "Pakicetus inachus, the early wolf-like whale ancestor, wading into an Eocene river to catch fish, its hoofed feet still visible beneath the water.",
+      "tags": ["eocene", "mammal", "cetacean", "pakicetus", "early_whale", "archaeoceti", "cenozoic", "land_vertebrate"],
+      "keyframes": ["mid_paleogene", "petm", "eocene_oligocene_transition"]
+    }
+  ]
+}

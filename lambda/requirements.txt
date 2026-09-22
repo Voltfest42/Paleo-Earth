@@ -1,0 +1,2 @@
+# boto3 is included in the AWS Lambda Python 3.11 runtime — no installation needed.
+# Add any additional third-party dependencies here, one per line, if required in future.

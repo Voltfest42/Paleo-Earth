@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paleo Earth — Journey Through Deep Time</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js via import map (no build step required) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="app-container" id="appContainer">
+
+    <!-- ═══════════════════ LEFT PANEL — Globe ═══════════════════ -->
+    <div class="panel panel-left" id="panelLeft">
+
+      <div class="panel-topbar">
+        <div class="topbar-left">
+          <span class="app-title">PALEO EARTH</span>
+        </div>
+        <div class="topbar-center">
+          <span class="era-label" id="eraLabel">Holocene · 0 Ma</span>
+        </div>
+        <div class="topbar-right">
+          <button class="fullscreen-btn" id="fullscreenLeft" title="Expand globe" aria-label="Toggle globe fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M3 3h6v2H5v4H3V3zm12 0h6v6h-2V5h-4V3zM3 15h2v4h4v2H3v-6zm16 4h-4v2h6v-6h-2v4z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Three.js renders into this div -->
+      <div class="globe-container" id="globeContainer">
+        <div class="globe-loading" id="globeLoading">
+          <div class="spinner"></div>
+          <span>Loading Earth...</span>
+        </div>
+      </div>
+
+      <!-- Climate gauges + time slider -->
+      <div class="globe-footer">
+
+        <div class="climate-gauges" id="gaugesContainer">
+          <!-- Populated by gauges.js -->
+        </div>
+
+        <div class="slider-section">
+          <div class="slider-label-row">
+            <span class="slider-ma-label" id="sliderMaLabel">0 Ma</span>
+            <span class="slider-period-label" id="sliderPeriodLabel">Holocene</span>
+          </div>
+          <div class="slider-wrapper">
+            <div class="slider-track-overlay" id="sliderTrackOverlay">
+              <!-- Period markers and event markers injected by slider.js -->
+            </div>
+            <input type="range" id="timeSlider"
+              min="0" max="540" value="0" step="1"
+              aria-label="Time slider — millions of years ago">
+          </div>
+          <div class="slider-axis">
+            <span>Today</span>
+            <span>270 Ma</span>
+            <span>540 Ma</span>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /panel-left -->
+
+    <!-- Draggable resize handle -->
+    <div class="resize-handle" id="resizeHandle" title="Drag to resize panels"></div>
+
+    <!-- ═══════════════════ RIGHT PANEL — Info + Chat ═══════════════════ -->
+    <div class="panel panel-right" id="panelRight">
+
+      <div class="panel-topbar">
+        <div class="topbar-left">
+          <div class="keyframe-badge" id="keyframeBadge">Period</div>
+          <span class="keyframe-title" id="keyframeTitle">Holocene</span>
+        </div>
+        <div class="topbar-right">
+          <button class="fullscreen-btn" id="fullscreenRight" title="Expand info panel" aria-label="Toggle info panel fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M3 3h6v2H5v4H3V3zm12 0h6v6h-2V5h-4V3zM3 15h2v4h4v2H3v-6zm16 4h-4v2h6v-6h-2v4z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="right-panel-body">
+
+        <!-- Summary card -->
+        <div class="summary-card" id="summaryCard">
+          <div class="summary-subtitle" id="summarySubtitle"></div>
+          <div class="summary-text" id="summaryText">Loading...</div>
+          <div class="summary-footer">
+            <button class="tts-btn" id="summaryTtsBtn" title="Listen to summary" aria-label="Read summary aloud">
+              <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat messages -->
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-welcome" id="chatWelcome">
+            <p>Ask me anything about this period — the animals, climate, geography, or major events. I'll remember our conversation as you explore through time.</p>
+          </div>
+        </div>
+
+        <!-- Chat input -->
+        <div class="chat-input-area">
+          <div class="chat-input-row">
+            <input type="text" id="chatInput"
+              placeholder="Ask about this period..."
+              autocomplete="off"
+              aria-label="Chat input">
+            <button id="sendBtn" aria-label="Send message">
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+          <div class="chat-footer-note">
+            <span id="devModeIndicator" class="dev-badge" style="display:none">DEV MODE</span>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /panel-right -->
+
+  </div><!-- /app-container -->
+
+  <!-- App entry point (ES module) -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

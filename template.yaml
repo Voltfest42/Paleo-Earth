@@ -1,0 +1,221 @@
+# =============================================================================
+# Paleo Earth — AWS SAM Template
+# =============================================================================
+#
+# This template defines the serverless backend for Paleo Earth:
+#   • A Lambda function (Python 3.11) handling /chat and /tts routes
+#   • A REST API Gateway (v1) exposing those routes with CORS
+#   • An IAM role granting the Lambda access to Bedrock, Polly, and CloudWatch
+#
+# Deploy:
+#   sam build
+#   sam deploy --guided   (first time, saves samconfig.toml with your choices)
+#   sam deploy            (subsequent deployments, reads samconfig.toml)
+#
+# Required: AWS CLI configured  (aws configure)
+# Required: SAM CLI installed   (pip install aws-sam-cli  or  brew install aws-sam-cli)
+# Required: Bedrock model access granted in the AWS console
+#           → Amazon Bedrock → Model access → Enable "Claude 3 Haiku"
+#
+# =============================================================================
+
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  Paleo Earth backend — Lambda + REST API Gateway for AI chat (Bedrock)
+  and text-to-speech (Polly) endpoints.
+
+# -----------------------------------------------------------------------------
+# Parameters — override at deploy time with --parameter-overrides
+# -----------------------------------------------------------------------------
+Parameters:
+  Stage:
+    Type: String
+    Default: prod
+    AllowedValues: [dev, staging, prod]
+    Description: Deployment stage name (used in API Gateway stage URL segment).
+
+# -----------------------------------------------------------------------------
+# Globals — applied to all Lambda functions unless overridden
+# -----------------------------------------------------------------------------
+Globals:
+  Function:
+    Runtime:      python3.11
+    MemorySize:   512          # MB — TTS audio buffering benefits from more memory
+    Timeout:      30           # seconds — Bedrock streaming can take 10–15 s
+    Environment:
+      Variables:
+        # Add any non-secret runtime config here.
+        # Secrets (API keys etc.) should use AWS Secrets Manager instead.
+        LOG_LEVEL: INFO
+
+# -----------------------------------------------------------------------------
+# Resources
+# -----------------------------------------------------------------------------
+Resources:
+
+  # ---------------------------------------------------------------------------
+  # IAM Role — used by the Lambda function
+  # ---------------------------------------------------------------------------
+  PaleoEarthLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "PaleoEarthLambdaRole-${Stage}"
+      Description: >
+        Execution role for the Paleo Earth Lambda function.
+        Grants least-privilege access to Bedrock, Polly, and CloudWatch Logs.
+
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+
+      Policies:
+        # ---- Amazon Bedrock -------------------------------------------------
+        - PolicyName: BedrockInvokeModel
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: bedrock:InvokeModel
+                # Scope permission to exactly the Claude 3 Haiku model ARN.
+                # If you switch models, update both this ARN and the model ID
+                # constant in lambda/handler.py.
+                Resource:
+                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0
+
+        # ---- Amazon Polly ---------------------------------------------------
+        - PolicyName: PollySynthesizeSpeech
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: polly:SynthesizeSpeech
+                Resource: "*"   # Polly does not support resource-level restrictions
+
+        # ---- Amazon CloudWatch Logs -----------------------------------------
+        - PolicyName: CloudWatchLogs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub "arn:aws:logs:us-east-1:${AWS::AccountId}:log-group:/aws/lambda/PaleoEarthFunction-${Stage}:*"
+
+  # ---------------------------------------------------------------------------
+  # Lambda Function
+  # ---------------------------------------------------------------------------
+  PaleoEarthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:  !Sub "PaleoEarthFunction-${Stage}"
+      Description:   "Paleo Earth backend — handles /chat (Bedrock) and /tts (Polly)"
+      CodeUri:       lambda/          # Directory containing handler.py (and requirements.txt)
+      Handler:       handler.lambda_handler
+      Role:          !GetAtt PaleoEarthLambdaRole.Arn
+
+      # API Gateway events — SAM creates the REST API and wires up the proxy
+      Events:
+
+        # ---- /chat ----------------------------------------------------------
+        ChatPost:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaleoEarthApi
+            Path:      /chat
+            Method:    POST
+
+        ChatOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaleoEarthApi
+            Path:      /chat
+            Method:    OPTIONS
+
+        # ---- /tts -----------------------------------------------------------
+        TtsPost:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaleoEarthApi
+            Path:      /tts
+            Method:    POST
+
+        TtsOptions:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaleoEarthApi
+            Path:      /tts
+            Method:    OPTIONS
+
+  # ---------------------------------------------------------------------------
+  # REST API Gateway (v1)
+  # ---------------------------------------------------------------------------
+  # We define the API explicitly (rather than letting SAM auto-create it) so
+  # we can control the stage name, description, and CORS configuration.
+  # ---------------------------------------------------------------------------
+  PaleoEarthApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name:        !Sub "PaleoEarthApi-${Stage}"
+      Description: "REST API for the Paleo Earth educational web app"
+      StageName:   !Ref Stage
+
+      # SAM's built-in CORS support adds the OPTIONS method and response headers
+      # automatically. The Lambda handler also returns CORS headers on every
+      # response so clients behind strict CORS policies are covered either way.
+      Cors:
+        AllowMethods: "'OPTIONS,POST'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin:  "'*'"
+        MaxAge:       "'600'"   # Browser may cache preflight response for 10 minutes
+
+      # Enable detailed CloudWatch metrics and access logging for the API stage.
+      MethodSettings:
+        - ResourcePath: "/*"
+          HttpMethod:   "*"
+          MetricsEnabled:       true
+          DataTraceEnabled:     false   # Set true only for temporary debugging (logs full request/response)
+          LoggingLevel:         ERROR   # ERROR | INFO | OFF
+
+  # ---------------------------------------------------------------------------
+  # CloudWatch Log Group — explicit so it is managed by the stack
+  # (auto-created log groups are not cleaned up on stack deletion)
+  # ---------------------------------------------------------------------------
+  PaleoEarthFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName:    !Sub "/aws/lambda/PaleoEarthFunction-${Stage}"
+      RetentionInDays: 30   # Adjust as needed; keeps costs low for low-traffic apps
+
+# -----------------------------------------------------------------------------
+# Outputs
+# -----------------------------------------------------------------------------
+Outputs:
+
+  ApiUrl:
+    Description: >
+      Base URL for the Paleo Earth REST API.
+      Append /chat or /tts to reach the respective endpoints.
+      Example: https://<id>.execute-api.us-east-1.amazonaws.com/prod/chat
+    Value: !Sub "https://${PaleoEarthApi}.execute-api.us-east-1.amazonaws.com/${Stage}"
+    Export:
+      Name: !Sub "PaleoEarthApiUrl-${Stage}"
+
+  LambdaFunctionArn:
+    Description: ARN of the deployed Lambda function.
+    Value: !GetAtt PaleoEarthFunction.Arn
+    Export:
+      Name: !Sub "PaleoEarthFunctionArn-${Stage}"
+
+  LambdaRoleArn:
+    Description: ARN of the Lambda execution IAM role.
+    Value: !GetAtt PaleoEarthLambdaRole.Arn
+    Export:
+      Name: !Sub "PaleoEarthLambdaRoleArn-${Stage}"
