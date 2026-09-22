@@ -157,7 +157,11 @@ async function main() {
     document.getElementById('sliderPeriodLabel'),
     document.getElementById('eraLabel'),
     keyframes,
+    document.getElementById('sliderPlayBtn'),
   );
+
+  // Ensure initial clean state at 0 Ma
+  slider.setMa(0);
 
   // ── Wire slider events ──────────────────────────────────────────────────
 

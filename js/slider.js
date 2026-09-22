@@ -1,39 +1,51 @@
 /**
- * slider.js — Time slider with keyframe detection and marker overlay
+ * slider.js — Time slider with animation playback, keyframe detection, and marker overlay
  *
  * Emits two custom events on the container element:
- *   'machange'       — fires continuously while dragging; detail: { ma }
- *   'keyframechange' — fires after SLIDER_DEBOUNCE_MS idle; detail: { keyframe }
- *                      keyframe is the nearest keyframe object, or null if none
- *                      is within snap radius.
+ *   'machange'       — fires continuously while dragging or playing; detail: { ma }
+ *   'keyframechange' — fires immediately when crossing into new keyframe; detail: { keyframe }
+ *   'keyframesettle' — fires after dragging or playing pauses; detail: { keyframe }
  */
 
 import { MIN_MA, MAX_MA, SLIDER_DEBOUNCE_MS, PERIOD_SNAP_RADIUS, EVENT_SNAP_RADIUS } from './config.js';
 
 export class Slider {
   /**
-   * @param {HTMLElement}  container      — the slider section element
+   * @param {HTMLElement}  container      — the slider section / app container element
    * @param {HTMLElement}  inputEl        — the <input type="range"> element
    * @param {HTMLElement}  trackOverlay   — the marker overlay div
    * @param {HTMLElement}  maLabel        — displays "0 Ma" etc.
    * @param {HTMLElement}  periodLabel    — displays period name
    * @param {HTMLElement}  eraLabel       — topbar label "Holocene · 0 Ma"
    * @param {object[]}     keyframes      — keyframes.json array
+   * @param {HTMLElement}  [playBtn]      — optional play/pause button element
    */
-  constructor(container, inputEl, trackOverlay, maLabel, periodLabel, eraLabel, keyframes) {
-    this._container    = container;
-    this._input        = inputEl;
-    this._overlay      = trackOverlay;
-    this._maLabel      = maLabel;
-    this._periodLabel  = periodLabel;
-    this._eraLabel     = eraLabel;
-    this._keyframes    = keyframes;
+  constructor(container, inputEl, trackOverlay, maLabel, periodLabel, eraLabel, keyframes, playBtn = null) {
+    this._container     = container;
+    this._input         = inputEl;
+    this._overlay       = trackOverlay;
+    this._maLabel       = maLabel;
+    this._periodLabel   = periodLabel;
+    this._eraLabel      = eraLabel;
+    this._keyframes     = keyframes;
+    this._playBtn       = playBtn;
     this._debounceTimer = null;
-    this._currentMa    = 0;
+    this._currentMa     = 0;
     this._activeKeyframe = null;
+
+    // Animation state
+    this._isPlaying          = false;
+    this._playAnimId         = null;
+    this._lastPlayTimestamp  = null;
+    this._playDurationSec    = 12.0; // 0 to 540 Ma in ~12 seconds
+
+    // Force input element reset on init
+    this._input.value = '0';
+    this._input.setAttribute('autocomplete', 'off');
 
     this._buildMarkers();
     this._attach();
+    this._initPlayButton();
     this._update(0); // initial render
   }
 
@@ -86,8 +98,13 @@ export class Slider {
     this._input.max  = String(MAX_MA);
     this._input.step = '1';
 
+    // If user touches or drags the slider, pause automatic playback
+    this._input.addEventListener('pointerdown', () => this.pause());
+    this._input.addEventListener('keydown', () => this.pause());
+
     this._input.addEventListener('input', () => {
-      const ma = parseInt(this._input.value, 10);
+      this.pause();
+      const ma = parseInt(this._input.value, 10) || 0;
       this._currentMa = ma;
       this._update(ma);
 
@@ -107,6 +124,97 @@ export class Slider {
         }
       }, SLIDER_DEBOUNCE_MS);
     });
+  }
+
+  // ── Play / Pause animation ────────────────────────────────────────────
+  _initPlayButton() {
+    if (!this._playBtn) return;
+
+    this._playBtn.addEventListener('click', () => {
+      this.togglePlay();
+    });
+  }
+
+  togglePlay() {
+    if (this._isPlaying) {
+      this.pause();
+    } else {
+      this.play();
+    }
+  }
+
+  play() {
+    if (this._isPlaying) return;
+    this._isPlaying = true;
+    this._updatePlayButtonUI();
+
+    // If we are at the very end, restart from beginning
+    if (this._currentMa >= MAX_MA) {
+      this._setSliderValue(0);
+    }
+
+    this._lastPlayTimestamp = performance.now();
+
+    const step = (timestamp) => {
+      if (!this._isPlaying) return;
+
+      const deltaMs = timestamp - this._lastPlayTimestamp;
+      this._lastPlayTimestamp = timestamp;
+
+      const maPerMs = (MAX_MA - MIN_MA) / (this._playDurationSec * 1000);
+      const nextMa  = this._currentMa + deltaMs * maPerMs;
+
+      if (nextMa >= MAX_MA) {
+        this._setSliderValue(MAX_MA);
+        this.pause();
+        return;
+      }
+
+      this._setSliderValue(nextMa);
+      this._playAnimId = requestAnimationFrame(step);
+    };
+
+    this._playAnimId = requestAnimationFrame(step);
+  }
+
+  pause() {
+    if (!this._isPlaying) return;
+    this._isPlaying = false;
+    if (this._playAnimId) {
+      cancelAnimationFrame(this._playAnimId);
+      this._playAnimId = null;
+    }
+    this._updatePlayButtonUI();
+
+    // Trigger settle event when playback stops
+    if (this._activeKeyframe) {
+      this._container.dispatchEvent(
+        new CustomEvent('keyframesettle', { detail: { keyframe: this._activeKeyframe }, bubbles: true })
+      );
+    }
+  }
+
+  _updatePlayButtonUI() {
+    if (!this._playBtn) return;
+    const playIcon  = this._playBtn.querySelector('#playIcon');
+    const pauseIcon = this._playBtn.querySelector('#pauseIcon');
+    if (playIcon && pauseIcon) {
+      playIcon.style.display  = this._isPlaying ? 'none' : 'block';
+      pauseIcon.style.display = this._isPlaying ? 'block' : 'none';
+    }
+    this._playBtn.classList.toggle('playing', this._isPlaying);
+    this._playBtn.title = this._isPlaying ? 'Pause timeline animation' : 'Play timeline animation';
+  }
+
+  _setSliderValue(maFloat) {
+    const ma = Math.round(maFloat);
+    if (ma !== this._currentMa) {
+      this._currentMa   = ma;
+      this._input.value = String(ma);
+      this._update(ma);
+      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma }, bubbles: true }));
+      this._detectKeyframe(ma);
+    }
   }
 
   // ── Label update ──────────────────────────────────────────────────────
@@ -189,7 +297,16 @@ export class Slider {
 
   /** Programmatically jump to a Ma value */
   setMa(ma) {
-    this._input.value = String(Math.max(MIN_MA, Math.min(MAX_MA, ma)));
-    this._input.dispatchEvent(new Event('input'));
+    this.pause();
+    const clamped = Math.max(MIN_MA, Math.min(MAX_MA, ma));
+    this._currentMa = clamped;
+    this._input.value = String(clamped);
+    this._update(clamped);
+    this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma: clamped }, bubbles: true }));
+    this._detectKeyframe(clamped);
+  }
+
+  reset() {
+    this.setMa(0);
   }
 }

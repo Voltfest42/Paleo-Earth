@@ -54,7 +54,13 @@
 
         <div class="slider-section">
           <div class="slider-label-row">
-            <span class="slider-ma-label" id="sliderMaLabel">0 Ma</span>
+            <div class="slider-controls-group">
+              <button class="play-btn" id="sliderPlayBtn" title="Play timeline animation" aria-label="Play timeline animation">
+                <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5v14l11-7z"/></svg>
+                <svg viewBox="0 0 24 24" id="pauseIcon" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <span class="slider-ma-label" id="sliderMaLabel">0 Ma</span>
+            </div>
             <span class="slider-period-label" id="sliderPeriodLabel">Holocene</span>
           </div>
           <div class="slider-wrapper">
@@ -62,7 +68,7 @@
               <!-- Period markers and event markers injected by slider.js -->
             </div>
             <input type="range" id="timeSlider"
-              min="0" max="540" value="0" step="1"
+              min="0" max="540" value="0" step="1" autocomplete="off"
               aria-label="Time slider — millions of years ago">
           </div>
           <div class="slider-axis">

@@ -38,7 +38,7 @@
   /* Panel sizing */
   --left-width:      50%;
   --handle-width:    6px;
-  --topbar-height:   48px;
+  --topbar-height:   56px;
   --footer-height:   170px;
 }
 
@@ -135,8 +135,8 @@ html, body {
   align-items: center;
   justify-content: space-between;
   height: var(--topbar-height);
-  padding: 0 14px;
-  background: rgba(0,0,0,0.35);
+  padding: 0 16px;
+  background: rgba(0,0,0,0.4);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   backdrop-filter: blur(8px);
@@ -146,38 +146,39 @@ html, body {
 .topbar-left, .topbar-right, .topbar-center {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .topbar-center { flex: 1; justify-content: center; }
 
 .app-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   color: var(--accent);
   text-transform: uppercase;
 }
 
 .era-label {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .keyframe-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .keyframe-badge {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 2px 7px;
+  padding: 3px 9px;
   border-radius: 20px;
   background: var(--accent-dim);
   color: var(--accent);
@@ -334,7 +335,55 @@ html, body {
 .slider-label-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.slider-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.play-btn {
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  color: var(--accent);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.play-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  margin-left: 1px; /* Optical center alignment for play triangle */
+}
+
+.play-btn.playing svg {
+  margin-left: 0;
+}
+
+.play-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(74,158,255,0.6);
+  transform: scale(1.08);
+}
+
+.play-btn.playing {
+  background: var(--event-dim);
+  border-color: rgba(240,165,0,0.4);
+  color: var(--event-color);
+  animation: pulse-ring 1.5s ease infinite;
 }
 
 .slider-ma-label {
@@ -346,9 +395,9 @@ html, body {
 }
 
 .slider-period-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .slider-wrapper {
