@@ -323,6 +323,66 @@ ECOSYSTEM_CATALOG = {
             "mid_carboniferous", "paleozoic", "pholidogaster", "predator", "stegocephalia"
         ],
         "keyframes": ["carboniferous_rainforest_collapse", "early_carboniferous", "late_carboniferous", "mid_carboniferous"]
+    },
+    "diadectomorpha": {
+        "id": "diadectomorpha_tamura",
+        "filename": "diadectomorpha_nobu_tamura.jpg",
+        "title": "Diadectomorpha Evolution and Diversity",
+        "description": "A comparative phylogenetic overview of Diadectomorpha, the pivotal clade of advanced reptiliomorph tetrapods near the origin of amniotes. Illustrated are the Early Permian taxa Tseajaia campi (Utah), the heavy-bodied herbivore Diadectes sideropelicus (Texas), and the well-studied locomotion models Orobates pabsti and Silvadectes absitus from the Bromacker quarry of Germany.",
+        "tags": [
+            "carboniferous", "chordate", "community", "composite", "diadectes", "diadectomorpha",
+            "early_permian", "herbivore", "land_vertebrate", "orobates", "paleozoic", "permian",
+            "reptiliomorpha", "silvadectes", "stem_amniote", "tetrapod", "tseajaia"
+        ],
+        "keyframes": ["early_permian", "late_carboniferous"]
+    },
+    "amphibamiformes": {
+        "id": "amphibamiformes_tamura",
+        "filename": "amphibamiformes_nobu_tamura.jpg",
+        "title": "Amphibamiformes (Ancestors of Modern Amphibians)",
+        "description": "A comparative evolutionary reconstruction of amphibamiform dissorophoid temnospondyls, the ancestral lineage leading directly to modern frogs, salamanders, and caecilians (Lissamphibia). Featured are the famous 'frogamander' Gerobatrachus hottoni, Doleserpeton annectens, the gilled branchiosaurid Apateon, Branchiosaurus, Leptorophus, and the Triassic survivor Micropholis stowi.",
+        "tags": [
+            "amphibamiformes", "amphibian", "apateon", "branchiosaurus", "carboniferous", "chordate",
+            "community", "composite", "doleserpeton", "early_permian", "early_triassic", "frogamander",
+            "gerobatrachus", "lissamphibia", "micropholis", "paleozoic", "permian", "temnospondyli", "triassic"
+        ],
+        "keyframes": ["early_permian", "early_triassic", "late_carboniferous", "mid_permian"]
+    },
+    "diplocaulidae": {
+        "id": "diplocaulidae_tamura",
+        "filename": "diplocaulidae_nobu_tamura.jpg",
+        "title": "Diplocaulidae (Boomerang-Headed Amphibians)",
+        "description": "A comparative reconstruction of the iconic boomerang-headed lepospondyl amphibians (Diplocaulidae). Featured are Diplocaulus magnicornis from the Early Permian red beds of Texas and its relative Diploceraspis burkei from West Virginia, highlighting their hydrodynamic horned skull 'wings' used for underwater lift and defense against predators.",
+        "tags": [
+            "amphibian", "aquatic", "boomerang_head", "chordate", "community", "composite",
+            "diplocaulidae", "diplocaulus", "diploceraspis", "early_permian", "lepospondyli",
+            "nectridea", "paleozoic", "permian", "texas"
+        ],
+        "keyframes": ["early_permian", "late_carboniferous"]
+    },
+    "kupferschiefer": {
+        "id": "kupferschiefer_vertebrates_tamura",
+        "filename": "kupferschiefer_vertebrates_nobu_tamura.jpg",
+        "title": "Kupferschiefer Late Permian Vertebrate Fauna",
+        "description": "An ecosystem reconstruction of fossil vertebrates from the Late Permian (Wuchiapingian) Kupferschiefer of Germany (Zechstein Basin, ~258 Ma). Featured is the specialized gliding reptile Glaurung schneideri (Weigeltisauridae) alongside ancient ray-finned palaeonisciforms and marine fish that populated the semi-enclosed inland Zechstein Sea.",
+        "tags": [
+            "actinopterygii", "community", "composite", "ecosystem", "fish", "germany",
+            "glaurung", "gliding_reptile", "kupferschiefer", "late_permian", "marine",
+            "paleozoic", "permian", "permian_triassic_extinction", "reptile", "weigeltisaurus", "zechstein"
+        ],
+        "keyframes": ["late_permian", "permian_triassic_extinction"]
+    },
+    "caseasauria": {
+        "id": "caseasauria_tamura",
+        "filename": "caseasauria_nobu_tamura.jpg",
+        "title": "Caseasauria (Early Synapsid Radiation)",
+        "description": "A comparative evolutionary overview of Caseasauria, an ancient basal branch of synapsids spanning the Late Carboniferous through Middle Permian. Features the small, large-canined insectivorous eothyridids alongside the colossal, barrel-bodied herbivorous caseids (such as Cotylorhynchus and Casea) with tiny heads, leaf-shaped teeth, and massive ribcages adapted for fermenting plant matter.",
+        "tags": [
+            "barrel_bodied", "carboniferous", "casea", "caseasauria", "caseidae", "chordate",
+            "community", "composite", "cotylorhynchus", "early_permian", "eothyrididae", "eothyris",
+            "herbivore", "land_vertebrate", "mid_permian", "paleozoic", "pelycosaur", "permian", "synapsid"
+        ],
+        "keyframes": ["early_permian", "late_carboniferous", "mid_permian"]
     }
 }
 
@@ -892,6 +952,177 @@ CURATED_ENTRIES = {
             "ophiacodontidae", "paleozoic", "pelycosaur", "stem_mammal", "synapsid", "tetrapod"
         ],
         "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous"]
+    },
+    "proburnetia_viatkensis": {
+        "title": "Proburnetia viatkensis",
+        "description": "Proburnetia was a 1.5-meter carnivorous biarmosuchian therapsid from the Late Permian (Severodvinian) of Vologda, Russia. Its skull was ornamented with bizarre bulbous bony horns and ridges above its eyes, snout, and occiput, likely used for species recognition and head-butting.",
+        "tags": [
+            "biarmosuchia", "burnetiamorpha", "chordate", "land_vertebrate", "late_permian",
+            "paleozoic", "permian", "predator", "proburnetia", "proburnetia_viatkensis",
+            "russia", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "lemurosaurus_pricei": {
+        "title": "Lemurosaurus pricei",
+        "description": "Lemurosaurus ('lemur lizard') was a small, one-meter basal burnetiamorph biarmosuchian therapsid from the Late Permian (Wuchiapingian) Cistecephalus zone of South Africa's Karoo Basin. Possessing large orbits and modest cranial bosses, it was an agile predator.",
+        "tags": [
+            "biarmosuchia", "burnetiamorpha", "chordate", "karoo", "land_vertebrate",
+            "late_permian", "lemurosaurus", "lemurosaurus_pricei", "paleozoic", "permian",
+            "predator", "south_africa", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "tapinocaninus_pamelae": {
+        "title": "Tapinocaninus pamelae",
+        "description": "Reaching up to 3 meters in length and over a ton in weight, Tapinocaninus was one of the earliest and most massive tapinocephalian dinocephalian therapsids from the Middle Permian (Wordian) of South Africa. As a bulky herbivore, its robust skeleton supported a massive gut for processing tough vegetation.",
+        "tags": [
+            "chordate", "dinocephalia", "giant", "herbivore", "karoo", "land_vertebrate",
+            "mid_permian", "paleozoic", "permian", "south_africa", "synapsid",
+            "tapinocaninus", "tapinocaninus_pamelae", "tapinocephalidae", "therapsid"
+        ],
+        "keyframes": ["mid_permian"]
+    },
+    "cacops_aspidephorus": {
+        "title": "Cacops aspidephorus",
+        "description": "Cacops was a 40-cm armored dissorophid temnospondyl amphibian from the Early Permian (Kungurian) Clear Fork Group of Texas. Highly adapted for terrestrial life, it possessed strong walking limbs, an ear drum (tympanum) housed in large otic notches for hearing airborne sound, and a defensive armor row of osteoderms down its spine.",
+        "tags": [
+            "amphibian", "cacops", "cacops_aspidephorus", "chordate", "clear_fork",
+            "dissorophidae", "early_permian", "early_tetrapod", "land_vertebrate", "paleozoic",
+            "permian", "predator", "temnospondyli", "texas"
+        ],
+        "keyframes": ["early_permian"]
+    },
+    "archegosaurus_decheni": {
+        "title": "Archegosaurus decheni",
+        "description": "Archegosaurus was a 1.5-meter crocodile-like aquatic temnospondyl amphibian from the Early Permian (Asselian) Lower Rotliegend of Germany. With an elongated, slender snout lined with sharp conical teeth convergent with modern gharials, it was an agile fish-eating predator of ancient lakes and rivers.",
+        "tags": [
+            "amphibian", "aquatic", "archegosauridae", "archegosauroidea", "archegosaurus",
+            "archegosaurus_decheni", "chordate", "early_permian", "germany", "paleozoic",
+            "permian", "predator", "rotliegend", "temnospondyli"
+        ],
+        "keyframes": ["early_permian"]
+    },
+    "trimerorhachis_insignis": {
+        "title": "Trimerorhachis insignis",
+        "description": "Trimerorhachis was a flattened, one-meter-long dvinosaurian temnospondyl amphibian from the Early Permian (Artinskian) Wichita Group of Texas. Entirely aquatic, it retained bushy external gills and a sensory lateral-line system into adulthood, lurking on murky lake bottoms much like modern giant salamanders.",
+        "tags": [
+            "amphibian", "aquatic", "chordate", "dvinosauria", "early_permian",
+            "paleozoic", "permian", "temnospondyli", "texas", "trimerorhachidae",
+            "trimerorhachis", "trimerorhachis_insignis"
+        ],
+        "keyframes": ["early_permian"]
+    },
+    "abdalodon_diastematicus": {
+        "title": "Abdalodon diastematicus",
+        "description": "Abdalodon was a small (~30 cm) basal charassognathid cynodont from the Late Permian (Wuchiapingian) Tropidostoma zone of South Africa's Beaufort Group. Closely related to Charassognathus, it represents one of the earliest stages in the evolutionary emergence of cynodonts and the mammal stem.",
+        "tags": [
+            "abdalodon", "abdalodon_diastematicus", "charassognathidae", "chordate", "cynodontia",
+            "karoo", "land_vertebrate", "late_permian", "paleozoic", "permian",
+            "south_africa", "stem_mammal", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "dvinia_prima": {
+        "title": "Dvinia prima",
+        "description": "Dvinia prima was a 50-cm basal cynodont from the Late Permian (Wuchiapingian) of northern Russia (Salarevo Formation). It possessed complex multicusped cheek teeth and an expanded zygomatic arch for powerful chewing muscles, representing an omnivorous pioneer among pre-mammalian therapsids.",
+        "tags": [
+            "chordate", "cynodontia", "dvinia", "dvinia_prima", "dviniidae",
+            "land_vertebrate", "late_permian", "omnivore", "paleozoic", "permian",
+            "russia", "stem_mammal", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "procynosuchus_delaharpeae": {
+        "title": "Procynosuchus delaharpeae",
+        "description": "Procynosuchus was a 60-cm semi-aquatic cynodont from the Late Permian (Wuchiapingian) of South Africa and Germany. Equipped with flattened paddle-like feet, a flexible spine, and sharp teeth, it was an agile swimmer hunting fish in rivers and lakes, functioning ecologically much like a modern otter.",
+        "tags": [
+            "chordate", "cynodontia", "karoo", "late_permian", "paleozoic",
+            "permian", "predator", "procynosuchidae", "procynosuchus", "procynosuchus_delaharpeae",
+            "semi_aquatic", "south_africa", "stem_mammal", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "eunotosaurus_africanus": {
+        "title": "Eunotosaurus africanus",
+        "description": "Eunotosaurus was a 30-cm pivotal stem-turtle (pantestudine) from the Middle Permian (Capitanian) Karoo Basin of South Africa. It possessed broad, T-shaped ribs that widened and overlapped to form a rigid proto-shell, adapted primarily for powerful burrowing before being co-opted as defensive turtle armor.",
+        "tags": [
+            "chordate", "eunotosaurus", "eunotosaurus_africanus", "fossorial", "karoo",
+            "land_vertebrate", "mid_permian", "paleozoic", "pantestudines", "permian",
+            "reptile", "south_africa", "stem_turtle"
+        ],
+        "keyframes": ["late_permian", "mid_permian"]
+    },
+    "bolosaurus_striatus": {
+        "title": "Bolosaurus striatus",
+        "description": "Bolosaurus striatus was a small (15 cm) parareptile from the Early Permian (Artinskian) Wichita Group of Texas. Possessing bulbous, cusped grinding teeth set in deep jaws, Bolosaurus was among the earliest known reptiles to evolve an herbivorous diet.",
+        "tags": [
+            "bolosauridae", "bolosaurus", "bolosaurus_striatus", "chordate", "early_permian",
+            "herbivore", "land_vertebrate", "paleozoic", "parareptilia", "permian",
+            "procolophonomorpha", "reptile", "texas"
+        ],
+        "keyframes": ["early_permian"]
+    },
+    "moschops_capensis": {
+        "title": "Moschops capensis",
+        "description": "Moschops was a massive, 2.5- to 3-meter tapinocephalid dinocephalian therapsid weighing over a ton, roaming the Middle to Late Permian (Capitanian) Karoo of South Africa. Its heavy skull featured dense, thickened bone (pachyostosis) up to 10 cm thick, adapted for head-butting contests for social dominance.",
+        "tags": [
+            "chordate", "dinocephalia", "giant", "head_butting", "herbivore",
+            "karoo", "land_vertebrate", "late_permian", "mid_permian", "moschops",
+            "moschops_capensis", "paleozoic", "permian", "south_africa", "synapsid",
+            "tapinocephalidae", "therapsid"
+        ],
+        "keyframes": ["late_permian", "mid_permian"]
+    },
+    "charassognathus_gracilis": {
+        "title": "Charassognathus gracilis",
+        "description": "Charassognathus ('notched jaw') was a slender, 50-cm predatory cynodont from the Late Permian (Wuchiapingian) Teekloof Formation of South Africa. As one of the earliest and most basal cynodonts known, it provides a crucial snapshot of the early anatomical innovations on the road to mammals.",
+        "tags": [
+            "charassognathidae", "charassognathus", "charassognathus_gracilis", "chordate", "cynodontia",
+            "karoo", "land_vertebrate", "late_permian", "paleozoic", "permian",
+            "predator", "south_africa", "stem_mammal", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian"]
+    },
+    "haplophrentis_carinatus": {
+        "title": "Haplophrentis carinatus",
+        "description": "Haplophrentis was a small (2.5 cm) conical-shelled hyolith from the Middle Cambrian Burgess Shale of British Columbia. Exceptional soft-tissue fossils revealed a horseshoe-shaped tentacled lophophore, a pair of curved stabilizer spines (helens), and an opercular lid, confirming hyoliths as stem-lophophorates related to brachiopods.",
+        "tags": [
+            "benthic", "burgess_shale", "cambrian", "canada", "haplophrentis",
+            "haplophrentis_carinatus", "hyolith", "hyolitha", "invertebrate", "lophophorata",
+            "marine", "marine_invertebrate", "mid_cambrian", "paleozoic"
+        ],
+        "keyframes": ["mid_cambrian"]
+    },
+    "eotitanosuchus_olsoni": {
+        "title": "Eotitanosuchus olsoni",
+        "description": "Measuring over 2.5 meters in length, Eotitanosuchus was the apex predatory therapsid of the Middle to Late Permian Ezhovo fauna in Perm, Russia. Bearing huge saber-like canine teeth and a massive deep skull, this formidable biarmosuchian preyed on large dinocephalians and anapsids.",
+        "tags": [
+            "apex_predator", "biarmosuchia", "carnivore", "chordate", "eotitanosuchidae",
+            "eotitanosuchus", "eotitanosuchus_olsoni", "land_vertebrate", "late_permian", "mid_permian",
+            "paleozoic", "permian", "predator", "russia", "synapsid", "therapsid"
+        ],
+        "keyframes": ["late_permian", "mid_permian"]
+    },
+    "dimetrodon_gigashomegenes": {
+        "title": "Dimetrodon gigas",
+        "description": "Dimetrodon was an iconic 3.3-meter sail-backed predatory synapsid from the Early Permian (Kungurian) Clear Fork Group of Texas. Re-examination of well-preserved neural spines reveals that the skin webbing of its dorsal sail may have ended below the tips, leaving bare bone spines protruding above the sail.",
+        "tags": [
+            "apex_predator", "carnivore", "chordate", "clear_fork", "dimetrodon",
+            "dimetrodon_gigas", "early_permian", "land_vertebrate", "paleozoic", "pelycosaur",
+            "permian", "predator", "sail_backed", "sphenacodontidae", "synapsid", "texas"
+        ],
+        "keyframes": ["early_permian"]
+    },
+    "sclerocormus_parviceps": {
+        "title": "Sclerocormus parviceps",
+        "description": "Sclerocormus was a 1.6-meter basal ichthyosauromorph from the Early Triassic (Olenekian) Nanlinghu Formation of Chaohu, Anhui, China. Featuring a heavily built, toothless snout, a stocky body, and a disproportionately long whip-like tail, it was an early suction-feeder evolving rapidly in the aftermath of the Permian-Triassic extinction.",
+        "tags": [
+            "china", "chordate", "early_triassic", "ichthyosaur", "ichthyosauromorpha",
+            "marine", "marine_reptile", "mesozoic", "nasorostra", "permian_triassic_extinction",
+            "sclerocormus", "sclerocormus_parviceps", "triassic"
+        ],
+        "keyframes": ["early_triassic", "permian_triassic_extinction"]
     }
 }
 
