@@ -383,6 +383,62 @@ ECOSYSTEM_CATALOG = {
             "herbivore", "land_vertebrate", "mid_permian", "paleozoic", "pelycosaur", "permian", "synapsid"
         ],
         "keyframes": ["early_permian", "late_carboniferous", "mid_permian"]
+    },
+    "nanlinghu": {
+        "id": "nanlinghu_formation_tamura",
+        "filename": "nanlinghu_formation_nobu_tamura.jpg",
+        "title": "Nanlinghu Formation Marine Reptile Fauna",
+        "description": "An ecosystem reconstruction of the Early Triassic (Olenekian, ~248 Ma) marine reptile community from the Nanlinghu Formation of Chaohu, Anhui Province, China. Featured are the suction-feeding ichthyosauromorph Sclerocormus, the short-snouted basal ichthyosaur Chaohusaurus, the seal-like Cartorhynchus, the sauropterygian Majiashanosaurus, the predatory bony fish Saurichthys, coelacanth Chaohuichthys, and the thylacocephalan arthropod Ankitokazocaris.",
+        "tags": [
+            "anhui", "ankitokazocaris", "cartorhynchus", "chaohu", "chaohuichthys", "chaohusaurus",
+            "china", "chordate", "coelacanth", "community", "composite", "early_triassic",
+            "ecosystem", "ichthyosaur", "ichthyosauromorpha", "majiashanosaurus", "marine",
+            "marine_reptile", "mesozoic", "nanlinghu_formation", "permian_triassic_extinction",
+            "saurichthys", "sauropterygia", "sclerocormus", "thylacocephala", "triassic"
+        ],
+        "keyframes": ["early_triassic", "permian_triassic_extinction"]
+    },
+    "madygen": {
+        "id": "madygen_formation_tamura",
+        "filename": "madygen_formation_nobu_tamura.jpg",
+        "title": "Madygen Formation Fossil Vertebrates",
+        "description": "An ecosystem reconstruction of the Middle to Late Triassic (Ladinian-Carnian) inland lake basin biota from the Madygen Formation of southwestern Kyrgyzstan. Featured are bizarre specialized reptiles including Longisquama insignis with its elongated dorsal appendages, the delta-winged hindlimb glider Sharovipteryx mirabilis, the chameleon-like drepanosaur Kyrgyzsaurus, the armored crocodile-like chroniosuchian Madygenerpeton, the tiny cynodont Madysaurus, and the early stem-salamander Triassurus.",
+        "tags": [
+            "armored_reptile", "central_asia", "chordate", "chroniosuchian", "community",
+            "composite", "cynodont", "drepanosaur", "ecosystem", "gliding_reptile",
+            "kyrgyzstan", "kyrgyzsaurus", "lake_basin", "late_triassic", "longisquama",
+            "madygen_formation", "madygenerpeton", "madysaurus", "mesozoic", "mid_triassic",
+            "reptile", "sharovipteryx", "stem_salamander", "triassic", "triassurus"
+        ],
+        "keyframes": ["late_triassic", "mid_triassic"]
+    },
+    "lower_maleri": {
+        "id": "lower_maleri_formation_tamura",
+        "filename": "lower_maleri_formation_nobu_tamura.jpg",
+        "title": "Lower Maleri Formation Fossil Vertebrates",
+        "description": "A terrestrial and riverine ecosystem reconstruction of the Late Triassic (Carnian, ~230 Ma) Lower Maleri Formation of the Pranhita-Godavari Basin in India. Illustrated are the apex predatory crocodile-mimic phytosaur Parasuchus hislopi, the large herbivorous traversodontid cynodont Exaeretodon statisticae, the beaked rhynchosaur Hyperodapedon huxleyi, the slender protorosaur Malerisaurus robinsonae, and the basal saurischian dinosaur Alwalkeria maleriensis.",
+        "tags": [
+            "alwalkeria", "archosaur", "chordate", "community", "composite", "cynodont",
+            "dinosaur", "early_dinosaur", "ecosystem", "exaeretodon", "gondwana",
+            "hyperodapedon", "india", "land_vertebrate", "late_triassic",
+            "lower_maleri_formation", "malerisaurus", "mesozoic", "parasuchus",
+            "phytosaur", "reptile", "rhynchosaur", "synapsid", "traversodontidae", "triassic"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "prida": {
+        "id": "prida_formation_tamura",
+        "filename": "prida_formation_nobu_tamura.jpg",
+        "title": "Prida Formation Middle Triassic Marine Fauna",
+        "description": "A Middle Triassic (Anisian, ~245 Ma) open-marine ecosystem reconstruction from the Fossil Hill Member of the Prida Formation in Nevada, USA. Illustrated are the giant nine-meter apex predatory ichthyosaur Cymbospondylus piscosus, the specialized shell-crushing button-toothed marine reptiles Omphalosaurus nevadanus and O. nettarhynchus, the fast-swimming mixosaurid Phalarodon fraasi, and the primitive hybodont shark Acrodus alexandrae.",
+        "tags": [
+            "acrodus", "apex_predator", "chondrichthyes", "chordate", "community",
+            "composite", "cymbospondylus", "durophagous", "ecosystem", "fish",
+            "fossil_hill", "hybodont", "ichthyosaur", "ichthyosauria", "marine",
+            "marine_reptile", "mesozoic", "mid_triassic", "nevada", "omphalosaurus",
+            "phalarodon", "prida_formation", "reptile", "shark", "triassic", "usa"
+        ],
+        "keyframes": ["mid_triassic"]
     }
 }
 
@@ -1123,6 +1179,216 @@ CURATED_ENTRIES = {
             "sclerocormus", "sclerocormus_parviceps", "triassic"
         ],
         "keyframes": ["early_triassic", "permian_triassic_extinction"]
+    },
+    "ankitokazocaris_chaohuensis": {
+        "title": "Ankitokazocaris chaohuensis",
+        "description": "Ankitokazocaris was a 6-cm thylacocephalan arthropod from the Early Triassic (Olenekian) Nanlinghu Formation of Chaohu, China. Characterized by a bivalved carapace enclosing the body, huge compound eyes, and three pairs of raptorial limbs, it was an agile predator in recovering post-Permian marine ecosystems.",
+        "tags": [
+            "ankitokazocaris", "ankitokazocaris_chaohuensis", "arthropod", "china", "early_triassic",
+            "invertebrate", "marine", "marine_invertebrate", "mesozoic", "nanlinghu_formation",
+            "raptorial", "thylacocephala", "triassic"
+        ],
+        "keyframes": ["early_triassic"]
+    },
+    "protoichthyosaurus_prostaxalis": {
+        "title": "Protoichthyosaurus prostaxalis",
+        "description": "Protoichthyosaurus was a 3.5-meter early ichthyosaur from the Early Jurassic (Hettangian) Blue Lias Formation of England. Resurrected as a distinct genus based on unique forefin osteology, it represents the rapid post-Triassic-extinction adaptive radiation of parvipelvian marine reptiles.",
+        "tags": [
+            "blue_lias", "chordate", "early_jurassic", "england", "ichthyosaur",
+            "ichthyosauria", "marine", "marine_reptile", "mesozoic", "protoichthyosaurus",
+            "protoichthyosaurus_prostaxalis", "reptile", "triassic_jurassic_extinction", "uk"
+        ],
+        "keyframes": ["early_jurassic", "triassic_jurassic_extinction"]
+    },
+    "psephochelys_polyosteoderma": {
+        "title": "Psephochelys polyosteoderma",
+        "description": "Psephochelys was a 2.5-meter armored marine placodont from the Late Triassic (Carnian) Xiaowa Formation of Guizhou, China. Possessing a turtle-like carapace composed of fused polygonal osteoderms and massive, flattened crushing tooth plates, it fed primarily on thick-shelled benthic mollusks.",
+        "tags": [
+            "armored", "china", "chordate", "durophagous", "guizhou", "late_triassic",
+            "marine", "marine_reptile", "mesozoic", "placodont", "placodontia",
+            "psephochelys", "psephochelys_polyosteoderma", "reptile", "sauropterygia",
+            "triassic", "xiaowa_formation"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "paludidraco_multidentatus": {
+        "title": "Paludidraco multidentatus",
+        "description": "Paludidraco ('marsh dragon') was a 2.5-meter simosaurid nothosaur from the Late Triassic (Carnian-Norian boundary) of Guadalajara, Spain. Equipped with comb-like rows of hundreds of tiny interlocking teeth and heavily pachyostotic ribs for neutral buoyancy, it likely specialized in filter-feeding small invertebrates.",
+        "tags": [
+            "chordate", "filter_feeder", "keuper", "late_triassic", "marine", "marine_reptile",
+            "mesozoic", "nothosaur", "pachyostosis", "paludidraco", "paludidraco_multidentatus",
+            "reptile", "sauropterygia", "simosauridae", "spain", "triassic"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "eretmorhipis_carrolldongi": {
+        "title": "Eretmorhipis carrolldongi",
+        "description": "Eretmorhipis was an 80-cm hupehsuchian marine reptile from the Early Triassic Jialingjiang Formation of Hubei, China. Possessing an oddly tiny platypus-like head with reduced eyes, thick dermal ossicles along its spine, and large fan-like paddle limbs, it used tactile senses to probe muddy seafloors for prey.",
+        "tags": [
+            "armored", "china", "chordate", "early_triassic", "eretmorhipis",
+            "eretmorhipis_carrolldongi", "hupehsuchia", "ichthyosauromorpha", "marine",
+            "marine_reptile", "mesozoic", "paddle_limbs", "permian_triassic_extinction",
+            "reptile", "tactile_feeder", "triassic"
+        ],
+        "keyframes": ["early_triassic", "permian_triassic_extinction"]
+    },
+    "tanytrachelos_ahynis": {
+        "title": "Tanytrachelos ahynis",
+        "description": "Tanytrachelos was a 20-cm long-necked tanystropheid archosauromorph from the Late Triassic (Norian) Cow Branch Formation of North Carolina and Virginia. Abundantly preserved along lake deposits, this agile quadruped scurried along freshwater margins and produced distinctive fossil trackways.",
+        "tags": [
+            "archosauromorpha", "chordate", "cow_branch", "lake_fauna", "land_vertebrate",
+            "late_triassic", "mesozoic", "north_america", "reptile", "tanystropheidae",
+            "tanytrachelos", "tanytrachelos_ahynis", "triassic", "usa"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "fodonyx_spenceri": {
+        "title": "Fodonyx spenceri",
+        "description": "Fodonyx ('digging claw') was a 50-cm rhynchosaur from the Middle Triassic (Anisian) Otter Sandstone Formation of Devon, England. Characterized by a downcurved parrot-like beak, complex tooth-grinding plates, and robust digging claws, it grubbed for roots and tubers in semi-arid river floodplains.",
+        "tags": [
+            "archosauromorpha", "beaked", "chordate", "england", "fodonyx", "fodonyx_spenceri",
+            "herbivore", "land_vertebrate", "mesozoic", "mid_triassic", "otter_sandstone",
+            "reptile", "rhynchosaur", "rhynchosauria", "triassic", "uk"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "teraterpeton_hrynewichorum": {
+        "title": "Teraterpeton hrynewichorum",
+        "description": "Teraterpeton ('wonderful creeping creature') was a 1.2-meter allokotosaurian archosauromorph from the Late Triassic (Carnian) Wolfville Formation of Nova Scotia, Canada. It possessed a bizarre, elongated toothless beak, upwardly projecting brow ridges, and retracted nostrils adapted for a specialized herbivorous diet.",
+        "tags": [
+            "allokotosauria", "archosauromorpha", "canada", "chordate", "land_vertebrate",
+            "late_triassic", "mesozoic", "nova_scotia", "reptile", "teraterpeton",
+            "teraterpeton_hrynewichorum", "trilophosauria", "triassic", "wolfville_formation"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "bauria_cynops": {
+        "title": "Bauria cynops",
+        "description": "Bauria was a 60-cm therocephalian therapsid from the Middle Triassic (Anisian) Burgersdorp Formation of South Africa. As one of the latest-surviving therocephalians, it exhibited mammal-like adaptations including a secondary palate and multicusped cheek teeth suited for masticating plant and animal matter.",
+        "tags": [
+            "beaufort_group", "chordate", "karoo", "land_vertebrate", "mammal_like_reptile",
+            "mesozoic", "mid_triassic", "omnivore", "south_africa", "stem_mammal",
+            "synapsid", "therapsid", "therocephalia", "triassic"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "bergamodactylus_wildi": {
+        "title": "Bergamodactylus wildi",
+        "description": "Bergamodactylus was a diminutive early pterosaur with a wingspan of only 50 centimeters from the Late Triassic (Norian) Zorzino Limestone Formation of northern Italy. Possessing multicusped teeth and agile wings, it flitted along the subtropical Tethyan archipelago snatching insects and small fish.",
+        "tags": [
+            "bergamodactylus", "bergamodactylus_wildi", "campylognathoididae", "chordate",
+            "flying_reptile", "italy", "late_triassic", "mesozoic", "pterosaur",
+            "pterosauria", "reptile", "triassic", "zorzino_limestone"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "psephoderma_alpinum": {
+        "title": "Psephoderma alpinum",
+        "description": "Psephoderma was a 1.8-meter placodont from the latest Triassic (Rhaetian) of Alpine Europe and England. Exhibiting a bipartite armored carapace covering its back and hips, a narrow toothless rostrum, and broad crushing pavement teeth, it survived up to the Triassic-Jurassic boundary extinction.",
+        "tags": [
+            "armored", "chordate", "durophagous", "germany", "koessen_formation",
+            "late_triassic", "marine", "marine_reptile", "mesozoic", "placodont",
+            "placodontia", "psephoderma", "psephoderma_alpinum", "reptile",
+            "sauropterygia", "triassic", "triassic_jurassic_extinction"
+        ],
+        "keyframes": ["late_triassic", "triassic_jurassic_extinction"]
+    },
+    "mystriosuchus_planirostris": {
+        "title": "Mystriosuchus planirostris",
+        "description": "Mystriosuchus was a 4-meter, slender-snouted phytosaur from the Late Triassic (Norian) Löwenstein Formation of Germany. Convergent on modern gharials with its elongated jaws and upward-directed nostrils positioned near the eyes, it was among the most thoroughly aquatic archosaurs of the Triassic.",
+        "tags": [
+            "archosauriform", "carnivore", "chordate", "germany", "gharial_snout",
+            "late_triassic", "loewenstein_formation", "mesozoic", "mystriosuchus",
+            "mystriosuchus_planirostris", "phytosaur", "phytosauria", "piscivore",
+            "reptile", "semi_aquatic", "triassic"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "riojasaurus_incertus": {
+        "title": "Riojasaurus incertus",
+        "description": "Riojasaurus was a massive 4- to 6-meter early sauropodomorph dinosaur from the Late Triassic (Norian) Los Colorados Formation of Argentina. Possessing dense limb bones and a small skull with serrated leaf-shaped teeth, it was among the largest terrestrial herbivores of the Triassic.",
+        "tags": [
+            "argentina", "chordate", "dinosaur", "dinosauria", "early_dinosaur",
+            "herbivore", "land_vertebrate", "late_triassic", "los_colorados", "mesozoic",
+            "reptile", "riojasauridae", "riojasaurus", "riojasaurus_incertus",
+            "saurischia", "sauropodomorph", "triassic"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "phalarodon_fraasi": {
+        "title": "Phalarodon fraasi",
+        "description": "Phalarodon was a 1.2-meter mixosaurid ichthyosaur from the Middle Triassic (Anisian) Prida Formation of Nevada and the Guanling Formation of China. Distinguished by a prominent sagittal cranial crest and bulbous button-like rear teeth, it was an agile predator crushing ammonoids and belemnoid cephalopods.",
+        "tags": [
+            "chordate", "ichthyosaur", "ichthyosauria", "marine", "marine_reptile",
+            "mesozoic", "mid_triassic", "mixosauridae", "nevada", "phalarodon",
+            "phalarodon_fraasi", "prida_formation", "reptile", "triassic", "usa"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "batrachosuchus_browni": {
+        "title": "Batrachosuchus browni",
+        "description": "Batrachosuchus was a 1.5- to 2-meter aquatic brachyopid temnospondyl amphibian from the Middle Triassic (Anisian) Burgersdorp Formation of South Africa. With a broad, flattened parabolic skull and upward-directed eyes, it lay concealed in murky riverbeds to ambush passing fish and tetrapods.",
+        "tags": [
+            "amphibian", "aquatic", "beaufort_group", "brachyopidae", "chordate",
+            "karoo", "mesozoic", "mid_triassic", "predator", "south_africa",
+            "stereospondyli", "temnospondyli", "triassic"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "diademodon_tetragonus": {
+        "title": "Diademodon tetragonus",
+        "description": "Diademodon was a 2-meter herbivorous-to-omnivorous cynodont from the Middle Triassic (Anisian) Burgersdorp Formation of South Africa. Widespread across southern Gondwana, it possessed characteristic crown-shaped expanded cheek teeth used to crush tough vegetation and invertebrates.",
+        "tags": [
+            "beaufort_group", "chordate", "cynodont", "cynodontia", "diademodon",
+            "diademodon_tetragonus", "diademodontidae", "karoo", "land_vertebrate",
+            "mammal_like_reptile", "mesozoic", "mid_triassic", "omnivore", "south_africa",
+            "stem_mammal", "synapsid", "therapsid", "triassic"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "archaeonectrus_rostratus": {
+        "title": "Archaeonectrus rostratus",
+        "description": "Archaeonectrus was a 4-meter, short-necked predatory plesiosaur (rhomaleosaurid) from the Early Jurassic (Sinemurian) Charmouth Mudstone Formation of Dorset, England. Armed with a long, robust snout and sharp interlocking teeth, it was a dominant carnivore patrolling the early Jurassic seas.",
+        "tags": [
+            "archaeonectrus", "archaeonectrus_rostratus", "charmouth_mudstone", "chordate",
+            "dorset", "early_jurassic", "england", "jurassic", "jurassic_coast", "marine",
+            "marine_reptile", "mesozoic", "plesiosaur", "plesiosauria", "reptile",
+            "rhomaleosauridae", "uk"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "caelestiventus_hanseni": {
+        "title": "Caelestiventus hanseni",
+        "description": "Caelestiventus was a large early pterosaur with a 1.5-meter wingspan from the Late Triassic (Norian) Nugget Sandstone of Utah, USA. Inhabiting desert dune oasis environments, it preserved delicate pneumatic bone cavities and prominent anterior canine-like teeth, providing crucial evidence of early pterosaur diversity.",
+        "tags": [
+            "caelestiventus", "caelestiventus_hanseni", "chordate", "desert",
+            "dimorphodontidae", "flying_reptile", "late_triassic", "mesozoic",
+            "nugget_sandstone", "pneumatic_bones", "pterosaur", "pterosauria",
+            "reptile", "triassic", "usa", "utah"
+        ],
+        "keyframes": ["late_triassic"]
+    },
+    "barracudasauroides_panxiensis": {
+        "title": "Barracudasauroides panxiensis",
+        "description": "Barracudasauroides was a 75-cm mixosaurid ichthyosaur from the Middle Triassic (Anisian) Guanling Formation of Guizhou, China. Featuring a slender, barracuda-like body form, large eyes, and sharp grasping teeth, it pursued small fish and cephalopods in the warm shallow coastal margins of eastern Tethys.",
+        "tags": [
+            "barracudasauroides", "barracudasauroides_panxiensis", "china", "chordate",
+            "guanling_formation", "guizhou", "ichthyosaur", "ichthyosauria", "marine",
+            "marine_reptile", "mesozoic", "mid_triassic", "mixosauria", "mixosauridae",
+            "piscivore", "reptile", "triassic"
+        ],
+        "keyframes": ["mid_triassic"]
+    },
+    "guaibasaurus_candeleriensis": {
+        "title": "Guaibasaurus candeleriensis",
+        "description": "Guaibasaurus was a 1.8-meter basal saurischian dinosaur from the Late Triassic (Norian) Caturrita Formation of Rio Grande do Sul, Brazil. Exhibiting an anatomical mosaic linking early theropods with ancestral sauropodomorphs, it offers crucial insights into early dinosaur radiation in South America.",
+        "tags": [
+            "basal_dinosaur", "brazil", "caturrita_formation", "chordate", "dinosaur",
+            "dinosauria", "early_dinosaur", "guaibasauridae", "guaibasaurus",
+            "guaibasaurus_candeleriensis", "land_vertebrate", "late_triassic",
+            "mesozoic", "reptile", "saurischia", "south_america", "triassic"
+        ],
+        "keyframes": ["late_triassic"]
     }
 }
 
