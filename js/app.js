@@ -105,12 +105,13 @@ async function main() {
   initResize();
 
   // Load data
-  let keyframes, summaries, imageLibrary;
+  let keyframes, summaries, imageLibrary, climateTimeline;
   try {
-    [keyframes, summaries, imageLibrary] = await Promise.all([
+    [keyframes, summaries, imageLibrary, climateTimeline] = await Promise.all([
       loadJSON('data/keyframes.json'),
       loadJSON('data/summaries.json'),
       loadJSON('data/image-library.json').then(d => d.images || []),
+      loadJSON('data/climate.json').catch(() => null),
     ]);
   } catch (err) {
     console.error('Failed to load data files:', err);
@@ -165,12 +166,16 @@ async function main() {
 
   // ── Wire slider events ──────────────────────────────────────────────────
 
-  // Continuous: update globe texture while dragging
+  // Continuous: update globe texture and climate gauges while dragging
   document.getElementById('appContainer').addEventListener('machange', e => {
-    globe.setMa(e.detail.ma);
+    const ma = e.detail.ma;
+    globe.setMa(ma);
+    if (climateTimeline && climateTimeline[String(ma)]) {
+      gauges.updateGauges(climateTimeline[String(ma)]);
+    }
   });
 
-  // Real-time: update keyframe summary card and climate gauges immediately
+  // Real-time: update keyframe summary card immediately
   document.getElementById('appContainer').addEventListener('keyframechange', e => {
     const kf = e.detail.keyframe;
     if (!kf) return;
@@ -178,7 +183,9 @@ async function main() {
     const summary = summaries[kf.id];
     if (summary) chat.setKeyframe(kf, summary);
 
-    gauges.updateGauges(kf.climateData);
+    if (kf.climateData) {
+      gauges.updateGauges(kf.climateData);
+    }
 
     // Stop any TTS playing when changing keyframes
     stopAll();

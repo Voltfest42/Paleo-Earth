@@ -1,189 +1,707 @@
 [
-  { "id": "holocene", "label": "Holocene", "period": "Quaternary", "epoch": "Holocene", "subdivision": "Present", "type": "period", "ma": 0,
-    "climateData": { "o2Percent": 21, "co2Ppm": 420, "tempC": 15 },
-    "systemPromptContext": "The user is viewing present-day Earth (0 Ma, the Holocene epoch). Modern continents are in their familiar positions. Ice caps exist at both poles. Climate is relatively stable (Holocene interglacial). Modern humans have transformed ecosystems globally. Biodiversity includes ~8.7 million species. Major biomes include tropical rainforests, temperate forests, grasslands, tundra, and marine ecosystems. The Atlantic Ocean continues to widen. The Himalaya and Alps are geologically young and still rising." },
-
-  { "id": "mid_pleistocene", "label": "Middle Pleistocene", "period": "Quaternary", "epoch": "Pleistocene", "subdivision": "Middle", "type": "period", "ma": 1,
-    "climateData": { "o2Percent": 21, "co2Ppm": 250, "tempC": 12 },
-    "systemPromptContext": "The user is viewing Earth ~1 million years ago (Middle Pleistocene). The planet is in a glacial-interglacial cycle dominated by ~100,000-year Milankovitch cycles. Vast ice sheets covered much of North America and Eurasia during glacial maxima. Sea levels were significantly lower than today. Megafauna thrived: woolly mammoths, cave lions, giant ground sloths. Homo erectus was the dominant hominin. The English Channel did not yet exist; Britain was connected to mainland Europe by land." },
-
-  { "id": "early_quaternary", "label": "Early Quaternary", "period": "Quaternary", "epoch": "Pleistocene", "subdivision": "Early", "type": "period", "ma": 2,
-    "climateData": { "o2Percent": 21, "co2Ppm": 280, "tempC": 13 },
-    "systemPromptContext": "The user is viewing Earth ~2 million years ago (Early Quaternary / Early Pleistocene). The Ice Age is just beginning. The first major Northern Hemisphere glaciations are occurring. Africa's savanna ecosystems are expanding. Early members of the Homo genus — including Homo habilis — are evolving in Africa. Large mammals dominate: mastodons, early horses, giant hyenas. The Mediterranean and Black Seas are in their modern configuration. The Panama seaway closed ~3 Ma, redirecting ocean currents and triggering northern glaciation." },
-
-  { "id": "late_neogene", "label": "Late Neogene", "period": "Neogene", "epoch": "Pliocene", "subdivision": "Late", "type": "period", "ma": 5,
-    "climateData": { "o2Percent": 21, "co2Ppm": 400, "tempC": 17 },
-    "systemPromptContext": "The user is viewing Earth ~5 million years ago (Late Neogene, Pliocene epoch). Global temperatures were 2-3°C warmer than today and sea levels ~25m higher. The Arctic was largely ice-free. The Isthmus of Panama had not yet fully closed. Africa's climate was shifting toward seasonality, driving hominin evolution: Australopithecus was emerging. Grasslands expanded globally. Terrestrial mammal faunas were diverse and large-bodied. Mediterranean Sea chemistry and circulation were established. The East African Rift System continued to develop." },
-
-  { "id": "mid_neogene", "label": "Middle Neogene", "period": "Neogene", "epoch": "Miocene", "subdivision": "Middle", "type": "period", "ma": 15,
-    "climateData": { "o2Percent": 21, "co2Ppm": 500, "tempC": 16 },
-    "systemPromptContext": "The user is viewing Earth ~15 million years ago (Middle Neogene, Middle Miocene). The Miocene Climate Optimum (17-15 Ma) is ending: global temperatures were ~3-4°C warmer than today. Kelp forests first appeared. Grasslands spread globally, reshaping mammal evolution toward grazing specialists. Apes diversified enormously across Africa and Eurasia — dozens of hominine species existed. The Tethys Sea was fully closed, creating the proto-Mediterranean. India continued to collide with Asia, building the Himalaya. Whales diversified into modern forms." },
-
-  { "id": "early_neogene", "label": "Early Neogene", "period": "Neogene", "epoch": "Miocene", "subdivision": "Early", "type": "period", "ma": 20,
-    "climateData": { "o2Percent": 21, "co2Ppm": 600, "tempC": 17 },
-    "systemPromptContext": "The user is viewing Earth ~20 million years ago (Early Neogene, Early Miocene). The planet is warm and mostly ice-free, with elevated sea levels. The Tethys Ocean is in its final closure phase. Africa is just docking with Eurasia, allowing great faunal exchanges — early elephants and hominoids spread north. Grasses are beginning to diversify but forests still dominate. Marine ecosystems are rich; pinnipeds (seals, walruses) just appeared. In the oceans, modern shark families are diversifying. Australia continues its northward drift toward Southeast Asia." },
-
-  { "id": "late_paleogene", "label": "Late Paleogene", "period": "Paleogene", "epoch": "Oligocene", "subdivision": "Late", "type": "period", "ma": 35,
-    "climateData": { "o2Percent": 21, "co2Ppm": 700, "tempC": 16 },
-    "systemPromptContext": "The user is viewing Earth ~35 million years ago (Late Paleogene, Oligocene epoch). This is shortly after the Eocene-Oligocene Transition (~34 Ma) when global temperatures dropped sharply and the Antarctic ice sheet first formed. Sea levels fell substantially. The Drake Passage between Antarctica and South America fully opened, isolating Antarctica thermally. Forests gave way to open habitats. Archaic mammal lineages were replaced by more modern forms. Early horses, rhinos, and elephants were diversifying. The Tethys Sea was fragmenting. South America remained an isolated continent." },
-
-  { "id": "mid_paleogene", "label": "Middle Paleogene", "period": "Paleogene", "epoch": "Eocene", "subdivision": "Middle", "type": "period", "ma": 50,
-    "climateData": { "o2Percent": 21, "co2Ppm": 1000, "tempC": 20 },
-    "systemPromptContext": "The user is viewing Earth ~50 million years ago (Middle Paleogene, Middle Eocene). Earth is in a warm greenhouse state — tropical forests extended into polar regions. Antarctica was forested and ice-free. Primitive whales (Archaeoceti) were transitioning to fully aquatic life. The first perissodactyls (horses, rhinos, tapirs) were diversifying. Bats had appeared. India was completing its collision with Asia, beginning to build the Himalayas. The Atlantic Ocean was widening steadily. There were no ice caps anywhere on Earth. CO2 levels were roughly double pre-industrial values." },
-
-  { "id": "early_paleogene", "label": "Early Paleogene", "period": "Paleogene", "epoch": "Paleocene", "subdivision": "Early", "type": "period", "ma": 60,
-    "climateData": { "o2Percent": 21, "co2Ppm": 900, "tempC": 19 },
-    "systemPromptContext": "The user is viewing Earth ~60 million years ago (Early Paleogene, Paleocene epoch). Only ~5 million years after the K-Pg extinction, ecosystems are recovering. The non-avian dinosaurs are gone, and mammals are exploding in diversity and size, filling vacant ecological niches. This is the dawn of the 'Age of Mammals.' Early condylarths (ancestors of hoofed mammals), primates, and giant flightless birds like Gastornis dominated. Forests were lush and tropical. The North Atlantic was opening. India was a large island drifting northward toward Asia at high speed." },
-
-  { "id": "late_cretaceous", "label": "Late Cretaceous", "period": "Cretaceous", "epoch": "Late Cretaceous", "subdivision": "Late", "type": "period", "ma": 75,
-    "climateData": { "o2Percent": 20, "co2Ppm": 1200, "tempC": 21 },
-    "systemPromptContext": "The user is viewing Earth ~75 million years ago (Late Cretaceous). This is the reign of the dinosaurs at its peak. Tyrannosaurus rex, Triceratops, and hadrosaurs like Edmontosaurus dominated North America. The Western Interior Seaway split North America in two. Sea levels were extremely high — much of modern continental interiors were flooded. Marine reptiles including mosasaurs and plesiosaurs ruled the seas alongside large sharks. The first flowering plants were spreading rapidly. Gondwana was fragmenting: South America, Africa, India, Antarctica, and Australia were all drifting apart." },
-
-  { "id": "mid_cretaceous", "label": "Mid-Cretaceous", "period": "Cretaceous", "epoch": "Mid-Cretaceous", "subdivision": "Middle", "type": "period", "ma": 100,
-    "climateData": { "o2Percent": 19, "co2Ppm": 1800, "tempC": 23 },
-    "systemPromptContext": "The user is viewing Earth ~100 million years ago (Mid-Cretaceous). This was one of the warmest periods in the last 250 million years — the Cretaceous Thermal Maximum. Polar ice caps were minimal or absent. Sea levels were the highest of the entire Mesozoic. The Tethys Sea spanned the globe at tropical latitudes. Sauropods like Argentinosaurus reached record sizes. The first flowering plants (angiosperms) were beginning to diversify. Vast chalk deposits were forming from coccolithophore blooms. Spinosaurus and Carcharodontosaurus hunted in what is now North Africa." },
-
-  { "id": "early_cretaceous", "label": "Early Cretaceous", "period": "Cretaceous", "epoch": "Early Cretaceous", "subdivision": "Early", "type": "period", "ma": 130,
-    "climateData": { "o2Percent": 18, "co2Ppm": 2000, "tempC": 22 },
-    "systemPromptContext": "The user is viewing Earth ~130 million years ago (Early Cretaceous). Gondwana is beginning to fragment — South America and Africa are pulling apart, opening the South Atlantic Ocean as a narrow seaway. The first birds (Enantiornithes) diversified from their theropod ancestors. Iguanodon and Baryonyx roamed Europe. The Tethys Ocean separated Laurasia in the north from the fragmenting Gondwana in the south. Conifers and cycads still dominated vegetation; flowering plants had just begun to appear. Plesiosaurs and ichthyosaurs were the apex marine predators." },
-
-  { "id": "late_jurassic", "label": "Late Jurassic", "period": "Jurassic", "epoch": "Late Jurassic", "subdivision": "Late", "type": "period", "ma": 150,
-    "climateData": { "o2Percent": 18, "co2Ppm": 1900, "tempC": 21 },
-    "systemPromptContext": "The user is viewing Earth ~150 million years ago (Late Jurassic). This is the iconic age of giant sauropods. Brachiosaurus, Diplodocus, and Allosaurus dominated the Morrison Formation of North America. Stegosaurus was also present. Archaeopteryx, the transitional bird-dinosaur, lived in what is now Germany. The central Atlantic Ocean was opening. Pangea had split into Laurasia (north) and Gondwana (south). Vast shallow seas covered continental shelves. Cycads, ferns, and conifers formed lush forests. Ichthyosaurs and plesiosaurs were abundant in warm Jurassic seas." },
-
-  { "id": "mid_jurassic", "label": "Middle Jurassic", "period": "Jurassic", "epoch": "Middle Jurassic", "subdivision": "Middle", "type": "period", "ma": 165,
-    "climateData": { "o2Percent": 17, "co2Ppm": 2000, "tempC": 21 },
-    "systemPromptContext": "The user is viewing Earth ~165 million years ago (Middle Jurassic). Dinosaurs are becoming diverse and dominant globally. Sauropods were spreading across Pangea's fragments. The first advanced mammals (docodonts, multituberculates) were occupying nocturnal niches. Pangea was in the early stages of breakup: the central Atlantic was just beginning to open. The Tethys Sea was warm and rich with marine life. Forests of conifers, ferns, and cycads stretched across continental interiors. The Morrison ecosystem had not yet formed; equivalent faunas existed in Europe and China." },
-
-  { "id": "early_jurassic", "label": "Early Jurassic", "period": "Jurassic", "epoch": "Early Jurassic", "subdivision": "Early", "type": "period", "ma": 195,
-    "climateData": { "o2Percent": 16, "co2Ppm": 2100, "tempC": 20 },
-    "systemPromptContext": "The user is viewing Earth ~195 million years ago (Early Jurassic). The world is still recovering from the Triassic-Jurassic mass extinction (~201 Ma). Dinosaurs are rapidly diversifying to fill the vacated ecological space left by the extinction. Early theropods, sauropodomorphs, and ornithischians are spreading across Pangea, which is still largely intact but beginning to rift. CO2 levels are very high from Triassic-Jurassic volcanism (Central Atlantic Magmatic Province). The climate is hot and arid in continental interiors. Marine reptiles (ichthyosaurs, plesiosaurs) are recovering and diversifying." },
-
-  { "id": "late_triassic", "label": "Late Triassic", "period": "Triassic", "epoch": "Late Triassic", "subdivision": "Late", "type": "period", "ma": 215,
-    "climateData": { "o2Percent": 16, "co2Ppm": 1900, "tempC": 20 },
-    "systemPromptContext": "The user is viewing Earth ~215 million years ago (Late Triassic). Pangea is a single supercontinent stretching from pole to pole, dominated by an enormous hot, arid interior. Dinosaurs first appeared in the early Triassic and are now beginning to diversify, but many niches are still held by other archosaurs — aetosaurs, rauisuchians, phytosaurs. Early mammals (cynodonts, morganucodonts) are small and nocturnal. Lush forests existed in coastal regions and at higher latitudes. The Tethys Sea formed a wide tropical ocean along Pangea's eastern side." },
-
-  { "id": "mid_triassic", "label": "Middle Triassic", "period": "Triassic", "epoch": "Middle Triassic", "subdivision": "Middle", "type": "period", "ma": 235,
-    "climateData": { "o2Percent": 16, "co2Ppm": 1800, "tempC": 19 },
-    "systemPromptContext": "The user is viewing Earth ~235 million years ago (Middle Triassic). Pangea remains intact. Ecosystems are recovering from the devastating Permian-Triassic extinction ~17 million years earlier. Archosaurs are diversifying rapidly — the first dinosauriformes (close dinosaur relatives) appeared in this period. Marine reptiles including nothosaurs and early plesiosaurs are radiating into the Tethys Sea. Temnospondyl amphibians remain large and common. Early turtle-like reptiles (Odontochelys) have appeared. Tropical conditions prevailed across much of Pangea's interior." },
-
-  { "id": "early_triassic", "label": "Early Triassic", "period": "Triassic", "epoch": "Early Triassic", "subdivision": "Early", "type": "period", "ma": 245,
-    "climateData": { "o2Percent": 15, "co2Ppm": 2500, "tempC": 23 },
-    "systemPromptContext": "The user is viewing Earth ~245 million years ago (Early Triassic). This is the immediate aftermath of the Permian-Triassic extinction, the worst mass extinction in Earth's history which killed ~96% of marine species and ~70% of terrestrial vertebrate species. Ecosystems are sparse. The dominant land animals are Lystrosaurus and a few surviving therapsids. The oceans are hot, low-oxygen, and nearly devoid of life. Temperatures were extreme — the hottest of any period in the Phanerozoic. Microbial mats called stromatolites had returned to shallow seas. Recovery would take 5-10 million years." },
-
-  { "id": "late_permian", "label": "Late Permian", "period": "Permian", "epoch": "Late Permian", "subdivision": "Late", "type": "period", "ma": 260,
-    "climateData": { "o2Percent": 16, "co2Ppm": 1800, "tempC": 18 },
-    "systemPromptContext": "The user is viewing Earth ~260 million years ago (Late Permian). Pangea is fully assembled, the largest supercontinent since the Proterozoic. The vast interior is desert and scrubland. Pelycosaurs have been replaced by therapsids (the mammal-like reptiles) as the dominant large land animals — gorgonopsids, dicynodonts, and cynognathus-relatives. Pareiasaurs — large plant-eating reptiles — are also common. Marine life is extraordinarily diverse in the Tethys Sea. The Siberian Traps volcanism has not yet begun; that catastrophe is still ~8 million years away. Atmospheric oxygen is declining from Carboniferous highs." },
-
-  { "id": "mid_permian", "label": "Middle Permian", "period": "Permian", "epoch": "Middle Permian", "subdivision": "Middle", "type": "period", "ma": 275,
-    "climateData": { "o2Percent": 18, "co2Ppm": 1500, "tempC": 17 },
-    "systemPromptContext": "The user is viewing Earth ~275 million years ago (Middle Permian). The Gondwanan glaciation that characterized the late Carboniferous is ending, with ice sheets retreating from the southern supercontinent. Pangea is fully assembled. Therapsid mammals-like reptiles are the dominant terrestrial vertebrates, with Dimetrodon and its relatives giving way to true therapsids. Cordaitalean forests and glossopteris vegetation covered Gondwana's recovering landscapes. Marine ecosystems are rich and diverse — the Permian was a high point for reef ecosystems dominated by rugose and tabulate corals. Trilobites persist but are declining." },
-
-  { "id": "early_permian", "label": "Early Permian", "period": "Permian", "epoch": "Early Permian", "subdivision": "Early", "type": "period", "ma": 290,
-    "climateData": { "o2Percent": 22, "co2Ppm": 900, "tempC": 15 },
-    "systemPromptContext": "The user is viewing Earth ~290 million years ago (Early Permian). Pangea is just completing its assembly as Laurussia (North America + Europe) and Gondwana merge. A vast ice sheet still covers southern Gondwana. Atmospheric oxygen is very high (near Carboniferous peaks) making wildfires common. The famous sail-backed Dimetrodon is the apex predator of North American ecosystems — it is NOT a dinosaur but a synapsid (our own lineage's ancestor). Temnospondyl amphibians are large and diverse. Vast coal-swamp forests have given way to drier woodlands as the climate dried." },
-
-  { "id": "late_carboniferous", "label": "Late Carboniferous", "period": "Carboniferous", "epoch": "Pennsylvanian", "subdivision": "Late", "type": "period", "ma": 305,
-    "climateData": { "o2Percent": 30, "co2Ppm": 400, "tempC": 13 },
-    "systemPromptContext": "The user is viewing Earth ~305 million years ago (Late Carboniferous, Pennsylvanian). Atmospheric oxygen has reached its highest level in Earth's history — around 30-35% — fueling enormous arthropods: Meganeura dragonflies with 70cm wingspans, Arthropleura millipedes 2.5m long. Vast coal swamp forests of Lepidodendron trees (30m tall) covered tropical lowlands. These forests are the source of most coal deposits mined today. Gondwana is glaciated while equatorial regions are tropical. Amniotes (reptiles and early synapsids) have just appeared. The supercontinent Pangea is assembling as Laurussia and Gondwana approach each other." },
-
-  { "id": "mid_carboniferous", "label": "Middle Carboniferous", "period": "Carboniferous", "epoch": "Pennsylvanian", "subdivision": "Middle", "type": "period", "ma": 320,
-    "climateData": { "o2Percent": 28, "co2Ppm": 600, "tempC": 14 },
-    "systemPromptContext": "The user is viewing Earth ~320 million years ago (Middle Carboniferous). The coal forests are at their prime. Vast swampy forests of tree-sized clubmosses (lycopods), horsetails, and seed ferns covered equatorial landmasses. These forests had extremely low biodiversity — dominated by a few species. The oxygen-rich atmosphere supported giant insects. Tetrapods (four-limbed vertebrates) were diversifying rapidly on land; amniotes had just evolved, freeing vertebrates from dependence on water for reproduction. The first reptiles appeared. Southern Gondwana remained heavily glaciated. Sea levels fluctuated cyclically with ice sheet pulses." },
-
-  { "id": "early_carboniferous", "label": "Early Carboniferous", "period": "Carboniferous", "epoch": "Mississippian", "subdivision": "Early", "type": "period", "ma": 345,
-    "climateData": { "o2Percent": 23, "co2Ppm": 1500, "tempC": 18 },
-    "systemPromptContext": "The user is viewing Earth ~345 million years ago (Early Carboniferous, Mississippian). Landmasses are beginning to coalesce. Oxygen is rising rapidly as land plants — especially forests — spread globally, drawing down CO2 and releasing O2. Vast shallow seas covered continental shelves, teeming with crinoids (sea lilies), blastoids, and corals — the 'Age of Crinoids.' Early tetrapods were just beginning to venture onto land more permanently. Sharks diversified explosively into the niches vacated by the Late Devonian extinction. Forests were expanding from river systems across dry uplands." },
-
-  { "id": "late_devonian", "label": "Late Devonian", "period": "Devonian", "epoch": "Late Devonian", "subdivision": "Late", "type": "period", "ma": 370,
-    "climateData": { "o2Percent": 16, "co2Ppm": 2500, "tempC": 20 },
-    "systemPromptContext": "The user is viewing Earth ~370 million years ago (Late Devonian). This period is approaching the Late Devonian mass extinction (~374 Ma) that would eliminate ~75% of species. Forests of Archaeopteris (the first true tree) are transforming the land, their root systems dramatically changing weathering and carbon cycling. Tetrapods like Tiktaalik and Acanthostega are evolving from lobe-finned fishes, beginning the conquest of land. Placoderms (armored fish) like Dunkleosteus dominate the seas. Goniatite ammonoids are diversifying. The collision of continents is building the Acadian Mountains in what is now Appalachia." },
-
-  { "id": "mid_devonian", "label": "Middle Devonian", "period": "Devonian", "epoch": "Middle Devonian", "subdivision": "Middle", "type": "period", "ma": 390,
-    "climateData": { "o2Percent": 15, "co2Ppm": 2800, "tempC": 21 },
-    "systemPromptContext": "The user is viewing Earth ~390 million years ago (Middle Devonian). The 'Age of Fishes' is in full swing. Placoderms (armored fish) dominate marine and freshwater environments. Lobe-finned fishes (Eusthenopteron, Panderichthys) are beginning to evolve terrestrial adaptations. Land plants are diversifying rapidly — the first forests are forming. Early spiders, mites, and other arachnids have colonized land. Euramerica (Laurussia) and Gondwana are approaching each other. Reef ecosystems built by stromatoporoid sponges and tabulate corals are the most complex ever seen. Trilobites remain common." },
-
-  { "id": "early_devonian", "label": "Early Devonian", "period": "Devonian", "epoch": "Early Devonian", "subdivision": "Early", "type": "period", "ma": 410,
-    "climateData": { "o2Percent": 14, "co2Ppm": 3000, "tempC": 22 },
-    "systemPromptContext": "The user is viewing Earth ~410 million years ago (Early Devonian). This is when life is first conquering land in earnest. Early vascular land plants (Cooksonia, Baragwanathia) spread across moist coastal areas. The first millipedes and wingless insects are on land. In the seas, jawless fish (agnathans) share oceans with early jawed fish. Trilobites are still abundant. The supercontinent Gondwana occupies the south while Euramerica lies in the tropics. The collision of North America and Europe is building the Caledonide Mountain Belt (ancestral Appalachians/Scottish Highlands). No trees yet — vegetation is low and moss-like." },
-
-  { "id": "late_silurian", "label": "Late Silurian", "period": "Silurian", "epoch": "Pridoli", "subdivision": "Late", "type": "period", "ma": 420,
-    "climateData": { "o2Percent": 14, "co2Ppm": 3500, "tempC": 22 },
-    "systemPromptContext": "The user is viewing Earth ~420 million years ago (Late Silurian). The first vascular land plants (rhyniophytes) are just colonizing terrestrial environments near water. Early millipedes and scorpions are among the first land animals. The oceans are warm and rich: coral reefs (built by rugose and tabulate corals) cover continental shelves, alongside abundant crinoids, brachiopods, and graptolites. Jawed fish (acanthodians, early placoderms) are diversifying. The supercontinent Gondwana is in the south while smaller continents (Laurentia, Baltica, Avalonia) are coalescing in the tropics. Volcanic island arcs dot the ancient Tethys." },
-
-  { "id": "mid_silurian", "label": "Middle Silurian", "period": "Silurian", "epoch": "Wenlock", "subdivision": "Middle", "type": "period", "ma": 430,
-    "climateData": { "o2Percent": 14, "co2Ppm": 4000, "tempC": 22 },
-    "systemPromptContext": "The user is viewing Earth ~430 million years ago (Middle Silurian). The world has recovered from the End-Ordovician mass extinction and is warm and sea-level is high. Shallow epeiric seas covered vast continental shelves. Reef ecosystems are diverse and flourishing. Graptolites, trilobites, brachiopods, and cephalopods fill marine niches. Sea scorpions (eurypterids) reached enormous sizes — up to 2.5m long — and were apex predators in shallow waters and possibly on land. The Caledonian orogeny is building mountains as Laurentia and Baltica collide. The first simple land plants are establishing in damp coastal environments." },
-
-  { "id": "early_silurian", "label": "Early Silurian", "period": "Silurian", "epoch": "Llandovery", "subdivision": "Early", "type": "period", "ma": 440,
-    "climateData": { "o2Percent": 14, "co2Ppm": 4500, "tempC": 22 },
-    "systemPromptContext": "The user is viewing Earth ~440 million years ago (Early Silurian). This period follows the End-Ordovician mass extinction and its two pulses of extinction. Ecosystems are recovering: marine life is rebounding with new reef builders, graptolites are re-diversifying, and trilobites are recovering. The great Gondwana ice sheet of the Late Ordovician has melted, sea levels are rising, and the climate is warming. Jawed fish are appearing for the first time. A few pioneering organisms — algae, fungi, early non-vascular plants — are beginning to colonize terrestrial surfaces near water." },
-
-  { "id": "late_ordovician", "label": "Late Ordovician", "period": "Ordovician", "epoch": "Late Ordovician", "subdivision": "Late", "type": "period", "ma": 450,
-    "climateData": { "o2Percent": 14, "co2Ppm": 4500, "tempC": 21 },
-    "systemPromptContext": "The user is viewing Earth ~450 million years ago (Late Ordovician). Despite very high CO2 levels, global cooling is occurring as Gondwana drifts over the South Pole. A massive ice sheet is building over what is now Saharan Africa. Sea levels are dropping. This glaciation will trigger the End-Ordovician mass extinction (~443 Ma). Marine life is diverse and complex: trilobites, graptolites, brachiopods, cephalopods, and early echinoderms fill every niche. Jawless fish have diversified but remain fishlike. The land is largely barren — the first primitive land plants are just beginning to appear." },
-
-  { "id": "mid_ordovician", "label": "Middle Ordovician", "period": "Ordovician", "epoch": "Middle Ordovician", "subdivision": "Middle", "type": "period", "ma": 465,
-    "climateData": { "o2Percent": 13, "co2Ppm": 5000, "tempC": 23 },
-    "systemPromptContext": "The user is viewing Earth ~465 million years ago (Middle Ordovician). This is during the Great Ordovician Biodiversification Event — one of the greatest explosions of marine diversity in Earth's history. The number of marine genera tripled within just a few million years. Complex ecosystems with trilobites, graptolites, brachiopods, cephalopods, echinoderms, and corals are flourishing. Gondwana dominates the southern hemisphere while Laurentia (proto-North America) and other smaller continents sit in the tropics. The climate is warm and seas are high. Reefs built by stromatoporoid sponges and corals are expanding." },
-
-  { "id": "early_ordovician", "label": "Early Ordovician", "period": "Ordovician", "epoch": "Early Ordovician", "subdivision": "Early", "type": "period", "ma": 480,
-    "climateData": { "o2Percent": 13, "co2Ppm": 5500, "tempC": 24 },
-    "systemPromptContext": "The user is viewing Earth ~480 million years ago (Early Ordovician). Life is still exclusively marine. Trilobites reach their peak diversity. Graptolites (colonial filter feeders) float in open ocean plankton zones and are key index fossils for the period. Early jawless fish (heterostracans) are among the first true vertebrates in the fossil record. Gondwana is moving over the South Pole, but the climate remains warm globally. Conodonts (eel-like early vertebrates with mineralized teeth) are common. Laurentia sits near the equator as a tropical carbonate platform rich with reef life." },
-
-  { "id": "late_cambrian", "label": "Late Cambrian", "period": "Cambrian", "epoch": "Furongian", "subdivision": "Late", "type": "period", "ma": 495,
-    "climateData": { "o2Percent": 12, "co2Ppm": 6000, "tempC": 25 },
-    "systemPromptContext": "The user is viewing Earth ~495 million years ago (Late Cambrian / Furongian). Life has diversified enormously since the Cambrian Explosion. The Cambrian substrate revolution is underway: burrowing organisms have transformed the seafloor from flat microbial mats to a complex tiered ecosystem. Trilobites dominate and are reaching their early peak diversity. Conodonts are present. Gondwana dominates the southern hemisphere. No life exists on land — continents are barren rock. Atmospheric oxygen is still low by modern standards. Ocean chemistry differs significantly from today: calcite seas support different mineralogy in shelled organisms." },
-
-  { "id": "mid_cambrian", "label": "Middle Cambrian", "period": "Cambrian", "epoch": "Middle Cambrian", "subdivision": "Middle", "type": "period", "ma": 510,
-    "climateData": { "o2Percent": 12, "co2Ppm": 6500, "tempC": 25 },
-    "systemPromptContext": "The user is viewing Earth ~510 million years ago (Middle Cambrian). This is the world of the Burgess Shale fauna — bizarre soft-bodied organisms including Anomalocaris (apex predator), Opabinia (five eyes, frontal proboscis), Hallucigenia (spiny worm), and hundreds of other unique body plans. Many of these represent early experiments in animal body plans, some without any living descendants. Trilobites are abundantly diverse. Cambrian reefs are built by archaeocyathid sponges (now extinct). Continents are distributed around the tropics and subtropics. The ocean floor is soft and nutrient-rich." },
-
-  { "id": "early_cambrian", "label": "Early Cambrian", "period": "Cambrian", "epoch": "Early Cambrian", "subdivision": "Early", "type": "period", "ma": 530,
-    "climateData": { "o2Percent": 12, "co2Ppm": 7000, "tempC": 26 },
-    "systemPromptContext": "The user is viewing Earth ~530 million years ago (Early Cambrian). The Cambrian Explosion is underway — nearly all major animal body plans are appearing within a geologically short interval. The oceans are filling with the first complex animals equipped with eyes, shells, and the ability to prey on others. Early trilobites appear. The small shelly fauna — an assortment of tiny armored organisms — covers the seafloor. Archaeocyathid reefs are flourishing in warm shallow seas. Gondwana is the dominant supercontinent. No animals exist on land. Atmospheric oxygen is still low but rising as photosynthetic organisms spread." },
-
-  { "id": "cambrian_explosion", "label": "Cambrian Explosion", "period": "Cambrian", "epoch": "Early Cambrian", "subdivision": "Event", "type": "event", "ma": 538,
-    "climateData": { "o2Percent": 12, "co2Ppm": 7000, "tempC": 26 },
-    "systemPromptContext": "The user is viewing the Cambrian Explosion (~538 Ma) — arguably the most important evolutionary event in the history of animal life. Within roughly 20 million years, nearly all the major animal body plans (phyla) that exist today appeared in the fossil record. Eyes evolved for the first time, triggering an evolutionary arms race between predators and prey. Hard shells, claws, and mineralized skeletons appeared. The first predator-prey dynamics emerged. Key sites: the Burgess Shale (Canada), Chengjiang biota (China), Sirius Passet (Greenland). The trigger for the explosion is debated: rising oxygen, ecological feedback, genomic changes, or environmental shifts may all have played roles." },
-
-  { "id": "great_ordovician_biodiversification", "label": "Great Ordovician Biodiversification Event", "period": "Ordovician", "epoch": "Middle Ordovician", "subdivision": "Event", "type": "event", "ma": 470,
-    "climateData": { "o2Percent": 13, "co2Ppm": 5000, "tempC": 23 },
-    "systemPromptContext": "The user is viewing the Great Ordovician Biodiversification Event (GOBE, ~480-460 Ma) — the second great radiation of marine animal life after the Cambrian Explosion. Marine genus richness roughly tripled during this interval. Brachiopods, bryozoans, cephalopods, echinoderms, and corals radiated explosively. Ecological complexity increased dramatically: multi-tiered reef ecosystems developed, predation pressure intensified, and the seafloor was partitioned into many distinct ecological zones. The GOBE coincides with the fragmentation of Gondwana's margin, the creation of new shallow-water habitats, and shifts in ocean chemistry. It established the marine ecosystems that would dominate for the next 250 million years." },
-
-  { "id": "end_ordovician_extinction", "label": "End-Ordovician Mass Extinction", "period": "Ordovician", "epoch": "Late Ordovician", "subdivision": "Event", "type": "event", "ma": 443,
-    "climateData": { "o2Percent": 14, "co2Ppm": 4500, "tempC": 14 },
-    "systemPromptContext": "The user is viewing the End-Ordovician Mass Extinction (~443 Ma) — the second-largest mass extinction in Earth's history, eliminating ~85% of marine species in two distinct pulses. The trigger was a rapid glaciation as Gondwana moved over the South Pole, causing sea levels to drop dramatically and cooling the oceans. The first pulse killed warm-water organisms as seas cooled and shallowed. The second pulse — as the ice melted and anoxic deep water upwelled — killed many survivors. Graptolites, trilobites, brachiopods, and conodonts all suffered enormous losses. The event reshaped marine ecosystems for the rest of the Paleozoic." },
-
-  { "id": "late_devonian_extinction", "label": "Late Devonian Mass Extinction", "period": "Devonian", "epoch": "Late Devonian", "subdivision": "Event", "type": "event", "ma": 374,
-    "climateData": { "o2Percent": 16, "co2Ppm": 2400, "tempC": 20 },
-    "systemPromptContext": "The user is viewing the Late Devonian Mass Extinction (~374 Ma, Frasnian-Famennian boundary) — a prolonged crisis that eliminated ~75% of species in multiple extinction pulses over several million years. The trigger is linked to the spread of forests: tree roots weathered rock more deeply, releasing nutrients into the ocean and triggering massive algal blooms and ocean anoxia. Placoderms (armored fish) — previously dominant — were nearly wiped out. Reef ecosystems collapsed entirely, not to recover for 15 million years. The Kellwasser and Hangenberg events were the main extinction pulses. This crisis cleared the way for tetrapods and cartilaginous fish to diversify." },
-
-  { "id": "carboniferous_rainforest_collapse", "label": "Carboniferous Rainforest Collapse", "period": "Carboniferous", "epoch": "Pennsylvanian", "subdivision": "Event", "type": "event", "ma": 307,
-    "climateData": { "o2Percent": 31, "co2Ppm": 350, "tempC": 12 },
-    "systemPromptContext": "The user is viewing the Carboniferous Rainforest Collapse (~307 Ma) — a dramatic fragmentation of the vast tropical coal swamp forests that had dominated equatorial Pangea. A sudden climate shift — possibly driven by Gondwana glaciation cooling the tropics — broke the continuous rainforest belt into isolated island fragments. This isolation drove rapid evolutionary divergence: reptile lineages that had been evolving gradually suddenly diversified explosively, separated into distinct populations. The amniote egg — freeing vertebrates from water — became more advantageous in the patchy, drier new landscape. This event accelerated the rise of reptiles and the eventual dominance of synapsids." },
-
-  { "id": "permian_triassic_extinction", "label": "Permian-Triassic Mass Extinction", "period": "Permian", "epoch": "Late Permian", "subdivision": "Event", "type": "event", "ma": 252,
-    "climateData": { "o2Percent": 14, "co2Ppm": 3000, "tempC": 26 },
-    "systemPromptContext": "The user is viewing the Permian-Triassic Mass Extinction (~252 Ma) — the most catastrophic biological event in Earth's history, often called 'The Great Dying.' It eliminated approximately 96% of marine species and 70% of terrestrial vertebrate species. The trigger: the Siberian Traps — the largest volcanic eruption in the last 600 million years — erupted massive amounts of CO2 and methane, causing rapid global warming, ocean acidification, and widespread anoxia. Temperatures at the equator may have reached 60°C in some areas. Trilobites went extinct forever. Reef ecosystems collapsed completely. It took 10 million years for ecosystems to recover. This extinction cleared the way for the rise of archosaurs and ultimately dinosaurs." },
-
-  { "id": "triassic_jurassic_extinction", "label": "Triassic-Jurassic Mass Extinction", "period": "Triassic", "epoch": "Late Triassic", "subdivision": "Event", "type": "event", "ma": 201,
-    "climateData": { "o2Percent": 16, "co2Ppm": 2200, "tempC": 20 },
-    "systemPromptContext": "The user is viewing the Triassic-Jurassic Mass Extinction (~201 Ma) — the fourth of the 'Big Five' mass extinctions, eliminating ~80% of species. The trigger was the Central Atlantic Magmatic Province — massive flood basalt volcanism as Pangea began to rift apart, opening the proto-Atlantic Ocean. CO2 and sulfur dioxide flooded the atmosphere, causing rapid global warming and ocean acidification. Crurotarsi (the reptile lineage that includes modern crocodilians) were nearly wiped out, clearing the way for dinosaurs to become the dominant large land animals of the Jurassic. Marine reptiles, conodonts (which went extinct), and large amphibians were also devastated." },
-
-  { "id": "jurassic_marine_revolution", "label": "Mesozoic Marine Revolution", "period": "Jurassic", "epoch": "Late Jurassic", "subdivision": "Event", "type": "event", "ma": 155,
-    "climateData": { "o2Percent": 18, "co2Ppm": 1900, "tempC": 21 },
-    "systemPromptContext": "The user is viewing the peak of the Mesozoic Marine Revolution (~160-130 Ma) — a fundamental restructuring of marine ecosystems driven by the rise of powerful shell-crushing predators (durophages). New predators — teleost fish, crabs, sea urchins, rays, and marine reptiles — evolved adaptations to crush, drill, and break open hard-shelled prey. In response, mollusks, echinoderms, and crustaceans evolved thicker shells, deeper burrowing behaviors, and more cryptic lifestyles. This arms race transformed the structure of marine communities from Paleozoic-style passive suspension feeders to the active, predator-driven ecosystems we see in modern oceans. It also contributed to the decline of brachiopods and rise of bivalves." },
-
-  { "id": "kpg_extinction", "label": "K-Pg Mass Extinction", "period": "Cretaceous", "epoch": "Late Cretaceous", "subdivision": "Event", "type": "event", "ma": 65,
-    "climateData": { "o2Percent": 21, "co2Ppm": 1000, "tempC": 18 },
-    "systemPromptContext": "The user is viewing the Cretaceous-Paleogene (K-Pg) Mass Extinction (~66 Ma) — the most famous mass extinction, ending the reign of non-avian dinosaurs. A 10-12 km asteroid struck the Yucatan Peninsula with the force of a billion nuclear bombs, triggering global wildfires, a 'nuclear winter' that blocked sunlight for years, and acid rain. Around 75% of species went extinct, including all non-avian dinosaurs, pterosaurs, mosasaurs, plesiosaurs, and ammonites. Mammals, birds (avian dinosaurs), crocodilians, and turtles survived. The Chicxulub crater (180 km diameter) is the preserved impact site. Simultaneously, the Deccan Traps in India were erupting, which may have stressed ecosystems beforehand." },
-
-  { "id": "petm", "label": "Paleocene-Eocene Thermal Maximum", "period": "Paleogene", "epoch": "Paleocene/Eocene", "subdivision": "Event", "type": "event", "ma": 56,
-    "climateData": { "o2Percent": 21, "co2Ppm": 1700, "tempC": 24 },
-    "systemPromptContext": "The user is viewing the Paleocene-Eocene Thermal Maximum (PETM, ~56 Ma) — Earth's most dramatic rapid warming event in the past 66 million years. Global temperatures rose by 5-8°C within about 20,000 years, driven by a massive release of carbon (possibly from volcanic activity, methane hydrates, or orbital forcing). This is the closest geological analog to modern anthropogenic warming. Deep-sea benthic foraminifera suffered a major extinction. On land, mammals diversified and dispersed globally as new migration routes opened. The event lasted ~170,000 years. Modern carbon emissions are occurring 10x faster than during the PETM, making recovery far less certain." },
-
-  { "id": "eocene_oligocene_transition", "label": "Eocene-Oligocene Transition", "period": "Paleogene", "epoch": "Eocene/Oligocene", "subdivision": "Event", "type": "event", "ma": 34,
-    "climateData": { "o2Percent": 21, "co2Ppm": 800, "tempC": 15 },
-    "systemPromptContext": "The user is viewing the Eocene-Oligocene Transition (~34 Ma) — the most significant climate shift since the K-Pg extinction, often called the 'Great Cooling.' Global temperatures dropped by 4-5°C within 300,000 years, and a permanent ice sheet formed on Antarctica for the first time in ~35 million years. Sea levels dropped dramatically. The trigger: the opening of the Drake Passage between Antarctica and South America isolated Antarctica from warm currents. CO2 drawdown also contributed. Tropical forests retreated; open habitats expanded. Many archaic mammal lineages (perissodactyls, primates in northern latitudes) declined, replaced by more cold-adapted forms. This transition set the stage for the Ice Ages ahead." }
+  {
+    "id": "holocene",
+    "label": "Holocene",
+    "period": "Quaternary",
+    "epoch": "Holocene",
+    "subdivision": "Present",
+    "type": "period",
+    "ma": 0,
+    "climateData": {
+      "o2Percent": 20.64,
+      "co2Ppm": 420,
+      "tempC": 14.65
+    },
+    "systemPromptContext": "The user is viewing present-day Earth (0 Ma, the Holocene epoch). Modern continents are in their familiar positions. Ice caps exist at both poles. Climate is relatively stable (Holocene interglacial). Modern humans have transformed ecosystems globally. Biodiversity includes ~8.7 million species. Major biomes include tropical rainforests, temperate forests, grasslands, tundra, and marine ecosystems. The Atlantic Ocean continues to widen. The Himalaya and Alps are geologically young and still rising."
+  },
+  {
+    "id": "mid_pleistocene",
+    "label": "Middle Pleistocene",
+    "period": "Quaternary",
+    "epoch": "Pleistocene",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 1,
+    "climateData": {
+      "o2Percent": 20.94,
+      "co2Ppm": 220,
+      "tempC": 14.81
+    },
+    "systemPromptContext": "The user is viewing Earth ~1 million years ago (Middle Pleistocene). The planet is in a glacial-interglacial cycle dominated by ~100,000-year Milankovitch cycles. Vast ice sheets covered much of North America and Eurasia during glacial maxima. Sea levels were significantly lower than today. Megafauna thrived: woolly mammoths, cave lions, giant ground sloths. Homo erectus was the dominant hominin. The English Channel did not yet exist; Britain was connected to mainland Europe by land."
+  },
+  {
+    "id": "early_quaternary",
+    "label": "Early Quaternary",
+    "period": "Quaternary",
+    "epoch": "Pleistocene",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 2,
+    "climateData": {
+      "o2Percent": 21.25,
+      "co2Ppm": 280,
+      "tempC": 14.96
+    },
+    "systemPromptContext": "The user is viewing Earth ~2 million years ago (Early Quaternary / Early Pleistocene). The Ice Age is just beginning. The first major Northern Hemisphere glaciations are occurring. Africa's savanna ecosystems are expanding. Early members of the Homo genus \u2014 including Homo habilis \u2014 are evolving in Africa. Large mammals dominate: mastodons, early horses, giant hyenas. The Mediterranean and Black Seas are in their modern configuration. The Panama seaway closed ~3 Ma, redirecting ocean currents and triggering northern glaciation."
+  },
+  {
+    "id": "late_neogene",
+    "label": "Late Neogene",
+    "period": "Neogene",
+    "epoch": "Pliocene",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 5,
+    "climateData": {
+      "o2Percent": 22.07,
+      "co2Ppm": 410,
+      "tempC": 15.43
+    },
+    "systemPromptContext": "The user is viewing Earth ~5 million years ago (Late Neogene, Pliocene epoch). Global temperatures were 2-3\u00b0C warmer than today and sea levels ~25m higher. The Arctic was largely ice-free. The Isthmus of Panama had not yet fully closed. Africa's climate was shifting toward seasonality, driving hominin evolution: Australopithecus was emerging. Grasslands expanded globally. Terrestrial mammal faunas were diverse and large-bodied. Mediterranean Sea chemistry and circulation were established. The East African Rift System continued to develop."
+  },
+  {
+    "id": "mid_neogene",
+    "label": "Middle Neogene",
+    "period": "Neogene",
+    "epoch": "Miocene",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 15,
+    "climateData": {
+      "o2Percent": 22.21,
+      "co2Ppm": 520,
+      "tempC": 18.06
+    },
+    "systemPromptContext": "The user is viewing Earth ~15 million years ago (Middle Neogene, Middle Miocene). The Miocene Climate Optimum (17-15 Ma) is ending: global temperatures were ~3-4\u00b0C warmer than today. Kelp forests first appeared. Grasslands spread globally, reshaping mammal evolution toward grazing specialists. Apes diversified enormously across Africa and Eurasia \u2014 dozens of hominine species existed. The Tethys Sea was fully closed, creating the proto-Mediterranean. India continued to collide with Asia, building the Himalaya. Whales diversified into modern forms."
+  },
+  {
+    "id": "early_neogene",
+    "label": "Early Neogene",
+    "period": "Neogene",
+    "epoch": "Miocene",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 20,
+    "climateData": {
+      "o2Percent": 21.37,
+      "co2Ppm": 460,
+      "tempC": 16.68
+    },
+    "systemPromptContext": "The user is viewing Earth ~20 million years ago (Early Neogene, Early Miocene). The planet is warm and mostly ice-free, with elevated sea levels. The Tethys Ocean is in its final closure phase. Africa is just docking with Eurasia, allowing great faunal exchanges \u2014 early elephants and hominoids spread north. Grasses are beginning to diversify but forests still dominate. Marine ecosystems are rich; pinnipeds (seals, walruses) just appeared. In the oceans, modern shark families are diversifying. Australia continues its northward drift toward Southeast Asia."
+  },
+  {
+    "id": "late_paleogene",
+    "label": "Late Paleogene",
+    "period": "Paleogene",
+    "epoch": "Oligocene",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 35,
+    "climateData": {
+      "o2Percent": 22.18,
+      "co2Ppm": 623,
+      "tempC": 18.62
+    },
+    "systemPromptContext": "The user is viewing Earth ~35 million years ago (Late Paleogene, Oligocene epoch). This is shortly after the Eocene-Oligocene Transition (~34 Ma) when global temperatures dropped sharply and the Antarctic ice sheet first formed. Sea levels fell substantially. The Drake Passage between Antarctica and South America fully opened, isolating Antarctica thermally. Forests gave way to open habitats. Archaic mammal lineages were replaced by more modern forms. Early horses, rhinos, and elephants were diversifying. The Tethys Sea was fragmenting. South America remained an isolated continent."
+  },
+  {
+    "id": "mid_paleogene",
+    "label": "Middle Paleogene",
+    "period": "Paleogene",
+    "epoch": "Eocene",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 50,
+    "climateData": {
+      "o2Percent": 23.43,
+      "co2Ppm": 1400,
+      "tempC": 24.96
+    },
+    "systemPromptContext": "The user is viewing Earth ~50 million years ago (Middle Paleogene, Middle Eocene). Earth is in a warm greenhouse state \u2014 tropical forests extended into polar regions. Antarctica was forested and ice-free. Primitive whales (Archaeoceti) were transitioning to fully aquatic life. The first perissodactyls (horses, rhinos, tapirs) were diversifying. Bats had appeared. India was completing its collision with Asia, beginning to build the Himalayas. The Atlantic Ocean was widening steadily. There were no ice caps anywhere on Earth. CO2 levels were roughly double pre-industrial values."
+  },
+  {
+    "id": "early_paleogene",
+    "label": "Early Paleogene",
+    "period": "Paleogene",
+    "epoch": "Paleocene",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 60,
+    "climateData": {
+      "o2Percent": 26.14,
+      "co2Ppm": 850,
+      "tempC": 22.16
+    },
+    "systemPromptContext": "The user is viewing Earth ~60 million years ago (Early Paleogene, Paleocene epoch). Only ~5 million years after the K-Pg extinction, ecosystems are recovering. The non-avian dinosaurs are gone, and mammals are exploding in diversity and size, filling vacant ecological niches. This is the dawn of the 'Age of Mammals.' Early condylarths (ancestors of hoofed mammals), primates, and giant flightless birds like Gastornis dominated. Forests were lush and tropical. The North Atlantic was opening. India was a large island drifting northward toward Asia at high speed."
+  },
+  {
+    "id": "late_cretaceous",
+    "label": "Late Cretaceous",
+    "period": "Cretaceous",
+    "epoch": "Late Cretaceous",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 75,
+    "climateData": {
+      "o2Percent": 28.51,
+      "co2Ppm": 900,
+      "tempC": 20.96
+    },
+    "systemPromptContext": "The user is viewing Earth ~75 million years ago (Late Cretaceous). This is the reign of the dinosaurs at its peak. Tyrannosaurus rex, Triceratops, and hadrosaurs like Edmontosaurus dominated North America. The Western Interior Seaway split North America in two. Sea levels were extremely high \u2014 much of modern continental interiors were flooded. Marine reptiles including mosasaurs and plesiosaurs ruled the seas alongside large sharks. The first flowering plants were spreading rapidly. Gondwana was fragmenting: South America, Africa, India, Antarctica, and Australia were all drifting apart."
+  },
+  {
+    "id": "mid_cretaceous",
+    "label": "Mid-Cretaceous",
+    "period": "Cretaceous",
+    "epoch": "Mid-Cretaceous",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 100,
+    "climateData": {
+      "o2Percent": 26.62,
+      "co2Ppm": 1850,
+      "tempC": 23.46
+    },
+    "systemPromptContext": "The user is viewing Earth ~100 million years ago (Mid-Cretaceous). This was one of the warmest periods in the last 250 million years \u2014 the Cretaceous Thermal Maximum. Polar ice caps were minimal or absent. Sea levels were the highest of the entire Mesozoic. The Tethys Sea spanned the globe at tropical latitudes. Sauropods like Argentinosaurus reached record sizes. The first flowering plants (angiosperms) were beginning to diversify. Vast chalk deposits were forming from coccolithophore blooms. Spinosaurus and Carcharodontosaurus hunted in what is now North Africa."
+  },
+  {
+    "id": "early_cretaceous",
+    "label": "Early Cretaceous",
+    "period": "Cretaceous",
+    "epoch": "Early Cretaceous",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 130,
+    "climateData": {
+      "o2Percent": 25.44,
+      "co2Ppm": 1400,
+      "tempC": 20.84
+    },
+    "systemPromptContext": "The user is viewing Earth ~130 million years ago (Early Cretaceous). Gondwana is beginning to fragment \u2014 South America and Africa are pulling apart, opening the South Atlantic Ocean as a narrow seaway. The first birds (Enantiornithes) diversified from their theropod ancestors. Iguanodon and Baryonyx roamed Europe. The Tethys Ocean separated Laurasia in the north from the fragmenting Gondwana in the south. Conifers and cycads still dominated vegetation; flowering plants had just begun to appear. Plesiosaurs and ichthyosaurs were the apex marine predators."
+  },
+  {
+    "id": "late_jurassic",
+    "label": "Late Jurassic",
+    "period": "Jurassic",
+    "epoch": "Late Jurassic",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 150,
+    "climateData": {
+      "o2Percent": 26.36,
+      "co2Ppm": 1900,
+      "tempC": 20.15
+    },
+    "systemPromptContext": "The user is viewing Earth ~150 million years ago (Late Jurassic). This is the iconic age of giant sauropods. Brachiosaurus, Diplodocus, and Allosaurus dominated the Morrison Formation of North America. Stegosaurus was also present. Archaeopteryx, the transitional bird-dinosaur, lived in what is now Germany. The central Atlantic Ocean was opening. Pangea had split into Laurasia (north) and Gondwana (south). Vast shallow seas covered continental shelves. Cycads, ferns, and conifers formed lush forests. Ichthyosaurs and plesiosaurs were abundant in warm Jurassic seas."
+  },
+  {
+    "id": "mid_jurassic",
+    "label": "Middle Jurassic",
+    "period": "Jurassic",
+    "epoch": "Middle Jurassic",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 165,
+    "climateData": {
+      "o2Percent": 25.7,
+      "co2Ppm": 1800,
+      "tempC": 21.45
+    },
+    "systemPromptContext": "The user is viewing Earth ~165 million years ago (Middle Jurassic). Dinosaurs are becoming diverse and dominant globally. Sauropods were spreading across Pangea's fragments. The first advanced mammals (docodonts, multituberculates) were occupying nocturnal niches. Pangea was in the early stages of breakup: the central Atlantic was just beginning to open. The Tethys Sea was warm and rich with marine life. Forests of conifers, ferns, and cycads stretched across continental interiors. The Morrison ecosystem had not yet formed; equivalent faunas existed in Europe and China."
+  },
+  {
+    "id": "early_jurassic",
+    "label": "Early Jurassic",
+    "period": "Jurassic",
+    "epoch": "Early Jurassic",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 195,
+    "climateData": {
+      "o2Percent": 25.49,
+      "co2Ppm": 2100,
+      "tempC": 21.15
+    },
+    "systemPromptContext": "The user is viewing Earth ~195 million years ago (Early Jurassic). The world is still recovering from the Triassic-Jurassic mass extinction (~201 Ma). Dinosaurs are rapidly diversifying to fill the vacated ecological space left by the extinction. Early theropods, sauropodomorphs, and ornithischians are spreading across Pangea, which is still largely intact but beginning to rift. CO2 levels are very high from Triassic-Jurassic volcanism (Central Atlantic Magmatic Province). The climate is hot and arid in continental interiors. Marine reptiles (ichthyosaurs, plesiosaurs) are recovering and diversifying."
+  },
+  {
+    "id": "late_triassic",
+    "label": "Late Triassic",
+    "period": "Triassic",
+    "epoch": "Late Triassic",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 215,
+    "climateData": {
+      "o2Percent": 30.69,
+      "co2Ppm": 1800,
+      "tempC": 25.65
+    },
+    "systemPromptContext": "The user is viewing Earth ~215 million years ago (Late Triassic). Pangea is a single supercontinent stretching from pole to pole, dominated by an enormous hot, arid interior. Dinosaurs first appeared in the early Triassic and are now beginning to diversify, but many niches are still held by other archosaurs \u2014 aetosaurs, rauisuchians, phytosaurs. Early mammals (cynodonts, morganucodonts) are small and nocturnal. Lush forests existed in coastal regions and at higher latitudes. The Tethys Sea formed a wide tropical ocean along Pangea's eastern side."
+  },
+  {
+    "id": "mid_triassic",
+    "label": "Middle Triassic",
+    "period": "Triassic",
+    "epoch": "Middle Triassic",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 235,
+    "climateData": {
+      "o2Percent": 32.85,
+      "co2Ppm": 1600,
+      "tempC": 23.36
+    },
+    "systemPromptContext": "The user is viewing Earth ~235 million years ago (Middle Triassic). Pangea remains intact. Ecosystems are recovering from the devastating Permian-Triassic extinction ~17 million years earlier. Archosaurs are diversifying rapidly \u2014 the first dinosauriformes (close dinosaur relatives) appeared in this period. Marine reptiles including nothosaurs and early plesiosaurs are radiating into the Tethys Sea. Temnospondyl amphibians remain large and common. Early turtle-like reptiles (Odontochelys) have appeared. Tropical conditions prevailed across much of Pangea's interior."
+  },
+  {
+    "id": "early_triassic",
+    "label": "Early Triassic",
+    "period": "Triassic",
+    "epoch": "Early Triassic",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 245,
+    "climateData": {
+      "o2Percent": 33.75,
+      "co2Ppm": 2000,
+      "tempC": 28.26
+    },
+    "systemPromptContext": "The user is viewing Earth ~245 million years ago (Early Triassic). This is the immediate aftermath of the Permian-Triassic extinction, the worst mass extinction in Earth's history which killed ~96% of marine species and ~70% of terrestrial vertebrate species. Ecosystems are sparse. The dominant land animals are Lystrosaurus and a few surviving therapsids. The oceans are hot, low-oxygen, and nearly devoid of life. Temperatures were extreme \u2014 the hottest of any period in the Phanerozoic. Microbial mats called stromatolites had returned to shallow seas. Recovery would take 5-10 million years."
+  },
+  {
+    "id": "late_permian",
+    "label": "Late Permian",
+    "period": "Permian",
+    "epoch": "Late Permian",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 260,
+    "climateData": {
+      "o2Percent": 35.8,
+      "co2Ppm": 1200,
+      "tempC": 18.92
+    },
+    "systemPromptContext": "The user is viewing Earth ~260 million years ago (Late Permian). Pangea is fully assembled, the largest supercontinent since the Proterozoic. The vast interior is desert and scrubland. Pelycosaurs have been replaced by therapsids (the mammal-like reptiles) as the dominant large land animals \u2014 gorgonopsids, dicynodonts, and cynognathus-relatives. Pareiasaurs \u2014 large plant-eating reptiles \u2014 are also common. Marine life is extraordinarily diverse in the Tethys Sea. The Siberian Traps volcanism has not yet begun; that catastrophe is still ~8 million years away. Atmospheric oxygen is declining from Carboniferous highs."
+  },
+  {
+    "id": "mid_permian",
+    "label": "Middle Permian",
+    "period": "Permian",
+    "epoch": "Middle Permian",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 275,
+    "climateData": {
+      "o2Percent": 35.15,
+      "co2Ppm": 750,
+      "tempC": 15.07
+    },
+    "systemPromptContext": "The user is viewing Earth ~275 million years ago (Middle Permian). The Gondwanan glaciation that characterized the late Carboniferous is ending, with ice sheets retreating from the southern supercontinent. Pangea is fully assembled. Therapsid mammals-like reptiles are the dominant terrestrial vertebrates, with Dimetrodon and its relatives giving way to true therapsids. Cordaitalean forests and glossopteris vegetation covered Gondwana's recovering landscapes. Marine ecosystems are rich and diverse \u2014 the Permian was a high point for reef ecosystems dominated by rugose and tabulate corals. Trilobites persist but are declining."
+  },
+  {
+    "id": "early_permian",
+    "label": "Early Permian",
+    "period": "Permian",
+    "epoch": "Early Permian",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 290,
+    "climateData": {
+      "o2Percent": 35.09,
+      "co2Ppm": 450,
+      "tempC": 13.1
+    },
+    "systemPromptContext": "The user is viewing Earth ~290 million years ago (Early Permian). Pangea is just completing its assembly as Laurussia (North America + Europe) and Gondwana merge. A vast ice sheet still covers southern Gondwana. Atmospheric oxygen is very high (near Carboniferous peaks) making wildfires common. The famous sail-backed Dimetrodon is the apex predator of North American ecosystems \u2014 it is NOT a dinosaur but a synapsid (our own lineage's ancestor). Temnospondyl amphibians are large and diverse. Vast coal-swamp forests have given way to drier woodlands as the climate dried."
+  },
+  {
+    "id": "late_carboniferous",
+    "label": "Late Carboniferous",
+    "period": "Carboniferous",
+    "epoch": "Pennsylvanian",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 305,
+    "climateData": {
+      "o2Percent": 27.3,
+      "co2Ppm": 341,
+      "tempC": 13.53
+    },
+    "systemPromptContext": "The user is viewing Earth ~305 million years ago (Late Carboniferous, Pennsylvanian). Atmospheric oxygen has reached its highest level in Earth's history \u2014 around 30-35% \u2014 fueling enormous arthropods: Meganeura dragonflies with 70cm wingspans, Arthropleura millipedes 2.5m long. Vast coal swamp forests of Lepidodendron trees (30m tall) covered tropical lowlands. These forests are the source of most coal deposits mined today. Gondwana is glaciated while equatorial regions are tropical. Amniotes (reptiles and early synapsids) have just appeared. The supercontinent Pangea is assembling as Laurussia and Gondwana approach each other."
+  },
+  {
+    "id": "mid_carboniferous",
+    "label": "Middle Carboniferous",
+    "period": "Carboniferous",
+    "epoch": "Pennsylvanian",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 320,
+    "climateData": {
+      "o2Percent": 20.86,
+      "co2Ppm": 550,
+      "tempC": 11.7
+    },
+    "systemPromptContext": "The user is viewing Earth ~320 million years ago (Middle Carboniferous). The coal forests are at their prime. Vast swampy forests of tree-sized clubmosses (lycopods), horsetails, and seed ferns covered equatorial landmasses. These forests had extremely low biodiversity \u2014 dominated by a few species. The oxygen-rich atmosphere supported giant insects. Tetrapods (four-limbed vertebrates) were diversifying rapidly on land; amniotes had just evolved, freeing vertebrates from dependence on water for reproduction. The first reptiles appeared. Southern Gondwana remained heavily glaciated. Sea levels fluctuated cyclically with ice sheet pulses."
+  },
+  {
+    "id": "early_carboniferous",
+    "label": "Early Carboniferous",
+    "period": "Carboniferous",
+    "epoch": "Mississippian",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 345,
+    "climateData": {
+      "o2Percent": 25.11,
+      "co2Ppm": 900,
+      "tempC": 19.02
+    },
+    "systemPromptContext": "The user is viewing Earth ~345 million years ago (Early Carboniferous, Mississippian). Landmasses are beginning to coalesce. Oxygen is rising rapidly as land plants \u2014 especially forests \u2014 spread globally, drawing down CO2 and releasing O2. Vast shallow seas covered continental shelves, teeming with crinoids (sea lilies), blastoids, and corals \u2014 the 'Age of Crinoids.' Early tetrapods were just beginning to venture onto land more permanently. Sharks diversified explosively into the niches vacated by the Late Devonian extinction. Forests were expanding from river systems across dry uplands."
+  },
+  {
+    "id": "late_devonian",
+    "label": "Late Devonian",
+    "period": "Devonian",
+    "epoch": "Late Devonian",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 370,
+    "climateData": {
+      "o2Percent": 16.93,
+      "co2Ppm": 1344,
+      "tempC": 24.44
+    },
+    "systemPromptContext": "The user is viewing Earth ~370 million years ago (Late Devonian). This period is approaching the Late Devonian mass extinction (~374 Ma) that would eliminate ~75% of species. Forests of Archaeopteris (the first true tree) are transforming the land, their root systems dramatically changing weathering and carbon cycling. Tetrapods like Tiktaalik and Acanthostega are evolving from lobe-finned fishes, beginning the conquest of land. Placoderms (armored fish) like Dunkleosteus dominate the seas. Goniatite ammonoids are diversifying. The collision of continents is building the Acadian Mountains in what is now Appalachia."
+  },
+  {
+    "id": "mid_devonian",
+    "label": "Middle Devonian",
+    "period": "Devonian",
+    "epoch": "Middle Devonian",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 390,
+    "climateData": {
+      "o2Percent": 17.86,
+      "co2Ppm": 2200,
+      "tempC": 19.55
+    },
+    "systemPromptContext": "The user is viewing Earth ~390 million years ago (Middle Devonian). The 'Age of Fishes' is in full swing. Placoderms (armored fish) dominate marine and freshwater environments. Lobe-finned fishes (Eusthenopteron, Panderichthys) are beginning to evolve terrestrial adaptations. Land plants are diversifying rapidly \u2014 the first forests are forming. Early spiders, mites, and other arachnids have colonized land. Euramerica (Laurussia) and Gondwana are approaching each other. Reef ecosystems built by stromatoporoid sponges and tabulate corals are the most complex ever seen. Trilobites remain common."
+  },
+  {
+    "id": "early_devonian",
+    "label": "Early Devonian",
+    "period": "Devonian",
+    "epoch": "Early Devonian",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 410,
+    "climateData": {
+      "o2Percent": 19.11,
+      "co2Ppm": 2900,
+      "tempC": 18.31
+    },
+    "systemPromptContext": "The user is viewing Earth ~410 million years ago (Early Devonian). This is when life is first conquering land in earnest. Early vascular land plants (Cooksonia, Baragwanathia) spread across moist coastal areas. The first millipedes and wingless insects are on land. In the seas, jawless fish (agnathans) share oceans with early jawed fish. Trilobites are still abundant. The supercontinent Gondwana occupies the south while Euramerica lies in the tropics. The collision of North America and Europe is building the Caledonide Mountain Belt (ancestral Appalachians/Scottish Highlands). No trees yet \u2014 vegetation is low and moss-like."
+  },
+  {
+    "id": "late_silurian",
+    "label": "Late Silurian",
+    "period": "Silurian",
+    "epoch": "Pridoli",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 420,
+    "climateData": {
+      "o2Percent": 18.53,
+      "co2Ppm": 3200,
+      "tempC": 18.97
+    },
+    "systemPromptContext": "The user is viewing Earth ~420 million years ago (Late Silurian). The first vascular land plants (rhyniophytes) are just colonizing terrestrial environments near water. Early millipedes and scorpions are among the first land animals. The oceans are warm and rich: coral reefs (built by rugose and tabulate corals) cover continental shelves, alongside abundant crinoids, brachiopods, and graptolites. Jawed fish (acanthodians, early placoderms) are diversifying. The supercontinent Gondwana is in the south while smaller continents (Laurentia, Baltica, Avalonia) are coalescing in the tropics. Volcanic island arcs dot the ancient Tethys."
+  },
+  {
+    "id": "mid_silurian",
+    "label": "Middle Silurian",
+    "period": "Silurian",
+    "epoch": "Wenlock",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 430,
+    "climateData": {
+      "o2Percent": 16.71,
+      "co2Ppm": 3600,
+      "tempC": 16.6
+    },
+    "systemPromptContext": "The user is viewing Earth ~430 million years ago (Middle Silurian). The world has recovered from the End-Ordovician mass extinction and is warm and sea-level is high. Shallow epeiric seas covered vast continental shelves. Reef ecosystems are diverse and flourishing. Graptolites, trilobites, brachiopods, and cephalopods fill marine niches. Sea scorpions (eurypterids) reached enormous sizes \u2014 up to 2.5m long \u2014 and were apex predators in shallow waters and possibly on land. The Caledonian orogeny is building mountains as Laurentia and Baltica collide. The first simple land plants are establishing in damp coastal environments."
+  },
+  {
+    "id": "early_silurian",
+    "label": "Early Silurian",
+    "period": "Silurian",
+    "epoch": "Llandovery",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 440,
+    "climateData": {
+      "o2Percent": 12.83,
+      "co2Ppm": 3400,
+      "tempC": 15.66
+    },
+    "systemPromptContext": "The user is viewing Earth ~440 million years ago (Early Silurian). This period follows the End-Ordovician mass extinction and its two pulses of extinction. Ecosystems are recovering: marine life is rebounding with new reef builders, graptolites are re-diversifying, and trilobites are recovering. The great Gondwana ice sheet of the Late Ordovician has melted, sea levels are rising, and the climate is warming. Jawed fish are appearing for the first time. A few pioneering organisms \u2014 algae, fungi, early non-vascular plants \u2014 are beginning to colonize terrestrial surfaces near water."
+  },
+  {
+    "id": "late_ordovician",
+    "label": "Late Ordovician",
+    "period": "Ordovician",
+    "epoch": "Late Ordovician",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 450,
+    "climateData": {
+      "o2Percent": 7.58,
+      "co2Ppm": 3800,
+      "tempC": 14.02
+    },
+    "systemPromptContext": "The user is viewing Earth ~450 million years ago (Late Ordovician). Despite very high CO2 levels, global cooling is occurring as Gondwana drifts over the South Pole. A massive ice sheet is building over what is now Saharan Africa. Sea levels are dropping. This glaciation will trigger the End-Ordovician mass extinction (~443 Ma). Marine life is diverse and complex: trilobites, graptolites, brachiopods, cephalopods, and early echinoderms fill every niche. Jawless fish have diversified but remain fishlike. The land is largely barren \u2014 the first primitive land plants are just beginning to appear."
+  },
+  {
+    "id": "mid_ordovician",
+    "label": "Middle Ordovician",
+    "period": "Ordovician",
+    "epoch": "Middle Ordovician",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 465,
+    "climateData": {
+      "o2Percent": 7.71,
+      "co2Ppm": 4100,
+      "tempC": 17.8
+    },
+    "systemPromptContext": "The user is viewing Earth ~465 million years ago (Middle Ordovician). This is during the Great Ordovician Biodiversification Event \u2014 one of the greatest explosions of marine diversity in Earth's history. The number of marine genera tripled within just a few million years. Complex ecosystems with trilobites, graptolites, brachiopods, cephalopods, echinoderms, and corals are flourishing. Gondwana dominates the southern hemisphere while Laurentia (proto-North America) and other smaller continents sit in the tropics. The climate is warm and seas are high. Reefs built by stromatoporoid sponges and corals are expanding."
+  },
+  {
+    "id": "early_ordovician",
+    "label": "Early Ordovician",
+    "period": "Ordovician",
+    "epoch": "Early Ordovician",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 480,
+    "climateData": {
+      "o2Percent": 4.32,
+      "co2Ppm": 4300,
+      "tempC": 20.24
+    },
+    "systemPromptContext": "The user is viewing Earth ~480 million years ago (Early Ordovician). Life is still exclusively marine. Trilobites reach their peak diversity. Graptolites (colonial filter feeders) float in open ocean plankton zones and are key index fossils for the period. Early jawless fish (heterostracans) are among the first true vertebrates in the fossil record. Gondwana is moving over the South Pole, but the climate remains warm globally. Conodonts (eel-like early vertebrates with mineralized teeth) are common. Laurentia sits near the equator as a tropical carbonate platform rich with reef life."
+  },
+  {
+    "id": "late_cambrian",
+    "label": "Late Cambrian",
+    "period": "Cambrian",
+    "epoch": "Furongian",
+    "subdivision": "Late",
+    "type": "period",
+    "ma": 495,
+    "climateData": {
+      "o2Percent": 12.62,
+      "co2Ppm": 4500,
+      "tempC": 21.58
+    },
+    "systemPromptContext": "The user is viewing Earth ~495 million years ago (Late Cambrian / Furongian). Life has diversified enormously since the Cambrian Explosion. The Cambrian substrate revolution is underway: burrowing organisms have transformed the seafloor from flat microbial mats to a complex tiered ecosystem. Trilobites dominate and are reaching their early peak diversity. Conodonts are present. Gondwana dominates the southern hemisphere. No life exists on land \u2014 continents are barren rock. Atmospheric oxygen is still low by modern standards. Ocean chemistry differs significantly from today: calcite seas support different mineralogy in shelled organisms."
+  },
+  {
+    "id": "mid_cambrian",
+    "label": "Middle Cambrian",
+    "period": "Cambrian",
+    "epoch": "Middle Cambrian",
+    "subdivision": "Middle",
+    "type": "period",
+    "ma": 510,
+    "climateData": {
+      "o2Percent": 8.09,
+      "co2Ppm": 4600,
+      "tempC": 24.36
+    },
+    "systemPromptContext": "The user is viewing Earth ~510 million years ago (Middle Cambrian). This is the world of the Burgess Shale fauna \u2014 bizarre soft-bodied organisms including Anomalocaris (apex predator), Opabinia (five eyes, frontal proboscis), Hallucigenia (spiny worm), and hundreds of other unique body plans. Many of these represent early experiments in animal body plans, some without any living descendants. Trilobites are abundantly diverse. Cambrian reefs are built by archaeocyathid sponges (now extinct). Continents are distributed around the tropics and subtropics. The ocean floor is soft and nutrient-rich."
+  },
+  {
+    "id": "early_cambrian",
+    "label": "Early Cambrian",
+    "period": "Cambrian",
+    "epoch": "Early Cambrian",
+    "subdivision": "Early",
+    "type": "period",
+    "ma": 530,
+    "climateData": {
+      "o2Percent": 10.77,
+      "co2Ppm": 4700,
+      "tempC": 25.08
+    },
+    "systemPromptContext": "The user is viewing Earth ~530 million years ago (Early Cambrian). The Cambrian Explosion is underway \u2014 nearly all major animal body plans are appearing within a geologically short interval. The oceans are filling with the first complex animals equipped with eyes, shells, and the ability to prey on others. Early trilobites appear. The small shelly fauna \u2014 an assortment of tiny armored organisms \u2014 covers the seafloor. Archaeocyathid reefs are flourishing in warm shallow seas. Gondwana is the dominant supercontinent. No animals exist on land. Atmospheric oxygen is still low but rising as photosynthetic organisms spread."
+  },
+  {
+    "id": "cambrian_explosion",
+    "label": "Cambrian Explosion",
+    "period": "Cambrian",
+    "epoch": "Early Cambrian",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 538,
+    "climateData": {
+      "o2Percent": 5.02,
+      "co2Ppm": 4800,
+      "tempC": 26.99
+    },
+    "systemPromptContext": "The user is viewing the Cambrian Explosion (~538 Ma) \u2014 arguably the most important evolutionary event in the history of animal life. Within roughly 20 million years, nearly all the major animal body plans (phyla) that exist today appeared in the fossil record. Eyes evolved for the first time, triggering an evolutionary arms race between predators and prey. Hard shells, claws, and mineralized skeletons appeared. The first predator-prey dynamics emerged. Key sites: the Burgess Shale (Canada), Chengjiang biota (China), Sirius Passet (Greenland). The trigger for the explosion is debated: rising oxygen, ecological feedback, genomic changes, or environmental shifts may all have played roles."
+  },
+  {
+    "id": "great_ordovician_biodiversification",
+    "label": "Great Ordovician Biodiversification Event",
+    "period": "Ordovician",
+    "epoch": "Middle Ordovician",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 470,
+    "climateData": {
+      "o2Percent": 4.28,
+      "co2Ppm": 4200,
+      "tempC": 18.52
+    },
+    "systemPromptContext": "The user is viewing the Great Ordovician Biodiversification Event (GOBE, ~480-460 Ma) \u2014 the second great radiation of marine animal life after the Cambrian Explosion. Marine genus richness roughly tripled during this interval. Brachiopods, bryozoans, cephalopods, echinoderms, and corals radiated explosively. Ecological complexity increased dramatically: multi-tiered reef ecosystems developed, predation pressure intensified, and the seafloor was partitioned into many distinct ecological zones. The GOBE coincides with the fragmentation of Gondwana's margin, the creation of new shallow-water habitats, and shifts in ocean chemistry. It established the marine ecosystems that would dominate for the next 250 million years."
+  },
+  {
+    "id": "end_ordovician_extinction",
+    "label": "End-Ordovician Mass Extinction",
+    "period": "Ordovician",
+    "epoch": "Late Ordovician",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 443,
+    "climateData": {
+      "o2Percent": 14.71,
+      "co2Ppm": 2100,
+      "tempC": 11.1
+    },
+    "systemPromptContext": "The user is viewing the End-Ordovician Mass Extinction (~443 Ma) \u2014 the second-largest mass extinction in Earth's history, eliminating ~85% of marine species in two distinct pulses. The trigger was a rapid glaciation as Gondwana moved over the South Pole, causing sea levels to drop dramatically and cooling the oceans. The first pulse killed warm-water organisms as seas cooled and shallowed. The second pulse \u2014 as the ice melted and anoxic deep water upwelled \u2014 killed many survivors. Graptolites, trilobites, brachiopods, and conodonts all suffered enormous losses. The event reshaped marine ecosystems for the rest of the Paleozoic."
+  },
+  {
+    "id": "late_devonian_extinction",
+    "label": "Late Devonian Mass Extinction",
+    "period": "Devonian",
+    "epoch": "Late Devonian",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 374,
+    "climateData": {
+      "o2Percent": 16.61,
+      "co2Ppm": 1400,
+      "tempC": 23.73
+    },
+    "systemPromptContext": "The user is viewing the Late Devonian Mass Extinction (~374 Ma, Frasnian-Famennian boundary) \u2014 a prolonged crisis that eliminated ~75% of species in multiple extinction pulses over several million years. The trigger is linked to the spread of forests: tree roots weathered rock more deeply, releasing nutrients into the ocean and triggering massive algal blooms and ocean anoxia. Placoderms (armored fish) \u2014 previously dominant \u2014 were nearly wiped out. Reef ecosystems collapsed entirely, not to recover for 15 million years. The Kellwasser and Hangenberg events were the main extinction pulses. This crisis cleared the way for tetrapods and cartilaginous fish to diversify."
+  },
+  {
+    "id": "carboniferous_rainforest_collapse",
+    "label": "Carboniferous Rainforest Collapse",
+    "period": "Carboniferous",
+    "epoch": "Pennsylvanian",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 307,
+    "climateData": {
+      "o2Percent": 27.0,
+      "co2Ppm": 350,
+      "tempC": 13.36
+    },
+    "systemPromptContext": "The user is viewing the Carboniferous Rainforest Collapse (~307 Ma) \u2014 a dramatic fragmentation of the vast tropical coal swamp forests that had dominated equatorial Pangea. A sudden climate shift \u2014 possibly driven by Gondwana glaciation cooling the tropics \u2014 broke the continuous rainforest belt into isolated island fragments. This isolation drove rapid evolutionary divergence: reptile lineages that had been evolving gradually suddenly diversified explosively, separated into distinct populations. The amniote egg \u2014 freeing vertebrates from water \u2014 became more advantageous in the patchy, drier new landscape. This event accelerated the rise of reptiles and the eventual dominance of synapsids."
+  },
+  {
+    "id": "permian_triassic_extinction",
+    "label": "Permian-Triassic Mass Extinction",
+    "period": "Permian",
+    "epoch": "Late Permian",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 252,
+    "climateData": {
+      "o2Percent": 36.32,
+      "co2Ppm": 3200,
+      "tempC": 27.29
+    },
+    "systemPromptContext": "The user is viewing the Permian-Triassic Mass Extinction (~252 Ma) \u2014 the most catastrophic biological event in Earth's history, often called 'The Great Dying.' It eliminated approximately 96% of marine species and 70% of terrestrial vertebrate species. The trigger: the Siberian Traps \u2014 the largest volcanic eruption in the last 600 million years \u2014 erupted massive amounts of CO2 and methane, causing rapid global warming, ocean acidification, and widespread anoxia. Temperatures at the equator may have reached 60\u00b0C in some areas. Trilobites went extinct forever. Reef ecosystems collapsed completely. It took 10 million years for ecosystems to recover. This extinction cleared the way for the rise of archosaurs and ultimately dinosaurs."
+  },
+  {
+    "id": "triassic_jurassic_extinction",
+    "label": "Triassic-Jurassic Mass Extinction",
+    "period": "Triassic",
+    "epoch": "Late Triassic",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 201,
+    "climateData": {
+      "o2Percent": 26.66,
+      "co2Ppm": 2600,
+      "tempC": 23.25
+    },
+    "systemPromptContext": "The user is viewing the Triassic-Jurassic Mass Extinction (~201 Ma) \u2014 the fourth of the 'Big Five' mass extinctions, eliminating ~80% of species. The trigger was the Central Atlantic Magmatic Province \u2014 massive flood basalt volcanism as Pangea began to rift apart, opening the proto-Atlantic Ocean. CO2 and sulfur dioxide flooded the atmosphere, causing rapid global warming and ocean acidification. Crurotarsi (the reptile lineage that includes modern crocodilians) were nearly wiped out, clearing the way for dinosaurs to become the dominant large land animals of the Jurassic. Marine reptiles, conodonts (which went extinct), and large amphibians were also devastated."
+  },
+  {
+    "id": "jurassic_marine_revolution",
+    "label": "Mesozoic Marine Revolution",
+    "period": "Jurassic",
+    "epoch": "Late Jurassic",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 155,
+    "climateData": {
+      "o2Percent": 25.81,
+      "co2Ppm": 1875,
+      "tempC": 21.75
+    },
+    "systemPromptContext": "The user is viewing the peak of the Mesozoic Marine Revolution (~160-130 Ma) \u2014 a fundamental restructuring of marine ecosystems driven by the rise of powerful shell-crushing predators (durophages). New predators \u2014 teleost fish, crabs, sea urchins, rays, and marine reptiles \u2014 evolved adaptations to crush, drill, and break open hard-shelled prey. In response, mollusks, echinoderms, and crustaceans evolved thicker shells, deeper burrowing behaviors, and more cryptic lifestyles. This arms race transformed the structure of marine communities from Paleozoic-style passive suspension feeders to the active, predator-driven ecosystems we see in modern oceans. It also contributed to the decline of brachiopods and rise of bivalves."
+  },
+  {
+    "id": "kpg_extinction",
+    "label": "K-Pg Mass Extinction",
+    "period": "Cretaceous",
+    "epoch": "Late Cretaceous",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 65,
+    "climateData": {
+      "o2Percent": 27.41,
+      "co2Ppm": 1100,
+      "tempC": 8.09
+    },
+    "systemPromptContext": "The user is viewing the Cretaceous-Paleogene (K-Pg) Mass Extinction (~66 Ma) \u2014 the most famous mass extinction, ending the reign of non-avian dinosaurs. A 10-12 km asteroid struck the Yucatan Peninsula with the force of a billion nuclear bombs, triggering global wildfires, a 'nuclear winter' that blocked sunlight for years, and acid rain. Around 75% of species went extinct, including all non-avian dinosaurs, pterosaurs, mosasaurs, plesiosaurs, and ammonites. Mammals, birds (avian dinosaurs), crocodilians, and turtles survived. The Chicxulub crater (180 km diameter) is the preserved impact site. Simultaneously, the Deccan Traps in India were erupting, which may have stressed ecosystems beforehand."
+  },
+  {
+    "id": "petm",
+    "label": "Paleocene-Eocene Thermal Maximum",
+    "period": "Paleogene",
+    "epoch": "Paleocene/Eocene",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 56,
+    "climateData": {
+      "o2Percent": 26.73,
+      "co2Ppm": 2000,
+      "tempC": 23.68
+    },
+    "systemPromptContext": "The user is viewing the Paleocene-Eocene Thermal Maximum (PETM, ~56 Ma) \u2014 Earth's most dramatic rapid warming event in the past 66 million years. Global temperatures rose by 5-8\u00b0C within about 20,000 years, driven by a massive release of carbon (possibly from volcanic activity, methane hydrates, or orbital forcing). This is the closest geological analog to modern anthropogenic warming. Deep-sea benthic foraminifera suffered a major extinction. On land, mammals diversified and dispersed globally as new migration routes opened. The event lasted ~170,000 years. Modern carbon emissions are occurring 10x faster than during the PETM, making recovery far less certain."
+  },
+  {
+    "id": "eocene_oligocene_transition",
+    "label": "Eocene-Oligocene Transition",
+    "period": "Paleogene",
+    "epoch": "Eocene/Oligocene",
+    "subdivision": "Event",
+    "type": "event",
+    "ma": 34,
+    "climateData": {
+      "o2Percent": 22.21,
+      "co2Ppm": 600,
+      "tempC": 18.46
+    },
+    "systemPromptContext": "The user is viewing the Eocene-Oligocene Transition (~34 Ma) \u2014 the most significant climate shift since the K-Pg extinction, often called the 'Great Cooling.' Global temperatures dropped by 4-5\u00b0C within 300,000 years, and a permanent ice sheet formed on Antarctica for the first time in ~35 million years. Sea levels dropped dramatically. The trigger: the opening of the Drake Passage between Antarctica and South America isolated Antarctica from warm currents. CO2 drawdown also contributed. Tropical forests retreated; open habitats expanded. Many archaic mammal lineages (perissodactyls, primates in northern latitudes) declined, replaced by more cold-adapted forms. This transition set the stage for the Ice Ages ahead."
+  }
 ]

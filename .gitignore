@@ -1,5 +1,6 @@
 # Heavy raw scientific datasets
 paleodems/
+climate_data_raw/
 *.nc
 
 # Experimental / temporary bake renders
