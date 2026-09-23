@@ -231,9 +231,54 @@ def extract_metadata(entry: dict, page_html: str) -> dict:
         "raw_text": clean_text,
     }
 
+ECOSYSTEM_CATALOG = {
+    "burgess_shale": {
+        "id": "burgess_shale_fauna_tamura",
+        "filename": "burgess_shale_fauna_nobu_tamura.jpg",
+        "title": "Burgess Shale Marine Community",
+        "description": "A composite ecosystem reconstruction of the Middle Cambrian Burgess Shale biota (~508 Ma, British Columbia, Canada). Featured are the apex radiodont predator Anomalocaris and giant Hurdia, the five-eyed Opabinia, the spiny slug-like Wiwaxia, the early fish Metaspriggina, the lace crab Marrella, swimming Waptia, and benthic sponges.",
+        "tags": [
+            "burgess_shale", "burgess_shale_fauna", "cambrian", "mid_cambrian", "middle_cambrian", "paleozoic",
+            "anomalocaris", "opabinia", "wiwaxia", "hallucigenia", "hurdia", "marrella", "metaspriggina", "waptia", "ottoia",
+            "radiodont", "apex_predator", "lobopod", "arthropod", "marine_invertebrate", "early_vertebrate", "chordate",
+            "marine", "benthic", "ecosystem", "seafloor", "community"
+        ],
+        "keyframes": ["mid_cambrian"]
+    },
+    "chengjiang": {
+        "id": "chengjiang_fauna_tamura",
+        "filename": "chengjiang_fauna_nobu_tamura.jpg",
+        "title": "Chengjiang Biota Seafloor Community",
+        "description": "A vibrant reconstruction of the Early Cambrian Chengjiang marine ecosystem (~520 Ma, Yunnan, China). Featured are the apex predator Anomalocaris saron in the water column, the enigmatic bivalved vetulicolian Didazoon, swimming stem-vertebrate fish Haikouichthys, crawling trilobites, the armored lobopod Diania, and seafloor sea anemones (Archisaccophyllia).",
+        "tags": [
+            "chengjiang", "chengjiang_biota", "chengjiang_fauna", "maotianshan_shale", "cambrian", "early_cambrian", "cambrian_explosion", "paleozoic",
+            "anomalocaris", "vetulicolia", "didazoon", "haikouichthys", "myllokunmingia", "fuxianhuia", "diania", "archisaccophyllia", "trilobite",
+            "radiodont", "apex_predator", "early_vertebrate", "chordate", "lobopod", "arthropod", "marine_invertebrate", "sea_anemone",
+            "marine", "benthic", "ecosystem", "seafloor", "community"
+        ],
+        "keyframes": ["early_cambrian", "cambrian_explosion"]
+    }
+}
+
 def derive_classification(meta: dict) -> dict:
     """Generate tags, keyframes, title, id, and description for image-library.json."""
     title = meta["title"]
+    title_low = title.lower()
+
+    # Check for curated ecosystem/assemblage profiles
+    for eco_key, eco_data in ECOSYSTEM_CATALOG.items():
+        if eco_key.replace('_', ' ') in title_low or eco_key in title_low:
+            return {
+                "id": eco_data["id"],
+                "filename": eco_data["filename"],
+                "title": eco_data["title"],
+                "credit": "Nobu Tamura",
+                "license": "CC BY-SA 4.0",
+                "description": eco_data["description"],
+                "tags": sorted(list(set(eco_data["tags"]))),
+                "keyframes": sorted(list(set(eco_data["keyframes"])))
+            }
+
     # Genus and species tokens
     words = [re.sub(r'[^a-zA-Z0-9]', '', w).lower() for w in title.split() if w]
     genus = words[0] if words else "fossil"

@@ -268,6 +268,92 @@
         "early_cambrian"
       ],
       "source_url": "https://spinops.blogspot.com/2017/02/myllokunmingia-fengjiaoa.html"
+    },
+    {
+      "id": "burgess_shale_fauna_tamura",
+      "filename": "burgess_shale_fauna_nobu_tamura.jpg",
+      "title": "Burgess Shale Marine Community",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "A composite ecosystem reconstruction of the Middle Cambrian Burgess Shale biota (~508 Ma, British Columbia, Canada). Featured are the apex radiodont predator Anomalocaris and giant Hurdia, the five-eyed Opabinia, the spiny slug-like Wiwaxia, the early fish Metaspriggina, the lace crab Marrella, swimming Waptia, and benthic sponges.",
+      "tags": [
+        "anomalocaris",
+        "apex_predator",
+        "arthropod",
+        "benthic",
+        "burgess_shale",
+        "burgess_shale_fauna",
+        "cambrian",
+        "chordate",
+        "community",
+        "early_vertebrate",
+        "ecosystem",
+        "hallucigenia",
+        "hurdia",
+        "lobopod",
+        "marine",
+        "marine_invertebrate",
+        "marrella",
+        "metaspriggina",
+        "mid_cambrian",
+        "middle_cambrian",
+        "opabinia",
+        "ottoia",
+        "paleozoic",
+        "radiodont",
+        "seafloor",
+        "waptia",
+        "wiwaxia"
+      ],
+      "keyframes": [
+        "mid_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/burgess-shale-fauna.html"
+    },
+    {
+      "id": "chengjiang_fauna_tamura",
+      "filename": "chengjiang_fauna_nobu_tamura.jpg",
+      "title": "Chengjiang Biota Seafloor Community",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "A vibrant reconstruction of the Early Cambrian Chengjiang marine ecosystem (~520 Ma, Yunnan, China). Featured are the apex predator Anomalocaris saron in the water column, the enigmatic bivalved vetulicolian Didazoon, swimming stem-vertebrate fish Haikouichthys, crawling trilobites, the armored lobopod Diania, and seafloor sea anemones (Archisaccophyllia).",
+      "tags": [
+        "anomalocaris",
+        "apex_predator",
+        "archisaccophyllia",
+        "arthropod",
+        "benthic",
+        "cambrian",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "chengjiang_fauna",
+        "chordate",
+        "community",
+        "diania",
+        "didazoon",
+        "early_cambrian",
+        "early_vertebrate",
+        "ecosystem",
+        "fuxianhuia",
+        "haikouichthys",
+        "lobopod",
+        "maotianshan_shale",
+        "marine",
+        "marine_invertebrate",
+        "myllokunmingia",
+        "paleozoic",
+        "radiodont",
+        "sea_anemone",
+        "seafloor",
+        "trilobite",
+        "vetulicolia"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/chengjiang-fauna.html"
     }
   ]
 }
