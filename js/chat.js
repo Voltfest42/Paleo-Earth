@@ -14,6 +14,7 @@ import { speak } from './tts.js';
 
 // ─── Markdown → simple HTML ───────────────────────────────────────────────
 function simpleMarkdown(text) {
+  if (!text) return '';
   return text
     .replace(/\[\[IMAGE:[^\]]*\]\]/gi, '') // strip image tags (handled separately)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -76,7 +77,7 @@ async function prodChat(messages, context, userMessage) {
     throw new Error(err.error || `API error ${res.status}`);
   }
   const data = await res.json();
-  return data.response;
+  return data.reply || data.response || '';
 }
 
 // ─── Chat class ───────────────────────────────────────────────────────────

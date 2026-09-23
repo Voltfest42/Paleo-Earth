@@ -181,7 +181,7 @@ def handle_chat(body: dict) -> dict:
                 ).strip()
                 if not reply_text:
                     return _error(502, "Anthropic API returned an empty response.")
-                return _response(200, {"reply": reply_text, "success": True})
+                return _response(200, {"reply": reply_text, "response": reply_text, "success": True})
         except urllib.error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             print(f"[chat] Anthropic API HTTP error {exc.code}: {err_body}")
@@ -235,7 +235,7 @@ def handle_chat(body: dict) -> dict:
     print(f"[chat] Reply length={len(reply_text)} chars, "
           f"stop_reason={response_body.get('stop_reason')}")
 
-    return _response(200, {"reply": reply_text, "success": True})
+    return _response(200, {"reply": reply_text, "response": reply_text, "success": True})
 
 
 def handle_tts(body: dict) -> dict:
