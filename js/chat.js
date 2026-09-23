@@ -92,7 +92,8 @@ export class Chat {
     this._context     = null; // current keyframe context
     this._sending     = false;
     this._summaryText = '';
-    this._lastDividerKeyframeId = null;
+    this._lastCommittedKeyframeId = 'holocene';
+    this._pendingDividerEl = null;
 
     this._attach();
   }
@@ -144,14 +145,32 @@ export class Chat {
 
   /**
    * Called when the slider has stopped moving on a keyframe.
-   * Inserts a single clean context divider in the chat thread if conversation is active.
+   * Replaces or updates the provisional divider so dividers never stack without messages.
    * @param {object} keyframe
    */
   onKeyframeSettled(keyframe) {
     if (!keyframe) return;
-    if (this._history.length > 0 && this._lastDividerKeyframeId !== keyframe.id) {
-      this._lastDividerKeyframeId = keyframe.id;
-      this._appendDivider(`Now viewing: ${keyframe.label} · ${keyframe.ma} Ma`);
+
+    // Only display dividers once a conversation has started
+    if (this._history.length === 0) return;
+
+    // If user returns to the keyframe where the last message was sent, remove provisional divider
+    if (keyframe.id === this._lastCommittedKeyframeId) {
+      if (this._pendingDividerEl) {
+        this._pendingDividerEl.remove();
+        this._pendingDividerEl = null;
+      }
+      return;
+    }
+
+    const text = `Viewing: ${keyframe.label} · ${keyframe.ma} Ma`;
+
+    // If an uncommitted divider already exists, update it in place instead of creating another
+    if (this._pendingDividerEl && this._pendingDividerEl.parentNode) {
+      this._pendingDividerEl.textContent = text;
+      this._scrollToBottom();
+    } else {
+      this._pendingDividerEl = this._appendDivider(text);
     }
   }
 
@@ -163,6 +182,16 @@ export class Chat {
 
     this._el.chatInput.value = '';
     this._setSending(true);
+
+    // If there is an active provisional divider, lock it into permanent chat history
+    if (this._pendingDividerEl) {
+      this._pendingDividerEl = null;
+    } else if (this._history.length > 0 && this._context && this._context.id !== this._lastCommittedKeyframeId) {
+      // Fallback: message sent before slider settle event fired
+      this._appendDivider(`Viewing: ${this._context.label} · ${this._context.ma} Ma`);
+    }
+
+    this._lastCommittedKeyframeId = this._context ? this._context.id : null;
 
     // Append to history and DOM
     this._history.push({ role: 'user', content: text });
@@ -258,11 +287,15 @@ export class Chat {
   }
 
   _appendDivider(label) {
+    const welcome = document.getElementById('chatWelcome');
+    if (welcome) welcome.style.display = 'none';
+
     const div = document.createElement('div');
     div.className   = 'context-divider';
     div.textContent = label;
     this._el.chatMessages.appendChild(div);
     this._scrollToBottom();
+    return div;
   }
 
   _appendTypingIndicator() {
