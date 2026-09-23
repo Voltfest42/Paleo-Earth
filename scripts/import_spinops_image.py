@@ -147,7 +147,7 @@ def extract_lines(raw_html: str) -> list[str]:
     lines = []
     for l in raw_lines:
         if not l: continue
-        if any(skip in l.lower() for skip in ['all illustrations on this site', 'references:', 'high resolution versions', 'questions: contact me', 'geyer, g.']):
+        if any(skip in l.lower() for skip in ['all illustrations on this site', 'all images on this site', 'references:', 'high resolution versions', 'questions: contact me', 'geyer, g.']):
             break
         if re.match(r'^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}$', l):
             continue
@@ -260,6 +260,135 @@ ECOSYSTEM_CATALOG = {
     }
 }
 
+CURATED_ENTRIES = {
+    "arandaspis_prionotolepis": {
+        "title": "Arandaspis prionotolepis",
+        "description": "Arandaspis was one of the earliest known jawless fish (arandaspid), inhabiting shallow coastal waters of Gondwana (modern Australia) during the Ordovician. It was protected by hard dorsal and ventral armor shields with branchial openings and lacked paired fins.",
+        "tags": [
+            "arandaspid", "arandaspis", "arandaspis_prionotolepis", "australia", "chordate", "early_ordovician",
+            "early_vertebrate", "fish", "gondwana", "great_ordovician_biodiversification", "jawless_fish",
+            "marine", "mid_ordovician", "ordovician", "paleozoic"
+        ],
+        "keyframes": ["early_ordovician", "great_ordovician_biodiversification", "mid_ordovician"]
+    },
+    "helcionelloidea": {
+        "title": "Helcionelloid Stem-Mollusks",
+        "description": "Helcionelloids were an extinct group of primitive, cap-shaped stem-mollusks spanning the Early Cambrian to Early Ordovician. Many possessed an apical slit or snorkel-like pipe on their conchs, representing some of the earliest mineralized shelled mollusks.",
+        "tags": [
+            "benthic", "cambrian", "cambrian_explosion", "early_cambrian", "early_ordovician", "helcionellid",
+            "helcionelloidea", "marine", "marine_invertebrate", "mid_cambrian", "mollusc", "ordovician",
+            "paleozoic", "stem_mollusc"
+        ],
+        "keyframes": ["cambrian_explosion", "early_cambrian", "early_ordovician", "mid_cambrian"]
+    },
+    "cyrtoceras_sp": {
+        "title": "Cyrtoceras sp.",
+        "description": "Cyrtoceras was an early nautiloid cephalopod characterized by a gently curved conical shell (cyrtocone) with closely spaced septa and a central siphuncle, widely distributed in Paleozoic seas from the Middle Ordovician through the Devonian.",
+        "tags": [
+            "cephalopod", "cyrtoceras", "cyrtoceras_sp", "great_ordovician_biodiversification", "late_ordovician",
+            "marine", "marine_invertebrate", "mid_ordovician", "mollusc", "nautiloid", "ordovician",
+            "paleozoic", "predator"
+        ],
+        "keyframes": ["great_ordovician_biodiversification", "late_ordovician", "mid_ordovician"]
+    },
+    "tetragraptus_fruticosis": {
+        "title": "Tetragraptus fruticosus",
+        "description": "Tetragraptus fruticosus was a distinctive four-branched, tuning-fork-shaped planktonic graptolite colony. Graptolites were colonial hemichordates that drifted in open oceans worldwide and serve as key index fossils for the Ordovician.",
+        "tags": [
+            "colonial", "early_ordovician", "graptolite", "great_ordovician_biodiversification", "hemichordate",
+            "marine", "mid_ordovician", "ordovician", "paleozoic", "planktonic", "tetragraptus", "tetragraptus_fruticosus"
+        ],
+        "keyframes": ["early_ordovician", "great_ordovician_biodiversification", "mid_ordovician"]
+    },
+    "sacabambaspis_janvieri": {
+        "title": "Sacabambaspis janvieri",
+        "description": "Sacabambaspis was an armored jawless fish (arandaspid) from the Ordovician of Gondwana (Bolivia). It possessed forward-facing close-set eyes, an inflexible dorsal and ventral armor shield, a blunt snout, and a long flexible tail.",
+        "tags": [
+            "arandaspid", "bolivia", "chordate", "early_vertebrate", "fish", "gondwana",
+            "great_ordovician_biodiversification", "jawless_fish", "late_ordovician", "marine",
+            "mid_ordovician", "ordovician", "paleozoic", "sacabambaspis", "sacabambaspis_janvieri"
+        ],
+        "keyframes": ["great_ordovician_biodiversification", "late_ordovician", "mid_ordovician"]
+    },
+    "astraspis_desiderata": {
+        "title": "Astraspis desiderata",
+        "description": "Astraspis was a primitive armored jawless fish from the Late Ordovician Harding Sandstone of Colorado. Its headshield was paved with hundreds of small star-patterned bony plates called tesserae, protecting one of North America's earliest known vertebrates.",
+        "tags": [
+            "arandaspid", "astraspis", "astraspis_desiderata", "chordate", "early_vertebrate",
+            "end_ordovician_extinction", "fish", "harding_sandstone", "jawless_fish", "late_ordovician",
+            "marine", "north_america", "ordovician", "paleozoic"
+        ],
+        "keyframes": ["end_ordovician_extinction", "late_ordovician"]
+    },
+    "aegirocassis_benmoulae": {
+        "title": "Aegirocassis benmoulae",
+        "description": "Reaching over two meters in length, Aegirocassis was a giant hurdiid radiodont from the Early Ordovician Fezouata biota of Morocco. Unlike earlier predatory radiodonts, Aegirocassis was a gentle suspension filter-feeder that strained plankton from the water column.",
+        "tags": [
+            "aegirocassis", "aegirocassis_benmoulae", "arthropod", "early_ordovician", "fezouata",
+            "filter_feeder", "giant", "great_ordovician_biodiversification", "hurdiid", "marine",
+            "marine_invertebrate", "morocco", "ordovician", "paleozoic", "radiodont"
+        ],
+        "keyframes": ["early_ordovician", "great_ordovician_biodiversification"]
+    },
+    "promissum_pulchrum": {
+        "title": "Promissum pulchrum",
+        "description": "Measuring up to 40 cm in length, Promissum was an exceptionally large eel-like conodont from the Late Ordovician Soom Shale of South Africa. Soft-tissue fossils demonstrate large eyes with extrinsic muscles and a complex phosphatic feeding apparatus.",
+        "tags": [
+            "chordate", "conodont", "early_vertebrate", "end_ordovician_extinction", "late_ordovician",
+            "marine", "ordovician", "paleozoic", "promissum", "promissum_pulchrum", "soom_shale", "south_africa"
+        ],
+        "keyframes": ["end_ordovician_extinction", "late_ordovician"]
+    },
+    "calvapilosa_kroegeri": {
+        "title": "Calvapilosa kroegeri",
+        "description": "Calvapilosa was a slug-like stem-group mollusk (halwaxiid) from the Early Ordovician Fezouata Formation of Morocco. It had a single anterior cap-like shell plate, a dorsum covered in hollow spines, and an exquisitely preserved radula with 125 rows of teeth.",
+        "tags": [
+            "benthic", "calvapilosa", "calvapilosa_kroegeri", "early_ordovician", "fezouata",
+            "great_ordovician_biodiversification", "halwaxiid", "marine", "marine_invertebrate",
+            "mollusc", "morocco", "ordovician", "paleozoic", "stem_mollusc"
+        ],
+        "keyframes": ["early_ordovician", "great_ordovician_biodiversification"]
+    },
+    "obolus_apollinis": {
+        "title": "Obolus apollinis",
+        "description": "Obolus is an inarticulate linguliform brachiopod with a phosphatic shell, abundant across the Cambrian-Ordovician boundary in the Baltic region. Immense accumulations of its shells formed extensive fossiliferous sandstone layers known as Obolus sandstone.",
+        "tags": [
+            "baltic", "benthic", "brachiopod", "cambrian", "early_ordovician", "late_cambrian",
+            "linguliform", "marine", "marine_invertebrate", "obolus", "obolus_apollinis", "ordovician", "paleozoic"
+        ],
+        "keyframes": ["early_ordovician", "late_cambrian"]
+    },
+    "calymene_blumenbachii": {
+        "title": "Calymene blumenbachii",
+        "description": "Affectionately known as the 'Dudley Bug', Calymene blumenbachii is an iconic calymenid trilobite from the Wenlock Silurian of England. It is famed for its tuberculated exoskeleton and its ability to enroll into a tight protective sphere.",
+        "tags": [
+            "arthropod", "benthic", "calymene", "calymene_blumenbachii", "early_silurian", "england",
+            "marine", "marine_invertebrate", "mid_silurian", "paleozoic", "silurian", "trilobite", "wenlock"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "triarthrus_eatoni": {
+        "title": "Triarthrus eatoni",
+        "description": "Specimens of this Late Ordovician olenid trilobite found at Beecher's Trilobite Bed (New York) exhibit exquisite pyritized preservation of delicate legs, gills, and antennae, offering rare insights into soft trilobite anatomy.",
+        "tags": [
+            "arthropod", "benthic", "end_ordovician_extinction", "late_ordovician", "marine",
+            "marine_invertebrate", "new_york", "ordovician", "paleozoic", "pyrite", "triarthrus",
+            "triarthrus_eatoni", "trilobite"
+        ],
+        "keyframes": ["end_ordovician_extinction", "late_ordovician"]
+    },
+    "albalimulus_bottoni": {
+        "title": "Albalimulus bottoni",
+        "description": "Albalimulus was an early horseshoe crab (xiphosuran) from the Tournaisian (Early Carboniferous) Ballagan Formation of Scotland. Representing an early relative of modern limulids, it highlights the ancient ancestry of horseshoe crabs whose lineage dates back to the Ordovician.",
+        "tags": [
+            "albalimulus", "albalimulus_bottoni", "arthropod", "carboniferous", "chelicerate",
+            "early_carboniferous", "horseshoe_crab", "marine", "marine_invertebrate", "paleozoic",
+            "scotland", "xiphosura"
+        ],
+        "keyframes": ["early_carboniferous"]
+    }
+}
+
 def derive_classification(meta: dict) -> dict:
     """Generate tags, keyframes, title, id, and description for image-library.json."""
     title = meta["title"]
@@ -283,6 +412,20 @@ def derive_classification(meta: dict) -> dict:
     words = [re.sub(r'[^a-zA-Z0-9]', '', w).lower() for w in title.split() if w]
     genus = words[0] if words else "fossil"
     species = words[1] if len(words) > 1 else ""
+
+    curated_lookup = f"{genus}_{species}" if species else genus
+    if curated_lookup in CURATED_ENTRIES:
+        cur = CURATED_ENTRIES[curated_lookup]
+        return {
+            "id": f"{curated_lookup}_tamura",
+            "filename": f"{curated_lookup}_nobu_tamura.jpg",
+            "title": cur["title"],
+            "credit": "Nobu Tamura",
+            "license": "CC BY-SA 4.0",
+            "description": cur["description"],
+            "tags": sorted(list(set(cur["tags"]))),
+            "keyframes": sorted(list(set(cur["keyframes"])))
+        }
 
     # Unique id
     item_id = f"{genus}_{species}_tamura" if species else f"{genus}_tamura"
