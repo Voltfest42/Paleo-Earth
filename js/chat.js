@@ -221,6 +221,7 @@ export class Chat {
     // Show typing indicator
     const typingEl = this._appendTypingIndicator();
 
+    try {
       // Enrich system context with available image gallery metadata
       const activeImages = this._imageLib.filter(img =>
         (img.keyframes || []).includes(this._context?.id)
