@@ -439,6 +439,47 @@ ECOSYSTEM_CATALOG = {
             "phalarodon", "prida_formation", "reptile", "shark", "triassic", "usa"
         ],
         "keyframes": ["mid_triassic"]
+    },
+    "blue_lias": {
+        "id": "blue_lias_formation_tamura",
+        "filename": "blue_lias_formation_nobu_tamura.jpg",
+        "title": "Blue Lias Formation Marine Fauna",
+        "description": "An ecosystem reconstruction of the earliest Jurassic (Hettangian, ~200 Ma) marine community from the Blue Lias Formation of Lyme Regis and Somerset, England. Featured are the large ammonite Psiloceras planorbis, the nautiloid Cenoceras, giant clam Plagiostoma, early ichthyosaurs Protoichthyosaurus and long-snouted Leptonectes, the plesiosaurs Thalassiodracon and Atychodracon, and the early coastal pterosaur Dimorphodon macronyx.",
+        "tags": [
+            "ammonite", "atychodracon", "blue_lias", "cenoceras", "cephalopod", "chordate",
+            "community", "composite", "dimorphodon", "early_jurassic", "ecosystem", "england",
+            "ichthyosaur", "jurassic", "jurassic_coast", "leptonectes", "marine", "marine_reptile",
+            "mesozoic", "mollusc", "plagiostoma", "plesiosaur", "protoichthyosaurus", "psiloceras",
+            "pterosaur", "thalassiodracon", "triassic_jurassic_extinction", "uk"
+        ],
+        "keyframes": ["early_jurassic", "triassic_jurassic_extinction"]
+    },
+    "charmouth_mudstone": {
+        "id": "charmouth_mudstone_formation_tamura",
+        "filename": "charmouth_mudstone_formation_nobu_tamura.jpg",
+        "title": "Charmouth Mudstone Formation Vertebrate Fauna",
+        "description": "A marine and coastal vertebrate ecosystem reconstruction from the Early Jurassic (Sinemurian-Pliensbachian, ~195 Ma) Charmouth Mudstone Formation of Lyme Regis, Dorset, England. Featured are the iconic long-necked Plesiosaurus dolichodeirus, the rhomaleosaurid Archaeonectrus, Sir David Attenborough's namesake pliosaur Attenborosaurus conybeari, Mary Anning's Ichthyosaurus anningae, the bizarre holocephalan chimaera Myriacanthus paradoxus, and the armored coastal dinosaur Scelidosaurus harrisonii.",
+        "tags": [
+            "archaeonectrus", "attenborosaurus", "chimaera", "chordate", "community",
+            "composite", "dinosaur", "dorset", "early_jurassic", "ecosystem", "england",
+            "ichthyosaur", "ichthyosaurus", "jurassic", "jurassic_coast", "marine",
+            "marine_reptile", "mesozoic", "myriacanthus", "plesiosaur", "plesiosaurus",
+            "reptile", "scelidosaurus", "uk"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "2018_in_paleontology": {
+        "id": "paleontology_2018_discoveries_tamura",
+        "filename": "2018_in_paleontology_nobu_tamura.jpg",
+        "title": "2018 in Paleontology: New Species Discoveries",
+        "description": "A composite retrospective illustration highlighting eight extraordinary fossil species described in the year 2018. Featured are the piranha-toothed Late Jurassic pycnodont fish Piranhamesodon pinnatomus, the tail-bearing Cretaceous stem-spider Chimerarachne yingi, the Late Triassic desert pterosaur Caelestiventus hanseni, the enantiornithine bird Mirarce eatoni, the toothless stem-baleen whale Maiabalaena nesbittae, the shell-less stem-turtle Eorhynchochelys sinensis, the giant burrowing bat Vulcanops jennyworthyae, and the Ediacaran organism Obamus coronatus.",
+        "tags": [
+            "caelestiventus", "chimerarachne", "chordate", "community", "composite",
+            "discovery", "eorhynchochelys", "fish", "jurassic", "late_jurassic",
+            "maiabalaena", "mammal", "mesozoic", "mirarce", "obamus", "piranhamesodon",
+            "pterosaur", "retrospective", "spider", "stem_turtle", "vulcanops"
+        ],
+        "keyframes": ["early_cretaceous", "late_jurassic", "late_triassic"]
     }
 }
 
@@ -1389,6 +1430,169 @@ CURATED_ENTRIES = {
             "mesozoic", "reptile", "saurischia", "south_america", "triassic"
         ],
         "keyframes": ["late_triassic"]
+    },
+    "monjurosuchus_splendens": {
+        "title": "Monjurosuchus splendens",
+        "description": "Monjurosuchus was a 40-cm semi-aquatic choristodere from the Early Cretaceous (Aptian) Yixian Formation of Liaoning, China. Possessing webbed feet, small granular scales, and dorsal rows of protective scutes, this lizard-like freshwater predator survived as a relict of the Jurassic choristoderan radiation.",
+        "tags": [
+            "china", "chordate", "choristodera", "early_cretaceous", "freshwater", "jehol",
+            "mesozoic", "monjurosuchus", "monjurosuchus_splendens", "predator", "reptile",
+            "semi_aquatic", "yixian_formation"
+        ],
+        "keyframes": ["early_cretaceous"]
+    },
+    "coeruleodraco_jurassicus": {
+        "title": "Coeruleodraco jurassicus",
+        "description": "Coeruleodraco ('blue dragon') was a 40-cm freshwater choristoderan reptile from the Late Jurassic (Oxfordian) Tiaojishan Formation of Hebei, China. As the most complete Jurassic choristodere known, it possessed slender jaws with sharp conical teeth suited for hunting fish and aquatic invertebrates in volcanic caldera lakes.",
+        "tags": [
+            "china", "chordate", "choristodera", "coeruleodraco", "coeruleodraco_jurassicus",
+            "freshwater", "hebei", "jurassic", "late_jurassic", "mesozoic", "mid_jurassic",
+            "predator", "reptile", "semi_aquatic", "tiaojishan_formation"
+        ],
+        "keyframes": ["late_jurassic", "mid_jurassic"]
+    },
+    "scutellosaurus_lawleri": {
+        "title": "Scutellosaurus lawleri",
+        "description": "Scutellosaurus was a 1.2-meter basal armored ornithischian dinosaur (thyreophoran) from the Early Jurassic (Sinemurian) Kayenta Formation of Arizona, USA. Featuring an exceptionally long balancing tail and hundreds of small keeled dermal scutes across its back, it represents one of the earliest ancestors of stegosaurs and ankylosaurs.",
+        "tags": [
+            "arizona", "armored_dinosaur", "chordate", "dinosaur", "dinosauria",
+            "early_jurassic", "herbivore", "jurassic", "kayenta_formation", "land_vertebrate",
+            "mesozoic", "ornithischia", "reptile", "scutellosaurus", "scutellosaurus_lawleri",
+            "thyreophora", "usa"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "plesiosaurus_dolichodeirus": {
+        "title": "Plesiosaurus dolichodeirus",
+        "description": "Plesiosaurus was a 3.5-meter marine reptile discovered by Mary Anning in 1823 in the Early Jurassic (Sinemurian) Charmouth Mudstone of Lyme Regis, Dorset, England. With its compact body, four powerful paddle fins, small head, and extraordinarily long neck, it serves as the archetypal representative of the Plesiosauria.",
+        "tags": [
+            "charmouth_mudstone", "chordate", "dorset", "early_jurassic", "england",
+            "jurassic", "jurassic_coast", "marine", "marine_reptile", "mary_anning",
+            "mesozoic", "piscivore", "plesiosaur", "plesiosauria", "plesiosauridae",
+            "plesiosaurus", "plesiosaurus_dolichodeirus", "reptile", "uk"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "docofossor_brachydactylus": {
+        "title": "Docofossor brachydactylus",
+        "description": "Docofossor was a tiny 9-cm subterranean mammaliaform (docodont) from the Late Jurassic (Oxfordian) Tiaojishan Formation of Hebei, China. Displaying remarkable anatomical convergence with modern golden moles, it evolved spade-like shovel forepaws, short robust digits, and widened clavicles for digging underground tunnels.",
+        "tags": [
+            "china", "chordate", "docodonta", "docodontidae", "docofossor",
+            "docofossor_brachydactylus", "early_mammal", "fossorial", "hebei", "jurassic",
+            "land_vertebrate", "late_jurassic", "mammaliaformes", "mesozoic", "synapsid",
+            "tiaojishan_formation"
+        ],
+        "keyframes": ["late_jurassic"]
+    },
+    "kayentatherium_wellesi": {
+        "title": "Kayentatherium wellesi",
+        "description": "Kayentatherium was a 1-meter herbivorous tritylodontid cynodont from the Early Jurassic (Sinemurian) Kayenta Formation of Arizona, USA. Closely related to the ancestors of mammals, it possessed multicusped molar teeth for grinding foliage and strong limbs; exceptionally preserved clutches show it produced litters of up to 38 tiny offspring.",
+        "tags": [
+            "arizona", "chordate", "cynodont", "cynodontia", "early_jurassic",
+            "herbivore", "jurassic", "kayenta_formation", "kayentatherium",
+            "kayentatherium_wellesi", "land_vertebrate", "mammal_like_reptile",
+            "mesozoic", "stem_mammal", "synapsid", "therapsid", "tritylodontidae", "usa"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "lindwurmia_thiuda": {
+        "title": "Lindwurmia thiuda",
+        "description": "Lindwurmia was a 2.5-meter basal plesiosaur from the earliest Jurassic (Lower Hettangian) of Halberstadt, Germany. Discovered in strata immediately overlying the Triassic-Jurassic boundary, it is one of the oldest known plesiosaurs, named after the mythical German dragon Lindwurm.",
+        "tags": [
+            "chordate", "early_jurassic", "germany", "jurassic", "lindwurmia",
+            "lindwurmia_thiuda", "marine", "marine_reptile", "mesozoic", "plesiosaur",
+            "plesiosauria", "predator", "reptile", "rhomaleosauridae", "sauropterygia",
+            "triassic_jurassic_extinction"
+        ],
+        "keyframes": ["early_jurassic", "triassic_jurassic_extinction"]
+    },
+    "ledumahadi_mafube": {
+        "title": "Ledumahadi mafube",
+        "description": "Ledumahadi ('giant thunderclap' in Sesotho) was a colossal 10-meter, 12-tonne lessemsaurid sauropodomorph dinosaur from the Early Jurassic (Hettangian) Upper Elliot Formation of South Africa. As one of the earliest dinosaurs to achieve massive multi-tonne bulk, it walked obligately on all fours and foreshadowed the gigantism of Late Jurassic sauropods.",
+        "tags": [
+            "chordate", "dinosaur", "dinosauria", "early_jurassic", "giant",
+            "herbivore", "jurassic", "land_vertebrate", "ledumahadi", "ledumahadi_mafube",
+            "lessemsauridae", "mesozoic", "quadrupedal", "reptile", "saurischia",
+            "sauropod", "sauropodomorpha", "south_africa"
+        ],
+        "keyframes": ["early_jurassic", "triassic_jurassic_extinction"]
+    },
+    "kimmerosaurus_langhami": {
+        "title": "Kimmerosaurus langhami",
+        "description": "Kimmerosaurus was a 6-meter cryptoclidid plesiosaur from the Late Jurassic (Tithonian) Kimmeridge Clay Formation of Dorset, England. Characterized by a lightly built skull with recurved, densely packed needle-like teeth, it swept through open marine waters filter-feeding or catching small soft-bodied cephalopods and fish.",
+        "tags": [
+            "chordate", "cryptoclididae", "dorset", "england", "jurassic",
+            "kimmeridge_clay", "kimmerosaurus", "kimmerosaurus_langhami", "late_jurassic",
+            "marine", "marine_reptile", "mesozoic", "piscivore", "plesiosaur",
+            "plesiosauria", "reptile", "sauropterygia", "uk"
+        ],
+        "keyframes": ["late_jurassic"]
+    },
+    "maiopatagium_furculiferum": {
+        "title": "Maiopatagium furculiferum",
+        "description": "Maiopatagium was a 25-cm gliding mammaliaform (euharamiyidan) from the Late Jurassic (Oxfordian) Tiaojishan Formation of Liaoning, China. Preserving extensive wing membranes (patagia) stretched between its limbs and fur impressions, it proves that mammals developed tree-gliding locomotion over 160 million years ago alongside dinosaurs.",
+        "tags": [
+            "arboreal", "china", "chordate", "early_mammal", "euharamiyida",
+            "gliding_mammal", "haramiyida", "jurassic", "late_jurassic", "liaoning",
+            "maiopatagium", "maiopatagium_furculiferum", "mammaliaformes", "mesozoic",
+            "patagium", "synapsid", "tiaojishan_formation"
+        ],
+        "keyframes": ["late_jurassic"]
+    },
+    "allosaurus_fragilis": {
+        "title": "Allosaurus fragilis",
+        "description": "Allosaurus was an iconic 8.5- to 10-meter theropod dinosaur and the apex predator of the Late Jurassic (Kimmeridgian-Tithonian) Morrison Formation of western North America. Armed with sharp serrated teeth, powerful clawed three-fingered forelimbs, and a flexible skull designed to slash into prey, it hunted massive sauropods and stegosaurs.",
+        "tags": [
+            "allosauridae", "allosauroidea", "allosaurus", "allosaurus_fragilis",
+            "apex_predator", "carnivore", "carnosauria", "chordate", "dinosaur",
+            "dinosauria", "jurassic", "land_vertebrate", "late_jurassic", "mesozoic",
+            "morrison_formation", "predator", "reptile", "saurischia", "theropod", "usa"
+        ],
+        "keyframes": ["late_jurassic"]
+    },
+    "attenborosaurus_conybeari": {
+        "title": "Attenborosaurus conybeari",
+        "description": "Attenborosaurus was a 5-meter pliosaurid plesiosaur from the Early Jurassic (Sinemurian) Charmouth Mudstone of Dorset, England, named in honor of naturalist Sir David Attenborough. Possessing a proportionally large skull, sharp grasping teeth, and a moderately short neck, it was an agile predator of pelagic Jurassic fish and squids.",
+        "tags": [
+            "attenborosaurus", "attenborosaurus_conybeari", "charmouth_mudstone", "chordate",
+            "david_attenborough", "dorset", "early_jurassic", "england", "jurassic",
+            "jurassic_coast", "marine", "marine_reptile", "mesozoic", "piscivore",
+            "plesiosaur", "plesiosauria", "pliosauridae", "reptile", "uk"
+        ],
+        "keyframes": ["early_jurassic"]
+    },
+    "vouivria_damparisensis": {
+        "title": "Vouivria damparisensis",
+        "description": "Vouivria was a 15-meter brachiosaurid sauropod dinosaur from the Late Jurassic (Oxfordian) Calcaires de Clerval of Franche-Comté, France. Identified as one of the oldest known true brachiosaurids, it possessed elevated forequarters, an elongated neck, and chisel-like teeth suited for high-canopy browsing.",
+        "tags": [
+            "brachiosauridae", "chordate", "dinosaur", "dinosauria", "france",
+            "herbivore", "jurassic", "land_vertebrate", "late_jurassic", "macronaria",
+            "mesozoic", "neosauropoda", "reptile", "saurischia", "sauropod",
+            "sauropodomorpha", "vouivria", "vouivria_damparisensis"
+        ],
+        "keyframes": ["late_jurassic"]
+    },
+    "gavialinum_rhodani": {
+        "title": "Gavialinum rhodani",
+        "description": "Gavialinum was a 3-meter teleosaurid marine crocodylomorph from the Middle Jurassic (Bathonian) limestone quarries of Ain, France. Equipped with a very slender elongated rostrum and needle-like teeth convergent with modern gharials, it was fully adapted to nearshore marine life hunting schools of fish and squid.",
+        "tags": [
+            "chordate", "crocodylomorph", "france", "gavialinum", "gavialinum_rhodani",
+            "gharial_snout", "jurassic", "marine", "marine_crocodile", "marine_reptile",
+            "mesoeucrocodylia", "mesozoic", "mid_jurassic", "piscivore", "reptile",
+            "teleosauridae", "thalattosuchia"
+        ],
+        "keyframes": ["mid_jurassic"]
+    },
+    "isaberrysaura_mollensis": {
+        "title": "Isaberrysaura mollensis",
+        "description": "Isaberrysaura was a 4.5-meter basal neornithischian dinosaur from the Early to Middle Jurassic (Toarcian-Bajocian) Los Molles Formation of Neuquén, Argentina. Exceptional fossilized gut contents revealed that it fed on large cycad seeds, providing rare and direct evidence of seed-dispersal mutualism between dinosaurs and Mesozoic plants.",
+        "tags": [
+            "argentina", "chordate", "cycad_feeder", "dinosaur", "dinosauria",
+            "early_jurassic", "herbivore", "isaberrysaura", "isaberrysaura_mollensis",
+            "jurassic", "land_vertebrate", "los_molles", "mesozoic", "mid_jurassic",
+            "neornithischia", "ornithischia", "reptile", "south_america"
+        ],
+        "keyframes": ["early_jurassic", "mid_jurassic"]
     }
 }
 
