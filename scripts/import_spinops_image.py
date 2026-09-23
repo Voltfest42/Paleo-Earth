@@ -257,6 +257,32 @@ ECOSYSTEM_CATALOG = {
             "marine", "benthic", "ecosystem", "seafloor", "community"
         ],
         "keyframes": ["early_cambrian", "cambrian_explosion"]
+    },
+    "euphaneropida": {
+        "id": "euphaneropida_tamura",
+        "filename": "euphaneropida_nobu_tamura.jpg",
+        "title": "Euphaneropida and Relatives",
+        "description": "A comparative overview of early jawless fish belonging to the order Euphanerida (Anaspidomorphi) across the Silurian and Devonian periods. Featured are the Silurian forms Ciderius cooperi and Jamoytius kerwoodi, alongside Devonian forms Achanarella trewini, Cornovichthys blaaeweni, Euphanerops longaevus, and Endeiolepis aneri.",
+        "tags": [
+            "achanarella", "anaspidomorphi", "chordate", "ciderius", "community", "composite",
+            "cornovichthys", "devonian", "early_silurian", "early_vertebrate", "endeiolepis",
+            "euphanerida", "euphaneropida", "euphanerops", "fish", "jamoytius", "jawless_fish",
+            "late_devonian", "marine", "mid_devonian", "mid_silurian", "paleozoic", "silurian"
+        ],
+        "keyframes": ["early_silurian", "late_devonian", "mid_devonian", "mid_silurian"]
+    },
+    "wenlock (late silurian) fish": {
+        "id": "wenlock_silurian_fish_scotland_tamura",
+        "filename": "wenlock_silurian_fish_scotland_nobu_tamura.jpg",
+        "title": "Wenlock Silurian Fish Fauna of Scotland",
+        "description": "A composite reconstruction of early jawless fish from the Wenlock Silurian fish beds of Scotland (~430 Ma). Featured are the armored osteostracan Ateleaspis tessellata, the spiny thelodonts Lanarkia horrida and Shielia taiti, the anaspids Birkenia and the enigmatic stickleback-like Lasanius problematicus, and the euphanerid Ciderius cooperi.",
+        "tags": [
+            "anaspida", "ateleaspis", "birkenia", "chordate", "ciderius", "community", "composite",
+            "early_silurian", "early_vertebrate", "ecosystem", "fish", "jawless_fish", "lanarkia",
+            "lasanius", "marine", "mid_silurian", "osteostraci", "paleozoic", "scotland", "shielia",
+            "silurian", "silurian_fish", "thelodonti", "wenlock"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
     }
 }
 
@@ -386,6 +412,155 @@ CURATED_ENTRIES = {
             "scotland", "xiphosura"
         ],
         "keyframes": ["early_carboniferous"]
+    },
+    "cowielepis_ritchiei": {
+        "title": "Cowielepis ritchiei",
+        "description": "Cowielepis ritchiei was an unusually deep-bodied, laterally compressed anaspid jawless fish from the Cowie Formation of Stonehaven, Scotland, at the Silurian-Devonian boundary (~419 Ma). A close relative of Birkenia, it navigated inshore waters with specialized overlapping trunk scales and a hypocercal tail.",
+        "tags": [
+            "anaspida", "birkeniiformes", "chordate", "cowielepis", "cowielepis_ritchiei",
+            "devonian", "early_devonian", "early_vertebrate", "fish", "jawless_fish",
+            "late_silurian", "marine", "paleozoic", "scotland", "silurian"
+        ],
+        "keyframes": ["early_devonian", "late_silurian"]
+    },
+    "sphenonectris_turnerae": {
+        "title": "Sphenonectris turnerae",
+        "description": "Sphenonectris was a small, fork-tailed thelodont jawless fish from the Delorme Group (Lochkovian / latest Silurian-earliest Devonian) of Canada's Northwest Territories. Belonging to Furcacaudiformes, it was characterized by a deep, pot-bellied profile and an exceptionally tall, symmetrical forked caudal fin for maneuverability.",
+        "tags": [
+            "canada", "chordate", "delorme_group", "devonian", "early_devonian", "early_vertebrate",
+            "fish", "furcacaudiformes", "jawless_fish", "late_silurian", "marine", "paleozoic",
+            "silurian", "sphenonectris", "sphenonectris_turnerae", "thelodont"
+        ],
+        "keyframes": ["early_devonian", "late_silurian"]
+    },
+    "pezopallichthys_ritchei": {
+        "title": "Pezopallichthys ritchei",
+        "description": "Pezopallichthys was a diminutive (~4 cm) barrel-shaped thelodont jawless fish from the Wenlock Middle Silurian Road River Formation of Avalanche Lake, Canada. As an early furcacaudiform, its rounded body and large eyes suggest active foraging near the seafloor.",
+        "tags": [
+            "canada", "chordate", "early_silurian", "early_vertebrate", "fish", "furcacaudiformes",
+            "jawless_fish", "marine", "mid_silurian", "paleozoic", "pezopallichthys",
+            "pezopallichthys_ritchei", "silurian", "thelodont", "wenlock"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "lanarkia_horrida": {
+        "title": "Lanarkia horrida",
+        "description": "Lanarkia was a flattened, ray-like thelodont jawless fish from the Silurian of Scotland and Canada. Its entire body was armored in sharp, hollow cone-shaped denticles rather than interlocking plates, giving its skin a prickly shagreen texture.",
+        "tags": [
+            "benthic", "chordate", "early_vertebrate", "fish", "furcacaudiformes", "jawless_fish",
+            "lanarkia", "lanarkia_horrida", "late_silurian", "marine", "mid_silurian",
+            "paleozoic", "scotland", "silurian", "thelodont"
+        ],
+        "keyframes": ["late_silurian", "mid_silurian"]
+    },
+    "shuyu_zhejiangensis": {
+        "title": "Shuyu zhejiangensis",
+        "description": "Shuyu ('dawn fish') was an early galeaspid jawless fish from the Silurian of Zhejiang, China. Synchrotron X-ray tomographic scans of its braincase famously revealed paired nasal sacs and the transitional cranial architecture that preceded the origin of jawed vertebrates.",
+        "tags": [
+            "benthic", "china", "chordate", "early_silurian", "early_vertebrate", "eugaleaspiformes",
+            "fish", "galeaspida", "jawless_fish", "marine", "mid_silurian", "paleozoic",
+            "shuyu", "shuyu_zhejiangensis", "silurian"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "birkenia_elegans": {
+        "title": "Birkenia elegans",
+        "description": "Birkenia elegans was a slender, active-swimming anaspid jawless fish up to 10 cm long from the Silurian Lesmahagow inliers of Scotland. Its body was wrapped in diagonal chevron-like scale bands and surmounted by a crest of specialized spine-scales along its dorsal ridge.",
+        "tags": [
+            "anaspida", "birkenia", "birkenia_elegans", "birkeniidae", "chordate",
+            "early_silurian", "early_vertebrate", "fish", "jawless_fish", "marine",
+            "mid_silurian", "paleozoic", "scotland", "silurian"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "slimonia_acuminata": {
+        "title": "Slimonia acuminata",
+        "description": "Reaching lengths of over 1.5 meters, Slimonia was a formidable predatory sea scorpion (eurypterid) from the Late Silurian of Lanarkshire, Scotland. It possessed sharp raptorial pincer appendages and a powerful, serrated telson spine that could flex laterally to strike prey.",
+        "tags": [
+            "arthropod", "chelicerate", "eurypterid", "late_silurian", "marine", "marine_invertebrate",
+            "mid_silurian", "paleozoic", "predator", "scotland", "sea_scorpion", "silurian",
+            "slimonia", "slimonia_acuminata"
+        ],
+        "keyframes": ["late_silurian", "mid_silurian"]
+    },
+    "sanchaspis_megalorostrata": {
+        "title": "Sanchaspis megalorostrata",
+        "description": "Sanchaspis was a remarkable galeaspid jawless fish from the early Devonian (Pragian) Xujiachong Formation of Yunnan, China. It is distinguished by an enormous, elongated sword-like rostral process extending forward from its horseshoe-shaped headshield.",
+        "tags": [
+            "benthic", "china", "chordate", "devonian", "early_devonian", "early_vertebrate",
+            "fish", "galeaspida", "huananaspidiformes", "jawless_fish", "late_silurian",
+            "marine", "paleozoic", "sanchaspis", "sanchaspis_megalorostrata", "silurian"
+        ],
+        "keyframes": ["early_devonian", "late_silurian"]
+    },
+    "loganellia_scotica": {
+        "title": "Loganellia scotica",
+        "description": "Loganellia was a 15-cm thelodont jawless fish from the Early Silurian Lesmahagow inliers of Scotland. Its body was clothed in tiny microscopic denticles arranged in aerodynamic rows, and it possessed lateral pectoral flap-fins that aided stability while swimming.",
+        "tags": [
+            "chordate", "early_silurian", "early_vertebrate", "fish", "jawless_fish",
+            "loganellia", "loganellia_scotica", "loganiidae", "marine", "mid_silurian",
+            "paleozoic", "scotland", "silurian", "thelodont"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "pharyngolepis_oblongus": {
+        "title": "Pharyngolepis oblongus",
+        "description": "Pharyngolepis was a primitive anaspid jawless fish from the Wenlock Silurian of Ringerike, Norway. Lacking paired pectoral fins, it bore paired rows of lateral ventral spines and rows of gill openings along its flank, foraging along nearshore mud flats.",
+        "tags": [
+            "anaspida", "benthic", "chordate", "early_vertebrate", "fish", "jawless_fish",
+            "late_silurian", "marine", "mid_silurian", "norway", "paleozoic", "pharyngolepis",
+            "pharyngolepis_oblongus", "silurian", "wenlock"
+        ],
+        "keyframes": ["late_silurian", "mid_silurian"]
+    },
+    "cooksonia_pertoni": {
+        "title": "Cooksonia pertoni",
+        "description": "Cooksonia is the earliest widely recognized polysporangiophyte vascular land plant, known from the Late Silurian of England and worldwide. Standing just a few centimeters tall, its leafless photosynthetic stems branched dichotomously and ended in trumpet-shaped sporangia.",
+        "tags": [
+            "cooksonia", "cooksonia_pertoni", "early_land_plant", "embryophyta", "england",
+            "land_plant", "late_silurian", "mid_silurian", "paleozoic", "plant", "silurian", "vascular_plant"
+        ],
+        "keyframes": ["late_silurian", "mid_silurian"]
+    },
+    "athenaegis_chattertoni": {
+        "title": "Athenaegis chattertoni",
+        "description": "Measuring just 5 cm long, Athenaegis chattertoni from the Early Silurian (Llandovery) of northern Canada is the earliest known heterostracan. Its forward body was encased in a rigid dorsal and ventral shield with lateral branchial plates, swimming via a symmetrical fan-like tail.",
+        "tags": [
+            "athenaegis", "athenaegis_chattertoni", "benthic", "canada", "chordate",
+            "cyathaspididae", "early_silurian", "early_vertebrate", "fish", "heterostraci",
+            "jawless_fish", "llandovery", "marine", "paleozoic", "silurian"
+        ],
+        "keyframes": ["early_silurian"]
+    },
+    "jamoytius_kerwoodi": {
+        "title": "Jamoytius kerwoodi",
+        "description": "Jamoytius kerwoodi was an eel-like stem-cyclostome jawless fish from the Silurian of the Lesmahagow inlier in Scotland. Possessing a terminal round sucking mouth, large lateral eyes, and paired continuous lateral fin folds, it offers key clues to lamprey and anaspid evolution.",
+        "tags": [
+            "anaspidomorphi", "chordate", "early_silurian", "early_vertebrate", "fish",
+            "jamoytius", "jamoytius_kerwoodi", "jawless_fish", "marine", "mid_silurian",
+            "paleozoic", "scotland", "silurian", "stem_cyclostome"
+        ],
+        "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "entelognathus_primordialis": {
+        "title": "Entelognathus primordialis",
+        "description": "Entelognathus was a groundbreaking placoderm fish from the Late Silurian (Ludlow) Kuanti Formation of Yunnan, China. It is the earliest known creature to possess marginal jaw bones (maxilla, premaxilla, and dentary), proving that the facial bones of modern bony fish and tetrapods originated within armored placoderms.",
+        "tags": [
+            "china", "chordate", "entelognathus", "entelognathus_primordialis", "fish",
+            "gnathostome", "jawed_vertebrate", "kuanti_formation", "late_silurian", "ludlow",
+            "marine", "paleozoic", "placoderm", "silurian"
+        ],
+        "keyframes": ["late_silurian"]
+    },
+    "eurypterus_tetragonophthalmus": {
+        "title": "Eurypterus tetragonophthalmus",
+        "description": "Eurypterus is the most famous and well-studied genus of sea scorpions (eurypterids), abundant in Silurian shallow seas across Europe and North America. It used flattened paddle-like rear limbs to swim through lagoons and estuaries, capturing small prey with forward walking legs.",
+        "tags": [
+            "arthropod", "chelicerate", "estonia", "eurypterid", "eurypterus",
+            "eurypterus_tetragonophthalmus", "late_silurian", "marine", "marine_invertebrate",
+            "mid_silurian", "paleozoic", "predator", "rootsikula", "sea_scorpion", "silurian"
+        ],
+        "keyframes": ["late_silurian", "mid_silurian"]
     }
 }
 
