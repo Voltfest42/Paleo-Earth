@@ -283,6 +283,33 @@ ECOSYSTEM_CATALOG = {
             "silurian", "silurian_fish", "thelodonti", "wenlock"
         ],
         "keyframes": ["early_silurian", "mid_silurian"]
+    },
+    "symmoriiformes": {
+        "id": "symmoriiformes_tamura",
+        "filename": "symmoriiformes_nobu_tamura.jpg",
+        "title": "Symmoriiformes (Anvil-Toothed Holocephalans)",
+        "description": "A comparative reconstruction of bizarre symmoriiform cartilaginous fish (holocephalans) from the Devonian and Carboniferous periods. Featured are the iconic 'anvil-finned' Stethacanthus altonensis, Akmonistion zangerli, the sword-spined Falcatus falcatus, and Symmorium reniforme, illustrating their remarkable sexually dimorphic cranial brushes and dorsal spine-brush complexes.",
+        "tags": [
+            "akmonistion", "cartilaginous_fish", "chondrichthyes", "community", "composite",
+            "devonian", "early_carboniferous", "falcatus", "fish", "holocephali",
+            "late_devonian", "late_devonian_extinction", "marine", "mid_carboniferous",
+            "paleozoic", "predator", "shark", "stethacanthus", "symmoriiformes", "symmorium"
+        ],
+        "keyframes": ["early_carboniferous", "late_devonian", "late_devonian_extinction", "mid_carboniferous"]
+    },
+    "early_echinoderms": {
+        "id": "early_echinoderms_tamura",
+        "filename": "early_echinoderms_nobu_tamura.jpg",
+        "title": "Early Echinoderm Radiation",
+        "description": "A comparative evolutionary overview of primitive stem-echinoderms from the Cambrian and Devonian periods. Illustrated are the basal bilateral ctenoid Ctenoimbricata spinosa, the ctenocystoid Ctenocystis utahensis, the cinctan Protocinctus mansillaensis, the eocrinoid Gogia spiralis, and the Lower Devonian mitrate carpoid Rhenocystis latipedunculata from the Hunsruck Slate.",
+        "tags": [
+            "benthic", "cambrian", "carpoid", "cinctan", "community", "composite",
+            "ctenocystis", "ctenoimbricata", "devonian", "early_cambrian", "early_devonian",
+            "echinoderm", "eocrinoid", "gogia", "hunsruck_slate", "marine",
+            "marine_invertebrate", "mid_cambrian", "mitrate", "paleozoic", "protocinctus",
+            "rhenocystis", "stem_echinoderm"
+        ],
+        "keyframes": ["early_cambrian", "early_devonian", "mid_cambrian"]
     }
 }
 
@@ -561,6 +588,137 @@ CURATED_ENTRIES = {
             "mid_silurian", "paleozoic", "predator", "rootsikula", "sea_scorpion", "silurian"
         ],
         "keyframes": ["late_silurian", "mid_silurian"]
+    },
+    "boreaspis_rostrata": {
+        "title": "Boreaspis rostrata",
+        "description": "Boreaspis rostrata was a small (~5 cm) osteostracan jawless fish from the Early Devonian Wood Bay Series of Spitsbergen, Svalbard. Its semicircular headshield was armed with a remarkably long, forward-pointing spear-like rostrum and pointed lateral cornual spines.",
+        "tags": [
+            "benthic", "boreaspis", "boreaspis_rostrata", "cephalaspidiformes", "chordate",
+            "devonian", "early_devonian", "early_vertebrate", "fish", "jawless_fish",
+            "marine", "osteostraci", "paleozoic", "spitsbergen", "svalbard"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "dicksonosteus_arcticus": {
+        "title": "Dicksonosteus arcticus",
+        "description": "Dicksonosteus was a primitive arthrodire placoderm from the Early Devonian Wood Bay Series of Spitsbergen, Norway. Measuring 15 to 20 cm in length, its flattened, heavily armored headshield and forward-facing eyes indicate a benthic lifestyle hunting along the sediment.",
+        "tags": [
+            "arthrodira", "benthic", "chordate", "devonian", "dicksonosteus",
+            "dicksonosteus_arcticus", "early_devonian", "fish", "gnathostome", "jawed_vertebrate",
+            "marine", "paleozoic", "placoderm", "predator", "spitsbergen"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "lepidaspis_serrata": {
+        "title": "Lepidaspis serrata",
+        "description": "Lepidaspis ('lizard shield') was an enigmatic heterostracan jawless fish from the Early Devonian Delorme Group (MOTH locality) in the Mackenzie Mountains of northern Canada. Unlike solid-shielded heterostracans, its body was uniquely enveloped in a mosaic of tiny scales with serrated edges.",
+        "tags": [
+            "canada", "chordate", "delorme_group", "devonian", "early_devonian", "early_vertebrate",
+            "fish", "heterostraci", "jawless_fish", "lepidaspis", "lepidaspis_serrata",
+            "marine", "moth_locality", "paleozoic"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "podolaspis_lerichei": {
+        "title": "Podolaspis lerichei",
+        "description": "Podolaspis was a 25-cm pteraspidiform heterostracan jawless fish from the Early Devonian (Lochkovian) Old Red Sandstone of Podolia, Ukraine. It possessed an impressive, near-vertical dorsal spine, wing-like triangular cornual plates on the flanks of its armor, and an elongated rostral snout.",
+        "tags": [
+            "chordate", "devonian", "early_devonian", "early_vertebrate", "fish",
+            "heterostraci", "jawless_fish", "marine", "old_red_sandstone", "paleozoic",
+            "podolaspis", "podolaspis_lerichei", "podolia", "pteraspidiformes", "ukraine"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "superciliaspis_gabrielsei": {
+        "title": "Superciliaspis gabrielsei",
+        "description": "Superciliaspis ('eyebrow shield') was an 11-cm osteostracan jawless fish from the Early Devonian Delorme Group (MOTH locality) of northwest Canada. It possessed prominent supraorbital ridges ('eyebrows') over its close-set eyes and a horseshoe-shaped cephalic shield with sensory field depressions.",
+        "tags": [
+            "benthic", "canada", "cephalaspidida", "chordate", "delorme_group", "devonian",
+            "early_devonian", "early_vertebrate", "fish", "jawless_fish", "marine",
+            "moth_locality", "osteostraci", "paleozoic", "superciliaspis", "superciliaspis_gabrielsei"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "tinirau_clackae": {
+        "title": "Tinirau clackae",
+        "description": "Tinirau was a one-meter-long stem-tetrapodomorph (eotetrapodiform) predatory fish from the Middle Devonian (Givetian) Red Hill beds of Nevada, USA. Named in honour of paleontologist Jenny Clack, it exhibits a pivotal transitional mosaic between tristichopterid fish and early limb-bearing tetrapods.",
+        "tags": [
+            "chordate", "devonian", "early_vertebrate", "eotetrapodiformes", "fish",
+            "lobe_finned_fish", "marine", "mid_devonian", "nevada", "paleozoic",
+            "predator", "sarcopterygii", "tetrapodomorph", "tinirau", "tinirau_clackae"
+        ],
+        "keyframes": ["mid_devonian"]
+    },
+    "pterichthyodes_milleri": {
+        "title": "Pterichthyodes milleri",
+        "description": "Pterichthyodes was an iconic 25-cm antiarch placoderm from the Middle Devonian (Eifelian) Achanarras Fish Bed of Caithness, Scotland, famously described by Hugh Miller. It possessed peculiar jointed, armored pectoral 'arms' that it used to scuttle along the lakebed and bury itself in sediment.",
+        "tags": [
+            "achanarras", "antiarchi", "benthic", "chordate", "devonian", "fish",
+            "gnathostome", "jawed_vertebrate", "mid_devonian", "paleozoic", "placoderm",
+            "pterichthyodes", "pterichthyodes_milleri", "scotland"
+        ],
+        "keyframes": ["mid_devonian"]
+    },
+    "glyptolepis_paucidens": {
+        "title": "Glyptolepis paucidens",
+        "description": "Reaching over 60 cm in length, Glyptolepis paucidens was a large porolepiform lobe-finned fish (sarcopterygian) and apex predator of the Middle Devonian (Eifelian) Achanarras lake ecosystem in Caithness, Scotland. It possessed thick, heavily sculptured rhomboid scales and sharp fangs.",
+        "tags": [
+            "achanarras", "chordate", "devonian", "fish", "glyptolepis", "glyptolepis_paucidens",
+            "lobe_finned_fish", "mid_devonian", "paleozoic", "porolepiformes", "predator",
+            "sarcopterygii", "scotland"
+        ],
+        "keyframes": ["mid_devonian"]
+    },
+    "titanichthys_clarki": {
+        "title": "Titanichthys clarki",
+        "description": "Measuring up to 6 meters in length, Titanichthys was a colossal arthrodire placoderm from the Late Devonian Cleveland Shale of Ohio, rivaling Dunkleosteus in size. Unlike its apex predator cousin, Titanichthys possessed toothless, gracile jaws adapted for continuous filter-feeding or suction-feeding on small prey.",
+        "tags": [
+            "arthrodira", "chordate", "cleveland_shale", "devonian", "filter_feeder",
+            "fish", "giant", "gnathostome", "jawed_vertebrate", "late_devonian",
+            "late_devonian_extinction", "marine", "ohio", "paleozoic", "placoderm",
+            "titanichthys", "titanichthys_clarki"
+        ],
+        "keyframes": ["late_devonian", "late_devonian_extinction"]
+    },
+    "turinia_pagei": {
+        "title": "Turinia pagei",
+        "description": "Turinia pagei was a large (up to 40 cm) thelodont jawless fish from the Early Devonian Old Red Sandstone of Angus, Scotland. Its broad, dorsoventrally flattened body was enveloped in a continuous carpet of tiny diamond-shaped denticle scales, and its scales serve as key global biostratigraphic index fossils.",
+        "tags": [
+            "benthic", "chordate", "devonian", "early_devonian", "early_vertebrate",
+            "fish", "jawless_fish", "marine", "old_red_sandstone", "paleozoic",
+            "scotland", "thelodont", "turinia", "turinia_pagei", "turiniidae"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "cheiracanthus_murchisoni": {
+        "title": "Cheiracanthus murchisoni",
+        "description": "Cheiracanthus murchisoni was a 10-cm acanthodian ('spiny shark') from the Middle Devonian (Eifelian) Old Red Sandstone of Scotland. It was characterized by a deep, streamlined body, a single prominent dorsal fin supported by a stout spine, and tiny, shiny ganoid-like scales.",
+        "tags": [
+            "acanthodii", "acanthodiformes", "cheiracanthus", "cheiracanthus_murchisoni", "chordate",
+            "devonian", "fish", "gnathostome", "mid_devonian", "old_red_sandstone",
+            "paleozoic", "scotland", "spiny_shark"
+        ],
+        "keyframes": ["mid_devonian"]
+    },
+    "parexus_recurvus": {
+        "title": "Parexus recurvus",
+        "description": "Parexus was a 15-cm climatiiform acanthodian ('spiny shark') from the Early Devonian of Tillywhandland, Scotland. It is renowned for its enormously enlarged, curved anterior dorsal spine, which was heavily serrated and almost as tall as the fish itself.",
+        "tags": [
+            "acanthodii", "climatiiformes", "chordate", "devonian", "early_devonian",
+            "fish", "gnathostome", "paleozoic", "parexus", "parexus_recurvus",
+            "scotland", "spiny_shark", "tillywhandland"
+        ],
+        "keyframes": ["early_devonian"]
+    },
+    "diplacanthus_crassissimus": {
+        "title": "Diplacanthus crassissimus",
+        "description": "Diplacanthus was a 6 to 8 cm spiny shark (acanthodian) from the Middle Devonian (Eifelian) Old Red Sandstone of Scotland. Characterized by stout, deeply grooved dorsal and paired fin spines and prominent scapulocoracoid armor plates, it was widely distributed across Devonian freshwater and brackish environments.",
+        "tags": [
+            "acanthodii", "chordate", "devonian", "diplacanthidae", "diplacanthus",
+            "diplacanthus_crassissimus", "fish", "gnathostome", "mid_devonian", "old_red_sandstone",
+            "paleozoic", "scotland", "spiny_shark"
+        ],
+        "keyframes": ["mid_devonian"]
     }
 }
 
