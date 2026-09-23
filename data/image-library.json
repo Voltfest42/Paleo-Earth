@@ -7,8 +7,22 @@
       "credit": "Nobu Tamura",
       "license": "CC BY 3.0",
       "description": "A detailed reconstruction of a Cambrian trilobite, Paradoxides, swimming above the muddy seafloor in warm, shallow tropical seas.",
-      "tags": ["cambrian", "ordovician", "marine_invertebrate", "trilobite", "arthropod", "paleozoic"],
-      "keyframes": ["early_cambrian", "mid_cambrian", "late_cambrian", "early_ordovician", "mid_ordovician", "cambrian_explosion"]
+      "tags": [
+        "cambrian",
+        "ordovician",
+        "marine_invertebrate",
+        "trilobite",
+        "arthropod",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "early_cambrian",
+        "mid_cambrian",
+        "late_cambrian",
+        "early_ordovician",
+        "mid_ordovician",
+        "cambrian_explosion"
+      ]
     },
     {
       "id": "anomalocaris_cambrian_bogdanov",
@@ -17,8 +31,20 @@
       "credit": "Dmitry Bogdanov",
       "license": "CC BY 3.0",
       "description": "Anomalocaris, the apex predator of the Cambrian seas, sweeping its grasping frontal appendages toward a cluster of trilobites.",
-      "tags": ["cambrian", "marine_invertebrate", "anomalocaris", "apex_predator", "arthropod", "paleozoic"],
-      "keyframes": ["early_cambrian", "mid_cambrian", "late_cambrian", "cambrian_explosion"]
+      "tags": [
+        "cambrian",
+        "marine_invertebrate",
+        "anomalocaris",
+        "apex_predator",
+        "arthropod",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "early_cambrian",
+        "mid_cambrian",
+        "late_cambrian",
+        "cambrian_explosion"
+      ]
     },
     {
       "id": "dunkleosteus_devonian_bogdanov",
@@ -27,8 +53,20 @@
       "credit": "Dmitry Bogdanov",
       "license": "CC BY 3.0",
       "description": "The massive armored placoderm Dunkleosteus terrelli, its bony scissor jaws agape, dominating the Late Devonian seas.",
-      "tags": ["devonian", "fish", "placoderm", "dunkleosteus", "apex_predator", "paleozoic", "marine"],
-      "keyframes": ["late_devonian", "mid_devonian", "late_devonian_extinction"]
+      "tags": [
+        "devonian",
+        "fish",
+        "placoderm",
+        "dunkleosteus",
+        "apex_predator",
+        "paleozoic",
+        "marine"
+      ],
+      "keyframes": [
+        "late_devonian",
+        "mid_devonian",
+        "late_devonian_extinction"
+      ]
     },
     {
       "id": "carboniferous_forest_bogdanov",
@@ -37,8 +75,22 @@
       "credit": "Dmitry Bogdanov",
       "license": "CC BY 3.0",
       "description": "A lush Carboniferous coal swamp forest with towering Lepidodendron lycopod trees, giant horsetails, and a giant dragonfly gliding through the humid air.",
-      "tags": ["carboniferous", "plant", "lycopsid", "forest", "paleozoic", "meganeura", "insect", "land_plant"],
-      "keyframes": ["early_carboniferous", "mid_carboniferous", "late_carboniferous", "carboniferous_rainforest_collapse"]
+      "tags": [
+        "carboniferous",
+        "plant",
+        "lycopsid",
+        "forest",
+        "paleozoic",
+        "meganeura",
+        "insect",
+        "land_plant"
+      ],
+      "keyframes": [
+        "early_carboniferous",
+        "mid_carboniferous",
+        "late_carboniferous",
+        "carboniferous_rainforest_collapse"
+      ]
     },
     {
       "id": "dimetrodon_permian_tamura",
@@ -47,8 +99,19 @@
       "credit": "Nobu Tamura",
       "license": "CC BY 3.0",
       "description": "Dimetrodon grandis, a large sail-backed pelycosaur synapsid, basking on a rocky Early Permian floodplain with its impressive dorsal sail raised to absorb heat.",
-      "tags": ["permian", "reptile", "pelycosaur", "dimetrodon", "synapsid", "paleozoic", "land_vertebrate"],
-      "keyframes": ["early_permian", "mid_permian"]
+      "tags": [
+        "permian",
+        "reptile",
+        "pelycosaur",
+        "dimetrodon",
+        "synapsid",
+        "paleozoic",
+        "land_vertebrate"
+      ],
+      "keyframes": [
+        "early_permian",
+        "mid_permian"
+      ]
     },
     {
       "id": "lystrosaurus_triassic_bogdanov",
@@ -57,8 +120,20 @@
       "credit": "Dmitry Bogdanov",
       "license": "CC BY 3.0",
       "description": "A herd of the stocky, pig-like dicynodont therapsid Lystrosaurus foraging in the sparse, recovering vegetation of the Early Triassic aftermath.",
-      "tags": ["triassic", "therapsid", "dicynodont", "lystrosaurus", "mammal_like_reptile", "mesozoic", "land_vertebrate"],
-      "keyframes": ["early_triassic", "mid_triassic", "permian_triassic_extinction"]
+      "tags": [
+        "triassic",
+        "therapsid",
+        "dicynodont",
+        "lystrosaurus",
+        "mammal_like_reptile",
+        "mesozoic",
+        "land_vertebrate"
+      ],
+      "keyframes": [
+        "early_triassic",
+        "mid_triassic",
+        "permian_triassic_extinction"
+      ]
     },
     {
       "id": "ichthyosaur_jurassic_tamura",
@@ -67,8 +142,21 @@
       "credit": "Nobu Tamura",
       "license": "CC BY 3.0",
       "description": "Ophthalmosaurus, a dolphin-shaped Jurassic ichthyosaur with its distinctive enormous eyes, leaping from a warm Mesozoic sea.",
-      "tags": ["jurassic", "reptile", "ichthyosaur", "marine_reptile", "mesozoic", "ophthalmosaurus", "marine"],
-      "keyframes": ["mid_jurassic", "late_jurassic", "early_jurassic", "jurassic_marine_revolution"]
+      "tags": [
+        "jurassic",
+        "reptile",
+        "ichthyosaur",
+        "marine_reptile",
+        "mesozoic",
+        "ophthalmosaurus",
+        "marine"
+      ],
+      "keyframes": [
+        "mid_jurassic",
+        "late_jurassic",
+        "early_jurassic",
+        "jurassic_marine_revolution"
+      ]
     },
     {
       "id": "brachiosaurus_jurassic_csotonyi",
@@ -77,8 +165,19 @@
       "credit": "Julius Csotonyi",
       "license": "CC BY 4.0",
       "description": "A towering Brachiosaurus altithorax stretches its long neck into the high canopy of a Late Jurassic conifer forest, while a smaller Stegosaurus grazes in the background.",
-      "tags": ["jurassic", "dinosaur", "sauropod", "brachiosaurus", "herbivore", "mesozoic", "land_vertebrate"],
-      "keyframes": ["late_jurassic", "mid_jurassic"]
+      "tags": [
+        "jurassic",
+        "dinosaur",
+        "sauropod",
+        "brachiosaurus",
+        "herbivore",
+        "mesozoic",
+        "land_vertebrate"
+      ],
+      "keyframes": [
+        "late_jurassic",
+        "mid_jurassic"
+      ]
     },
     {
       "id": "quetzalcoatlus_cretaceous_csotonyi",
@@ -87,8 +186,19 @@
       "credit": "Julius Csotonyi",
       "license": "CC BY 4.0",
       "description": "The colossal azhdarchid pterosaur Quetzalcoatlus northropi strides across a Late Cretaceous floodplain, its eleven-meter wingspan held half-open as it scans for prey.",
-      "tags": ["cretaceous", "pterosaur", "quetzalcoatlus", "flying_reptile", "mesozoic", "azhdarchid"],
-      "keyframes": ["late_cretaceous", "mid_cretaceous", "kpg_extinction"]
+      "tags": [
+        "cretaceous",
+        "pterosaur",
+        "quetzalcoatlus",
+        "flying_reptile",
+        "mesozoic",
+        "azhdarchid"
+      ],
+      "keyframes": [
+        "late_cretaceous",
+        "mid_cretaceous",
+        "kpg_extinction"
+      ]
     },
     {
       "id": "tyrannosaurus_cretaceous_csotonyi",
@@ -97,8 +207,19 @@
       "credit": "Julius Csotonyi",
       "license": "CC BY 4.0",
       "description": "Tyrannosaurus rex, feathered along its back and neck, stalking through a Late Cretaceous floodplain forest with a dramatic sunset sky behind it.",
-      "tags": ["cretaceous", "dinosaur", "theropod", "tyrannosaurus", "apex_predator", "mesozoic", "land_vertebrate"],
-      "keyframes": ["late_cretaceous", "kpg_extinction"]
+      "tags": [
+        "cretaceous",
+        "dinosaur",
+        "theropod",
+        "tyrannosaurus",
+        "apex_predator",
+        "mesozoic",
+        "land_vertebrate"
+      ],
+      "keyframes": [
+        "late_cretaceous",
+        "kpg_extinction"
+      ]
     },
     {
       "id": "mosasaurus_cretaceous_bogdanov",
@@ -107,8 +228,21 @@
       "credit": "Dmitry Bogdanov",
       "license": "CC BY 3.0",
       "description": "The enormous marine lizard Mosasaurus hoffmannii bursting through the surface of the Late Cretaceous Western Interior Seaway, jaws wide open around an ammonite.",
-      "tags": ["cretaceous", "reptile", "mosasaur", "mosasaurus", "marine_reptile", "mesozoic", "apex_predator", "marine"],
-      "keyframes": ["late_cretaceous", "mid_cretaceous", "kpg_extinction"]
+      "tags": [
+        "cretaceous",
+        "reptile",
+        "mosasaur",
+        "mosasaurus",
+        "marine_reptile",
+        "mesozoic",
+        "apex_predator",
+        "marine"
+      ],
+      "keyframes": [
+        "late_cretaceous",
+        "mid_cretaceous",
+        "kpg_extinction"
+      ]
     },
     {
       "id": "pakicetus_eocene_tamura",
@@ -117,8 +251,47 @@
       "credit": "Nobu Tamura",
       "license": "CC BY 3.0",
       "description": "Pakicetus inachus, the early wolf-like whale ancestor, wading into an Eocene river to catch fish, its hoofed feet still visible beneath the water.",
-      "tags": ["eocene", "mammal", "cetacean", "pakicetus", "early_whale", "archaeoceti", "cenozoic", "land_vertebrate"],
-      "keyframes": ["mid_paleogene", "petm", "eocene_oligocene_transition"]
+      "tags": [
+        "eocene",
+        "mammal",
+        "cetacean",
+        "pakicetus",
+        "early_whale",
+        "archaeoceti",
+        "cenozoic",
+        "land_vertebrate"
+      ],
+      "keyframes": [
+        "mid_paleogene",
+        "petm",
+        "eocene_oligocene_transition"
+      ]
+    },
+    {
+      "id": "fallotaspis_bondoni_tamura",
+      "filename": "fallotaspis_bondoni_nobu_tamura.jpg",
+      "title": "Fallotaspis bondoni",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Fallotaspis represents a genus of Early Cambrian Trilobites with a worldwide distribution and is used as an index fossil. F. bondoni was originally described as a species of Olenellus from specimens found in Morocco.",
+      "tags": [
+        "arthropod",
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "early cambrian",
+        "early_cambrian",
+        "fallotaspis",
+        "fallotaspis_bondoni",
+        "invertebrate",
+        "marine_invertebrate",
+        "paleozoic",
+        "trilobite"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ]
     }
   ]
 }
