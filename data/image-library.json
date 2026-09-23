@@ -4933,7 +4933,7 @@
       "title": "Late Cretaceous Vertebrates of California",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "An ecosystem reconstruction of marine and coastal vertebrates from the Late Cretaceous (Maastrichtian, ~70–66 Ma) Moreno and Point Loma Formations along the paleo-Pacific coast of California. Featured are the official California state dinosaur Augustynolophus morrisi, the armored dinosaur Aletopelta coombsi, the giant long-necked elasmosaurid plesiosaurs Hydrotherosaurus and Morenosaurus, and the apex predatory mosasaurs Plesiotylosaurus and Plotosaurus.",
+      "description": "An ecosystem reconstruction of marine and coastal vertebrates from the Late Cretaceous (Maastrichtian, ~70-66 Ma) Moreno and Point Loma Formations along the paleo-Pacific coast of California. Featured are the official California state dinosaur Augustynolophus morrisi, the armored dinosaur Aletopelta coombsi, the giant long-necked elasmosaurid plesiosaurs Hydrotherosaurus and Morenosaurus, and the apex predatory mosasaurs Plesiotylosaurus and Plotosaurus.",
       "tags": [
         "aletopelta",
         "apex_predator",
@@ -5158,7 +5158,7 @@
       "title": "Kumimanu biceae",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Kumimanu was a colossal early penguin from the Late Paleocene (~59–56 Ma) Moeraki Formation of Otago, New Zealand. Standing up to 1.6 meters tall and weighing over 100 kg, it evolved gigantism shortly after the extinction of non-avian dinosaurs and marine reptiles, diving in deep waters for large fish and cephalopods.",
+      "description": "Kumimanu was a colossal early penguin from the Late Paleocene (~59-56 Ma) Moeraki Formation of Otago, New Zealand. Standing up to 1.6 meters tall and weighing over 100 kg, it evolved gigantism shortly after the extinction of non-avian dinosaurs and marine reptiles, diving in deep waters for large fish and cephalopods.",
       "tags": [
         "aves",
         "bird",
@@ -5190,7 +5190,7 @@
       "title": "Taeniolabis taoensis",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65–63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
+      "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65-63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
       "tags": [
         "chordate",
         "cimolodonta",
@@ -5275,36 +5275,6 @@
       "source_url": "https://spinops.blogspot.com/2016/01/pantolambda-bathmodon.html"
     },
     {
-      "id": "taeniolabis_taoensis_tamura",
-      "filename": "taeniolabis_taoensis_nobu_tamura.jpg",
-      "title": "Taeniolabis taoensis",
-      "credit": "Nobu Tamura",
-      "license": "CC BY-SA 4.0",
-      "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65–63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
-      "tags": [
-        "chordate",
-        "cimolodonta",
-        "early_paleogene",
-        "herbivore",
-        "incisors",
-        "land_vertebrate",
-        "mammal",
-        "multituberculata",
-        "nacimiento_formation",
-        "new_mexico",
-        "paleocene",
-        "paleogene",
-        "taeniolabididae",
-        "taeniolabis",
-        "taeniolabis_taoensis",
-        "usa"
-      ],
-      "keyframes": [
-        "early_paleogene"
-      ],
-      "source_url": "https://spinops.blogspot.com/2015/12/taeniolabis-taoensis.html"
-    },
-    {
       "id": "weltonia_ancistrodon_tamura",
       "filename": "weltonia_ancistrodon_nobu_tamura.jpg",
       "title": "Weltonia ancistrodon",
@@ -5363,7 +5333,7 @@
       "title": "Titanoboa cerrejonensis",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Titanoboa was a gargantuan boid snake from the Middle to Late Paleocene (~60–58 Ma) Cerrejón Formation of Colombia. Measuring an estimated 13 to 14 meters in length and weighing over 1.1 tonnes, it was the largest snake ever discovered, thriving in equatorial superheated rainforest swamps where it ambushed giant turtles and dyrosaurid crocs.",
+      "description": "Titanoboa was a gargantuan boid snake from the Middle to Late Paleocene (~60-58 Ma) Cerrejón Formation of Colombia. Measuring an estimated 13 to 14 meters in length and weighing over 1.1 tonnes, it was the largest snake ever discovered, thriving in equatorial superheated rainforest swamps where it ambushed giant turtles and dyrosaurid crocs.",
       "tags": [
         "apex_predator",
         "boidae",
@@ -5397,7 +5367,7 @@
       "title": "Otodus obliquus",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Otodus obliquus was a massive 9-meter lamniform megatooth shark that prowled global oceans from the Late Paleocene through the Eocene (~60–45 Ma). Bearing large triangular teeth with smooth cutting edges and distinct lateral cusplets, it is the direct ancestral forerunner of the colossal Neogene shark Otodus megalodon.",
+      "description": "Otodus obliquus was a massive 9-meter lamniform megatooth shark that prowled global oceans from the Late Paleocene through the Eocene (~60-45 Ma). Bearing large triangular teeth with smooth cutting edges and distinct lateral cusplets, it is the direct ancestral forerunner of the colossal Neogene shark Otodus megalodon.",
       "tags": [
         "apex_predator",
         "carnivore",

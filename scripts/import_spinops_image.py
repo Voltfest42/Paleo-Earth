@@ -1925,7 +1925,7 @@ CURATED_ENTRIES = {
     },
     "taeniolabis_taoensis": {
         "title": "Taeniolabis taoensis",
-        "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65–63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
+        "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65-63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
         "tags": [
             "chordate", "cimolodonta", "early_paleogene", "herbivore", "incisors",
             "land_vertebrate", "mammal", "multituberculata", "nacimiento_formation",
@@ -2208,6 +2208,7 @@ def update_image_library(new_entries: list[dict]):
             existing_images[idx] = entry
         else:
             print(f"Adding new entry: {entry['id']}")
+            id_map[entry["id"]] = len(existing_images)
             existing_images.append(entry)
 
     data["images"] = existing_images
