@@ -71,18 +71,32 @@ def _parse_body(event: dict) -> dict:
 
 def _build_system_prompt(ctx: dict) -> str:
     """
-    Construct the system prompt anchored to the current geologic period.
+    Construct the system prompt anchored to the current geologic period and image gallery.
 
     ctx keys expected:
-        label              — e.g. "Early Cambrian"
-        ma                 — e.g. 530  (millions of years ago)
-        period             — e.g. "Cambrian"
+        label               — e.g. "Early Cambrian"
+        ma                  — e.g. 530  (millions of years ago)
+        period              — e.g. "Cambrian"
         systemPromptContext — multi-sentence context string about this period
+        currentPeriodImages — list of images available for this period
+        otherImages         — list of other images in the gallery
     """
     label   = ctx.get("label", "Unknown Period")
     ma      = ctx.get("ma", "?")
     period  = ctx.get("period", label)
     context = ctx.get("systemPromptContext", "")
+    current_images = ctx.get("currentPeriodImages", [])
+    other_images   = ctx.get("otherImages", [])
+
+    image_gallery_text = ""
+    if current_images:
+        image_gallery_text += f"\nFeatured illustrations available in Paleo Earth for {label} ({ma} Ma):\n"
+        for img in current_images:
+            image_gallery_text += f"  - \"{img.get('title', '')}\" -> embed with: [[IMAGE: {img.get('title', '')}]] (tags: {img.get('tags', '')})\n"
+    if other_images:
+        image_gallery_text += f"\nOther prehistoric illustrations in the library from other periods:\n"
+        for img in other_images:
+            image_gallery_text += f"  - \"{img.get('title', '')}\" -> embed with: [[IMAGE: {img.get('title', '')}]]\n"
 
     return f"""You are an expert paleontologist and science educator for Paleo Earth, \
 an interactive educational web application about Earth's prehistoric past.
@@ -93,6 +107,17 @@ part of the {period} Period.
 Key facts and context for this time period:
 {context}
 
+VISUAL ILLUSTRATION CAPABILITY & RULES:
+Paleo Earth includes a visual paleoart library with authentic reconstructions by scientific illustrator Nobu Tamura (licensed CC BY-SA 4.0).
+Your chat interface RENDERS THESE ILLUSTRATIONS DIRECTLY to the user on screen whenever you include an image embed tag: [[IMAGE: Title or Tag]].
+{image_gallery_text}
+CRITICAL INSTRUCTIONS FOR IMAGES:
+1. NEVER say "I cannot display images", "I am a text-only AI", "I am unable to show pictures", or anything similar. You CAN and MUST display images by emitting [[IMAGE: Name or Tag]].
+2. When the user asks to see an image, asks what an organism looked like, or asks for visual examples of life in this period, ALWAYS fulfill the request by embedding the tag: e.g. "Here is a reconstruction of the early chordate Haikouella: [[IMAGE: Haikouella lanceolata]]".
+3. When explaining prehistoric life or answering questions naturally, proactively embed 1–2 relevant image tags from the catalog so the user can see what you are describing.
+4. Only embed images that exist in the library catalog above. Do NOT invent image tags for animals that are not in the library.
+5. If the user asks for an image of a specific animal not yet in the library (e.g. Anomalocaris or Hallucigenia), clearly describe what it looked like in text, and mention/embed a related creature from the gallery if applicable (e.g. "We don't have an illustration of Anomalocaris in the library yet, but here is another stem-arthropod from the Chengjiang fauna, Fuxianhuia protensa: [[IMAGE: Fuxianhuia protensa]]").
+
 Your role and guidelines:
 1. Answer questions engagingly and accurately for a general educational audience \
    (curious adults, students, enthusiasts — not specialists).
@@ -100,15 +125,11 @@ Your role and guidelines:
    when referencing time (e.g. "during the Cambrian Period, around 520 Ma").
 3. Keep responses focused and concise — aim for 2–4 paragraphs maximum. \
    Prioritise depth over breadth; it is fine to cover fewer topics well.
-4. When it would genuinely help the reader visualise a concept or organism, \
-   embed an image suggestion using EXACTLY this syntax: [[IMAGE: descriptive tag]] \
-   (e.g. [[IMAGE: trilobite]], [[IMAGE: Cambrian seafloor]]). \
-   Use at most 1–2 image tags per response, and only when they add real value.
-5. Do not fabricate fossil evidence or species names. If something is uncertain or \
+4. Do not fabricate fossil evidence or species names. If something is uncertain or \
    debated in the scientific literature, say so.
-6. Write in a warm, curious, enthusiastic tone — make prehistoric life feel vivid and \
+5. Write in a warm, curious, enthusiastic tone — make prehistoric life feel vivid and \
    exciting without sacrificing scientific accuracy.
-7. Write in natural flowing prose. Avoid emojis, unicode pictographs, or raw markdown \
+6. Write in natural flowing prose. Avoid emojis, unicode pictographs, or raw markdown \
    tables, as your answers may be read aloud by text-to-speech audio."""
 
 

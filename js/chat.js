@@ -35,14 +35,34 @@ function resolveImages(text, imageLibrary) {
   let m;
 
   while ((m = pattern.exec(text)) !== null) {
-    const tag = m[1].trim().toLowerCase();
-    // Match by tags, title, or id
-    const entry = imageLibrary.find(img =>
-      img.id.includes(tag) ||
-      (img.title || '').toLowerCase().includes(tag) ||
-      (img.tags || []).some(t => t.toLowerCase().includes(tag))
-    );
-    if (entry) matched.push(entry);
+    const rawTag = m[1].trim().toLowerCase();
+    const tag = rawTag.replace(/[()_.,]/g, ' ').replace(/\s+/g, ' ').trim();
+
+    // 1. Exact or bidirectional match on title, ID, or tags
+    let entry = imageLibrary.find(img => {
+      const imgTitle = (img.title || '').toLowerCase();
+      const imgId = (img.id || '').toLowerCase().replace(/_/g, ' ');
+      if (imgId === tag || imgTitle === tag) return true;
+      if (imgTitle.includes(tag) || tag.includes(imgTitle)) return true;
+      if (imgId.includes(tag) || tag.includes(imgId)) return true;
+      return (img.tags || []).some(t => {
+        const tClean = t.toLowerCase().replace(/_/g, ' ');
+        return tClean === tag || tag.includes(tClean) || tClean.includes(tag);
+      });
+    });
+
+    // 2. Fallback: match significant words in tag against title/tags
+    if (!entry) {
+      const tagWords = tag.split(' ').filter(w => w.length > 3);
+      entry = imageLibrary.find(img => {
+        const titleWords = (img.title || '').toLowerCase().split(' ');
+        return tagWords.some(tw => titleWords.includes(tw));
+      });
+    }
+
+    if (entry && !matched.some(existing => existing.id === entry.id)) {
+      matched.push(entry);
+    }
   }
 
   return { html: simpleMarkdown(text), images: matched };
@@ -201,12 +221,32 @@ export class Chat {
     // Show typing indicator
     const typingEl = this._appendTypingIndicator();
 
-    try {
+      // Enrich system context with available image gallery metadata
+      const activeImages = this._imageLib.filter(img =>
+        (img.keyframes || []).includes(this._context?.id)
+      );
+      const otherImages = this._imageLib.filter(img =>
+        !(img.keyframes || []).includes(this._context?.id)
+      );
+
+      const enrichedContext = {
+        ...(this._context || {}),
+        currentPeriodImages: activeImages.map(img => ({
+          title: img.title,
+          tags: (img.tags || []).slice(0, 8).join(', '),
+          description: img.description || ''
+        })),
+        otherImages: otherImages.map(img => ({
+          title: img.title,
+          period: (img.keyframes || []).join(', ')
+        }))
+      };
+
       let response;
       if (DEV_MODE) {
-        response = await mockChat(this._history, this._context);
+        response = await mockChat(this._history, enrichedContext);
       } else {
-        response = await prodChat(this._history, this._context, text);
+        response = await prodChat(this._history, enrichedContext, text);
       }
 
       typingEl.remove();
