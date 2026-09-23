@@ -310,6 +310,19 @@ ECOSYSTEM_CATALOG = {
             "rhenocystis", "stem_echinoderm"
         ],
         "keyframes": ["early_cambrian", "early_devonian", "mid_cambrian"]
+    },
+    "colosteidae": {
+        "id": "colosteidae_tamura",
+        "filename": "colosteidae_nobu_tamura.jpg",
+        "title": "Colosteidae (Early Aquatic Stem-Tetrapods)",
+        "description": "A comparative reconstruction of the enigmatic Carboniferous stem-tetrapod family Colosteidae. Featured are the flattened-skulled Colosteus scutellatus from Ohio, the serpentine predator Greererpeton burkemorani from West Virginia, and the basal Pholidogaster pisciformis from Scotland, showcasing their elongated eel-like bodies and secondarily aquatic adaptations.",
+        "tags": [
+            "amphibian", "aquatic", "carboniferous", "carboniferous_rainforest_collapse",
+            "chordate", "colosteidae", "colosteus", "community", "composite",
+            "early_carboniferous", "early_tetrapod", "greererpeton", "late_carboniferous",
+            "mid_carboniferous", "paleozoic", "pholidogaster", "predator", "stegocephalia"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "early_carboniferous", "late_carboniferous", "mid_carboniferous"]
     }
 }
 
@@ -719,6 +732,166 @@ CURATED_ENTRIES = {
             "paleozoic", "scotland", "spiny_shark"
         ],
         "keyframes": ["mid_devonian"]
+    },
+    "rainerichthys_zangerli": {
+        "title": "Rainerichthys zangerli",
+        "description": "Rainerichthys zangerli was a small (15 cm) bizarre iniopterygian cartilaginous fish (holocephalan) from the Early Carboniferous (Namurian) Bear Gulch Limestone of Montana. Characterized by enormous, wing-like pectoral fins set high on its back, it may have 'flown' or glided through ancient waters like a modern flying fish.",
+        "tags": [
+            "bear_gulch", "carboniferous", "cartilaginous_fish", "chondrichthyes", "chordate",
+            "early_carboniferous", "fish", "holocephali", "iniopterygiformes", "marine",
+            "montana", "paleozoic", "rainerichthys", "rainerichthys_zangerli"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "allenypterus_montanus": {
+        "title": "Allenypterus montanus",
+        "description": "Allenypterus was a peculiar deep-bodied, hump-backed coelacanth (actinistian) from the Early Carboniferous (Namurian) Bear Gulch Limestone of Montana. Measuring 12 cm long, its tear-drop shape, continuous dorsal-to-tail fin margin, and lack of typical coelacanth lobed fins reflect a specialized reef-dwelling niche.",
+        "tags": [
+            "actinistia", "allenypterus", "allenypterus_montanus", "bear_gulch", "carboniferous",
+            "chordate", "coelacanth", "early_carboniferous", "fish", "lobe_finned_fish",
+            "marine", "montana", "paleozoic", "sarcopterygii"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "cervifurca_nasuta": {
+        "title": "Cervifurca nasuta",
+        "description": "Cervifurca nasuta was a 25-cm iniopterygian holocephalan from the Late Carboniferous (Westphalian D) Excello Shale of Indiana. Like its relative Rainerichthys, it bore huge wing-like dorsal pectoral fins, accompanied by a prominent forked snout horn reminiscent of stag antlers.",
+        "tags": [
+            "carboniferous", "carboniferous_rainforest_collapse", "cartilaginous_fish", "cervifurca",
+            "cervifurca_nasuta", "chondrichthyes", "chordate", "excello_shale", "fish",
+            "holocephali", "indiana", "iniopterygiformes", "late_carboniferous", "marine", "paleozoic"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous"]
+    },
+    "megalichthys_hibberti": {
+        "title": "Megalichthys hibberti",
+        "description": "Reaching over 1.5 meters in length, Megalichthys hibberti was a colossal predatory megalichthyid lobe-finned fish (tetrapodomorph) from the Early Carboniferous (Visean) Coal Measures of Yorkshire, England. Its cylindrical body was armored in shiny cosmine-coated rhomboid scales, and its powerful jaws were studded with dagger-like fangs.",
+        "tags": [
+            "carboniferous", "coal_measures", "early_carboniferous", "england", "fish",
+            "lobe_finned_fish", "megalichthyidae", "megalichthys", "megalichthys_hibberti",
+            "mid_carboniferous", "paleozoic", "predator", "sarcopterygii", "tetrapodomorpha"
+        ],
+        "keyframes": ["early_carboniferous", "mid_carboniferous"]
+    },
+    "whatcheeria_deltae": {
+        "title": "Whatcheeria deltae",
+        "description": "Whatcheeria was a 2-meter apex predatory early stem-tetrapod from the Early Carboniferous (Visean-Serpukhovian) of Keokuk County, Iowa. Equipped with robust limbs, a heavy skull, and formidable dagger teeth, Whatcheeria demonstrates that early tetrapods evolved large body size and terrestrial-capable limbs far earlier than once thought.",
+        "tags": [
+            "amphibian", "carboniferous", "chordate", "early_carboniferous", "early_tetrapod",
+            "iowa", "paleozoic", "predator", "tetrapodomorpha", "whatcheeria",
+            "whatcheeria_deltae", "whatcheeridae"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "tanyrhinichthys_mcallisteri": {
+        "title": "Tanyrhinichthys mcallisteri",
+        "description": "Tanyrhinichthys was a 15-cm ray-finned fish (actinopterygian) from the Upper Pennsylvanian (Missourian) Atrasado Formation of New Mexico. It evolved an elongated, sensory-pitted rostrum and ventral mouth convergent with modern sturgeons, allowing it to forage along bottom sediments for hidden invertebrates.",
+        "tags": [
+            "actinopterygii", "benthic", "carboniferous", "carboniferous_rainforest_collapse",
+            "chordate", "fish", "late_carboniferous", "new_mexico", "paleozoic",
+            "pennsylvanian", "ray_finned_fish", "tanyrhinichthys", "tanyrhinichthys_mcallisteri"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous"]
+    },
+    "chimerarachne_yingi": {
+        "title": "Chimerarachne yingi",
+        "description": "Chimerarachne yingi is an extraordinary stem-spider preserved in Mid-Cretaceous (~100 Ma) Burmese amber from Myanmar. Measuring just a few millimeters long, it combined true spider traits (chelicerae, pedipalps, and spinnerets) with an ancient, jointed whip-like tail (telson) inherited from Paleozoic arachnid ancestors.",
+        "tags": [
+            "arachnid", "arthropod", "burmese_amber", "chelicerate", "chimerarachne",
+            "chimerarachne_yingi", "cretaceous", "early_cretaceous", "invertebrate",
+            "mesozoic", "mid_cretaceous", "myanmar", "spider", "stem_spider"
+        ],
+        "keyframes": ["early_cretaceous", "mid_cretaceous"]
+    },
+    "morganucodon_watsoni": {
+        "title": "Morganucodon watsoni",
+        "description": "Morganucodon was a tiny (10 cm) shrew-like early mammaliaform from the latest Triassic to Early Jurassic (Hettangian), discovered in fissure fills of Glamorgan, Wales. Possessing a transitional double jaw joint, differentiated teeth, and an enlarged brain, it stands as one of the pivotal transitional fossils in mammal evolution.",
+        "tags": [
+            "chordate", "cynodont", "early_jurassic", "early_mammal", "jurassic",
+            "land_vertebrate", "late_triassic", "mammal", "mammaliaformes", "mesozoic",
+            "morganucodon", "morganucodon_watsoni", "synapsid", "triassic", "triassic_jurassic_extinction", "wales"
+        ],
+        "keyframes": ["early_jurassic", "late_triassic", "triassic_jurassic_extinction"]
+    },
+    "limnoscelis_paludis": {
+        "title": "Limnoscelis paludis",
+        "description": "Limnoscelis was a heavy-set, 1.5-meter predatory reptiliomorph (diadectomorph) from the Late Carboniferous (Gzhelian) Lower Cutler Formation of New Mexico. With strong sprawling limbs, conical teeth, and prominent maxillary fangs, it was an ambush predator hunting near swamp waters.",
+        "tags": [
+            "carboniferous", "carboniferous_rainforest_collapse", "diadectomorpha", "land_vertebrate",
+            "late_carboniferous", "limnoscelis", "limnoscelis_paludis", "new_mexico", "paleozoic",
+            "predator", "reptiliomorpha", "stem_amniote", "tetrapod"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous"]
+    },
+    "edaphosaurus_pogonias": {
+        "title": "Edaphosaurus pogonias",
+        "description": "Edaphosaurus was a 3.2-meter sail-backed herbivorous synapsid from the Late Carboniferous to Early Permian (Kungurian) of Texas. Supported by tall vertebral spines bearing cross-bars, its distinctive dorsal sail aided thermoregulation while its deep palate and peg-like teeth ground tough plant matter.",
+        "tags": [
+            "carboniferous", "carboniferous_rainforest_collapse", "chordate", "early_permian",
+            "edaphosauridae", "edaphosaurus", "edaphosaurus_pogonias", "herbivore", "land_vertebrate",
+            "late_carboniferous", "paleozoic", "pelycosaur", "sail_backed", "synapsid", "texas"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "early_permian", "late_carboniferous"]
+    },
+    "tristychius_arcuatus": {
+        "title": "Tristychius arcuatus",
+        "description": "Tristychius was a 60-cm primitive hybodont-like shark from the Early Carboniferous (Visean) East Kirkton Limestone of Scotland. Resembling modern dogfish, it bore stout, recurved spines at the front of both dorsal fins and inhabited nearshore brackish lagoons.",
+        "tags": [
+            "carboniferous", "cartilaginous_fish", "chondrichthyes", "chordate", "early_carboniferous",
+            "east_kirkton", "elasmobranchii", "fish", "hybodontiformes", "paleozoic",
+            "scotland", "shark", "tristychius", "tristychius_arcuatus"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "squatinactis_caudispinatus": {
+        "title": "Squatinactis caudispinatus",
+        "description": "Squatinactis was a one-meter-long, ray-like elasmobranch from the Early Carboniferous (Serpukhovian) Bear Gulch Limestone of Montana. With broadly expanded wing-like pectoral fins, a dorsoventrally flattened body, and a whip-like tail bearing a spine, it represents an astonishing Paleozoic convergence with modern rays.",
+        "tags": [
+            "bear_gulch", "benthic", "carboniferous", "cartilaginous_fish", "chondrichthyes",
+            "chordate", "early_carboniferous", "elasmobranchii", "fish", "marine",
+            "montana", "paleozoic", "ray", "squatinactis", "squatinactis_caudispinatus", "squatinactiformes"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "akmonistion_zangerli": {
+        "title": "Akmonistion zangerli",
+        "description": "Akmonistion was a 50-cm stethacanthid holocephalan from the Early Carboniferous (Visean) Manse Burn Formation of Scotland. Male specimens are famed for their bizarre, anvil-shaped dorsal spine-brush complex and cranial thorn spine patch, used in courtship display or defense.",
+        "tags": [
+            "akmonistion", "akmonistion_zangerli", "carboniferous", "cartilaginous_fish", "chondrichthyes",
+            "chordate", "early_carboniferous", "fish", "holocephali", "marine",
+            "paleozoic", "predator", "scotland", "shark", "stethacanthidae", "symmoriida"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "eucritta_melanolimnetes": {
+        "title": "Eucritta melanolimnetes",
+        "description": "Named the 'creature from the black lagoon', Eucritta melanolimnetes was a 25-cm stem-tetrapod (baphetid) from the Early Carboniferous (Visean) East Kirkton quarry of Scotland. It possessed characteristic keyhole-shaped eye orbits and a mosaic of cranial features bridging anthracosaurs, temnospondyls, and baphetids.",
+        "tags": [
+            "amphibian", "baphetidae", "baphetoidea", "carboniferous", "chordate",
+            "early_carboniferous", "early_tetrapod", "east_kirkton", "eucritta", "eucritta_melanolimnetes",
+            "paleozoic", "scotland", "tetrapod"
+        ],
+        "keyframes": ["early_carboniferous"]
+    },
+    "arthropleura_armata": {
+        "title": "Arthropleura armata",
+        "description": "Reaching lengths of over 2.5 meters, Arthropleura was the largest land invertebrate of all time, roaming the dense equatorial coal swamps of the Carboniferous. Armored in dozens of overlapping tergite plates, this colossal millipede relative fed on lycopod spores and decaying forest vegetation in the oxygen-rich atmosphere.",
+        "tags": [
+            "arthropleura", "arthropleura_armata", "arthropod", "carboniferous", "carboniferous_rainforest_collapse",
+            "coal_swamp", "germany", "giant", "herbivore", "invertebrate",
+            "late_carboniferous", "mid_carboniferous", "millipede", "myriapod", "paleozoic", "rainforest"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous", "mid_carboniferous"]
+    },
+    "archaeothyris_florensis": {
+        "title": "Archaeothyris florensis",
+        "description": "Archaeothyris florensis was a 50-cm ophiacodontid from the Late Carboniferous (Moscovian / Westphalian C) Morien Group of Joggins, Nova Scotia. It is celebrated as the oldest undisputed synapsid known, marking the evolutionary split of the mammal lineage from reptiles.",
+        "tags": [
+            "archaeothyris", "archaeothyris_florensis", "canada", "carboniferous", "carboniferous_rainforest_collapse",
+            "chordate", "joggins", "land_vertebrate", "late_carboniferous", "nova_scotia",
+            "ophiacodontidae", "paleozoic", "pelycosaur", "stem_mammal", "synapsid", "tetrapod"
+        ],
+        "keyframes": ["carboniferous_rainforest_collapse", "late_carboniferous"]
     }
 }
 
