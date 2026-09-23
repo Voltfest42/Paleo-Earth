@@ -8,9 +8,12 @@ Routes (via API Gateway proxy integration):
 Environment: Python 3.11, us-east-1
 """
 
+import os
 import json
 import base64
 import boto3
+import urllib.request
+import urllib.error
 import traceback
 
 # ---------------------------------------------------------------------------
@@ -22,8 +25,9 @@ polly   = boto3.client("polly",           region_name="us-east-1")
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-BEDROCK_MODEL_ID = "anthropic.claude-3-haiku-20240307-v1:0"
-DEFAULT_VOICE_ID = "Matthew"
+ANTHROPIC_DIRECT_MODEL = "claude-haiku-4-5-20251001"
+BEDROCK_MODEL_ID       = "anthropic.claude-3-haiku-20240307-v1:0"
+DEFAULT_VOICE_ID       = "Matthew"
 
 CORS_HEADERS = {
     "Access-Control-Allow-Origin":  "*",
@@ -145,7 +149,50 @@ def handle_chat(body: dict) -> dict:
 
     system_prompt = _build_system_prompt(system_context)
 
-    # Bedrock Converse / InvokeModel — using the native Anthropic messages format
+    # -----------------------------------------------------------------------
+    # Route 1: Direct Anthropic API (if ANTHROPIC_API_KEY is configured)
+    # -----------------------------------------------------------------------
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if anthropic_key:
+        print(f"[chat] Invoking Anthropic API directly model={ANTHROPIC_DIRECT_MODEL}, "
+              f"history_length={len(messages)}, period={system_context.get('label')}")
+        payload = {
+            "model":      ANTHROPIC_DIRECT_MODEL,
+            "max_tokens": 1024,
+            "system":     system_prompt,
+            "messages":   messages,
+        }
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "x-api-key":         anthropic_key,
+                "anthropic-version": "2023-06-01",
+                "content-type":      "application/json",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                resp_data = json.loads(resp.read().decode("utf-8"))
+                blocks = resp_data.get("content", [])
+                reply_text = " ".join(
+                    b.get("text", "") for b in blocks if b.get("type") == "text"
+                ).strip()
+                if not reply_text:
+                    return _error(502, "Anthropic API returned an empty response.")
+                return _response(200, {"reply": reply_text, "success": True})
+        except urllib.error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            print(f"[chat] Anthropic API HTTP error {exc.code}: {err_body}")
+            return _error(exc.code, "Anthropic API error.", err_body)
+        except Exception as exc:
+            print(traceback.format_exc())
+            return _error(502, "Failed to call Anthropic API directly.", str(exc))
+
+    # -----------------------------------------------------------------------
+    # Route 2: Amazon Bedrock (default when ANTHROPIC_API_KEY is not set)
+    # -----------------------------------------------------------------------
     request_payload = {
         "anthropic_version": "bedrock-2023-05-31",
         "max_tokens":        1024,

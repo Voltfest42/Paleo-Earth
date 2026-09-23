@@ -12,11 +12,10 @@
  */
 
 // ─── Mode switch ────────────────────────────────────────────────────────
-export const DEV_MODE = true;
+export const DEV_MODE = false;
 
-// AWS API Gateway base URL — replace with your deployed endpoint.
-// Example: 'https://abc123xyz.execute-api.us-east-1.amazonaws.com/prod'
-export const API_BASE = 'https://YOUR_API_GATEWAY_URL/prod';
+// AWS API Gateway base URL
+export const API_BASE = 'https://zazc8i568e.execute-api.us-east-1.amazonaws.com/prod';
 
 // Amazon Polly neural voice ID used for TTS
 export const POLLY_VOICE_ID = 'Matthew';

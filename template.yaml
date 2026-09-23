@@ -36,6 +36,12 @@ Parameters:
     AllowedValues: [dev, staging, prod]
     Description: Deployment stage name (used in API Gateway stage URL segment).
 
+  AnthropicApiKey:
+    Type: String
+    Default: ""
+    NoEcho: true
+    Description: Optional Anthropic API Key. When provided, Lambda calls Anthropic Claude API directly (bypassing Bedrock quota restrictions).
+
 # -----------------------------------------------------------------------------
 # Globals — applied to all Lambda functions unless overridden
 # -----------------------------------------------------------------------------
@@ -43,12 +49,11 @@ Globals:
   Function:
     Runtime:      python3.11
     MemorySize:   512          # MB — TTS audio buffering benefits from more memory
-    Timeout:      30           # seconds — Bedrock streaming can take 10–15 s
+    Timeout:      30           # seconds — Bedrock/Anthropic streaming can take 10–15 s
     Environment:
       Variables:
-        # Add any non-secret runtime config here.
-        # Secrets (API keys etc.) should use AWS Secrets Manager instead.
         LOG_LEVEL: INFO
+        ANTHROPIC_API_KEY: !Ref AnthropicApiKey
 
 # -----------------------------------------------------------------------------
 # Resources
@@ -175,14 +180,6 @@ Resources:
         AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
         AllowOrigin:  "'*'"
         MaxAge:       "'600'"   # Browser may cache preflight response for 10 minutes
-
-      # Enable detailed CloudWatch metrics and access logging for the API stage.
-      MethodSettings:
-        - ResourcePath: "/*"
-          HttpMethod:   "*"
-          MetricsEnabled:       true
-          DataTraceEnabled:     false   # Set true only for temporary debugging (logs full request/response)
-          LoggingLevel:         ERROR   # ERROR | INFO | OFF
 
   # ---------------------------------------------------------------------------
   # CloudWatch Log Group — explicit so it is managed by the stack
