@@ -7,23 +7,75 @@
 
 import { DEV_MODE, API_BASE, POLLY_VOICE_ID } from './config.js';
 
-// Strip markdown before handing to TTS — avoids "asterisk asterisk" etc.
-function stripMarkdown(text) {
+// Sanitize text for natural speech synthesis — strips markup/emojis, expands scientific abbreviations
+export function sanitizeForSpeech(text) {
+  if (!text) return '';
   return text
-    .replace(/#{1,6}\s+/g, '')          // headers
-    .replace(/\*\*(.+?)\*\*/g, '$1')    // bold
-    .replace(/\*(.+?)\*/g, '$1')        // italic
-    .replace(/__(.+?)__/g, '$1')        // bold alt
-    .replace(/_(.+?)_/g, '$1')          // italic alt
-    .replace(/`(.+?)`/g, '$1')          // inline code
-    .replace(/\[\[IMAGE:[^\]]*\]\]/gi, '') // image tags
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
-    .replace(/[-*+]\s+/g, '')           // list markers
-    .replace(/>\s+/g, '')               // blockquotes
-    .replace(/\n{2,}/g, '. ')           // paragraph breaks → pause
+    // Emojis and extended pictographs
+    .replace(/\p{Extended_Pictographic}/gu, '')
+    .replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
+
+    // Inline image tags and internal media cues
+    .replace(/\[\[IMAGE:[^\]]*\]\]/gi, '')
+
+    // Headers & block elements
+    .replace(/#{1,6}\s+/g, '')
+    .replace(/^>+\s*/gm, '')
+    .replace(/^[\s*-+•]+\s+/gm, '')
+
+    // Markdown formatting
+    .replace(/[*_]{1,3}(.+?)[*_]{1,3}/g, '$1')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+
+    // Geological time abbreviations (Ma, Ga, ka, mya, bya)
+    .replace(/\b(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*Ma\b/gi, '$1 to $2 million years ago')
+    .replace(/\b(\d+(?:\.\d+)?)\s*Ma\b/gi, '$1 million years ago')
+    .replace(/\bMa\b/g, 'million years ago')
+    .replace(/\b(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*Ga\b/gi, '$1 to $2 billion years ago')
+    .replace(/\b(\d+(?:\.\d+)?)\s*Ga\b/gi, '$1 billion years ago')
+    .replace(/\b(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*ka\b/gi, '$1 to $2 thousand years ago')
+    .replace(/\b(\d+(?:\.\d+)?)\s*ka\b/gi, '$1 thousand years ago')
+    .replace(/\bmya\b/gi, 'million years ago')
+    .replace(/\bbya\b/gi, 'billion years ago')
+
+    // Mass extinctions and geological boundaries
+    .replace(/\bK[-–—/]?Pg\b/gi, 'K-P-G')
+    .replace(/\bK[-–—/]?T\b/gi, 'K-T')
+    .replace(/\bP[-–—/]?Tr\b/gi, 'Permian-Triassic')
+    .replace(/\bO[-–—/]?S\b/gi, 'Ordovician-Silurian')
+    .replace(/\bPETM\b/g, 'P-E-T-M')
+
+    // Chemistry, atmosphere and climate symbols
+    .replace(/\b(?:CO2|CO\u2082)\b/gi, 'carbon dioxide')
+    .replace(/\b(?:O2|O\u2082)\b/gi, 'oxygen')
+    .replace(/\b(?:CH4|CH\u2084)\b/gi, 'methane')
+    .replace(/\b(?:H2O|H\u2082O)\b/gi, 'water')
+    .replace(/(?:\u00b0|\bdeg\b)\s*C\b/gi, ' degrees Celsius')
+    .replace(/(?:\u00b0|\bdeg\b)\s*F\b/gi, ' degrees Fahrenheit')
+    .replace(/(\d+)\s*%/g, '$1 percent')
+    .replace(/\bppm\b/gi, 'parts per million')
+    .replace(/[~≈]/g, 'approximately ')
+    .replace(/\bca\.\s*/gi, 'approximately ')
+
+    // Editorial and Latin abbreviations
+    .replace(/\be\.g\.,?\s*/gi, 'for example, ')
+    .replace(/\bi\.e\.,?\s*/gi, 'that is, ')
+    .replace(/\betc\.?\b/gi, 'and so on')
+    .replace(/\bvs\.?\b/gi, 'versus')
+    .replace(/\bsp\.\b/g, 'species')
+    .replace(/\bspp\.\b/g, 'species')
+
+    // Punctuation and flow
+    .replace(/\.{3,}/g, ', ')
+    .replace(/\n{2,}/g, '. ')
     .replace(/\n/g, ' ')
+    .replace(/\s{2,}/g, ' ')
     .trim();
 }
+
+// Backward-compatible alias
+const stripMarkdown = sanitizeForSpeech;
 
 // ─── TTS state ───────────────────────────────────────────────────────────
 let _currentAudio    = null;   // HTMLAudioElement (prod)
