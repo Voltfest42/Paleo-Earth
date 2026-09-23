@@ -66,6 +66,9 @@ export function sanitizeForSpeech(text) {
     .replace(/\bsp\.\b/g, 'species')
     .replace(/\bspp\.\b/g, 'species')
 
+    // Decorative separator characters (middle dot, bullets, vertical bars)
+    .replace(/\s*[·•∙⋅|│]\s*/g, ', ')
+
     // Punctuation and flow
     .replace(/\.{3,}/g, ', ')
     .replace(/\n{2,}/g, '. ')
