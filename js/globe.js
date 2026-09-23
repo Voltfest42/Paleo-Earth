@@ -115,7 +115,8 @@ export class Globe {
 
     this._scene    = new THREE.Scene();
     this._camera   = new THREE.PerspectiveCamera(40, w / h, 0.1, 1000);
-    this._camera.position.set(0, 0, 2.8);
+    // Halfway point between close-up (2.8) and max zoom-out (6.0) for comfortable full-globe framing
+    this._camera.position.set(0, 0, 4.4);
 
     this._renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     this._renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
