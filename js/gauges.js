@@ -11,46 +11,46 @@ const GAUGE_DEFS = [
     key:    'o2',
     label:  'O₂',
     unit:   '%',
-    min:    0,
-    max:    35,
-    format: v => `${v.toFixed(1)}%`,
+    min:    -2.0,   // Sets floor so minimum O2 (1.8%) sits at ~10% of the dial
+    max:    37.3,   // Exact dataset maximum (37.24%) fills the gauge to 100%
+    format: v => `${Math.max(0, v).toFixed(1)}%`,
     // Colour stops: [value, hsl-hue]  (green=120, blue=210, yellow=45, red=0)
     colorStops: [
-      [0,    210], // blue (anoxic)
+      [2,    210], // blue (anoxic early Cambrian)
       [10,   160], // teal
       [21,   120], // green (normal modern)
-      [30,   45],  // yellow (dangerously high)
-      [35,   0],   // red (extreme)
+      [30,   45],  // yellow (high)
+      [37,   0],   // red (Carboniferous/Permian peak)
     ],
   },
   {
     key:    'co2',
     label:  'CO₂',
     unit:   'ppm',
-    min:    0,
-    max:    8000,
+    min:    -250,   // Sets floor so minimum CO2 (220 ppm) sits at ~10% of the dial
+    max:    4850,   // Exact dataset maximum (4,850 ppm) fills the gauge to 100%
     format: v => v >= 1000 ? `${(v/1000).toFixed(1)}k` : `${Math.round(v)}`,
     colorStops: [
-      [0,    120], // green
-      [400,  90],  // yellow-green (pre-industrial)
-      [800,  60],  // yellow
-      [2000, 30],  // orange
-      [8000, 0],   // red
+      [220,  120], // green (Pleistocene/icehouse)
+      [420,  100], // yellow-green (modern)
+      [1000, 60],  // yellow
+      [2500, 30],  // orange
+      [4850, 0],   // red (Cambrian peak)
     ],
   },
   {
     key:    'temp',
     label:  'Temp',
     unit:   '°C',
-    min:    0,
-    max:    30,
+    min:    5.5,    // Sets floor so minimum Temp (8.1°C) sits at ~10% of the dial
+    max:    33.0,   // Exact dataset maximum (32.86°C) fills the gauge to 100%
     format: v => `${v.toFixed(1)}°`,
     colorStops: [
-      [0,    210], // blue (freezing)
-      [10,   180], // cyan (cold)
-      [15,   120], // green (temperate)
-      [20,   60],  // yellow (warm)
-      [28,   0],   // red (hot)
+      [8,    210], // blue (icehouse cold)
+      [14,   120], // green (modern temperate)
+      [22,   60],  // yellow (warm greenhouse)
+      [28,   25],  // orange
+      [33,   0],   // red (Permian-Triassic hyperthermal)
     ],
   },
 ];
