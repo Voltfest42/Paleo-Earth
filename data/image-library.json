@@ -6,7 +6,7 @@
       "title": "Fallotaspis bondoni",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Fallotaspis represents a genus of Early Cambrian Trilobites with a worldwide distribution and is used as an index fossil. F. bondoni was originally described as a species of Olenellus from specimens found in Morocco.",
+      "description": "Fallotaspis represents a genus of Early Cambrian Trilobites with a worldwide distribution  and is used as an index fossil. F. bondoni was originally described as a species of Olenellus from specimens found in Morocco.",
       "tags": [
         "arthropod",
         "cambrian",
@@ -24,7 +24,250 @@
       "keyframes": [
         "cambrian_explosion",
         "early_cambrian"
-      ]
+      ],
+      "source_url": "https://spinops.blogspot.com/2022/04/fallotaspis-bondoni.html"
+    },
+    {
+      "id": "haikouella_lanceolata_tamura",
+      "filename": "haikouella_lanceolata_nobu_tamura.jpg",
+      "title": "Haikouella lanceolata",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Known from some 305 specimens, this small fish-like animal from the famous Chengjiang fauna was probably an early vertebrate. The fossils show the presence of a notochord, neural cord with a brain, a heart, a stomach, and gills among other things.",
+      "tags": [
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "chordate",
+        "early cambrian",
+        "early_cambrian",
+        "early_vertebrate",
+        "haikouella",
+        "haikouella_lanceolata",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2022/06/haikouella-lanceolata.html"
+    },
+    {
+      "id": "hymenocaris_vermicauda_tamura",
+      "filename": "hymenocaris_vermicauda_nobu_tamura.jpg",
+      "title": "Hymenocaris vermicauda",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "This Cambrian crustacean had a thin carapace folded along its back to form two symmetrical valve-like sides. Only one species is recognized today, the others having been transferred to the genus Canadaspis .",
+      "tags": [
+        "arthropod",
+        "cambrian",
+        "crustacean",
+        "hymenocaris",
+        "hymenocaris_vermicauda",
+        "invertebrate",
+        "late cambrian",
+        "late_cambrian",
+        "marine_invertebrate",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "late_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2018/03/hymenocaris-vermicauda.html"
+    },
+    {
+      "id": "eldonia_ludwigii_tamura",
+      "filename": "eldonia_ludwigii_nobu_tamura.jpg",
+      "title": "Eldonia ludwigii",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Thie enigmatic soft bodied animal from the Burgess Shale had a radial symmetry with a coiled gut. It was originally described as a holothurian (sea cucumber), then often pictured as a pelagic  jellyfish-like animal.",
+      "tags": [
+        "ambulacraria",
+        "benthic",
+        "burgess_shale",
+        "cambrian",
+        "eldonia",
+        "eldonia_ludwigii",
+        "marine",
+        "marine_invertebrate",
+        "mid cambrian",
+        "mid_cambrian",
+        "ordovician",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "mid_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/eldonia-ludwigii.html"
+    },
+    {
+      "id": "paraleptomitella_dictyodroma_tamura",
+      "filename": "paraleptomitella_dictyodroma_nobu_tamura.jpg",
+      "title": "Paraleptomitella dictyodroma",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Sponges (Porifera) are believed to have appeared well before the Cambrian and considered to be the most primitive group of multicellular animals. However, their fossil record only start during the Early Cambrian.",
+      "tags": [
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "early cambrian",
+        "early_cambrian",
+        "marine_invertebrate",
+        "paleozoic",
+        "paraleptomitella",
+        "paraleptomitella_dictyodroma",
+        "porifera",
+        "sponge"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/paraleptomitella-dictyodroma.html"
+    },
+    {
+      "id": "archisaccophyllia_kunmingensis_tamura",
+      "filename": "archisaccophyllia_kunmingensis_nobu_tamura.jpg",
+      "title": "Archisaccophyllia kunmingensis",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "These soft-bodied polyps were found preserved in exquisite details in the famous Lower Cambrian Chengjiang biota of China and are beleived to belong to an ancestral form of sea anemones.",
+      "tags": [
+        "archisaccophyllia",
+        "archisaccophyllia_kunmingensis",
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "cnidarian",
+        "early cambrian",
+        "early_cambrian",
+        "marine",
+        "marine_invertebrate",
+        "paleozoic",
+        "sea_anemone"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/archisaccophyllia-kunmingensis.html"
+    },
+    {
+      "id": "fuxianhuia_protensa_tamura",
+      "filename": "fuxianhuia_protensa_nobu_tamura.jpg",
+      "title": "Fuxianhuia protensa",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Known from many complete specimens, the exact affinity of this arthropod remains unclear. One specimen described in 2012 shows exceptional preservation of soft tissues such as the brain and the optic lobes.",
+      "tags": [
+        "arthropod",
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "early cambrian",
+        "early_cambrian",
+        "fuxianhuia",
+        "fuxianhuia_protensa",
+        "invertebrate",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/04/fuxianhuia-protensa.html"
+    },
+    {
+      "id": "ovatiovermis_cribratus_tamura",
+      "filename": "ovatiovermis_cribratus_nobu_tamura.jpg",
+      "title": "Ovatiovermis cribratus",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "This marine relative of the modern velvet worm was a suspension feeder using its long hairy arms to collect microscopic detritus and preys. The lobopods, to which both Ovatiovermis and the strange Hallucigenia belong to, were a very diverse group during the Cambrian period, with many specialized forms.",
+      "tags": [
+        "arthropod",
+        "burgess_shale",
+        "cambrian",
+        "invertebrate",
+        "lobopod",
+        "marine",
+        "marine_invertebrate",
+        "mid cambrian",
+        "mid_cambrian",
+        "ovatiovermis",
+        "ovatiovermis_cribratus",
+        "paleozoic",
+        "panarthropod"
+      ],
+      "keyframes": [
+        "mid_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/02/ovatiovermis-cribratus.html"
+    },
+    {
+      "id": "olenellus_thompsoni_tamura",
+      "filename": "olenellus_thompsoni_nobu_tamura.jpg",
+      "title": "Olenellus thompsoni",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "Olenellus known from several species in North America is one of the most primitive trilobites. It had many primitive features like the lack of sutures on the headshield, the absence of pygidium and large crescent-like eyes.",
+      "tags": [
+        "arthropod",
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "early cambrian",
+        "early_cambrian",
+        "invertebrate",
+        "marine_invertebrate",
+        "olenellus",
+        "olenellus_thompsoni",
+        "paleozoic",
+        "trilobite"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2015/10/olenellus-thompsoni.html"
+    },
+    {
+      "id": "myllokunmingia_fengjiaoa_tamura",
+      "filename": "myllokunmingia_fengjiaoa_nobu_tamura.jpg",
+      "title": "Myllokunmingia fengjiaoa",
+      "credit": "Nobu Tamura",
+      "license": "CC BY-SA 4.0",
+      "description": "This chordate, known from a single specimen, might have been one of the earliest vertebrate. Some details of the animal, such as the location of the mouth or if it had eyes, are unknown.",
+      "tags": [
+        "cambrian",
+        "cambrian explosion",
+        "cambrian_explosion",
+        "chengjiang",
+        "chengjiang_biota",
+        "chordate",
+        "early cambrian",
+        "early_cambrian",
+        "early_vertebrate",
+        "myllokunmingia",
+        "myllokunmingia_fengjiaoa",
+        "paleozoic"
+      ],
+      "keyframes": [
+        "cambrian_explosion",
+        "early_cambrian"
+      ],
+      "source_url": "https://spinops.blogspot.com/2017/02/myllokunmingia-fengjiaoa.html"
     }
   ]
 }

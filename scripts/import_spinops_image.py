@@ -122,19 +122,49 @@ def clean_html_text(raw_html: str) -> str:
     text = html.unescape(text)
     return ' '.join(text.split())
 
+TAXON_SUFFIXES = r'(idae|inae|oidea|ida|ina|ata|morpha|ales|acea|formes)$'
+LOC_WORDS = ['china', 'canada', 'uk', 'usa', 'us', 'morocco', 'russia', 'australia', 'germany', 'france', 'spain', 'greenland']
+GEO_TERMS = [
+    'cambrian', 'ordovician', 'silurian', 'devonian', 'carboniferous', 'permian',
+    'triassic', 'jurassic', 'cretaceous', 'paleogene', 'neogene', 'quaternary',
+    'pleistocene', 'holocene', 'burgess shale', 'chengjiang', 'maotianshan',
+    'formation', 'shale', 'biota', 'member', 'fauna', 'stage', 'series'
+]
+TAXON_ROOTS = [
+    'arthropoda', 'trilobita', 'chordata', 'porifera', 'cnidaria', 'mollusca',
+    'brachiopoda', 'echinodermata', 'lobopodia', 'panarthropoda', 'demospongea',
+    'anthozoa', 'chelicerata', 'crustacea', 'malacostraca', 'ambulacraria'
+]
+
+def extract_lines(raw_html: str) -> list[str]:
+    """Break HTML into non-empty, stripped lines excluding footer boilerplate."""
+    text = re.sub(r'<br\s*/?>', '\n', raw_html, flags=re.I)
+    text = re.sub(r'</p>', '\n', text, flags=re.I)
+    text = re.sub(r'</div>', '\n', text, flags=re.I)
+    text = re.sub(r'<[^>]+>', ' ', text)
+    text = html.unescape(text)
+    raw_lines = [re.sub(r'[ \t]+', ' ', l).strip() for l in text.split('\n')]
+    lines = []
+    for l in raw_lines:
+        if not l: continue
+        if any(skip in l.lower() for skip in ['all illustrations on this site', 'references:', 'high resolution versions', 'questions: contact me', 'geyer, g.']):
+            break
+        if re.match(r'^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}$', l):
+            continue
+        lines.append(l)
+    return lines
+
 def extract_metadata(entry: dict, page_html: str) -> dict:
     """Extract structured fields from Blogger post entry."""
     title_raw = entry.get('title', {}).get('$t', '').strip()
     content_html = entry.get('content', {}).get('$t', '')
 
     # Find image URLs
-    # Priority: <a> href pointing to image > <img> src
     a_imgs = re.findall(r'<a[^>]+href=["\']([^"\']+\.(?:jpg|png|webp|jpeg)[^"\']*)["\']', content_html, re.I)
     img_tags = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content_html, re.I)
 
     image_candidates = a_imgs + img_tags
     if not image_candidates:
-        # Fallback to page_html
         og_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page_html)
         if og_img:
             image_candidates.append(og_img.group(1))
@@ -142,56 +172,61 @@ def extract_metadata(entry: dict, page_html: str) -> dict:
     raw_image_url = image_candidates[0] if image_candidates else None
     best_image_url = None
     if raw_image_url:
-        # Switch to highest resolution available (s1600 or s0)
         best_image_url = re.sub(r'/(s\d+|w\d+-h\d+[^/]*)/', '/s1600/', raw_image_url)
 
-    # Clean text
-    clean_text = clean_html_text(content_html)
+    lines = extract_lines(content_html)
+    species_name = title_raw or (lines[0] if lines else "")
+    # Clean species name (remove author/year e.g. "Hall, 1859" or "(Neltner & Poctey, 1950)")
+    clean_title = re.sub(r'\s*\(?[A-Z][a-zA-Z\s&,.]+\d{4}\)?.*$', '', species_name).strip()
+    if not clean_title:
+        clean_title = species_name
 
-    # Extract Systematics
-    sys_match = re.search(r'Systematics:\s*([^\n\r]+?)(?=\s*(?:Size:|Type Horizon|Type Specimen|Synonyms|$))', clean_text, re.I)
-    systematics = sys_match.group(1).strip() if sys_match else ""
+    systematics_parts = []
+    horizon_parts = []
+    size_parts = []
+    desc_paras = []
 
-    # Extract Size
-    size_match = re.search(r'Size:\s*([^\n\r]+?)(?=\s*(?:Type Horizon|Type Specimen|Synonyms|Systematics|$))', clean_text, re.I)
-    size = size_match.group(1).strip() if size_match else ""
+    for line in lines[1:]:
+        l_low = line.lower()
+        if line.startswith('Systematics:'):
+            systematics_parts.append(line.replace('Systematics:', '').strip())
+        elif line.startswith('Size:') or line.startswith('Length:'):
+            val = re.sub(r'^(Size|Length):\s*', '', line).strip()
+            if val: size_parts.append(val)
+        elif line.startswith('Type Horizon') or line.startswith('Horizon'):
+            horizon_parts.append(re.sub(r'^(Type Horizon and Locality|Type Horizon|Horizon):\s*', '', line).strip())
+        elif line.startswith('Type Specimen') or line.startswith('Synonyms:'):
+            continue
+        elif any(t in l_low for t in TAXON_ROOTS) and len(line.split()) <= 6:
+            systematics_parts.append(line)
+        elif any(g in l_low for g in GEO_TERMS) and len(line.split()) <= 15:
+            horizon_parts.append(line)
+        elif re.match(r'^(up to\s+)?\d+(\.\d+)?\s*(cm|mm|m)\b', line, re.I):
+            size_parts.append(line)
+        else:
+            # Check if line is short and looks like metadata
+            words = line.split()
+            if len(words) <= 4:
+                if any(re.search(TAXON_SUFFIXES, w.lower().rstrip(',.')) for w in words):
+                    systematics_parts.append(line)
+                    continue
+                if any(loc in l_low for loc in LOC_WORDS):
+                    horizon_parts.append(line)
+                    continue
+                if l_low.startswith('length') or l_low.startswith('size'):
+                    continue
+            if len(words) >= 5 or '.' in line:
+                desc_paras.append(line)
 
-    # Extract Horizon and Locality
-    horizon_match = re.search(r'Type Horizon and Locality:\s*([^\n\r]+?)(?=\s*(?:Type Specimen|Synonyms|Size|Systematics|$))', clean_text, re.I)
-    horizon = horizon_match.group(1).strip() if horizon_match else ""
-
-    # Extract Description body
-    # Look for descriptive sentences outside the labeled fields
-    desc_text = ""
-    # Look for paragraph text following the metadata block
-    paragraphs = re.findall(r'<p>(.*?)</p>', content_html, re.I | re.S)
-    body_paras = []
-    for p in paragraphs:
-        p_clean = clean_html_text(p)
-        if p_clean and not any(k in p_clean.lower() for k in ['systematics:', 'type horizon', 'all illustrations on this site', 'references:']):
-            body_paras.append(p_clean)
-
-    if body_paras:
-        desc_text = ' '.join(body_paras)
-    else:
-        # Fallback from clean_text
-        m_body = re.search(r'(?:Synonyms:[^.]*\.|\d{4}\.?)\s*([A-Z][^\n\r]+?)(?=\s*(?:References:|All illustrations|\b[A-Z][a-z]+ \d{1,2}, \d{4}))', clean_text)
-        if m_body:
-            desc_text = m_body.group(1).strip()
-
-    # Organism name / Species
-    species_name = title_raw
-    if not species_name:
-        m_sp = re.search(r'<b><i>([A-Za-z\s]+)</i>', content_html)
-        if m_sp:
-            species_name = m_sp.group(1).strip()
+    desc_text = " ".join(desc_paras)
+    clean_text = " ".join(lines)
 
     return {
-        "title": species_name.strip(),
+        "title": clean_title.strip(),
         "image_url": best_image_url,
-        "systematics": systematics,
-        "size": size,
-        "horizon": horizon,
+        "systematics": " ".join(systematics_parts),
+        "size": ", ".join(size_parts),
+        "horizon": " ".join(horizon_parts),
         "description_body": desc_text,
         "raw_text": clean_text,
     }
@@ -212,15 +247,23 @@ def derive_classification(meta: dict) -> dict:
 
     combined_text = f"{meta['title']} {meta['systematics']} {meta['horizon']} {meta['description_body']} {meta['raw_text']}".lower()
 
-    # Determine keyframes
+    # Determine keyframes (check horizon first for accurate formation age)
     keyframes = set()
+    horizon_text = meta.get("horizon", "").lower()
     for pattern, kf_list in AGE_KEYFRAME_MAP:
-        if re.search(pattern, combined_text):
+        if re.search(pattern, horizon_text):
             keyframes.update(kf_list)
-            break  # Stop at the most specific match
+            break
+
+    # Fallback to combined text if horizon was empty or didn't match
+    if not keyframes:
+        for pattern, kf_list in AGE_KEYFRAME_MAP:
+            if re.search(pattern, combined_text):
+                keyframes.update(kf_list)
+                break
 
     if not keyframes:
-        keyframes.add("early_cambrian")  # sensible default if unparsed
+        keyframes.add("early_cambrian")
 
     # Determine tags
     tags = set()
@@ -231,6 +274,12 @@ def derive_classification(meta: dict) -> dict:
     tax_terms = {
         "trilobita": ["trilobite", "arthropod", "marine_invertebrate"],
         "arthropoda": ["arthropod", "invertebrate"],
+        "porifera": ["sponge", "porifera", "marine_invertebrate"],
+        "cnidaria": ["cnidarian", "sea_anemone", "marine_invertebrate"],
+        "lobopodia": ["lobopod", "panarthropod", "marine_invertebrate"],
+        "panarthropoda": ["panarthropod", "invertebrate"],
+        "crustacea": ["crustacean", "arthropod", "marine_invertebrate"],
+        "ambulacraria": ["ambulacraria", "marine_invertebrate"],
         "dinosauria": ["dinosaur", "reptile", "land_vertebrate"],
         "pterosauria": ["pterosaur", "flying_reptile"],
         "sauropterygia": ["marine_reptile", "sauropterygian"],
@@ -253,6 +302,14 @@ def derive_classification(meta: dict) -> dict:
     for sys_key, tag_list in tax_terms.items():
         if sys_key in combined_text:
             tags.update(tag_list)
+
+    # Specific organisms
+    if "haikouella" in combined_text or "myllokunmingia" in combined_text:
+        tags.update(["chordate", "early_vertebrate"])
+    if "chengjiang" in combined_text or "maotianshan" in combined_text:
+        tags.update(["chengjiang", "chengjiang_biota"])
+    if "burgess shale" in combined_text:
+        tags.add("burgess_shale")
 
     # Eras & Periods
     eras = [
@@ -326,14 +383,19 @@ def derive_classification(meta: dict) -> dict:
         "keyframes": sorted(list(keyframes))
     }
 
-def process_url(url: str) -> dict:
+def process_url(url: str, existing_sources: set, force: bool = False) -> dict | None:
     """Download image and return entry dict for image-library.json."""
-    print(f"\nProcessing: {url}")
-    page_html = fetch_url(url)
+    clean_url = re.sub(r'\?.*$', '', url.strip())
+    if clean_url in existing_sources and not force:
+        print(f"\n[SKIP] Already imported: {clean_url}")
+        return None
+
+    print(f"\nProcessing: {clean_url}")
+    page_html = fetch_url(clean_url)
     post_id = get_post_id(page_html)
 
     if not post_id:
-        raise ValueError(f"Could not extract Blogger postId from {url}")
+        raise ValueError(f"Could not extract Blogger postId from {clean_url}")
 
     feed_url = f"https://spinops.blogspot.com/feeds/posts/default/{post_id}?alt=json"
     feed_json = json.loads(fetch_url(feed_url))
@@ -341,19 +403,22 @@ def process_url(url: str) -> dict:
 
     meta = extract_metadata(entry, page_html)
     record = derive_classification(meta)
+    record["source_url"] = clean_url
 
-    # Download image
-    img_url = meta.get("image_url")
-    if not img_url:
-        raise ValueError(f"No image found for {url}")
-
+    # Check image on disk
     dest_file = IMAGES_DIR / record["filename"]
-    print(f"Downloading image from: {img_url}")
-    req = urllib.request.Request(img_url, headers={'User-Agent': USER_AGENT})
-    with urllib.request.urlopen(req, timeout=30) as resp, open(dest_file, "wb") as f:
-        f.write(resp.read())
+    if dest_file.exists() and dest_file.stat().st_size > 0:
+        print(f"Image already on disk: {dest_file.name} ({dest_file.stat().st_size:,} bytes)")
+    else:
+        img_url = meta.get("image_url")
+        if not img_url:
+            raise ValueError(f"No image found for {clean_url}")
+        print(f"Downloading image from: {img_url}")
+        req = urllib.request.Request(img_url, headers={'User-Agent': USER_AGENT})
+        with urllib.request.urlopen(req, timeout=30) as resp, open(dest_file, "wb") as f:
+            f.write(resp.read())
+        print(f"Saved image to: {dest_file} ({dest_file.stat().st_size:,} bytes)")
 
-    print(f"Saved image to: {dest_file} ({dest_file.stat().st_size:,} bytes)")
     return record
 
 def update_image_library(new_entries: list[dict]):
@@ -368,6 +433,8 @@ def update_image_library(new_entries: list[dict]):
     id_map = {item["id"]: i for i, item in enumerate(existing_images)}
 
     for entry in new_entries:
+        if not entry:
+            continue
         if entry["id"] in id_map:
             idx = id_map[entry["id"]]
             print(f"Updating existing entry: {entry['id']}")
@@ -386,27 +453,55 @@ def update_image_library(new_entries: list[dict]):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python scripts/import_spinops_image.py <URL1> [URL2 ...]")
-        print("   or: python scripts/import_spinops_image.py --file urls.txt")
+        print("Usage: python scripts/import_spinops_image.py [--force] <URL1> [URL2 ...]")
+        print("   or: python scripts/import_spinops_image.py [--force] --file urls.txt")
         sys.exit(1)
 
-    urls = []
-    if sys.argv[1] == "--file":
-        with open(sys.argv[2], "r", encoding="utf-8") as f:
-            urls = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+    args = sys.argv[1:]
+    force = False
+    if "--force" in args:
+        force = True
+        args.remove("--force")
+
+    raw_urls = []
+    if args and args[0] == "--file":
+        with open(args[1], "r", encoding="utf-8") as f:
+            raw_urls = [line.strip() for line in f if line.strip() and not line.startswith("#")]
     else:
-        urls = [arg.strip() for arg in sys.argv[1:] if arg.strip()]
+        raw_urls = [arg.strip() for arg in args if arg.strip()]
+
+    # Normalize and deduplicate within batch
+    seen = set()
+    urls = []
+    for u in raw_urls:
+        norm = re.sub(r'\?.*$', '', u)
+        if norm and norm not in seen:
+            seen.add(norm)
+            urls.append(norm)
+
+    # Check already imported sources from image-library.json
+    existing_sources = set()
+    if IMAGE_LIB_PATH.exists() and not force:
+        with open(IMAGE_LIB_PATH, "r", encoding="utf-8") as f:
+            lib_data = json.load(f)
+            for item in lib_data.get("images", []):
+                if "source_url" in item:
+                    existing_sources.add(item["source_url"])
 
     new_entries = []
     for u in urls:
         try:
-            entry = process_url(u)
-            new_entries.append(entry)
+            entry = process_url(u, existing_sources, force=force)
+            if entry:
+                new_entries.append(entry)
+                existing_sources.add(entry["source_url"])
         except Exception as e:
             print(f"Error processing {u}: {e}")
 
     if new_entries:
         update_image_library(new_entries)
+    else:
+        print("\nNo new entries to add.")
 
 if __name__ == "__main__":
     main()
