@@ -176,10 +176,11 @@ def extract_metadata(entry: dict, page_html: str) -> dict:
 
     lines = extract_lines(content_html)
     species_name = title_raw or (lines[0] if lines else "")
-    # Clean species name (remove author/year e.g. "Hall, 1859" or "(Neltner & Poctey, 1950)")
-    clean_title = re.sub(r'\s*\(?[A-Z][a-zA-Z\s&,.]+\d{4}\)?.*$', '', species_name).strip()
+    # Clean species name (remove author/year e.g. "Hall, 1859", "(Neltner & Poctey, 1950)", or "Ameghino, 1904")
+    clean_title = re.sub(r'(\s+\(?[A-Z][a-zA-Z\s&,.]*?\b(1[789]\d\d|20\d\d)\)?\s*)$', '', species_name).strip()
+    clean_title = re.sub(r'\s+', ' ', clean_title).strip()
     if not clean_title:
-        clean_title = species_name
+        clean_title = re.sub(r'\s+', ' ', species_name).strip()
 
     systematics_parts = []
     horizon_parts = []
@@ -536,6 +537,34 @@ ECOSYSTEM_CATALOG = {
             "mid_pleistocene", "proterotheriidae", "south_america", "theosodon", "thoatherium", "ungulate"
         ],
         "keyframes": ["early_paleogene", "late_neogene", "late_paleogene", "mid_neogene", "mid_paleogene", "mid_pleistocene"]
+    },
+    "blackhawk_ranch": {
+        "id": "blackhawk_ranch_fauna_tamura",
+        "filename": "blackhawk_ranch_fauna_nobu_tamura.jpg",
+        "title": "Blackhawk Ranch Fauna (Late Miocene California)",
+        "description": "A composite reconstruction of the Late Miocene (Clarendonian, ~10-9 Ma) terrestrial mammal fauna from the Blackhawk Ranch quarry on Mount Diablo, California. Featured taxa include the camel Alforjas magnifontis, the bone-crushing dog Borophagus littoralis, the false saber-tooth cat Barbourofelis loveorum, the peccary Woodburnehyus grenaderae, the oreodont Ustatochoerus major, the three-toed horse Hipparion forcei, and the mastodont Gomphotherium obscurum.",
+        "tags": [
+            "alforjas", "barbourofelis", "blackhawk_ranch", "borophagus", "california", "camel",
+            "cenozoic", "community", "composite", "ecosystem", "fauna", "gomphotherium", "hipparion",
+            "land_vertebrate", "late_miocene", "late_neogene", "mammal", "mid_neogene", "miocene",
+            "neogene", "north_america", "oreodont", "peccary", "saber_toothed_cat", "three_toed_horse",
+            "uratochoerus", "ustatochoerus", "woodburnehyus"
+        ],
+        "keyframes": ["late_neogene", "mid_neogene"]
+    },
+    "purisima_formation": {
+        "id": "purisima_formation_marine_mammals_tamura",
+        "filename": "purisima_formation_marine_mammals_nobu_tamura.jpg",
+        "title": "Purisima Formation Marine Mammal Fauna",
+        "description": "A composite reconstruction of the diverse coastal marine mammal fauna of the Upper Miocene to Pliocene (~7-3 Ma) Purisima Formation at Half Moon Bay, California. Featured species include the dwarf rorqual Balaenoptera bertae, the bizarre down-pointing tusked porpoise Semirostrum ceruttii, the double-tusked walrus Dusignathus santacruzensis, the northern fur seal Callorhinus gilmorei, the long-beaked dolphin Parapontoporia sternbergi, and the pygmy whale Herpetocetus bramblei.",
+        "tags": [
+            "balaenoptera", "california", "callorhinus", "cenozoic", "cetacean", "coastal",
+            "community", "composite", "dolphin", "dusignathus", "ecosystem", "half_moon_bay",
+            "herpetocetus", "late_miocene", "late_neogene", "marine", "marine_mammal", "mid_neogene",
+            "minke_whale", "miocene", "neogene", "north_america", "parapontoporia", "pinniped",
+            "pliocene", "porpoise", "purisima_formation", "semirostrum", "walrus", "whale"
+        ],
+        "keyframes": ["late_neogene", "mid_neogene"]
     }
 }
 
@@ -1965,6 +1994,169 @@ CURATED_ENTRIES = {
             "pampathere", "pampatheriidae", "pleistocene", "quaternary", "usa", "xenarthra"
         ],
         "keyframes": ["early_quaternary", "mid_pleistocene"]
+    },
+    "homo_erectus": {
+        "title": "Homo erectus",
+        "description": "Homo erectus ('upright man') was a highly successful, wide-ranging early human species that emerged in the Early Pleistocene (~1.9 Ma) in Africa and spread across Eurasia. Characterized by modern human-like body proportions, an enlarged brain (700-1100 cc), Acheulean bifacial handaxe technology, and the systematic use of controlled fire, it persisted until ~110,000 years ago.",
+        "tags": [
+            "africa", "asia", "bipedal", "cenozoic", "chordate", "early_human", "early_quaternary",
+            "fire", "handaxe", "hominid", "hominin", "homo", "homo_erectus", "land_vertebrate",
+            "mammal", "mid_pleistocene", "paleoanthropology", "pleistocene", "primate", "quaternary", "tool_maker"
+        ],
+        "keyframes": ["early_quaternary", "mid_pleistocene"]
+    },
+    "australopithecus_afarensis": {
+        "title": "Australopithecus afarensis",
+        "description": "Australopithecus afarensis was an extinct gracile hominin that lived between ~3.9 and 2.9 Ma during the Pliocene of East Africa (famous from the 'Lucy' skeleton and Laetoli footprints). Combining obligate bipedal terrestrial locomotion with curved fingers and shoulders suited for arboreal climbing, it had an ape-like brain volume (~400-500 cc) and pronounced facial prognathism.",
+        "tags": [
+            "afar_triangle", "africa", "australopithecus", "australopithecus_afarensis", "bipedal",
+            "cenozoic", "chordate", "east_africa", "ethiopia", "hadar", "hominid", "hominin",
+            "laetoli", "land_vertebrate", "late_neogene", "lucy", "mammal", "neogene",
+            "paleoanthropology", "pliocene", "primate"
+        ],
+        "keyframes": ["late_neogene"]
+    },
+    "ardipithecus_ramidus": {
+        "title": "Ardipithecus ramidus",
+        "description": "Ardipithecus ramidus ('Ardi') was an early hominin that lived around 4.4 Ma during the Early Pliocene in the Middle Awash of Ethiopia. Representing a pivotal stage near the human-chimpanzee divergence, it featured a grasping, opposable big toe for clambering in trees alongside a modified pelvis adapted for facultative bipedalism on the ground.",
+        "tags": [
+            "africa", "ardipithecus", "ardipithecus_ramidus", "bipedal", "cenozoic", "chordate",
+            "early_hominin", "ethiopia", "facultative_biped", "hominid", "hominin",
+            "land_vertebrate", "late_neogene", "mammal", "middle_awash", "neogene",
+            "paleoanthropology", "pliocene", "primate"
+        ],
+        "keyframes": ["late_neogene"]
+    },
+    "acinonyx_kurteni": {
+        "title": "Acinonyx kurteni",
+        "description": "Acinonyx kurteni (the 'Linxia cheetah') was described in 2008 as a primitive Late Pliocene cheetah from the Linxia Basin of Gansu, China. Later anatomical re-examinations revealed the holotype skull to be an elaborate composite forgery fabricated from plaster and fossil fragments, leading to the retraction of its cheetah status and serving as a cautionary tale in modern vertebrate paleontology.",
+        "tags": [
+            "acinonyx", "acinonyx_kurteni", "carnivore", "cenozoic", "china", "chordate",
+            "composite_fossil", "felid", "felidae", "forgery", "gansu", "land_vertebrate",
+            "late_neogene", "linxia_basin", "mammal", "neogene", "paleontology_history", "pliocene", "predator"
+        ],
+        "keyframes": ["late_neogene"]
+    },
+    "euryzygoma_dunense": {
+        "title": "Euryzygoma dunense",
+        "description": "Euryzygoma was an unusual 2.5-meter, half-tonne diprotodontid marsupial from the Pliocene and Early Pleistocene of Queensland, Australia. It was distinguished by extraordinarily flared, saucer-like cheekbone flanges (zygomatic arches) that likely anchored massive cheek pouches for storing browse or functioned in visual display and intraspecific combat.",
+        "tags": [
+            "australia", "cenozoic", "chordate", "diprotodontia", "diprotodontidae",
+            "early_quaternary", "euryzygoma", "euryzygoma_dunense", "flared_cheeks",
+            "giant_marsupial", "herbivore", "land_vertebrate", "late_neogene", "mammal",
+            "marsupial", "mid_pleistocene", "neogene", "pleistocene", "pliocene", "queensland", "quaternary"
+        ],
+        "keyframes": ["early_quaternary", "late_neogene", "mid_pleistocene"]
+    },
+    "mammuthus_meridionalis": {
+        "title": "Mammuthus meridionalis",
+        "description": "Mammuthus meridionalis (the southern mammoth) was a colossal early mammoth standing 4 meters tall and weighing up to 10 to 11 tonnes that roamed open woodlands of Europe and Central Asia during the Early Pleistocene (~2.5-1.5 Ma). Adapted to milder, temperate climates before the onset of intense ice ages, it possessed robust spiraling tusks and was ancestral to steppe and woolly mammoths.",
+        "tags": [
+            "cenozoic", "chordate", "early_quaternary", "elephant", "elephantidae", "eurasia",
+            "europe", "giant_mammal", "herbivore", "land_vertebrate", "mammal", "mammoth",
+            "mammuthus", "mammuthus_meridionalis", "mid_pleistocene", "pleistocene",
+            "proboscidea", "quaternary", "southern_mammoth", "tusks"
+        ],
+        "keyframes": ["early_quaternary", "mid_pleistocene"]
+    },
+    "toxodon_platensis": {
+        "title": "Toxodon platensis",
+        "description": "Toxodon was a massive 2.7-meter, 1.5-tonne herbivorous notoungulate from the Late Pliocene to Late Pleistocene of South America. Featuring arched, chisel-like constantly growing incisors, high-crowned cheek teeth, and short graviportal legs, it was famously discovered by Charles Darwin during the Beagle voyage and described as one of the strangest animals ever discovered.",
+        "tags": [
+            "cenozoic", "charles_darwin", "chordate", "early_quaternary", "great_american_interchange",
+            "herbivore", "land_vertebrate", "late_neogene", "mammal", "meridiungulata",
+            "mid_pleistocene", "neogene", "notoungulata", "pleistocene", "pliocene", "quaternary",
+            "south_america", "toxodon", "toxodon_platensis", "toxodontidae"
+        ],
+        "keyframes": ["early_quaternary", "late_neogene", "mid_pleistocene"]
+    },
+    "camelops_hesternus": {
+        "title": "Camelops hesternus",
+        "description": "Camelops hesternus ('yesterday's camel') was a 2.2-meter tall, 800-kg true camelid that roamed open plains, grasslands, and deserts of western North America during the Pleistocene. Possessing a single dorsal adipose hump like modern dromedaries and specialized foot pads for desert and prairie travel, it survived until the end-Pleistocene megafaunal extinction ~11,000 years ago.",
+        "tags": [
+            "alameda_county", "california", "camel", "camelid", "camelidae", "camelops",
+            "camelops_hesternus", "cenozoic", "chordate", "early_quaternary", "herbivore",
+            "la_brea", "land_vertebrate", "mammal", "megafauna", "mid_pleistocene",
+            "north_america", "pleistocene", "quaternary", "usa"
+        ],
+        "keyframes": ["early_quaternary", "mid_pleistocene"]
+    },
+    "mammut_americanum": {
+        "title": "Mammut americanum",
+        "description": "The American mastodon (Mammut americanum) was a heavily built, 3-meter tall proboscidean that inhabited spruce woodlands and wetlands across North America during the Pleistocene. Characterized by long, curved upper tusks and high-crested zygodont molar crowns adapted for browsing woody twigs and conifers, it vanished at the close of the Pleistocene around 10,000 years ago.",
+        "tags": [
+            "american_mastodon", "cenozoic", "chordate", "early_quaternary", "herbivore",
+            "land_vertebrate", "mammal", "mammut", "mammut_americanum", "mammutidae",
+            "mastodon", "megafauna", "mid_pleistocene", "north_america", "pleistocene",
+            "proboscidea", "quaternary", "usa"
+        ],
+        "keyframes": ["early_quaternary", "mid_pleistocene"]
+    },
+    "dinornis_robustus": {
+        "title": "Dinornis robustus",
+        "description": "The South Island giant moa (Dinornis robustus) was a colossal flightless ratite endemic to New Zealand, standing up to 3.6 meters tall with its neck outstretched and weighing up to 250 kg. Completely lacking wing bones, it was the tallest bird known to have lived, browsing subalpine forests until driven to extinction following human settlement in the 15th century.",
+        "tags": [
+            "aves", "bird", "cenozoic", "chordate", "dinornis", "dinornis_robustus",
+            "dinornithidae", "dinornithiformes", "extinct_bird", "flightless_bird", "giant_moa",
+            "herbivore", "holocene", "land_vertebrate", "mid_pleistocene", "moa",
+            "new_zealand", "pleistocene", "quaternary", "ratite"
+        ],
+        "keyframes": ["holocene", "mid_pleistocene"]
+    },
+    "megaloceros_giganteus": {
+        "title": "Megaloceros giganteus",
+        "description": "Megaloceros giganteus (the Irish elk or giant deer) was an immense cervid standing over 2.1 meters at the shoulder that ranged across Eurasia during the Late Pleistocene into the early Holocene. Mature stags grew the largest antlers of any known deer, spanning up to 3.65 meters and weighing up to 40 kg, adapted for acoustic resonance and intimidating rivals during the autumn rut.",
+        "tags": [
+            "antlers", "cervid", "cervidae", "chordate", "deer", "eurasia", "europe",
+            "giant_deer", "herbivore", "holocene", "irish_elk", "land_vertebrate", "mammal",
+            "megafauna", "megaloceros", "megaloceros_giganteus", "mid_pleistocene",
+            "pleistocene", "quaternary"
+        ],
+        "keyframes": ["holocene", "mid_pleistocene"]
+    },
+    "argyrolagus_palmeri": {
+        "title": "Argyrolagus palmeri",
+        "description": "Argyrolagus was a diminutive 40-cm bipedal saltatorial marsupial from the Pliocene of Argentina. Showcasing astonishing convergent evolution with modern kangaroo rats and jerboas, it possessed greatly elongated hind legs, a long balancing tail, reduced forelimbs, and large orbits indicating nocturnal foraging for desert seeds.",
+        "tags": [
+            "argentina", "argyrolagidae", "argyrolagus", "argyrolagus_palmeri",
+            "bipedal_marsupial", "cenozoic", "chordate", "desert_adaptations", "herbivore",
+            "jumping_marsupial", "land_vertebrate", "late_neogene", "mammal", "marsupial",
+            "neogene", "pliocene", "saltatorial", "south_america"
+        ],
+        "keyframes": ["late_neogene"]
+    },
+    "dusisiren_jordani": {
+        "title": "Dusisiren jordani",
+        "description": "Dusisiren jordani was a 4.3-meter, 3-to-4-tonne extinct dugongid sirenian from the Late Miocene to Pliocene of the North Pacific (California and Japan). Representing a transitional stage in the evolution of Steller's sea cow (Hydrodamalis), it possessed reduced front limb flippers and grazed on kelp beds in temperate coastal waters.",
+        "tags": [
+            "california", "cenozoic", "chordate", "dugongidae", "dusisiren", "dusisiren_jordani",
+            "herbivore", "kelp_forest", "late_neogene", "marine", "marine_mammal", "mid_neogene",
+            "miocene", "neogene", "north_pacific", "pacific_ocean", "pliocene", "sirenian",
+            "stellers_sea_cow_ancestor", "usa"
+        ],
+        "keyframes": ["late_neogene", "mid_neogene"]
+    },
+    "semirostrum_ceruttii": {
+        "title": "Semirostrum ceruttii",
+        "description": "Semirostrum was an extraordinary 1.8-meter fossil porpoise from the Pliocene (Purisima and San Diego Formations) of California. It featured a bizarre elongated, toothless lower jaw symphysis resembling the bill of a modern skimmer bird, which it dragged through coastal muddy sediments to locate bottom-dwelling fish and invertebrates.",
+        "tags": [
+            "california", "cenozoic", "cetacean", "chordate", "coastal", "echolocation",
+            "late_neogene", "marine", "marine_mammal", "neogene", "odontocete", "phocoenidae",
+            "pliocene", "porpoise", "predator", "purisima_formation", "semirostrum",
+            "semirostrum_ceruttii", "skimmer_jaw", "usa"
+        ],
+        "keyframes": ["late_neogene"]
+    },
+    "sthenurus_stirlingi": {
+        "title": "Sthenurus stirlingi",
+        "description": "Sthenurus stirlingi was a large short-faced kangaroo from the Pleistocene of Australia. Possessing a deep, robust skull adapted for chewing tough browse, forward-facing binocular vision, and single-toed hind feet with hooved claws, it engaged in upright bipedal striding rather than bounding like modern kangaroos.",
+        "tags": [
+            "australia", "bipedal_striding", "cenozoic", "chordate", "giant_kangaroo",
+            "herbivore", "land_vertebrate", "macropodidae", "mammal", "marsupial",
+            "megafauna", "mid_pleistocene", "pleistocene", "quaternary", "short_faced_kangaroo",
+            "simosthenurus", "sthenurinae", "sthenurus", "sthenurus_stirlingi"
+        ],
+        "keyframes": ["mid_pleistocene"]
     }
 }
 
