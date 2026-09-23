@@ -522,6 +522,20 @@ ECOSYSTEM_CATALOG = {
             "reptile", "usa"
         ],
         "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "litopterna": {
+        "id": "litopterna_radiation_tamura",
+        "filename": "litopterna_radiation_nobu_tamura.jpg",
+        "title": "Litopterna: South American Native Ungulate Radiation",
+        "description": "A comparative evolutionary overview of Litopterna, an endemic order of South American native ungulates spanning the Paleocene through Late Pleistocene. Featured are the camel-like Macrauchenia with its high dorsal nasal aperture and retracted proboscis, the three-toed Miocene Theosodon, the single-toed horse-mimic Thoatherium, and Diadiaphorus, demonstrating stunning evolutionary convergence with Old World perissodactyls and camelids.",
+        "tags": [
+            "cenozoic", "chordate", "community", "composite", "diadiaphorus", "early_paleogene",
+            "great_american_interchange", "herbivore", "hoofed_mammal", "horse_convergence",
+            "land_vertebrate", "late_neogene", "late_paleogene", "litopterna", "macrauchenia",
+            "macraucheniidae", "mammal", "meridiungulata", "mid_neogene", "mid_paleogene",
+            "mid_pleistocene", "proterotheriidae", "south_america", "theosodon", "thoatherium", "ungulate"
+        ],
+        "keyframes": ["early_paleogene", "late_neogene", "late_paleogene", "mid_neogene", "mid_paleogene", "mid_pleistocene"]
     }
 }
 
@@ -1844,6 +1858,113 @@ CURATED_ENTRIES = {
             "ornithischia", "reptile", "thyreophora"
         ],
         "keyframes": ["early_cretaceous", "mid_cretaceous"]
+    },
+    "kumimanu_biceae": {
+        "title": "Kumimanu biceae",
+        "description": "Kumimanu was a colossal early penguin from the Late Paleocene (~59–56 Ma) Moeraki Formation of Otago, New Zealand. Standing up to 1.6 meters tall and weighing over 100 kg, it evolved gigantism shortly after the extinction of non-avian dinosaurs and marine reptiles, diving in deep waters for large fish and cephalopods.",
+        "tags": [
+            "aves", "bird", "chordate", "early_paleogene", "giant", "giant_penguin",
+            "kumimanu", "kumimanu_biceae", "marine", "moeraki_formation", "new_zealand",
+            "otago", "paleocene", "paleogene", "petm", "piscivore", "sphenisciformes"
+        ],
+        "keyframes": ["early_paleogene", "petm"]
+    },
+    "titanoboa_cerrejonensis": {
+        "title": "Titanoboa cerrejonensis",
+        "description": "Titanoboa was a gargantuan boid snake from the Middle to Late Paleocene (~60–58 Ma) Cerrejón Formation of Colombia. Measuring an estimated 13 to 14 meters in length and weighing over 1.1 tonnes, it was the largest snake ever discovered, thriving in equatorial superheated rainforest swamps where it ambushed giant turtles and dyrosaurid crocs.",
+        "tags": [
+            "apex_predator", "boidae", "carnivore", "cerrejon", "cerrejon_formation", "chordate",
+            "colombia", "early_paleogene", "giant", "giant_snake", "land_vertebrate", "paleocene",
+            "paleogene", "predator", "reptile", "serpentes", "south_america", "squamata",
+            "titanoboa", "titanoboa_cerrejonensis"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "otodus_obliquus": {
+        "title": "Otodus obliquus",
+        "description": "Otodus obliquus was a massive 9-meter lamniform megatooth shark that prowled global oceans from the Late Paleocene through the Eocene (~60–45 Ma). Bearing large triangular teeth with smooth cutting edges and distinct lateral cusplets, it is the direct ancestral forerunner of the colossal Neogene shark Otodus megalodon.",
+        "tags": [
+            "apex_predator", "carnivore", "cartilaginous_fish", "chondrichthyes", "chordate",
+            "early_paleogene", "elasmobranchii", "fish", "lamniformes", "marine",
+            "megatooth_shark", "mid_paleogene", "otodontidae", "otodus", "otodus_obliquus",
+            "paleocene", "paleogene", "predator", "shark"
+        ],
+        "keyframes": ["early_paleogene", "mid_paleogene"]
+    },
+    "guarinisuchus_munizi": {
+        "title": "Guarinisuchus munizi",
+        "description": "Guarinisuchus was a 3-meter dyrosaurid crocodyliform from the Early Paleocene (~62 Ma) Maria Farinha Formation of northeastern Brazil. Dyrosaurids were tough, marine-adapted predators that survived the K-Pg extinction; Guarinisuchus crossed the proto-Atlantic Ocean using paddle limbs and a powerful lateral tail to hunt fish.",
+        "tags": [
+            "brazil", "carnivore", "chordate", "crocodylomorph", "dyrosaur", "dyrosauridae",
+            "early_paleogene", "guarinisuchus", "guarinisuchus_munizi", "marine",
+            "marine_crocodile", "marine_reptile", "paleocene", "paleogene", "piscivore",
+            "reptile", "south_america"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "purgatorius_unio": {
+        "title": "Purgatorius unio",
+        "description": "Purgatorius was a tiny (15 cm), squirrel-like stem-primate (plesiadapiform) from the earliest Paleocene (~65 Ma) Tullock Formation of Montana, USA. Flourishing in the immediate aftermath of the K-Pg mass extinction, its specialized grasping ankles and fruit-and-insect-crushing teeth mark one of the earliest branches leading toward primates and humans.",
+        "tags": [
+            "arboreal", "chordate", "early_mammal", "early_paleogene", "land_vertebrate",
+            "mammal", "montana", "north_america", "omnivore", "paleocene", "paleogene",
+            "plesiadapiformes", "primate_ancestor", "primates", "purgatoriidae", "purgatorius",
+            "purgatorius_unio", "stem_primate", "usa"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "carbonemys_cofrinii": {
+        "title": "Carbonemys cofrinii",
+        "description": "Carbonemys ('coal turtle') was an enormous side-necked pleurodiran turtle from the Middle to Late Paleocene (~60 Ma) Cerrejón coal mines of Colombia. Its shell reached 1.7 meters in length and its heavy jaws possessed crushing alveolar surfaces capable of eating armored fish and juvenile crocodyliforms.",
+        "tags": [
+            "cerrejon", "cerrejon_formation", "chordate", "colombia", "early_paleogene",
+            "freshwater", "giant", "giant_turtle", "paleocene", "paleogene", "pleurodira",
+            "podocnemididae", "reptile", "south_america", "testudines", "turtle"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "taeniolabis_taoensis": {
+        "title": "Taeniolabis taoensis",
+        "description": "Taeniolabis taoensis was a beaver-sized herbivorous multituberculate from the Early Paleocene (Puercan, ~65–63 Ma) Nacimiento Formation of New Mexico, USA. Weighing up to 25 to 30 kg, it was the largest multituberculate and one of the largest non-therian mammals to evolve, with large chisel-like incisors adapted for tough vegetation.",
+        "tags": [
+            "chordate", "cimolodonta", "early_paleogene", "herbivore", "incisors",
+            "land_vertebrate", "mammal", "multituberculata", "nacimiento_formation",
+            "new_mexico", "paleocene", "paleogene", "taeniolabididae", "taeniolabis",
+            "taeniolabis_taoensis", "usa"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "barylambda_faberi": {
+        "title": "Barylambda faberi",
+        "description": "Barylambda was a heavily built 2.5-meter, 650-kg herbivorous pantodont mammal from the Middle to Late Paleocene (Tiffanian) of Colorado and Wyoming, USA. Featuring massive pillar-like legs, a broad tail capable of forming a tripod with its hind feet, and strong claws for excavating tubers, it was one of the earliest giant post-dinosaur mammals.",
+        "tags": [
+            "barylambda", "barylambda_faberi", "barylambdidae", "chordate", "colorado",
+            "early_paleogene", "giant_mammal", "herbivore", "land_vertebrate", "mammal",
+            "north_america", "paleocene", "paleogene", "pantodonta", "usa", "wyoming"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "pantolambda_bathmodon": {
+        "title": "Pantolambda bathmodon",
+        "description": "Pantolambda was a 1.2-meter sheep-sized pantodont mammal from the Middle Paleocene (Torrejonian, ~62 Ma) of New Mexico, USA. With five-toed feet bearing small nails, selenodont molar teeth, and generalized limb proportions, it represents an early, fast-growing stage in the rapid post-extinction body-size explosion of placental mammals.",
+        "tags": [
+            "chordate", "early_paleogene", "herbivore", "land_vertebrate", "mammal",
+            "nacimiento_formation", "new_mexico", "north_america", "paleocene", "paleogene",
+            "pantodonta", "pantolambda", "pantolambda_bathmodon", "pantolambdidae",
+            "placental_mammal", "usa"
+        ],
+        "keyframes": ["early_paleogene"]
+    },
+    "holmesina_floridanus": {
+        "title": "Holmesina floridanus",
+        "description": "Holmesina was a large, 2-meter armored herbivorous pampathere mammal from the Pleistocene of Florida, North America. Related to modern armadillos and glyptodonts, pampatheres bore articulated flexible bands of bony osteoderms and robust grinding teeth adapted for grazing tough grasses during the Great American Biotic Interchange.",
+        "tags": [
+            "armored_mammal", "cingulata", "early_quaternary", "florida",
+            "great_american_interchange", "herbivore", "holmesina", "holmesina_floridanus",
+            "land_vertebrate", "mammal", "mid_pleistocene", "north_america", "osteoderms",
+            "pampathere", "pampatheriidae", "pleistocene", "quaternary", "usa", "xenarthra"
+        ],
+        "keyframes": ["early_quaternary", "mid_pleistocene"]
     }
 }
 
