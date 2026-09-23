@@ -6,7 +6,7 @@
       "title": "Fallotaspis bondoni",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Fallotaspis represents a genus of Early Cambrian Trilobites with a worldwide distribution  and is used as an index fossil. F. bondoni was originally described as a species of Olenellus from specimens found in Morocco.",
+      "description": "Fallotaspis represents a genus of Early Cambrian Trilobites with a worldwide distribution  and is used as an index fossil. F. bondoni was originally described as a species of Olenellus from specimens found in Morocco.",
       "tags": [
         "arthropod",
         "cambrian",
@@ -84,7 +84,7 @@
       "title": "Eldonia ludwigii",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Thie enigmatic soft bodied animal from the Burgess Shale had a radial symmetry with a coiled gut. It was originally described as a holothurian (sea cucumber), then often pictured as a pelagic  jellyfish-like animal.",
+      "description": "Thie enigmatic soft bodied animal from the Burgess Shale had a radial symmetry with a coiled gut. It was originally described as a holothurian (sea cucumber), then often pictured as a pelagic  jellyfish-like animal.",
       "tags": [
         "ambulacraria",
         "benthic",
@@ -5018,14 +5018,19 @@
       "tags": [
         "carodnia",
         "carodnia_vieirai",
-        "eocene oligocene transition",
-        "eocene_oligocene_transition",
+        "early_paleogene",
+        "eocene",
         "mammal",
         "mid paleogene",
-        "mid_paleogene"
+        "mid_paleogene",
+        "paleocene",
+        "petm",
+        "south_america",
+        "xenungulata"
       ],
       "keyframes": [
-        "eocene_oligocene_transition",
+        "early_paleogene",
+        "petm",
         "mid_paleogene"
       ],
       "source_url": "https://spinops.blogspot.com/2020/07/carodnia-vieirai.html"
@@ -5822,15 +5827,22 @@
       "license": "CC BY-SA 4.0",
       "description": "Hyaenodon was a successful top predator that lived from the Late Eocene to the Middle Miocene periods in Europe, Asia, Africa and North America. The genus belonged to an extinct group of meat eating mammals that was distantly related to the modern Carnivora (cats, dogs, bears, raccoons, etc...).",
       "tags": [
+        "carnivore",
+        "chordate",
+        "eocene",
         "hyaenodon",
         "hyaenodon_horridus",
+        "hyaenodontidae",
+        "land_vertebrate",
         "mammal",
-        "mid neogene",
-        "mid_neogene",
+        "oligocene",
+        "paleogene",
         "predator"
       ],
       "keyframes": [
-        "mid_neogene"
+        "mid_paleogene",
+        "late_paleogene",
+        "eocene_oligocene_transition"
       ],
       "source_url": "https://spinops.blogspot.com/2016/12/hyaenodon-horridus.html"
     },
@@ -6008,7 +6020,7 @@
       "title": "Daphoenus vetus",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "Characterized by a long tail, elongated body and rather short legs, the coyote-size  Daphoenus was one of the bear-dogs (Amphicyonidae) from North America.",
+      "description": "Characterized by a long tail, elongated body and rather short legs, the coyote-size  Daphoenus was one of the bear-dogs (Amphicyonidae) from North America.",
       "tags": [
         "daphoenus",
         "daphoenus_vetus",
@@ -6052,7 +6064,7 @@
       "title": "Arktocara yakataga",
       "credit": "Nobu Tamura",
       "license": "CC BY-SA 4.0",
-      "description": "This  extinct dolphin is solely known from a skull fragment  recently discovered in the Collection of the Smithsonian Museum of Natural History. The long forgotten 20 cm long fossil was collected in 1951 during a mission of the United States Geological Survey (USGS) in southeastern Alaska.",
+      "description": "This  extinct dolphin is solely known from a skull fragment  recently discovered in the Collection of the Smithsonian Museum of Natural History. The long forgotten 20 cm long fossil was collected in 1951 during a mission of the United States Geological Survey (USGS) in southeastern Alaska.",
       "tags": [
         "arktocara",
         "arktocara_yakataga",
@@ -6258,17 +6270,25 @@
       "license": "CC BY-SA 4.0",
       "description": "This small anthracothere from North America is also the best known member of the family. Thre other species are recognized in the genus Elomeryx : E. cluai from the Early Oligocene of Western Europe, E. crispus from the Lste Eocene-Early Oligocene of Europe and E. borbonicus from the Late Oligocene-Early Miocene of Western Europe.",
       "tags": [
+        "anthracothere",
+        "artiodactyl",
+        "chordate",
         "early neogene",
         "early_neogene",
         "elomeryx",
         "elomeryx_armatus",
+        "eocene",
+        "land_vertebrate",
         "mammal",
         "mid neogene",
-        "mid_neogene"
+        "mid_neogene",
+        "oligocene",
+        "paleogene"
       ],
       "keyframes": [
-        "early_neogene",
-        "mid_neogene"
+        "late_paleogene",
+        "eocene_oligocene_transition",
+        "early_neogene"
       ],
       "source_url": "https://spinops.blogspot.com/2014/07/elomeryx-armatus.html"
     },
