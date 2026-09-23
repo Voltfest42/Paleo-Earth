@@ -47,10 +47,12 @@ export function sanitizeForSpeech(text) {
     .replace(/\bPETM\b/g, 'P-E-T-M')
 
     // Chemistry, atmosphere and climate symbols
-    .replace(/\b(?:CO2|CO\u2082)\b/gi, 'carbon dioxide')
-    .replace(/\b(?:O2|O\u2082)\b/gi, 'oxygen')
-    .replace(/\b(?:CH4|CH\u2084)\b/gi, 'methane')
-    .replace(/\b(?:H2O|H\u2082O)\b/gi, 'water')
+    .replace(/\bCO[2₂\u2082](?!\w)/gi, 'carbon dioxide')
+    .replace(/\bO[2₂\u2082](?!\w)/gi, 'oxygen')
+    .replace(/\bCH[4₄\u2084](?!\w)/gi, 'methane')
+    .replace(/\bH[2₂\u2082]O(?!\w)/gi, 'water')
+    .replace(/\bSO[2₂\u2082](?!\w)/gi, 'sulfur dioxide')
+    .replace(/\bN[2₂\u2082](?!\w)/gi, 'nitrogen')
     .replace(/(?:\u00b0|\bdeg\b)\s*C\b/gi, ' degrees Celsius')
     .replace(/(?:\u00b0|\bdeg\b)\s*F\b/gi, ' degrees Fahrenheit')
     .replace(/(\d+)\s*%/g, '$1 percent')
