@@ -480,6 +480,48 @@ ECOSYSTEM_CATALOG = {
             "pterosaur", "retrospective", "spider", "stem_turtle", "vulcanops"
         ],
         "keyframes": ["early_cretaceous", "late_jurassic", "late_triassic"]
+    },
+    "pachycephalosaurs": {
+        "id": "hell_creek_pachycephalosaurs_tamura",
+        "filename": "hell_creek_pachycephalosaurs_nobu_tamura.jpg",
+        "title": "Hell Creek Formation Pachycephalosaurs",
+        "description": "A comparative evolutionary reconstruction of dome-headed pachycephalosaurid dinosaurs from the latest Cretaceous (Maastrichtian, ~66 Ma) Hell Creek Formation of western North America. Featured are Pachycephalosaurus wyomingensis, the spiky-horned Stygimoloch spinifer, Dracorex hogwartsia, and Sphaerotholus buchholtzae, illustrating the ontogenetic debate regarding skull dome development in Late Cretaceous dinosaurs.",
+        "tags": [
+            "bonehead", "chordate", "community", "composite", "dinosaur", "dinosauria", "dracorex",
+            "hell_creek", "herbivore", "kpg_extinction", "land_vertebrate", "late_cretaceous",
+            "marginocephalia", "mesozoic", "montana", "ornithischia", "pachycephalosaur",
+            "pachycephalosauria", "pachycephalosauridae", "pachycephalosaurus", "reptile",
+            "sphaerotholus", "stygimoloch", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "ceratopsians": {
+        "id": "hell_creek_ceratopsians_tamura",
+        "filename": "hell_creek_ceratopsians_nobu_tamura.jpg",
+        "title": "Hell Creek Formation Ceratopsians",
+        "description": "A comparative reconstruction of the horned dinosaurs (Ceratopsia) from the latest Cretaceous (Late Maastrichtian, ~66 Ma) Hell Creek Formation of western North America. Featured are the iconic three-horned Triceratops horridus and T. prorsus, the giant frilled Torosaurus latus, the small basal ceratopsian Leptoceratops gracilis, and Tatankaceratops sacrisonorum, showcasing the final diversity of ceratopsids before the K-Pg extinction.",
+        "tags": [
+            "ceratopsia", "ceratopsian", "ceratopsid", "ceratopsidae", "chordate", "community",
+            "composite", "dinosaur", "dinosauria", "hell_creek", "herbivore", "horned_dinosaur",
+            "kpg_extinction", "land_vertebrate", "late_cretaceous", "leptoceratops", "marginocephalia",
+            "mesozoic", "montana", "ornithischia", "reptile", "tatankaceratops", "torosaurus",
+            "triceratops", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "cretaceous_of_california": {
+        "id": "california_late_cretaceous_vertebrates_tamura",
+        "filename": "california_late_cretaceous_vertebrates_nobu_tamura.jpg",
+        "title": "Late Cretaceous Vertebrates of California",
+        "description": "An ecosystem reconstruction of marine and coastal vertebrates from the Late Cretaceous (Maastrichtian, ~70–66 Ma) Moreno and Point Loma Formations along the paleo-Pacific coast of California. Featured are the official California state dinosaur Augustynolophus morrisi, the armored dinosaur Aletopelta coombsi, the giant long-necked elasmosaurid plesiosaurs Hydrotherosaurus and Morenosaurus, and the apex predatory mosasaurs Plesiotylosaurus and Plotosaurus.",
+        "tags": [
+            "aletopelta", "apex_predator", "augustynolophus", "california", "chordate",
+            "community", "composite", "dinosaur", "elasmosauridae", "hydrotherosaurus",
+            "kpg_extinction", "late_cretaceous", "marine", "marine_reptile", "mesozoic",
+            "moreno_formation", "morenosaurus", "mosasaur", "plesiotylosaurus", "plotosaurus",
+            "reptile", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
     }
 }
 
@@ -1593,6 +1635,215 @@ CURATED_ENTRIES = {
             "neornithischia", "ornithischia", "reptile", "south_america"
         ],
         "keyframes": ["early_jurassic", "mid_jurassic"]
+    },
+    "mirarce_eatoni": {
+        "title": "Mirarce eatoni",
+        "description": "Mirarce was a 1.2-meter turkey-sized enantiornithine ('opposite bird') from the Late Cretaceous (Campanian) Kaiparowits Formation of Utah, USA. Representing the most complete enantiornithine discovered in North America, its advanced flight feathers and robust wishbone demonstrate sophisticated aerial locomotion among Cretaceous avialans.",
+        "tags": [
+            "avialae", "avisauridae", "bird", "chordate", "dinosaur", "dinosauria",
+            "enantiornithes", "flying_dinosaur", "kaiparowits", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "mirarce", "mirarce_eatoni", "north_america", "opposite_bird",
+            "reptile", "saurischia", "theropod", "usa", "utah"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "shantungosaurus_giganteus": {
+        "title": "Shantungosaurus giganteus",
+        "description": "Shantungosaurus was a colossal 15-meter, 16-tonne flat-headed hadrosaurid dinosaur from the Late Cretaceous (Campanian) Wangshi Group of Shandong, China. It is the largest known non-sauropod dinosaur in the fossil record, equipped with massive grinding dental batteries containing over 1,500 teeth.",
+        "tags": [
+            "china", "chordate", "dinosaur", "dinosauria", "duck_billed", "edmontosaurini",
+            "giant", "hadrosaur", "hadrosauridae", "herbivore", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "ornithischia", "ornithopoda", "reptile", "shandong", "shantungosaurus",
+            "shantungosaurus_giganteus"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "dineobellator_notohesperus": {
+        "title": "Dineobellator notohesperus",
+        "description": "Dineobellator ('Navajo warrior') was a 2.5-meter feathered velociraptorine dromaeosaurid theropod from the latest Cretaceous (Maastrichtian) Ojo Alamo Formation of New Mexico, USA. Ulnar quill knobs confirm the presence of wing-like vaned plumage, while its mobile tail vertebrae provided agile maneuvering when pursuing prey right before the K-Pg extinction.",
+        "tags": [
+            "carnivore", "chordate", "dineobellator", "dineobellator_notohesperus", "dinosaur",
+            "dinosauria", "dromaeosaurid", "feathered_dinosaur", "kpg_extinction", "land_vertebrate",
+            "late_cretaceous", "mesozoic", "new_mexico", "ojo_alamo", "predator", "raptor",
+            "reptile", "saurischia", "theropod", "usa", "velociraptorinae"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "riabininohadros_weberi": {
+        "title": "Riabininohadros weberi",
+        "description": "Riabininohadros was a 7-meter basal hadrosauroid or advanced iguanodontian dinosaur from the latest Cretaceous (Maastrichtian) marine-associated deposits of Crimea. Named in honor of Russian paleontologist Anatoly Riabinin, it was an insular herbivore inhabiting the European Late Cretaceous archipelago.",
+        "tags": [
+            "chordate", "crimea", "dinosaur", "dinosauria", "hadrosauroidea", "herbivore",
+            "iguanodontia", "island_dwarf", "kpg_extinction", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "ornithischia", "ornithopoda", "reptile", "riabininohadros",
+            "riabininohadros_weberi"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "brachylophosaurus_canadensis": {
+        "title": "Brachylophosaurus canadensis",
+        "description": "Brachylophosaurus was a 9- to 11-meter flat-headed saurolophine hadrosaur from the Late Cretaceous (Campanian) of Alberta, Canada and Montana, USA. Famed for exceptionally preserved 'mummies' like 'Leonardo', its fossils retain soft-tissue details including skin texture, throat wattles, muscle mass, foot pads, and fossilized gut contents.",
+        "tags": [
+            "alberta", "brachylophosaurini", "brachylophosaurus", "brachylophosaurus_canadensis",
+            "canada", "chordate", "dinosaur", "dinosauria", "dinosaur_park", "duck_billed",
+            "hadrosaur", "hadrosauridae", "herbivore", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "mummy", "ornithischia", "ornithopoda", "reptile", "saurolophinae"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "hypacrosaurus_altispinus": {
+        "title": "Hypacrosaurus altispinus",
+        "description": "Hypacrosaurus was a 9-meter hollow-crested lambeosaurine hadrosaur from the Late Cretaceous (Maastrichtian) Horseshoe Canyon Formation of Alberta, Canada. Possessing a tall helmet-like cranial crest and high vertebral neural spines along its back, it used acoustic resonating chambers in its crest for species communication and herd signaling.",
+        "tags": [
+            "alberta", "canada", "chordate", "crest", "dinosaur", "dinosauria", "duck_billed",
+            "hadrosaur", "hadrosauridae", "herbivore", "horseshoe_canyon", "hypacrosaurus",
+            "hypacrosaurus_altispinus", "kpg_extinction", "lambeosaurinae", "lambeosaurini",
+            "land_vertebrate", "late_cretaceous", "mesozoic", "ornithischia", "ornithopoda", "reptile"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "daspletosaurus_torosus": {
+        "title": "Daspletosaurus torosus",
+        "description": "Daspletosaurus ('frightful lizard') was an 8.5- to 9-meter, 3-tonne apex tyrannosaurid theropod from the Late Cretaceous (Campanian) Belly River Group of Alberta, Canada. Built heavier than its contemporary Gorgosaurus, it possessed crushing jaws and thickened skull bones adapted for subduing heavily armored ceratopsians and hadrosaurs.",
+        "tags": [
+            "alberta", "apex_predator", "canada", "carnivore", "chordate", "daspletosaurus",
+            "daspletosaurus_torosus", "dinosaur", "dinosauria", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "oldman_formation", "predator", "reptile", "saurischia", "theropod",
+            "tyrannosaur", "tyrannosauridae"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "haya_griva": {
+        "title": "Haya griva",
+        "description": "Haya griva was a 1.2-meter basal thescelosaurid ornithischian dinosaur from the Late Cretaceous (Santonian) Javkhlant Formation of the Gobi Desert, Mongolia. Known from articulated skeletons containing fossilized gastroliths (stomach stones), it scurried on agile two-legged limbs browsing low-growing desert vegetation.",
+        "tags": [
+            "asia", "chordate", "desert", "dinosaur", "dinosauria", "gastrolith", "gobi_desert",
+            "haya", "haya_griva", "herbivore", "javkhlant", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "mongolia", "ornithischia", "reptile", "thescelosauridae"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "arkansaurus_fridayi": {
+        "title": "Arkansaurus fridayi",
+        "description": "Arkansaurus was a 3.5-meter basal ornithomimosaur ('ostrich dinosaur') from the Early Cretaceous (Albian) Trinity Group of Sevier County, Arkansas, USA. Designated as the state dinosaur of Arkansas, its slender foot bones reflect an early stage in the evolution of fast-running herbivorous-to-omnivorous theropods.",
+        "tags": [
+            "arkansas", "arkansaurus", "arkansaurus_fridayi", "chordate", "dinosaur",
+            "dinosauria", "early_cretaceous", "land_vertebrate", "mesozoic", "omnivore",
+            "ornithomimosaur", "ornithomimosauria", "ostrich_dinosaur", "reptile", "saurischia",
+            "theropod", "trinity_group", "usa"
+        ],
+        "keyframes": ["early_cretaceous"]
+    },
+    "mukawaryu": {
+        "title": "Kamuysaurus japonicus (Mukawaryu)",
+        "description": "Kamuysaurus japonicus (popularly designated 'Mukawaryu' before formal description) was an 8-meter hadrosaurid duck-billed dinosaur from the Late Cretaceous (Campanian-Maastrichtian) Yezo Group of Hokkaido, Japan. Discovered in nearshore marine strata, it represents the most complete dinosaur skeleton ever unearthed in Japan.",
+        "tags": [
+            "chordate", "dinosaur", "dinosauria", "duck_billed", "hadrosaur", "hadrosauridae",
+            "herbivore", "hokkaido", "japan", "kamuysaurus", "kamuysaurus_japonicus", "late_cretaceous",
+            "mesozoic", "mukawaryu", "ornithischia", "ornithopoda", "reptile", "yezo_group"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "morenosaurus_stocki": {
+        "title": "Morenosaurus stocki",
+        "description": "Morenosaurus was an 8-meter elasmosaurid plesiosaur from the Late Cretaceous (Maastrichtian) Moreno Formation of Fresno County, California, USA. Inhabiting the eastern margin of the Pacific Ocean right before the K-Pg extinction, it swam with four large hydrofoil flippers, catching fish and squid in coastal waters.",
+        "tags": [
+            "california", "chordate", "elasmosauridae", "kpg_extinction", "late_cretaceous",
+            "marine", "marine_reptile", "mesozoic", "moreno_formation", "morenosaurus",
+            "morenosaurus_stocki", "piscivore", "plesiosaur", "plesiosauria", "reptile",
+            "sauropterygia", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "plesiotylosaurus_crassidens": {
+        "title": "Plesiotylosaurus crassidens",
+        "description": "Plesiotylosaurus was a 6.5-meter mosasaurine marine lizard from the Late Cretaceous (Maastrichtian) Moreno Formation of California, USA. Combining a robust elongated skull convergent on Tylosaurus with heavy crushing teeth allied with Prognathodon, it preyed on turtles, ammonites, and other marine reptiles in the Late Cretaceous Pacific.",
+        "tags": [
+            "apex_predator", "california", "carnivore", "chordate", "kpg_extinction",
+            "late_cretaceous", "marine", "marine_reptile", "mesozoic", "moreno_formation",
+            "mosasaur", "mosasauridae", "mosasaurinae", "plesiotylosaurus", "plesiotylosaurus_crassidens",
+            "predator", "reptile", "squamata", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "hydrotherosaurus_alexandrae": {
+        "title": "Hydrotherosaurus alexandrae",
+        "description": "Hydrotherosaurus ('water beast') was a massive 10-meter elasmosaurid plesiosaur from the Late Cretaceous (Maastrichtian) Moreno Formation of California, USA. Possessing an extraordinarily long neck containing 60 cervical vertebrae and a small skull with interlocking needle-like teeth, it ambushed schools of fish in the coastal Pacific.",
+        "tags": [
+            "california", "chordate", "elasmosauridae", "hydrotherosaurus", "hydrotherosaurus_alexandrae",
+            "kpg_extinction", "late_cretaceous", "long_necked", "marine", "marine_reptile",
+            "mesozoic", "moreno_formation", "piscivore", "plesiosaur", "plesiosauria", "reptile",
+            "sauropterygia", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "augustynolophus_morrisi": {
+        "title": "Augustynolophus morrisi",
+        "description": "Augustynolophus was a 10-meter saurolophine hadrosaur from the latest Cretaceous (Late Maastrichtian) Moreno Formation of Fresno County, California, designated the official California State Dinosaur. Possessing a distinctive low cranial crest, it was among the very last surviving hadrosaurs immediately prior to the K-Pg asteroid impact.",
+        "tags": [
+            "augustynolophus", "augustynolophus_morrisi", "california", "california_state_dinosaur",
+            "chordate", "crest", "dinosaur", "dinosauria", "duck_billed", "hadrosaur",
+            "hadrosauridae", "herbivore", "kpg_extinction", "land_vertebrate", "late_cretaceous",
+            "mesozoic", "moreno_formation", "ornithischia", "ornithopoda", "reptile", "saurolophinae", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "jinyunpelta_sinensis": {
+        "title": "Jinyunpelta sinensis",
+        "description": "Jinyunpelta was a 3.5-meter ankylosaurid dinosaur from the late Early to early Late Cretaceous (Albian-Cenomanian) Liangtoutang Formation of Zhejiang, China. It is the earliest and most basal ankylosaur known to possess a fully developed bony tail club, demonstrating that clubbed tails evolved much earlier in ankylosaurian history than previously realized.",
+        "tags": [
+            "ankylosaur", "ankylosauria", "ankylosauridae", "ankylosaurinae", "armored_dinosaur",
+            "china", "chordate", "dinosaur", "dinosauria", "early_cretaceous", "herbivore",
+            "jinyunpelta", "jinyunpelta_sinensis", "land_vertebrate", "liangtoutang_formation",
+            "mesozoic", "mid_cretaceous", "ornithischia", "reptile", "tail_club", "thyreophora", "zhejiang"
+        ],
+        "keyframes": ["early_cretaceous", "mid_cretaceous"]
+    },
+    "eogranivora_edentulata": {
+        "title": "Eogranivora edentulata",
+        "description": "Eogranivora was a 25-cm early ornithuromorph bird from the Early Cretaceous (Aptian) Yixian Formation of Liaoning, China (Jehol Biota). Equipped with a toothless, robust beak specialized for cracking seeds and a crop preserving fossilized seeds, it provides the earliest unequivocal evidence of seed eating (granivory) in avian evolution.",
+        "tags": [
+            "aves", "bird", "china", "chordate", "crop", "dinosaur", "dinosauria", "early_bird",
+            "early_cretaceous", "eogranivora", "eogranivora_edentulata", "granivore", "jehol",
+            "land_vertebrate", "liaoning", "mesozoic", "ornithuromorpha", "reptile", "saurischia",
+            "theropod", "toothless_beak", "yixian_formation"
+        ],
+        "keyframes": ["early_cretaceous"]
+    },
+    "mansourasaurus_shahinae": {
+        "title": "Mansourasaurus shahinae",
+        "description": "Mansourasaurus was a 10-meter, 5-tonne lithostrotian titanosaurian sauropod dinosaur from the Late Cretaceous (Campanian) Quseir Formation of Egypt. Its close phylogenetic relationship to southern European titanosaurs revealed crucial terrestrial dispersal corridors connecting Africa and Europe across the closing Tethys Ocean.",
+        "tags": [
+            "africa", "chordate", "dakhla_oasis", "dinosaur", "dinosauria", "egypt", "herbivore",
+            "land_vertebrate", "late_cretaceous", "lithostrotia", "mansourasaurus",
+            "mansourasaurus_shahinae", "mesozoic", "quseir_formation", "reptile", "saurischia",
+            "sauropod", "sauropodomorpha", "titanosaur", "titanosauria"
+        ],
+        "keyframes": ["late_cretaceous"]
+    },
+    "tyrannosaurus_rex": {
+        "title": "Tyrannosaurus rex",
+        "description": "Tyrannosaurus rex ('tyrant lizard king') was a colossal 12-meter, 8-to-10-tonne apex macropredator of the latest Cretaceous (Late Maastrichtian) Hell Creek and Lance Formations of western North America. Featuring bone-crushing jaw mechanics with bite forces exceeding 35,000 Newtons, forward-facing binocular vision, and acute olfactory senses, it ruled North America right up to the K-Pg extinction event.",
+        "tags": [
+            "allosaur_rival", "apex_predator", "bone_crusher", "carnivore", "chordate",
+            "dinosaur", "dinosauria", "hell_creek", "kpg_extinction", "lance_formation",
+            "land_vertebrate", "late_cretaceous", "mesozoic", "north_america", "predator",
+            "reptile", "saurischia", "theropod", "tyrannosaur", "tyrannosauridae", "tyrannosaurus",
+            "tyrannosaurus_rex", "usa"
+        ],
+        "keyframes": ["kpg_extinction", "late_cretaceous"]
+    },
+    "borealopelta_markmitchelli": {
+        "title": "Borealopelta markmitchelli",
+        "description": "Borealopelta was a 5.5-meter, 1.3-tonne nodosaurid ankylosaur from the Early Cretaceous (Albian, ~110 Ma) Clearwater Formation of Alberta, Canada. Discovered in marine oil sands, its world-famous 'mummy' specimen preserved three-dimensional keratinous horn sheaths, complete dermal armor plates, and skin pigments revealing reddish-brown countershading camouflage to hide from colossal theropods.",
+        "tags": [
+            "alberta", "ankylosaur", "ankylosauria", "armored_dinosaur", "borealopelta",
+            "borealopelta_markmitchelli", "camouflage", "canada", "clearwater_formation",
+            "countershading", "dinosaur", "dinosauria", "early_cretaceous", "herbivore",
+            "land_vertebrate", "mesozoic", "mid_cretaceous", "mummy", "nodosauridae",
+            "ornithischia", "reptile", "thyreophora"
+        ],
+        "keyframes": ["early_cretaceous", "mid_cretaceous"]
     }
 }
 
