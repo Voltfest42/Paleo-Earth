@@ -332,27 +332,30 @@ export class Chat {
   }
 
   /**
-   * Open full-size illustration in the lightbox modal.
+   * Generic lightbox opener for any image and caption.
    */
-  _openHeroLightbox(heroImage, keyframe) {
+  _openLightbox(src, captionText = '') {
     if (!this._lightboxModal || !this._lightboxImg) return;
-
-    this._lightboxImg.src = heroImage.src || heroImage.fallback;
-    this._lightboxImg.onerror = () => {
-      this._lightboxImg.src = heroImage.fallback;
-    };
-
-    const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
-    const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
-    const details = [periodStr, maStr].filter(Boolean).join(' · ');
+    this._lightboxImg.src = src;
+    this._lightboxImg.onerror = null;
 
     if (this._lightboxCaption) {
-      this._lightboxCaption.textContent = details
-        ? `${keyframe.label} (${details})`
-        : keyframe.label;
+      this._lightboxCaption.textContent = captionText;
     }
 
     this._lightboxModal.style.display = 'flex';
+  }
+
+  /**
+   * Open full-size illustration in the lightbox modal.
+   */
+  _openHeroLightbox(heroImage, keyframe) {
+    const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
+    const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
+    const details = [periodStr, maStr].filter(Boolean).join(' · ');
+    const caption = details ? `${keyframe.label} (${details})` : keyframe.label;
+
+    this._openLightbox(heroImage.src || heroImage.fallback, caption);
   }
 
   /**
@@ -475,22 +478,44 @@ export class Chat {
     bubble.className = 'message-bubble';
     bubble.innerHTML = `<p>${html}</p>`;
 
-    // Inline images for assistant messages
+    // Inline images for assistant messages (compact card layout, click to enlarge)
     if (role === 'assistant' && images.length > 0) {
       for (const img of images) {
-        const imgPath = `images/${img.filename}`;
-        const imgEl   = document.createElement('img');
-        imgEl.src     = imgPath;
-        imgEl.alt     = img.title || img.id;
-        imgEl.className = 'message-image';
-        imgEl.onerror   = () => { imgEl.style.display = 'none'; }; // hide if missing
+        const card      = document.createElement('div');
+        card.className  = 'message-image-card';
+        card.title      = 'Click to view full illustration';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
 
-        const cap = document.createElement('div');
+        const imgPath   = `images/${img.filename}`;
+        const imgEl     = document.createElement('img');
+        imgEl.src       = imgPath;
+        imgEl.alt       = img.title || img.id;
+        imgEl.className = 'message-image';
+        imgEl.loading   = 'lazy';
+        imgEl.onerror   = () => { card.style.display = 'none'; }; // hide card if missing
+
+        const cap       = document.createElement('div');
         cap.className   = 'message-image-caption';
         cap.textContent = `${img.title} — ${img.credit}`;
 
-        bubble.appendChild(imgEl);
-        bubble.appendChild(cap);
+        card.appendChild(imgEl);
+        card.appendChild(cap);
+
+        const openImgModal = () => {
+          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' · ');
+          this._openLightbox(imgPath, attribution);
+        };
+
+        card.addEventListener('click', openImgModal);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openImgModal();
+          }
+        });
+
+        bubble.appendChild(card);
       }
     }
 
