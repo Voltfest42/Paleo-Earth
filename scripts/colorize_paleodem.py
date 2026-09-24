@@ -149,15 +149,16 @@ RAMP_BARREN: list[tuple[float, tuple[float, float, float]]] = [
     (8900.0, (0.855, 0.843, 0.824)),   # summit rock
 ]
 
-# Regime 2: Transition (440 Ma) Coastal Target Ramp
-# Provides delicate moss/bryophyte green in low coastal wetlands
+# Regime 2: Transition (440 Ma) Coastal Pioneer Target Ramp
+# Provides lush, vivid bryophyte/moss pioneer greens along coastal plains and estuaries
 RAMP_TRANSITION_440: list[tuple[float, tuple[float, float, float]]] = [
     *OCEAN_STOPS,
-    (   0.5, (0.170, 0.400, 0.160)),   # coastal moist fringe (early bryophyte green)
-    (  40.0, (0.240, 0.400, 0.180)),   # damp lowlands
-    (  90.0, (0.420, 0.430, 0.260)),   # transition to tan/brown
-    ( 180.0, (0.525, 0.425, 0.295)),   # plains barren brown
-    ( 500.0, (0.520, 0.400, 0.265)),   # mid-elevation desert / plateau
+    (   0.5, (0.130, 0.430, 0.140)),   # vivid coastal pioneer green
+    (  80.0, (0.180, 0.440, 0.160)),   # coastal wetlands & estuaries
+    ( 200.0, (0.260, 0.430, 0.180)),   # lowland moss/bryophyte plains
+    ( 350.0, (0.390, 0.420, 0.230)),   # transition green-tan
+    ( 500.0, (0.490, 0.410, 0.260)),   # arid tan
+    ( 750.0, (0.525, 0.405, 0.260)),   # barren interior
     (1000.0, (0.530, 0.410, 0.255)),   # upland arid brown
     (2000.0, (0.580, 0.424, 0.267)),   # highland brown
     (3500.0, (0.635, 0.529, 0.392)),   # high mountains
@@ -232,15 +233,15 @@ def colorize_dem(grid: np.ndarray, ma: float) -> np.ndarray:
 
     elif abs(ma - 440.0) < 1.0:
         # 440 Ma Transition: Early Silurian
-        # Inland continents are barren brown/tan; low coastal margins (<90m elevation,
-        # within 6 pixels of ocean) display delicate pioneer moss/cryptospore green.
+        # Inland continents are barren brown/tan; coastal lowlands (<350m elevation,
+        # within 20 pixels / ~200 km of ocean) display a prominent pioneer moss/bryophyte green belt.
         c_barren = lerp_color_ramp(grid, RAMP_BARREN)
         c_green  = lerp_color_ramp(grid, RAMP_TRANSITION_440)
 
-        # Detect ocean adjacency by 6-pixel morphological dilation
+        # Detect ocean adjacency by 20-pixel morphological dilation (~200 km coastal belt)
         is_ocean = (grid < 0.0)
         near_coast = np.copy(is_ocean)
-        for _ in range(6):
+        for _ in range(20):
             near_coast = (
                 near_coast
                 | np.roll(near_coast, 1, axis=0)
@@ -249,11 +250,12 @@ def colorize_dem(grid: np.ndarray, ma: float) -> np.ndarray:
                 | np.roll(near_coast, -1, axis=1)
             )
 
-        # Low coastal land (<90m elevation)
-        max_elev = 90.0
+        # Low coastal land (<350m elevation)
+        max_elev = 350.0
         is_coastal_lowland = near_coast & (grid >= 0.0) & (grid < max_elev)
-        elev_weight = np.clip(1.0 - (grid / max_elev), 0.0, 1.0)[..., None]
-        mask = is_coastal_lowland[..., None].astype(np.float32) * elev_weight
+        clamped_elev = np.clip(grid, 0.0, max_elev)
+        elev_weight = (1.0 - (clamped_elev / max_elev))[..., None]
+        mask = is_coastal_lowland[..., None].astype(np.float32) * (elev_weight ** 0.8)
 
         # Blend on land, keep ocean unchanged
         land = (grid >= 0.0)[..., None]
@@ -383,6 +385,21 @@ def make_normal_map(
     normal = np.where(ocean, flat, normal)
 
     return np.clip(normal, 0.0, 1.0)
+
+
+# ---------------------------------------------------------------------------
+# Roughness Map Generation
+# ---------------------------------------------------------------------------
+
+def make_roughness_map(grid: np.ndarray) -> np.ndarray:
+    """
+    Grayscale roughness map derived from elevation.
+    Returns float32 (H, W) in [0, 1].
+
+    0.0 = perfectly smooth (specular) -> deep ocean
+    1.0 = fully rough (diffuse)       -> bare rock / mountains
+    """
+    return np.clip(lerp_roughness(grid), 0.0, 1.0)
 
 
 # ---------------------------------------------------------------------------
@@ -706,8 +723,14 @@ def main() -> None:
         "--roughness",
         dest="roughness",
         action="store_true",
-        default=False,
+        default=True,
         help="Generate roughness maps ({index}_earth_rough_{ma}.jpg)",
+    )
+    p.add_argument(
+        "--no-roughness",
+        dest="roughness",
+        action="store_false",
+        help="Skip roughness map generation",
     )
     p.add_argument(
         "--dry-run",
@@ -762,8 +785,9 @@ def main() -> None:
         print("\n[DRY RUN] Would process the following frames:")
         for idx, ma, f in target_files:
             diff_out = args.outdir / f"{idx}_earth_diffuse_{ma}.{ext}"
-            norm_out = args.outdir / f"{idx}_earth_normal_{ma}.{ext}" if args.normal else "none"
-            print(f"  [{idx:3d}] {ma:3d} Ma: {f.name} -> {diff_out.name} (normal: {norm_out if args.normal else 'off'})")
+            norm_out = args.outdir / f"{idx}_earth_normal_{ma}.{ext}" if args.normal else "off"
+            rgh_out  = args.outdir / f"{idx}_earth_rough_{ma}.{ext}" if args.roughness else "off"
+            print(f"  [{idx:3d}] {ma:3d} Ma: {f.name} -> {diff_out.name} | normal: {norm_out.name if args.normal else 'off'} | rough: {rgh_out.name if args.roughness else 'off'}")
         return
 
     t_start = time.time()
@@ -798,7 +822,7 @@ def main() -> None:
 
         # 3. Roughness Map (if enabled)
         if args.roughness:
-            rgh = lerp_roughness(grid)
+            rgh = make_roughness_map(grid)
             out_rough = args.outdir / f"{idx}_earth_rough_{ma}.{ext}"
             save_image(rgh, out_rough, args.width, args.height, fmt=ext, quality=args.quality, mode="L", depth=args.depth)
             print(f"  -> Roughness: {out_rough} ({os.path.getsize(out_rough) / 1024:.1f} KB)")
