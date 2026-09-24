@@ -6,6 +6,7 @@ climate_data_raw/
 # Experimental / temporary bake renders
 textures_temp/
 scratch/
+blender_edits/
 
 # Python artifacts
 __pycache__/

@@ -81,7 +81,7 @@ export const SLIDER_DEBOUNCE_MS = 300;
 export const TEXTURE_CACHE_SIZE = 10;
 
 // Normal map strength in the shader (0.10 = 10% strength, 0.0 = disabled)
-export const NORMAL_MAP_SCALE = 0.08;
+export const NORMAL_MAP_SCALE = 0.1;
 
 // ─── Globe Lighting & Shading Settings ───────────────────────────────────
 // Ambient light intensity (higher keeps unlit terrain readable and prevents pitch-black shadows)
