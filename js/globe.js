@@ -11,7 +11,14 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { TEXTURE_CACHE_SIZE, getFrameForMa, texturePath } from './config.js';
+import {
+  TEXTURE_CACHE_SIZE,
+  NORMAL_MAP_SCALE,
+  getFrameForMa,
+  diffusePath,
+  normalPath,
+  roughnessPath,
+} from './config.js';
 
 // ─── Atmosphere Fresnel Shaders (Pure View Space) ───────────────────────
 const ATMO_VERT = /* glsl */`
@@ -52,19 +59,43 @@ class TextureCache {
     this._loader  = loader;
     this._maxSize = maxSize;
     this._map     = new Map();
+    this._pending = new Map();
   }
 
-  async get(index, ma) {
+  async getFrame(index, ma, activeKey = null) {
     const key = `${index}_${ma}`;
     if (this._map.has(key)) {
-      this._map.get(key).lastUsed = Date.now();
-      return this._map.get(key).texture;
+      const entry = this._map.get(key);
+      entry.lastUsed = Date.now();
+      return entry;
     }
 
-    const texture = await this._load(texturePath(index, ma));
-    this._map.set(key, { texture, lastUsed: Date.now() });
-    this._evict();
-    return texture;
+    if (this._pending.has(key)) {
+      return this._pending.get(key);
+    }
+
+    const promise = Promise.all([
+      this._load(diffusePath(index, ma)),
+      this._load(normalPath(index, ma)),
+      this._load(roughnessPath(index, ma)),
+    ]).then(([diffuse, normal, roughness]) => {
+      this._pending.delete(key);
+
+      diffuse.colorSpace   = THREE.SRGBColorSpace;
+      normal.colorSpace    = THREE.NoColorSpace;
+      roughness.colorSpace = THREE.NoColorSpace;
+
+      const entry = { diffuse, normal, roughness, lastUsed: Date.now() };
+      this._map.set(key, entry);
+      this._evict(activeKey);
+      return entry;
+    }).catch(err => {
+      this._pending.delete(key);
+      throw err;
+    });
+
+    this._pending.set(key, promise);
+    return promise;
   }
 
   _load(path) {
@@ -73,21 +104,33 @@ class TextureCache {
     });
   }
 
-  _evict() {
-    if (this._map.size <= this._maxSize) return;
-    let oldest = Infinity, oldestKey = null;
-    for (const [key, entry] of this._map) {
-      if (entry.lastUsed < oldest) { oldest = entry.lastUsed; oldestKey = key; }
-    }
-    if (oldestKey) {
-      this._map.get(oldestKey).texture.dispose();
+  _evict(activeKey = null) {
+    while (this._map.size > this._maxSize) {
+      let oldest = Infinity, oldestKey = null;
+      for (const [key, entry] of this._map) {
+        if (key === activeKey) continue;
+        if (entry.lastUsed < oldest) {
+          oldest = entry.lastUsed;
+          oldestKey = key;
+        }
+      }
+      if (!oldestKey) break;
+      const entry = this._map.get(oldestKey);
+      if (entry.diffuse) entry.diffuse.dispose();
+      if (entry.normal) entry.normal.dispose();
+      if (entry.roughness) entry.roughness.dispose();
       this._map.delete(oldestKey);
     }
   }
 
   dispose() {
-    for (const { texture } of this._map.values()) texture.dispose();
+    for (const entry of this._map.values()) {
+      if (entry.diffuse) entry.diffuse.dispose();
+      if (entry.normal) entry.normal.dispose();
+      if (entry.roughness) entry.roughness.dispose();
+    }
     this._map.clear();
+    this._pending.clear();
   }
 }
 
@@ -151,21 +194,36 @@ export class Globe {
 
   // ── Globe mesh (Standard Material) ────────────────────────────────────
   _buildGlobe() {
-    const placeholder = new THREE.DataTexture(
-      new Uint8Array([10, 15, 30]),
-      1, 1, THREE.RGBFormat
+    // 1x1 initial placeholders so Three.js compiles the PBR shader program with all
+    // three map channels (map, normalMap, roughnessMap) active immediately at startup.
+    const diffusePlaceholder = new THREE.DataTexture(
+      new Uint8Array([10, 15, 30, 255]),
+      1, 1, THREE.RGBAFormat
     );
-    placeholder.needsUpdate = true;
+    diffusePlaceholder.needsUpdate = true;
+
+    // Flat tangent-space normal (0.5, 0.5, 1.0) -> RGB (128, 128, 255)
+    const normalPlaceholder = new THREE.DataTexture(
+      new Uint8Array([128, 128, 255, 255]),
+      1, 1, THREE.RGBAFormat
+    );
+    normalPlaceholder.needsUpdate = true;
+
+    // Neutral mid-roughness placeholder (180/255 ≈ 0.70)
+    const roughPlaceholder = new THREE.DataTexture(
+      new Uint8Array([180, 180, 180, 255]),
+      1, 1, THREE.RGBAFormat
+    );
+    roughPlaceholder.needsUpdate = true;
 
     this._globeMaterial = new THREE.MeshStandardMaterial({
-      map:          placeholder,
-      roughness:    0.7,
-      metalness:    0.0,
-      // ── Ready for normal & roughness maps:
-      // normalMap:     normalTexture,
-      // normalMapType: THREE.TangentSpaceNormalMap,
-      // normalScale:   new THREE.Vector2(1.0, 1.0),
-      // roughnessMap:  roughnessTexture,
+      map:           diffusePlaceholder,
+      normalMap:     normalPlaceholder,
+      normalMapType: THREE.TangentSpaceNormalMap,
+      normalScale:   new THREE.Vector2(NORMAL_MAP_SCALE, NORMAL_MAP_SCALE),
+      roughnessMap:  roughPlaceholder,
+      roughness:     1.0,
+      metalness:     0.0,
     });
 
     const geo = new THREE.SphereGeometry(1, 128, 64);
@@ -248,8 +306,8 @@ export class Globe {
   // ── Public API ────────────────────────────────────────────────────────
 
   /**
-   * Load and display the discrete globe texture for the given Ma value.
-   * Switches cleanly at 2.5 Ma midpoints.
+   * Load and display the discrete globe textures (diffuse, normal, roughness)
+   * for the given Ma value. Switches cleanly at 2.5 Ma midpoints.
    */
   async setMa(ma) {
     const { index, ma: snappedMa } = getFrameForMa(ma);
@@ -259,15 +317,31 @@ export class Globe {
     }
 
     this._currentFrameMa = snappedMa;
+    const currentKey = `${index}_${snappedMa}`;
 
     try {
-      const tex = await this._cache.get(index, snappedMa);
-      tex.colorSpace = THREE.SRGBColorSpace;
-      this._globeMaterial.map = tex;
-      this._globeMaterial.needsUpdate = true;
+      const frame = await this._cache.getFrame(index, snappedMa, currentKey);
+
+      // Race condition protection: if slider moved while downloading, don't apply stale frame
+      if (this._currentFrameMa !== snappedMa) {
+        return;
+      }
+
+      this._globeMaterial.map          = frame.diffuse;
+      this._globeMaterial.normalMap    = frame.normal;
+      this._globeMaterial.roughnessMap = frame.roughness;
+      this._globeMaterial.needsUpdate  = true;
     } catch (err) {
-      console.warn(`Globe texture load failed for ${index}_earth_diffuse_${snappedMa}.jpg:`, err);
+      console.warn(`Globe textures load failed for frame ${index} (${snappedMa} Ma):`, err);
     }
+  }
+
+  /**
+   * Dynamically adjust normal map strength.
+   * @param {number} scale — e.g. 0.10 for 10% strength
+   */
+  setNormalScale(scale) {
+    this._globeMaterial.normalScale.set(scale, scale);
   }
 
   /** Show/hide the loading overlay */

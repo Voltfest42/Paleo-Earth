@@ -35,14 +35,25 @@ export const MAX_MA = 540;
 export const TEXTURE_FRAMES = Array.from({ length: 109 }, (_, i) => [i + 1, i * 5]);
 
 /**
- * Build the texture file path for a given frame entry.
+ * Build texture file paths for a given frame entry.
  * @param {number} index  — texture sequence index (1-109)
  * @param {number} ma     — age in millions of years (0-540)
  * @returns {string}
  */
-export function texturePath(index, ma) {
+export function diffusePath(index, ma) {
   return `textures/${index}_earth_diffuse_${ma}.jpg`;
 }
+
+export function normalPath(index, ma) {
+  return `textures/${index}_earth_normal_${ma}.jpg`;
+}
+
+export function roughnessPath(index, ma) {
+  return `textures/${index}_earth_rough_${ma}.jpg`;
+}
+
+// Backwards compatibility alias
+export const texturePath = diffusePath;
 
 /**
  * Find the discrete texture frame for a given Ma value.
@@ -66,5 +77,8 @@ export const EVENT_SNAP_RADIUS  = 5;  // Ma
 // Debounce delay (ms) after slider stops before updating chat context divider
 export const SLIDER_DEBOUNCE_MS = 300;
 
-// Texture cache size (number of THREE.Texture objects kept in GPU memory)
-export const TEXTURE_CACHE_SIZE = 16;
+// Texture cache size (number of frames kept in GPU memory; each frame has diffuse, normal, rough)
+export const TEXTURE_CACHE_SIZE = 10;
+
+// Normal map strength in the shader (0.10 = 10% strength, reducing harsh relief shading)
+export const NORMAL_MAP_SCALE = 0.10;
