@@ -80,5 +80,16 @@ export const SLIDER_DEBOUNCE_MS = 300;
 // Texture cache size (number of frames kept in GPU memory; each frame has diffuse, normal, rough)
 export const TEXTURE_CACHE_SIZE = 10;
 
-// Normal map strength in the shader (0.10 = 10% strength, reducing harsh relief shading)
-export const NORMAL_MAP_SCALE = 0.10;
+// Normal map strength in the shader (0.10 = 10% strength, 0.0 = disabled)
+export const NORMAL_MAP_SCALE = 0.08;
+
+// ─── Globe Lighting & Shading Settings ───────────────────────────────────
+// Ambient light intensity (higher keeps unlit terrain readable and prevents pitch-black shadows)
+export const GLOBE_AMBIENT_LIGHT = 0.95;
+
+// Directional sunlight intensity (soft key light for specular ocean glints and subtle 3D curvature)
+export const GLOBE_SUN_LIGHT = 0.65;
+
+// Shadow lift power applied in the shader to soften deep hillshade crevices
+// 1.0 = untouched texture; 0.80 = lifts deep shadows while preserving bright summits
+export const GLOBE_SHADOW_LIFT_GAMMA = 0.80;

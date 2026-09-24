@@ -14,6 +14,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import {
   TEXTURE_CACHE_SIZE,
   NORMAL_MAP_SCALE,
+  GLOBE_AMBIENT_LIGHT,
+  GLOBE_SUN_LIGHT,
+  GLOBE_SHADOW_LIFT_GAMMA,
   getFrameForMa,
   diffusePath,
   normalPath,
@@ -165,8 +168,8 @@ export class Globe {
     this._renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this._renderer.setSize(w, h);
     this._renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this._renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this._renderer.toneMappingExposure = 1.05;
+    this._renderer.toneMapping = THREE.LinearToneMapping;
+    this._renderer.toneMappingExposure = 1.0;
     this._container.appendChild(this._renderer.domElement);
 
     this._loader = new THREE.TextureLoader();
@@ -226,6 +229,26 @@ export class Globe {
       metalness:     0.0,
     });
 
+    // Shader hook: soften deep shadow crevices from baked hillshading so they don't look like craters
+    if (GLOBE_SHADOW_LIFT_GAMMA < 1.0) {
+      this._globeMaterial.onBeforeCompile = (shader) => {
+        shader.fragmentShader = shader.fragmentShader.replace(
+          '#include <map_fragment>',
+          /* glsl */`
+          #ifdef USE_MAP
+            vec4 sampledDiffuseColor = texture2D( map, vMapUv );
+            #ifdef DECODE_VIDEO_TEXTURE
+              sampledDiffuseColor = vec4( mix( pow( sampledDiffuseColor.rgb * 0.9478672986 + vec3( 0.0521327014 ), vec3( 2.4 ) ), sampledDiffuseColor.rgb * 0.0773993808, vec3( lessThanEqual( sampledDiffuseColor.rgb, vec3( 0.04045 ) ) ) ), sampledDiffuseColor.w );
+            #endif
+            // Soften deep shadow crevices in the texture to eliminate harsh cratering
+            sampledDiffuseColor.rgb = pow(sampledDiffuseColor.rgb, vec3(${GLOBE_SHADOW_LIFT_GAMMA.toFixed(2)}));
+            diffuseColor *= sampledDiffuseColor;
+          #endif
+          `
+        );
+      };
+    }
+
     const geo = new THREE.SphereGeometry(1, 128, 64);
     this._globe = new THREE.Mesh(geo, this._globeMaterial);
     this._scene.add(this._globe);
@@ -248,15 +271,16 @@ export class Globe {
 
   // ── Lights ────────────────────────────────────────────────────────────
   _addLights() {
-    // Ambient light: balanced so the shadowed side remains clearly visible and readable
-    this._scene.add(new THREE.AmbientLight(0xdde8f5, 0.48));
+    // Balanced ambient light so terrain colors, coastlines, and shadowed slopes
+    // remain visible, readable, and true to their authored brightness:
+    this._ambientLight = new THREE.AmbientLight(0xffffff, GLOBE_AMBIENT_LIGHT);
+    this._scene.add(this._ambientLight);
 
-    // Directional key light mounted to the camera: offset 45° to the right and 45° up
-    this._sunLight = new THREE.DirectionalLight(0xfff8ee, 2.4);
-
-    // Position light at 45° right (+X) and 45° up (+Y) relative to camera's view axis
-    this._sunLight.position.set(2.8, 2.8, 0.0);
-    this._sunLight.target.position.set(0, 0, -2.8);
+    // Directional key light mounted to the camera: provides subtle 3D curvature,
+    // gentle relief enhancement, and ocean specular glints without harsh contrast
+    this._sunLight = new THREE.DirectionalLight(0xfff8ee, GLOBE_SUN_LIGHT);
+    this._sunLight.position.set(1.8, 1.8, 2.5);
+    this._sunLight.target.position.set(0, 0, 0);
 
     this._camera.add(this._sunLight);
     this._camera.add(this._sunLight.target);
