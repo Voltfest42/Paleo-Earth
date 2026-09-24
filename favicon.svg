@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Atmosphere Outer Soft Glow -->
+    <radialGradient id="atmoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="68%" stop-color="#4a9eff" stop-opacity="0.4"/>
+      <stop offset="92%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- 3D Ocean Sphere Gradient -->
+    <radialGradient id="oceanGrad" cx="35%" cy="30%" r="68%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="45%" stop-color="#1d4ed8"/>
+      <stop offset="80%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+
+    <!-- Continental Landmass Gradient -->
+    <linearGradient id="landGrad" x1="20%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+
+    <!-- 3D Specular Keylight / Rim Shadow Overlay -->
+    <radialGradient id="sphereShade" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="80%" stop-color="#000000" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.65"/>
+    </radialGradient>
+
+    <!-- Clip path to keep continents strictly inside the sphere -->
+    <clipPath id="globeClip">
+      <circle cx="32" cy="32" r="26"/>
+    </clipPath>
+  </defs>
+
+  <!-- Atmosphere Rim Glow -->
+  <circle cx="32" cy="32" r="31" fill="url(#atmoGlow)"/>
+
+  <!-- Globe Ocean Base -->
+  <circle cx="32" cy="32" r="26" fill="url(#oceanGrad)"/>
+
+  <!-- Continents (Clipped to Globe) -->
+  <g clip-path="url(#globeClip)">
+    <!-- Eurasia / North America landmasses -->
+    <path d="M21 13 C26 10, 34 11, 38 14 C43 17, 49 15, 52 20 C54 24, 50 28, 45 27 C41 26, 39 30, 33 29 C28 28, 29 22, 23 23 C18 24, 16 18, 21 13 Z" fill="url(#landGrad)" />
+    <!-- Africa / Gondwana landmass -->
+    <path d="M27 30 C32 29, 39 31, 41 36 C43 42, 38 48, 34 51 C31 53, 29 47, 28 43 C27 39, 23 37, 24 34 C25 32, 26 31, 27 30 Z" fill="url(#landGrad)" />
+    <!-- South America landmass -->
+    <path d="M12 27 C16 26, 18 29, 17 34 C16 39, 20 45, 17 49 C14 51, 11 46, 10 40 C9 34, 9 29, 12 27 Z" fill="url(#landGrad)" />
+    <!-- Australia / East Gondwana landmass -->
+    <path d="M46 37 C50 35, 54 38, 53 43 C52 46, 47 47, 44 44 C42 41, 43 38, 46 37 Z" fill="url(#landGrad)" />
+    <!-- Polar ice cap -->
+    <ellipse cx="32" cy="56" rx="14" ry="4" fill="#e0f2fe" opacity="0.85"/>
+  </g>
+
+  <!-- 3D Shading & Specular Overlay -->
+  <circle cx="32" cy="32" r="26" fill="url(#sphereShade)"/>
+
+  <!-- Crisp Atmospheric Edge Ring -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#7dd3fc" stroke-width="0.85" stroke-opacity="0.6"/>
+</svg>
