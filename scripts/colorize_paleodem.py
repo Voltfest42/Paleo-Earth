@@ -592,18 +592,25 @@ def parse_resolution(
     """
     Resolve output (width, height) with automatic 2:1 aspect ratio enforcement.
     Supports:
-      - Presets: '8k'/'full' (7200x3600), '4k' (4096x2048), '2k' (2048x1024), '1k' (1024x512)
-      - Exact dimensions: '4096x2048', '2048x1024'
-      - Single width dimension: '4096' (height auto-computes to width // 2)
+      - Presets: '8k' (8192x4096, default), '7.2k'/'source' (7200x3600), '4k' (4096x2048), '2k' (2048x1024), '1k' (1024x512)
+      - Exact dimensions: '8192x4096', '4096x2048', '2048x1024'
+      - Single width dimension: '8192' (height auto-computes to width // 2)
       - Explicit --width and/or --height arguments
     """
     PRESETS = {
-        "8k": (7200, 3600),
+        "8k": (8192, 4096),
+        "8192": (8192, 4096),
+        "full": (8192, 4096),
         "7.2k": (7200, 3600),
-        "full": (7200, 3600),
+        "7200": (7200, 3600),
+        "source": (7200, 3600),
+        "native": (7200, 3600),
         "4k": (4096, 2048),
+        "4096": (4096, 2048),
         "2k": (2048, 1024),
+        "2048": (2048, 1024),
         "1k": (1024, 512),
+        "1024": (1024, 512),
     }
 
     if res_str:
@@ -618,7 +625,7 @@ def parse_resolution(
             return w, w // 2
         except ValueError:
             raise SystemExit(
-                f"Invalid resolution format: '{res_str}'. Use '4k', '2k', '1k', '4096x2048', or '4096'."
+                f"Invalid resolution format: '{res_str}'. Use '8k', '7.2k', '4k', '2k', '1k', '8192x4096', or '4096'."
             )
 
     if width is not None and height is not None:
@@ -628,8 +635,8 @@ def parse_resolution(
     if height is not None and width is None:
         return height * 2, height
 
-    # Default full resolution
-    return 7200, 3600
+    # Default: genuine standard 8K (8192x4096)
+    return 8192, 4096
 
 
 def save_image(
@@ -691,7 +698,7 @@ def main() -> None:
         "--res", "--resolution",
         type=str,
         default=None,
-        help="Output resolution preset ('8k', '4k', '2k', '1k') or dimensions ('4096x2048' or '4096')",
+        help="Output resolution preset ('8k' [8192x4096, default], '7.2k' [7200x3600], '4k' [4096x2048], '2k', '1k') or dimensions ('8192x4096')",
     )
     p.add_argument(
         "--width",
@@ -825,8 +832,12 @@ def main() -> None:
 
     ext = args.format.lower()
     out_width, out_height = parse_resolution(args.res, args.width, args.height)
-    is_downscaled = (out_width, out_height) != (7200, 3600)
-    res_label = f"{out_width}x{out_height}" + (" (Lanczos downscaled)" if is_downscaled else " (Full source 7.2k)")
+    if (out_width, out_height) == (8192, 4096):
+        res_label = "8192x4096 (Standard 8K)"
+    elif (out_width, out_height) == (7200, 3600):
+        res_label = "7200x3600 (Native Scotese 7.2K)"
+    else:
+        res_label = f"{out_width}x{out_height} (Lanczos resampled)"
 
     print("=" * 72)
     print("Paleo Earth — PaleoDEM Texture Generator")
