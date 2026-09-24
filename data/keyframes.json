@@ -667,6 +667,7 @@
     "subdivision": "Event",
     "type": "event",
     "ma": 65,
+    "snapRadius": 1,
     "climateData": {
       "o2Percent": 27.41,
       "co2Ppm": 1100,
@@ -682,6 +683,7 @@
     "subdivision": "Event",
     "type": "event",
     "ma": 56,
+    "snapRadius": 1,
     "climateData": {
       "o2Percent": 26.73,
       "co2Ppm": 2000,

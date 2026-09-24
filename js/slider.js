@@ -73,6 +73,12 @@ export class Slider {
       el.addEventListener('mouseenter', () => this._showTooltip(kf, el));
       el.addEventListener('mouseleave', () => this._hideTooltip());
 
+      // Click marker to jump directly
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.setMa(kf.ma);
+      });
+
       this._overlay.appendChild(el);
     }
   }
@@ -254,7 +260,9 @@ export class Slider {
     const markers = this._overlay.querySelectorAll('.slider-marker');
     markers.forEach((m, i) => {
       const markerKf = this._keyframes[i];
-      const radius = markerKf.type === 'event' ? EVENT_SNAP_RADIUS : PERIOD_SNAP_RADIUS;
+      const radius = markerKf.snapRadius !== undefined
+        ? markerKf.snapRadius
+        : (markerKf.type === 'event' ? EVENT_SNAP_RADIUS : PERIOD_SNAP_RADIUS);
       m.classList.toggle('active', Math.abs(markerKf.ma - ma) <= radius);
     });
   }
@@ -272,12 +280,13 @@ export class Slider {
   }
 
   _findBestKeyframe(ma) {
-    // 1. Check event keyframes first if within EVENT_SNAP_RADIUS
+    // 1. Check event keyframes first if within their snap radius
     let bestEvent = null, bestEventDist = Infinity;
     for (const kf of this._keyframes) {
       if (kf.type === 'event') {
+        const radius = kf.snapRadius !== undefined ? kf.snapRadius : EVENT_SNAP_RADIUS;
         const d = Math.abs(kf.ma - ma);
-        if (d <= EVENT_SNAP_RADIUS && d < bestEventDist) {
+        if (d <= radius && d < bestEventDist) {
           bestEventDist = d;
           bestEvent = kf;
         }
