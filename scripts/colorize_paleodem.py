@@ -584,6 +584,54 @@ def parse_frame_selector(selector: str, all_files: list[tuple[int, int, Path]]) 
 # Image Saving & Resizing
 # ---------------------------------------------------------------------------
 
+def parse_resolution(
+    res_str: str | None,
+    width: int | None,
+    height: int | None,
+) -> tuple[int, int]:
+    """
+    Resolve output (width, height) with automatic 2:1 aspect ratio enforcement.
+    Supports:
+      - Presets: '8k'/'full' (7200x3600), '4k' (4096x2048), '2k' (2048x1024), '1k' (1024x512)
+      - Exact dimensions: '4096x2048', '2048x1024'
+      - Single width dimension: '4096' (height auto-computes to width // 2)
+      - Explicit --width and/or --height arguments
+    """
+    PRESETS = {
+        "8k": (7200, 3600),
+        "7.2k": (7200, 3600),
+        "full": (7200, 3600),
+        "4k": (4096, 2048),
+        "2k": (2048, 1024),
+        "1k": (1024, 512),
+    }
+
+    if res_str:
+        s = str(res_str).strip().lower()
+        if s in PRESETS:
+            return PRESETS[s]
+        if "x" in s:
+            parts = s.split("x")
+            return int(parts[0]), int(parts[1])
+        try:
+            w = int(s)
+            return w, w // 2
+        except ValueError:
+            raise SystemExit(
+                f"Invalid resolution format: '{res_str}'. Use '4k', '2k', '1k', '4096x2048', or '4096'."
+            )
+
+    if width is not None and height is not None:
+        return width, height
+    if width is not None and height is None:
+        return width, width // 2
+    if height is not None and width is None:
+        return height * 2, height
+
+    # Default full resolution
+    return 7200, 3600
+
+
 def save_image(
     data: np.ndarray,
     out_path: Path,
@@ -604,7 +652,7 @@ def save_image(
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     if fmt.lower() in {"jpg", "jpeg"}:
-        if mode != "RGB":
+        if img.mode not in {"RGB", "L"}:
             img = img.convert("RGB")
         img.save(out_path, format="JPEG", quality=quality, optimize=True)
     else:
@@ -640,16 +688,22 @@ def main() -> None:
         help="Output directory for generated texture files",
     )
     p.add_argument(
+        "--res", "--resolution",
+        type=str,
+        default=None,
+        help="Output resolution preset ('8k', '4k', '2k', '1k') or dimensions ('4096x2048' or '4096')",
+    )
+    p.add_argument(
         "--width",
         type=int,
-        default=7200,
-        help="Output texture width (7200 for full resolution, 4096 or 2048 for lightweight)",
+        default=None,
+        help="Explicit output texture width in pixels (height auto-computes to width // 2 if omitted)",
     )
     p.add_argument(
         "--height",
         type=int,
-        default=3600,
-        help="Output texture height (3600 for full resolution, 2048 or 1024 for lightweight)",
+        default=None,
+        help="Explicit output texture height in pixels (width auto-computes to height * 2 if omitted)",
     )
     p.add_argument(
         "--format",
@@ -770,12 +824,16 @@ def main() -> None:
     target_files = parse_frame_selector(args.frame, indexed_files)
 
     ext = args.format.lower()
+    out_width, out_height = parse_resolution(args.res, args.width, args.height)
+    is_downscaled = (out_width, out_height) != (7200, 3600)
+    res_label = f"{out_width}x{out_height}" + (" (Lanczos downscaled)" if is_downscaled else " (Full source 7.2k)")
+
     print("=" * 72)
     print("Paleo Earth — PaleoDEM Texture Generator")
     print("=" * 72)
     print(f"  Input:         {args.input} ({len(target_files)} / {len(indexed_files)} frames selected)")
     print(f"  Output Dir:    {args.outdir}/")
-    print(f"  Resolution:    {args.width}x{args.height} ({args.depth}-bit {ext.upper()})")
+    print(f"  Resolution:    {res_label} ({args.depth}-bit {ext.upper()})")
     print(f"  Color Ramps:   Modern (0-435 Ma) | 440 Ma Transition | Barren (445-540 Ma)")
     print(f"  Normal Map:    {'Enabled (nzfactor=' + str(args.nzfactor) + ')' if args.normal else 'Disabled'}")
     print(f"  Roughness Map: {'Enabled' if args.roughness else 'Disabled'}")
@@ -810,21 +868,21 @@ def main() -> None:
             lat_array=lat_arr,
         )
         out_diffuse = args.outdir / f"{idx}_earth_diffuse_{ma}.{ext}"
-        save_image(col, out_diffuse, args.width, args.height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
+        save_image(col, out_diffuse, out_width, out_height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
         print(f"  -> Diffuse:   {out_diffuse} ({os.path.getsize(out_diffuse) / 1024:.1f} KB)")
 
         # 2. Normal Map (if enabled)
         if args.normal:
             nrm = make_normal_map(grid, z_factor=args.nzfactor, lat_array=lat_arr)
             out_normal = args.outdir / f"{idx}_earth_normal_{ma}.{ext}"
-            save_image(nrm, out_normal, args.width, args.height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
+            save_image(nrm, out_normal, out_width, out_height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
             print(f"  -> Normal:    {out_normal} ({os.path.getsize(out_normal) / 1024:.1f} KB)")
 
         # 3. Roughness Map (if enabled)
         if args.roughness:
             rgh = make_roughness_map(grid)
             out_rough = args.outdir / f"{idx}_earth_rough_{ma}.{ext}"
-            save_image(rgh, out_rough, args.width, args.height, fmt=ext, quality=args.quality, mode="L", depth=args.depth)
+            save_image(rgh, out_rough, out_width, out_height, fmt=ext, quality=args.quality, mode="L", depth=args.depth)
             print(f"  -> Roughness: {out_rough} ({os.path.getsize(out_rough) / 1024:.1f} KB)")
 
         dt = time.time() - t0
