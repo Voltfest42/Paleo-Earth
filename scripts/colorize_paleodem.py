@@ -731,6 +731,12 @@ def main() -> None:
         default=8,
         help="Bit depth. 8-bit for web application textures.",
     )
+    p.add_argument(
+        "--naming",
+        choices=["web", "blender"],
+        default="web",
+        help="File naming format: 'web' ({index}_earth_{type}_{ma}.jpg) or 'blender' (earth_{type}_{index}.jpg)",
+    )
 
     # Shading and relief knobs
     p.add_argument(
@@ -850,19 +856,24 @@ def main() -> None:
     print(f"  Roughness Map: {'Enabled' if args.roughness else 'Disabled'}")
     print("=" * 72)
 
+    def get_filenames(idx: int, ma: int) -> tuple[str, str, str]:
+        if args.naming == "blender":
+            return f"earth_diffuse_{idx}.{ext}", f"earth_normal_{idx}.{ext}", f"earth_rough_{idx}.{ext}"
+        return f"{idx}_earth_diffuse_{ma}.{ext}", f"{idx}_earth_normal_{ma}.{ext}", f"{idx}_earth_rough_{ma}.{ext}"
+
     if args.dry_run:
         print("\n[DRY RUN] Would process the following frames:")
         for idx, ma, f in target_files:
-            diff_out = args.outdir / f"{idx}_earth_diffuse_{ma}.{ext}"
-            norm_out = args.outdir / f"{idx}_earth_normal_{ma}.{ext}" if args.normal else "off"
-            rgh_out  = args.outdir / f"{idx}_earth_rough_{ma}.{ext}" if args.roughness else "off"
-            print(f"  [{idx:3d}] {ma:3d} Ma: {f.name} -> {diff_out.name} | normal: {norm_out.name if args.normal else 'off'} | rough: {rgh_out.name if args.roughness else 'off'}")
+            d_name, n_name, r_name = get_filenames(idx, ma)
+            print(f"  [{idx:3d}] {ma:3d} Ma: {f.name} -> {d_name} | normal: {n_name if args.normal else 'off'} | rough: {r_name if args.roughness else 'off'}")
         return
 
     t_start = time.time()
     for count, (idx, ma, f) in enumerate(target_files, 1):
         t0 = time.time()
         print(f"\n[{count}/{len(target_files)}] Processing Frame {idx}: {ma} Ma ({f.name})")
+
+        d_name, n_name, r_name = get_filenames(idx, ma)
 
         grid, lat_arr = load_dem(f)
         regime = "Modern (Vegetated)" if ma <= 435 else ("Transition (Coastal Green)" if ma == 440 else "Barren (Pre-Plant)")
@@ -878,21 +889,21 @@ def main() -> None:
             azimuth=args.azimuth,
             lat_array=lat_arr,
         )
-        out_diffuse = args.outdir / f"{idx}_earth_diffuse_{ma}.{ext}"
+        out_diffuse = args.outdir / d_name
         save_image(col, out_diffuse, out_width, out_height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
         print(f"  -> Diffuse:   {out_diffuse} ({os.path.getsize(out_diffuse) / 1024:.1f} KB)")
 
         # 2. Normal Map (if enabled)
         if args.normal:
             nrm = make_normal_map(grid, z_factor=args.nzfactor, lat_array=lat_arr)
-            out_normal = args.outdir / f"{idx}_earth_normal_{ma}.{ext}"
+            out_normal = args.outdir / n_name
             save_image(nrm, out_normal, out_width, out_height, fmt=ext, quality=args.quality, mode="RGB", depth=args.depth)
             print(f"  -> Normal:    {out_normal} ({os.path.getsize(out_normal) / 1024:.1f} KB)")
 
         # 3. Roughness Map (if enabled)
         if args.roughness:
             rgh = make_roughness_map(grid)
-            out_rough = args.outdir / f"{idx}_earth_rough_{ma}.{ext}"
+            out_rough = args.outdir / r_name
             save_image(rgh, out_rough, out_width, out_height, fmt=ext, quality=args.quality, mode="L", depth=args.depth)
             print(f"  -> Roughness: {out_rough} ({os.path.getsize(out_rough) / 1024:.1f} KB)")
 
