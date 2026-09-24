@@ -78,7 +78,11 @@ export const EVENT_SNAP_RADIUS  = 5;  // Ma
 export const SLIDER_DEBOUNCE_MS = 300;
 
 // Texture cache size (number of frames kept in GPU memory; each frame has diffuse, normal, rough)
-export const TEXTURE_CACHE_SIZE = 10;
+export const TEXTURE_CACHE_SIZE = 16;
+
+// Timeline animation duration in seconds for full 0 to 540 Ma playback
+// 24 seconds provides a smooth, cinematic cadence (~4.5 frames/sec) with ample lookahead headroom
+export const SLIDER_PLAY_DURATION_SEC = 24.0;
 
 // Normal map strength in the shader (0.10 = 10% strength, 0.0 = disabled)
 export const NORMAL_MAP_SCALE = 0.1;

@@ -7,7 +7,14 @@
  *   'keyframesettle' — fires after dragging or playing pauses; detail: { keyframe }
  */
 
-import { MIN_MA, MAX_MA, SLIDER_DEBOUNCE_MS, PERIOD_SNAP_RADIUS, EVENT_SNAP_RADIUS } from './config.js';
+import {
+  MIN_MA,
+  MAX_MA,
+  SLIDER_DEBOUNCE_MS,
+  SLIDER_PLAY_DURATION_SEC,
+  PERIOD_SNAP_RADIUS,
+  EVENT_SNAP_RADIUS,
+} from './config.js';
 
 export class Slider {
   /**
@@ -37,7 +44,7 @@ export class Slider {
     this._isPlaying          = false;
     this._playAnimId         = null;
     this._lastPlayTimestamp  = null;
-    this._playDurationSec    = 12.0; // 0 to 540 Ma in ~12 seconds
+    this._playDurationSec    = SLIDER_PLAY_DURATION_SEC;
 
     // Force input element reset on init
     this._input.value = '0';

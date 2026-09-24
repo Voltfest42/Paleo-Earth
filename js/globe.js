@@ -59,13 +59,29 @@ const ATMO_FRAG = /* glsl */`
 // ─── LRU texture cache ──────────────────────────────────────────────────
 class TextureCache {
   constructor(loader, maxSize) {
-    this._loader  = loader;
-    this._maxSize = maxSize;
-    this._map     = new Map();
-    this._pending = new Map();
+    this._loader    = loader;
+    this._maxSize   = maxSize;
+    this._map       = new Map();
+    this._pending   = new Map();
+    this._activeKey = null;
   }
 
-  async getFrame(index, ma, activeKey = null) {
+  has(key) {
+    return this._map.has(key);
+  }
+
+  isPending(key) {
+    return this._pending.has(key);
+  }
+
+  setActiveKey(key) {
+    this._activeKey = key;
+    if (this._map.has(key)) {
+      this._map.get(key).lastUsed = Date.now();
+    }
+  }
+
+  async getFrame(index, ma) {
     const key = `${index}_${ma}`;
     if (this._map.has(key)) {
       const entry = this._map.get(key);
@@ -90,7 +106,7 @@ class TextureCache {
 
       const entry = { diffuse, normal, roughness, lastUsed: Date.now() };
       this._map.set(key, entry);
-      this._evict(activeKey);
+      this._evict();
       return entry;
     }).catch(err => {
       this._pending.delete(key);
@@ -101,17 +117,23 @@ class TextureCache {
     return promise;
   }
 
+  preload(index, ma) {
+    const key = `${index}_${ma}`;
+    if (this._map.has(key) || this._pending.has(key)) return;
+    this.getFrame(index, ma).catch(() => {});
+  }
+
   _load(path) {
     return new Promise((resolve, reject) => {
       this._loader.load(path, resolve, undefined, reject);
     });
   }
 
-  _evict(activeKey = null) {
+  _evict() {
     while (this._map.size > this._maxSize) {
       let oldest = Infinity, oldestKey = null;
       for (const [key, entry] of this._map) {
-        if (key === activeKey) continue;
+        if (key === this._activeKey) continue;
         if (entry.lastUsed < oldest) {
           oldest = entry.lastUsed;
           oldestKey = key;
@@ -140,9 +162,13 @@ class TextureCache {
 // ─── Globe class ────────────────────────────────────────────────────────
 export class Globe {
   constructor(container) {
-    this._container = container;
-    this._animId    = null;
-    this._currentFrameMa = null;
+    this._container     = container;
+    this._animId        = null;
+    this._ticket        = 0;
+    this._appliedTicket = 0;
+    this._targetMa      = null;
+    this._displayedMa   = null;
+    this._debounceTimer = null;
 
     this._init();
     this._buildStars();
@@ -332,31 +358,77 @@ export class Globe {
   /**
    * Load and display the discrete globe textures (diffuse, normal, roughness)
    * for the given Ma value. Switches cleanly at 2.5 Ma midpoints.
+   *
+   * Employs ticket-based monotonic updates, lookahead preloading, and
+   * scrub debouncing to prevent network saturation and frame discarding.
    */
-  async setMa(ma) {
+  setMa(ma) {
     const { index, ma: snappedMa } = getFrameForMa(ma);
 
-    if (this._currentFrameMa === snappedMa && this._globeMaterial.map) {
-      return;
+    if (this._targetMa === snappedMa && this._displayedMa === snappedMa) {
+      return Promise.resolve();
     }
 
-    this._currentFrameMa = snappedMa;
-    const currentKey = `${index}_${snappedMa}`;
+    const prevTargetMa = this._targetMa;
+    this._targetMa = snappedMa;
+    const key = `${index}_${snappedMa}`;
+    const isForward = prevTargetMa === null || snappedMa >= prevTargetMa;
+
+    if (this._debounceTimer) {
+      clearTimeout(this._debounceTimer);
+      this._debounceTimer = null;
+    }
+
+    // Immediate fetch for initial startup or if already cached/pending
+    if (prevTargetMa === null || this._cache.has(key) || this._cache.isPending(key)) {
+      return this._fetchAndApply(index, snappedMa, key, isForward);
+    }
+
+    // Debounce cold network fetches during fast manual scrubbing (60ms)
+    // to prevent saturating the browser's HTTP connection pool with intermediate frames
+    return new Promise((resolve) => {
+      this._debounceTimer = setTimeout(() => {
+        this._debounceTimer = null;
+        resolve(this._fetchAndApply(index, snappedMa, key, isForward));
+      }, 60);
+    });
+  }
+
+  async _fetchAndApply(index, snappedMa, key, isForward) {
+    const ticket = ++this._ticket;
 
     try {
-      const frame = await this._cache.getFrame(index, snappedMa, currentKey);
+      const frame = await this._cache.getFrame(index, snappedMa);
 
-      // Race condition protection: if slider moved while downloading, don't apply stale frame
-      if (this._currentFrameMa !== snappedMa) {
+      // Discard only if a newer frame has ALREADY been applied to the globe
+      if (ticket < this._appliedTicket) {
         return;
       }
+
+      this._appliedTicket = ticket;
+      this._displayedMa   = snappedMa;
+      this._cache.setActiveKey(key);
 
       this._globeMaterial.map          = frame.diffuse;
       this._globeMaterial.normalMap    = frame.normal;
       this._globeMaterial.roughnessMap = frame.roughness;
       this._globeMaterial.needsUpdate  = true;
+
+      // Lookahead preload: eagerly fetch next frame in travel direction
+      if (isForward && snappedMa < 540) {
+        const nextMa = snappedMa + 5;
+        const nextIndex = (nextMa / 5) + 1;
+        this._cache.preload(nextIndex, nextMa);
+      } else if (!isForward && snappedMa > 0) {
+        const prevMa = snappedMa - 5;
+        const prevIndex = (prevMa / 5) + 1;
+        this._cache.preload(prevIndex, prevMa);
+      }
     } catch (err) {
       console.warn(`Globe textures load failed for frame ${index} (${snappedMa} Ma):`, err);
+      if (this._targetMa === snappedMa && this._displayedMa !== snappedMa) {
+        this._targetMa = this._displayedMa;
+      }
     }
   }
 
@@ -376,6 +448,10 @@ export class Globe {
 
   /** Clean up scene and renderer */
   dispose() {
+    if (this._debounceTimer) {
+      clearTimeout(this._debounceTimer);
+      this._debounceTimer = null;
+    }
     cancelAnimationFrame(this._animId);
     this._resizeObserver.disconnect();
     this._controls.dispose();
