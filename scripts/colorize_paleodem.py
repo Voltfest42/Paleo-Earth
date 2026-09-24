@@ -21,7 +21,7 @@ Normal Map Strength:
   producing gentle, smooth relief without harsh or dark normal saturation.
 
 Usage Examples:
-  # Render all 109 frames to 8-bit WebGL JPEGs in textures/:
+  # Render all 109 frames to 8-bit WebGL JPEGs in textures_temp/:
   python scripts/colorize_paleodem.py
 
   # Render a single keyframe by Ma (e.g. 440 Ma transition frame):
@@ -619,7 +619,7 @@ def main() -> None:
     p.add_argument(
         "--outdir", "-o",
         type=Path,
-        default=Path("textures"),
+        default=Path("textures_temp"),
         help="Output directory for generated texture files",
     )
     p.add_argument(
