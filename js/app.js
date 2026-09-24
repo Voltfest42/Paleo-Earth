@@ -168,10 +168,10 @@ async function main() {
 
   // ── Wire slider events ──────────────────────────────────────────────────
 
-  // Continuous: update globe texture and climate gauges while dragging
+  // Continuous: update globe texture and climate gauges while dragging or playing
   document.getElementById('appContainer').addEventListener('machange', e => {
-    const ma = e.detail.ma;
-    globe.setMa(ma);
+    const { ma, source } = e.detail;
+    globe.setMa(ma, source);
     if (climateTimeline && climateTimeline[String(ma)]) {
       gauges.updateGauges(climateTimeline[String(ma)]);
     }

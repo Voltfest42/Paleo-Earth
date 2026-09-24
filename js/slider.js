@@ -38,6 +38,7 @@ export class Slider {
     this._playBtn       = playBtn;
     this._debounceTimer = null;
     this._currentMa     = 0;
+    this._playMa        = 0;
     this._activeKeyframe = null;
 
     // Animation state
@@ -113,10 +114,11 @@ export class Slider {
       this.pause();
       const ma = parseInt(this._input.value, 10) || 0;
       this._currentMa = ma;
+      this._playMa    = ma;
       this._update(ma);
 
-      // Fire continuous ma event for globe texture updates
-      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma }, bubbles: true }));
+      // Fire continuous ma event for globe texture updates (source: drag)
+      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma, source: 'drag' }, bubbles: true }));
 
       // Immediate real-time keyframe update (updates summary card & gauges instantaneously)
       this._detectKeyframe(ma);
@@ -130,6 +132,12 @@ export class Slider {
           );
         }
       }, SLIDER_DEBOUNCE_MS);
+    });
+
+    // When dragging completes (mouse/touch released)
+    this._input.addEventListener('change', () => {
+      const ma = parseInt(this._input.value, 10) || 0;
+      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma, source: 'settle' }, bubbles: true }));
     });
   }
 
@@ -157,7 +165,10 @@ export class Slider {
 
     // If we are at the very end, restart from beginning
     if (this._currentMa >= MAX_MA) {
-      this._setSliderValue(0);
+      this._playMa = 0;
+      this._setSliderValue(0, 'play');
+    } else {
+      this._playMa = this._currentMa;
     }
 
     this._lastPlayTimestamp = performance.now();
@@ -169,15 +180,16 @@ export class Slider {
       this._lastPlayTimestamp = timestamp;
 
       const maPerMs = (MAX_MA - MIN_MA) / (this._playDurationSec * 1000);
-      const nextMa  = this._currentMa + deltaMs * maPerMs;
+      this._playMa += deltaMs * maPerMs;
 
-      if (nextMa >= MAX_MA) {
-        this._setSliderValue(MAX_MA);
+      if (this._playMa >= MAX_MA) {
+        this._playMa = MAX_MA;
+        this._setSliderValue(MAX_MA, 'play');
         this.pause();
         return;
       }
 
-      this._setSliderValue(nextMa);
+      this._setSliderValue(this._playMa, 'play');
       this._playAnimId = requestAnimationFrame(step);
     };
 
@@ -213,13 +225,13 @@ export class Slider {
     this._playBtn.title = this._isPlaying ? 'Pause timeline animation' : 'Play timeline animation';
   }
 
-  _setSliderValue(maFloat) {
+  _setSliderValue(maFloat, source = 'drag') {
     const ma = Math.round(maFloat);
     if (ma !== this._currentMa) {
       this._currentMa   = ma;
       this._input.value = String(ma);
       this._update(ma);
-      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma }, bubbles: true }));
+      this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma, source }, bubbles: true }));
       this._detectKeyframe(ma);
     }
   }
@@ -307,9 +319,10 @@ export class Slider {
     this.pause();
     const clamped = Math.max(MIN_MA, Math.min(MAX_MA, ma));
     this._currentMa = clamped;
+    this._playMa    = clamped;
     this._input.value = String(clamped);
     this._update(clamped);
-    this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma: clamped }, bubbles: true }));
+    this._container.dispatchEvent(new CustomEvent('machange', { detail: { ma: clamped, source: 'direct' }, bubbles: true }));
     this._detectKeyframe(clamped);
   }
 

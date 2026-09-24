@@ -362,10 +362,18 @@ export class Globe {
    * Employs ticket-based monotonic updates, lookahead preloading, and
    * scrub debouncing to prevent network saturation and frame discarding.
    */
-  setMa(ma) {
+  /**
+   * Load and display the discrete globe textures (diffuse, normal, roughness)
+   * for the given Ma value. Switches cleanly at 2.5 Ma midpoints.
+   *
+   * @param {number} ma — age in millions of years (0-540)
+   * @param {string} source — 'play' | 'drag' | 'settle' | 'direct'
+   */
+  setMa(ma, source = 'direct') {
     const { index, ma: snappedMa } = getFrameForMa(ma);
 
-    if (this._targetMa === snappedMa && this._displayedMa === snappedMa) {
+    // If already targeting this discrete frame, return early
+    if (this._targetMa === snappedMa) {
       return Promise.resolve();
     }
 
@@ -374,23 +382,35 @@ export class Globe {
     const key = `${index}_${snappedMa}`;
     const isForward = prevTargetMa === null || snappedMa >= prevTargetMa;
 
+    // Clear any pending scrub debounce timer
     if (this._debounceTimer) {
       clearTimeout(this._debounceTimer);
       this._debounceTimer = null;
     }
 
-    // Immediate fetch for initial startup or if already cached/pending
-    if (prevTargetMa === null || this._cache.has(key) || this._cache.isPending(key)) {
+    // Fast path:
+    // If playback ('play'), drag release ('settle'), programmatic jump ('direct'),
+    // initial load (prevTargetMa === null), or texture already cached/pending:
+    // Fetch and apply immediately with 0 delay!
+    if (
+      source === 'play' ||
+      source === 'settle' ||
+      source === 'direct' ||
+      prevTargetMa === null ||
+      this._cache.has(key) ||
+      this._cache.isPending(key)
+    ) {
       return this._fetchAndApply(index, snappedMa, key, isForward);
     }
 
-    // Debounce cold network fetches during fast manual scrubbing (60ms)
-    // to prevent saturating the browser's HTTP connection pool with intermediate frames
+    // Drag path: user is actively scrubbing across uncached frames.
+    // Debounce by 90ms so rapid dragging doesn't flood the browser connection pool
+    // with dozens of requests for frames that are dragged past in milliseconds.
     return new Promise((resolve) => {
       this._debounceTimer = setTimeout(() => {
         this._debounceTimer = null;
         resolve(this._fetchAndApply(index, snappedMa, key, isForward));
-      }, 60);
+      }, 90);
     });
   }
 
@@ -400,7 +420,7 @@ export class Globe {
     try {
       const frame = await this._cache.getFrame(index, snappedMa);
 
-      // Discard only if a newer frame has ALREADY been applied to the globe
+      // Discard only if a strictly newer frame has ALREADY been applied to the globe
       if (ticket < this._appliedTicket) {
         return;
       }
@@ -414,15 +434,19 @@ export class Globe {
       this._globeMaterial.roughnessMap = frame.roughness;
       this._globeMaterial.needsUpdate  = true;
 
-      // Lookahead preload: eagerly fetch next frame in travel direction
-      if (isForward && snappedMa < 540) {
-        const nextMa = snappedMa + 5;
-        const nextIndex = (nextMa / 5) + 1;
-        this._cache.preload(nextIndex, nextMa);
-      } else if (!isForward && snappedMa > 0) {
-        const prevMa = snappedMa - 5;
-        const prevIndex = (prevMa / 5) + 1;
-        this._cache.preload(prevIndex, prevMa);
+      // Lookahead preload:
+      // Only preload if the globe has caught up with the current targetMa.
+      // If the user already moved on, don't waste network requests on this frame's neighbors.
+      if (this._targetMa === snappedMa) {
+        if (isForward && snappedMa < 540) {
+          const nextMa = snappedMa + 5;
+          const nextIndex = (nextMa / 5) + 1;
+          this._cache.preload(nextIndex, nextMa);
+        } else if (!isForward && snappedMa > 0) {
+          const prevMa = snappedMa - 5;
+          const prevIndex = (prevMa / 5) + 1;
+          this._cache.preload(prevIndex, prevMa);
+        }
       }
     } catch (err) {
       console.warn(`Globe textures load failed for frame ${index} (${snappedMa} Ma):`, err);
