@@ -508,18 +508,35 @@ input[type="range"]:hover::-webkit-slider-thumb {
   flex-shrink: 0;
 }
 
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  min-height: 28px;
+}
+
 .summary-subtitle {
   font-size: 11px;
   color: var(--text-secondary);
-  margin-bottom: 8px;
   letter-spacing: 0.02em;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.summary-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .summary-text {
   font-size: 13px;
   line-height: 1.7;
   color: var(--text-primary);
-  max-height: 180px;
+  max-height: 220px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
@@ -532,9 +549,10 @@ input[type="range"]:hover::-webkit-slider-thumb {
 /* ─── Hero Keyframe Illustration (Wikipedia float-right style) ──────── */
 .summary-hero-wrapper {
   float: right;
-  margin: 2px 0 10px 14px;
-  width: 140px;
-  max-width: 42%;
+  margin: 2px 0 12px 16px;
+  width: 30%;
+  min-width: 150px;
+  max-width: 260px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -570,17 +588,14 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 
 .panel-right.fullscreen .summary-hero-wrapper {
-  width: 220px;
-  max-width: 35%;
-  margin: 2px 0 12px 20px;
+  width: 28%;
+  min-width: 220px;
+  max-width: 360px;
+  margin: 2px 0 14px 20px;
 }
 
-.summary-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
+.panel-right.fullscreen .summary-text {
+  max-height: 360px;
 }
 
 .summary-btn {

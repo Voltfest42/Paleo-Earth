@@ -103,16 +103,18 @@
 
         <!-- Summary card -->
         <div class="summary-card" id="summaryCard">
-          <div class="summary-subtitle" id="summarySubtitle"></div>
-          <div class="summary-text" id="summaryText">Loading...</div>
-          <div class="summary-footer">
-            <button class="summary-btn" id="summaryHeroToggleBtn" title="Toggle period illustration" aria-label="Toggle period illustration">
-              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            </button>
-            <button class="tts-btn" id="summaryTtsBtn" title="Listen to summary" aria-label="Read summary aloud">
-              <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-            </button>
+          <div class="summary-header">
+            <div class="summary-subtitle" id="summarySubtitle"></div>
+            <div class="summary-actions">
+              <button class="summary-btn" id="summaryHeroToggleBtn" title="Toggle period illustration" aria-label="Toggle period illustration">
+                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              </button>
+              <button class="tts-btn" id="summaryTtsBtn" title="Listen to summary" aria-label="Read summary aloud">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+              </button>
+            </div>
           </div>
+          <div class="summary-text" id="summaryText">Loading...</div>
         </div>
 
         <!-- Chat messages -->
