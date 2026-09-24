@@ -1,0 +1,62 @@
+{
+  "late_cretaceous": {
+    "filename": "late_cretaceous.webp",
+    "fallback": "late_cretaceous.png",
+    "label": "Late Cretaceous"
+  },
+  "mid_cretaceous": {
+    "filename": "mid_cretaceous.webp",
+    "fallback": "mid_cretaceous.png",
+    "label": "Mid-Cretaceous"
+  },
+  "early_cretaceous": {
+    "filename": "early_cretaceous.webp",
+    "fallback": "early_cretaceous.png",
+    "label": "Early Cretaceous"
+  },
+  "late_jurassic": {
+    "filename": "late_jurassic.webp",
+    "fallback": "late_jurassic.png",
+    "label": "Late Jurassic"
+  },
+  "mid_jurassic": {
+    "filename": "mid_jurassic.webp",
+    "fallback": "mid_jurassic.png",
+    "label": "Middle Jurassic"
+  },
+  "early_jurassic": {
+    "filename": "early_jurassic.webp",
+    "fallback": "early_jurassic.png",
+    "label": "Early Jurassic"
+  },
+  "late_triassic": {
+    "filename": "late_triassic.webp",
+    "fallback": "late_triassic.png",
+    "label": "Late Triassic"
+  },
+  "mid_triassic": {
+    "filename": "mid_triassic.webp",
+    "fallback": "mid_triassic.png",
+    "label": "Middle Triassic"
+  },
+  "permian_triassic_extinction": {
+    "filename": "permian-triassic_great_dying.webp",
+    "fallback": "permian-triassic_great_dying.png",
+    "label": "Permian-Triassic Mass Extinction"
+  },
+  "triassic_jurassic_extinction": {
+    "filename": "triassic-jurassic_mass_extinction.webp",
+    "fallback": "triassic-jurassic_mass_extinction.png",
+    "label": "Triassic-Jurassic Mass Extinction"
+  },
+  "jurassic_marine_revolution": {
+    "filename": "mesozoic_marine_revolution.webp",
+    "fallback": "mesozoic_marine_revolution.png",
+    "label": "Mesozoic Marine Revolution"
+  },
+  "kpg_extinction": {
+    "filename": "k-pg_mass_extinction.webp",
+    "fallback": "k-pg_mass_extinction.png",
+    "label": "K-Pg Mass Extinction"
+  }
+}

@@ -9,7 +9,7 @@
  *  - Speaker buttons on summary and each AI response
  */
 
-import { DEV_MODE, API_BASE } from './config.js';
+import { DEV_MODE, API_BASE, ENABLE_KEYFRAME_HERO_IMAGES } from './config.js';
 import { speak } from './tts.js';
 
 // ─── Markdown → simple HTML ───────────────────────────────────────────────
@@ -105,10 +105,12 @@ export class Chat {
   /**
    * @param {object}   elements         — DOM element references
    * @param {object[]} imageLibrary     — image-library.json images array
+   * @param {object}   keyframeImages   — keyframe-images.json mapping object
    */
-  constructor(elements, imageLibrary) {
+  constructor(elements, imageLibrary, keyframeImages = {}) {
     this._el          = elements;
     this._imageLib    = imageLibrary || [];
+    this._keyframeImages = keyframeImages || {};
     this._history     = [];   // [{role, content}] full conversation
     this._context     = null; // current keyframe context
     this._sending     = false;
@@ -116,7 +118,15 @@ export class Chat {
     this._lastCommittedKeyframeId = 'holocene';
     this._pendingDividerEl = null;
 
+    // Load user preference for hero images (default true)
+    let storedPref = null;
+    try {
+      storedPref = localStorage.getItem('paleo_earth_hero_images');
+    } catch (e) {}
+    this._heroImagesEnabled = storedPref !== null ? storedPref === 'true' : true;
+
     this._attach();
+    this._initLightbox();
   }
 
   // ── Event listeners ───────────────────────────────────────────────────
@@ -137,6 +147,21 @@ export class Chat {
       const text = this._el.summarySubtitle.textContent + '. ' + this._summaryText;
       speak(text, this._el.summaryTtsBtn);
     });
+
+    // Summary hero image toggle button
+    if (this._el.summaryHeroToggleBtn) {
+      if (!ENABLE_KEYFRAME_HERO_IMAGES) {
+        this._el.summaryHeroToggleBtn.style.display = 'none';
+      } else {
+        this._el.summaryHeroToggleBtn.addEventListener('click', () => {
+          this._heroImagesEnabled = !this._heroImagesEnabled;
+          try {
+            localStorage.setItem('paleo_earth_hero_images', String(this._heroImagesEnabled));
+          } catch (e) {}
+          this._renderSummaryContent();
+        });
+      }
+    }
   }
 
   // ── Keyframe update ───────────────────────────────────────────────────
@@ -156,12 +181,178 @@ export class Chat {
     this._el.keyframeTitle.textContent   = keyframe.label;
     this._el.summarySubtitle.textContent = summary.subtitle || '';
     this._summaryText = summary.body || '';
-    this._el.summaryText.textContent = this._summaryText;
+    
+    // Render text with optional hero mood illustration
+    this._renderSummaryContent();
 
     // Badge style (period vs event)
     const badge = this._el.keyframeBadge;
     badge.textContent = keyframe.type === 'event' ? 'Event' : keyframe.period || 'Period';
     badge.className   = `keyframe-badge${keyframe.type === 'event' ? ' event' : ''}`;
+  }
+
+  /**
+   * Resolve hero illustration metadata for a given keyframe ID.
+   * Supports both explicit registry objects and direct filenames.
+   */
+  _getKeyframeImage(keyframeId) {
+    if (!keyframeId || !this._keyframeImages) return null;
+    const entry = this._keyframeImages[keyframeId];
+    if (!entry) return null;
+
+    if (typeof entry === 'string') {
+      const base = entry.replace(/\.(webp|png|jpe?g)$/i, '');
+      const ext = entry.includes('.') ? entry.split('.').pop() : 'png';
+      return {
+        src: `images/keyframe_images/${base}.webp`,
+        fallback: `images/keyframe_images/${base}.${ext}`,
+        label: keyframeId
+      };
+    }
+
+    return {
+      src: `images/keyframe_images/${entry.filename}`,
+      fallback: `images/keyframe_images/${entry.fallback || entry.filename}`,
+      label: entry.label || keyframeId
+    };
+  }
+
+  /**
+   * Renders the summary card text, floating the hero illustration on the right
+   * so text wraps naturally around it if an illustration exists.
+   */
+  _renderSummaryContent() {
+    const keyframe = this._context;
+    this._el.summaryText.innerHTML = '';
+
+    const heroImage = (ENABLE_KEYFRAME_HERO_IMAGES && this._heroImagesEnabled)
+      ? this._getKeyframeImage(keyframe?.id)
+      : null;
+
+    if (heroImage) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'summary-hero-wrapper';
+      wrapper.title = 'Click to enlarge illustration';
+      wrapper.setAttribute('role', 'button');
+      wrapper.setAttribute('tabindex', '0');
+      wrapper.setAttribute('aria-label', `View ${keyframe.label} illustration`);
+
+      const picture = document.createElement('picture');
+      picture.className = 'summary-hero-picture';
+
+      const source = document.createElement('source');
+      source.srcset = heroImage.src;
+      source.type = 'image/webp';
+      picture.appendChild(source);
+
+      const img = document.createElement('img');
+      img.src = heroImage.fallback;
+      img.alt = `${keyframe.label} illustration`;
+      img.className = 'summary-hero-img';
+      img.loading = 'lazy';
+      img.onerror = () => {
+        // If image fails to load, gracefully remove wrapper so text fills container
+        wrapper.remove();
+      };
+
+      picture.appendChild(img);
+      wrapper.appendChild(picture);
+
+      const openLightbox = () => this._openHeroLightbox(heroImage, keyframe);
+      wrapper.addEventListener('click', openLightbox);
+      wrapper.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox();
+        }
+      });
+
+      this._el.summaryText.appendChild(wrapper);
+    }
+
+    const textSpan = document.createElement('span');
+    textSpan.className = 'summary-body-text';
+    textSpan.textContent = this._summaryText;
+    this._el.summaryText.appendChild(textSpan);
+
+    this._updateHeroToggleButton();
+  }
+
+  /**
+   * Update state and tooltip for the hero illustration toggle button.
+   */
+  _updateHeroToggleButton() {
+    const btn = this._el.summaryHeroToggleBtn;
+    if (!btn || !ENABLE_KEYFRAME_HERO_IMAGES) return;
+
+    const hasImage = Boolean(this._getKeyframeImage(this._context?.id));
+
+    if (this._heroImagesEnabled) {
+      btn.className = 'summary-btn active';
+      btn.title = hasImage
+        ? 'Hide period illustration'
+        : 'Illustrations enabled (none available for this keyframe)';
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      btn.className = 'summary-btn inactive';
+      btn.title = 'Show period illustrations';
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  /**
+   * Initialize modal viewer for full-size keyframe hero images.
+   */
+  _initLightbox() {
+    this._lightboxModal    = document.getElementById('heroLightboxModal');
+    this._lightboxBackdrop = document.getElementById('heroLightboxBackdrop');
+    this._lightboxClose    = document.getElementById('heroLightboxClose');
+    this._lightboxImg      = document.getElementById('heroLightboxImg');
+    this._lightboxCaption  = document.getElementById('heroLightboxCaption');
+
+    if (!this._lightboxModal) return;
+
+    const closeModal = () => {
+      this._lightboxModal.style.display = 'none';
+      if (this._lightboxImg) this._lightboxImg.src = '';
+    };
+
+    if (this._lightboxClose) {
+      this._lightboxClose.addEventListener('click', closeModal);
+    }
+    if (this._lightboxBackdrop) {
+      this._lightboxBackdrop.addEventListener('click', closeModal);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && this._lightboxModal.style.display === 'flex') {
+        closeModal();
+      }
+    });
+  }
+
+  /**
+   * Open full-size illustration in the lightbox modal.
+   */
+  _openHeroLightbox(heroImage, keyframe) {
+    if (!this._lightboxModal || !this._lightboxImg) return;
+
+    this._lightboxImg.src = heroImage.src || heroImage.fallback;
+    this._lightboxImg.onerror = () => {
+      this._lightboxImg.src = heroImage.fallback;
+    };
+
+    const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
+    const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
+    const details = [periodStr, maStr].filter(Boolean).join(' · ');
+
+    if (this._lightboxCaption) {
+      this._lightboxCaption.textContent = details
+        ? `${keyframe.label} (${details})`
+        : keyframe.label;
+    }
+
+    this._lightboxModal.style.display = 'flex';
   }
 
   /**

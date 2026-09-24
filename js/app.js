@@ -105,13 +105,14 @@ async function main() {
   initResize();
 
   // Load data
-  let keyframes, summaries, imageLibrary, climateTimeline;
+  let keyframes, summaries, imageLibrary, climateTimeline, keyframeImages;
   try {
-    [keyframes, summaries, imageLibrary, climateTimeline] = await Promise.all([
+    [keyframes, summaries, imageLibrary, climateTimeline, keyframeImages] = await Promise.all([
       loadJSON('data/keyframes.json'),
       loadJSON('data/summaries.json'),
       loadJSON('data/image-library.json').then(d => d.images || []),
       loadJSON('data/climate.json').catch(() => null),
+      loadJSON('data/keyframe-images.json').catch(() => ({})),
     ]);
   } catch (err) {
     console.error('Failed to load data files:', err);
@@ -133,15 +134,16 @@ async function main() {
 
   // Chat
   const chat = new Chat({
-    sendBtn:         document.getElementById('sendBtn'),
-    chatInput:       document.getElementById('chatInput'),
-    chatMessages:    document.getElementById('chatMessages'),
-    summaryText:     document.getElementById('summaryText'),
-    summarySubtitle: document.getElementById('summarySubtitle'),
-    summaryTtsBtn:   document.getElementById('summaryTtsBtn'),
-    keyframeTitle:   document.getElementById('keyframeTitle'),
-    keyframeBadge:   document.getElementById('keyframeBadge'),
-  }, imageLibrary);
+    sendBtn:              document.getElementById('sendBtn'),
+    chatInput:            document.getElementById('chatInput'),
+    chatMessages:         document.getElementById('chatMessages'),
+    summaryText:          document.getElementById('summaryText'),
+    summarySubtitle:      document.getElementById('summarySubtitle'),
+    summaryTtsBtn:        document.getElementById('summaryTtsBtn'),
+    summaryHeroToggleBtn: document.getElementById('summaryHeroToggleBtn'),
+    keyframeTitle:        document.getElementById('keyframeTitle'),
+    keyframeBadge:        document.getElementById('keyframeBadge'),
+  }, imageLibrary, keyframeImages);
 
   // Set initial keyframe (holocene, 0 Ma)
   const initialKeyframe = keyframes.find(k => k.id === 'holocene') || keyframes[0];

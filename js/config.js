@@ -20,6 +20,11 @@ export const API_BASE = 'https://zazc8i568e.execute-api.us-east-1.amazonaws.com/
 // Amazon Polly neural voice ID used for TTS
 export const POLLY_VOICE_ID = 'Matthew';
 
+// ─── Keyframe Hero Illustrations ──────────────────────────────────────────
+// Master feature flag for displaying hero mood illustrations in the summary card.
+// Set to false to disable this feature globally across the entire app.
+export const ENABLE_KEYFRAME_HERO_IMAGES = true;
+
 // ─── Time range ──────────────────────────────────────────────────────────
 export const MIN_MA = 0;
 export const MAX_MA = 540;
