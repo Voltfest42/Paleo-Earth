@@ -129,6 +129,19 @@ async function main() {
   await globe.setMa(0);
   globe.setLoading(false);
 
+  // Political borders overlay toggle
+  const toggleBordersBtn = document.getElementById('toggleBordersBtn');
+  if (toggleBordersBtn) {
+    toggleBordersBtn.addEventListener('click', () => {
+      const active = globe.toggleBorders();
+      toggleBordersBtn.classList.toggle('active', active);
+      toggleBordersBtn.setAttribute('aria-pressed', String(active));
+      toggleBordersBtn.title = active
+        ? 'Hide Political Borders Overlay'
+        : 'Show Political Borders Overlay';
+    });
+  }
+
   // Climate gauges
   const gauges = new GaugeSet(document.getElementById('gaugesContainer'));
 

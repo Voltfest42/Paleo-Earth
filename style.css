@@ -233,6 +233,83 @@ html, body {
   height: 100% !important;
 }
 
+/* ─── Globe Viewport Overlay Controls ────────────────────────────────── */
+.globe-viewport-controls {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.globe-control-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  background: rgba(13, 17, 23, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.globe-control-btn .globe-control-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  flex-shrink: 0;
+  transition: stroke 0.2s ease, transform 0.2s ease;
+}
+
+.globe-control-btn .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.globe-control-btn:hover {
+  background: rgba(22, 27, 34, 0.90);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.globe-control-btn:active {
+  transform: translateY(0);
+}
+
+.globe-control-btn.active {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.55);
+  color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.22), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.globe-control-btn.active .globe-control-icon {
+  stroke: #38bdf8;
+}
+
+.globe-control-btn.active .status-dot {
+  background: #38bdf8;
+  box-shadow: 0 0 7px #38bdf8;
+}
+
 .globe-loading {
   position: absolute;
   inset: 0;

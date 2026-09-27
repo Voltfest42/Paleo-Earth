@@ -52,6 +52,10 @@ export function roughnessPath(index, ma) {
   return `textures/${index}_earth_rough_${ma}.jpg`;
 }
 
+export function bordersPath(index, ma) {
+  return `textures/${index}_earth_borders_${ma}.png`;
+}
+
 // Backwards compatibility alias
 export const texturePath = diffusePath;
 
@@ -97,3 +101,6 @@ export const GLOBE_SUN_LIGHT = 0.65;
 // Shadow lift power applied in the shader to soften deep hillshade crevices
 // 1.0 = untouched texture; 0.80 = lifts deep shadows while preserving bright summits
 export const GLOBE_SHADOW_LIFT_GAMMA = 0.80;
+
+// Political borders overlay color (0xffffff = crisp white, 0x000000 = black)
+export const GLOBE_BORDERS_COLOR = 0xffffff;

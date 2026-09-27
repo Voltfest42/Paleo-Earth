@@ -1,12 +1,6 @@
-# Heavy raw scientific datasets
-paleodems/
-climate_data_raw/
+# Working / temporary directories (large datasets, bakes, and intermediate assets)
+working_files/
 *.nc
-
-# Experimental / temporary bake renders
-textures_temp/
-scratch/
-blender_edits/
 
 # Python artifacts
 __pycache__/

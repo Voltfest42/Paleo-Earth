@@ -22,7 +22,9 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RAW_DIR = os.path.join(BASE_DIR, "climate_data_raw")
+RAW_DIR = os.path.join(BASE_DIR, "working_files", "climate_data_raw")
+if not os.path.exists(RAW_DIR):
+    RAW_DIR = os.path.join(BASE_DIR, "climate_data_raw")
 TEMP_DIR = os.path.join(RAW_DIR, "Temperature, gmst_scotese02a_v21321_csv-grid")
 O2_FILE = os.path.join(RAW_DIR, "Oxygen, Mills_etal_2023_AREPS_O2", "Mills_etal_2023_AREPS_O2.xlsx")
 KEYFRAMES_FILE = os.path.join(BASE_DIR, "data", "keyframes.json")

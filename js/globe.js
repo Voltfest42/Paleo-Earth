@@ -21,6 +21,8 @@ import {
   diffusePath,
   normalPath,
   roughnessPath,
+  bordersPath,
+  GLOBE_BORDERS_COLOR,
 } from './config.js';
 
 // ─── Atmosphere Fresnel Shaders (Pure View Space) ───────────────────────
@@ -159,16 +161,100 @@ class TextureCache {
   }
 }
 
+// ─── LRU border texture cache ───────────────────────────────────────────
+class BorderTextureCache {
+  constructor(loader, maxSize) {
+    this._loader  = loader;
+    this._maxSize = maxSize;
+    this._map     = new Map();
+    this._pending = new Map();
+  }
+
+  has(key) {
+    return this._map.has(key);
+  }
+
+  async getBorder(index, ma) {
+    const key = `${index}_${ma}`;
+    if (this._map.has(key)) {
+      const tex = this._map.get(key);
+      tex.lastUsed = Date.now();
+      return tex;
+    }
+
+    if (this._pending.has(key)) {
+      return this._pending.get(key);
+    }
+
+    const promise = this._load(bordersPath(index, ma)).then(tex => {
+      this._pending.delete(key);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.lastUsed   = Date.now();
+      this._map.set(key, tex);
+      this._evict();
+      return tex;
+    }).catch(err => {
+      this._pending.delete(key);
+      throw err;
+    });
+
+    this._pending.set(key, promise);
+    return promise;
+  }
+
+  preload(index, ma) {
+    const key = `${index}_${ma}`;
+    if (this._map.has(key) || this._pending.has(key)) return;
+    this.getBorder(index, ma).catch(() => {});
+  }
+
+  _load(path) {
+    return new Promise((resolve, reject) => {
+      this._loader.load(path, resolve, undefined, reject);
+    });
+  }
+
+  _evict() {
+    while (this._map.size > this._maxSize) {
+      let oldest = Infinity, oldestKey = null;
+      for (const [key, tex] of this._map) {
+        if (tex.lastUsed < oldest) {
+          oldest = tex.lastUsed;
+          oldestKey = key;
+        }
+      }
+      if (!oldestKey) break;
+      const tex = this._map.get(oldestKey);
+      tex.dispose();
+      this._map.delete(oldestKey);
+    }
+  }
+
+  dispose() {
+    for (const tex of this._map.values()) {
+      tex.dispose();
+    }
+    this._map.clear();
+    this._pending.clear();
+  }
+}
+
 // ─── Globe class ────────────────────────────────────────────────────────
 export class Globe {
   constructor(container) {
-    this._container     = container;
-    this._animId        = null;
-    this._ticket        = 0;
-    this._appliedTicket = 0;
-    this._targetMa      = null;
-    this._displayedMa   = null;
-    this._debounceTimer = null;
+    this._container           = container;
+    this._animId              = null;
+    this._ticket              = 0;
+    this._appliedTicket       = 0;
+    this._borderTicket        = 0;
+    this._appliedBorderTicket = 0;
+    this._targetMa            = null;
+    this._displayedMa         = null;
+    this._debounceTimer       = null;
+
+    // Political borders overlay state
+    this._showBorders          = false;
+    this._targetBordersOpacity = 0.0;
 
     this._init();
     this._buildStars();
@@ -198,8 +284,9 @@ export class Globe {
     this._renderer.toneMappingExposure = 1.0;
     this._container.appendChild(this._renderer.domElement);
 
-    this._loader = new THREE.TextureLoader();
-    this._cache  = new TextureCache(this._loader, TEXTURE_CACHE_SIZE);
+    this._loader       = new THREE.TextureLoader();
+    this._cache        = new TextureCache(this._loader, TEXTURE_CACHE_SIZE);
+    this._bordersCache = new BorderTextureCache(this._loader, TEXTURE_CACHE_SIZE);
   }
 
   // ── Stars ─────────────────────────────────────────────────────────────
@@ -245,6 +332,20 @@ export class Globe {
     );
     roughPlaceholder.needsUpdate = true;
 
+    // Transparent 1x1 initial placeholder for political borders overlay
+    const bordersPlaceholder = new THREE.DataTexture(
+      new Uint8Array([0, 0, 0, 0]),
+      1, 1, THREE.RGBAFormat
+    );
+    bordersPlaceholder.needsUpdate = true;
+
+    // Uniforms object shared between Three.js shader and Globe controller
+    this._customUniforms = {
+      bordersMap:     { value: bordersPlaceholder },
+      bordersOpacity: { value: 0.0 },
+      bordersColor:   { value: new THREE.Color(GLOBE_BORDERS_COLOR) },
+    };
+
     this._globeMaterial = new THREE.MeshStandardMaterial({
       map:           diffusePlaceholder,
       normalMap:     normalPlaceholder,
@@ -255,25 +356,49 @@ export class Globe {
       metalness:     0.0,
     });
 
-    // Shader hook: soften deep shadow crevices from baked hillshading so they don't look like craters
-    if (GLOBE_SHADOW_LIFT_GAMMA < 1.0) {
-      this._globeMaterial.onBeforeCompile = (shader) => {
-        shader.fragmentShader = shader.fragmentShader.replace(
-          '#include <map_fragment>',
-          /* glsl */`
-          #ifdef USE_MAP
-            vec4 sampledDiffuseColor = texture2D( map, vMapUv );
-            #ifdef DECODE_VIDEO_TEXTURE
-              sampledDiffuseColor = vec4( mix( pow( sampledDiffuseColor.rgb * 0.9478672986 + vec3( 0.0521327014 ), vec3( 2.4 ) ), sampledDiffuseColor.rgb * 0.0773993808, vec3( lessThanEqual( sampledDiffuseColor.rgb, vec3( 0.04045 ) ) ) ), sampledDiffuseColor.w );
-            #endif
-            // Soften deep shadow crevices in the texture to eliminate harsh cratering
-            sampledDiffuseColor.rgb = pow(sampledDiffuseColor.rgb, vec3(${GLOBE_SHADOW_LIFT_GAMMA.toFixed(2)}));
-            diffuseColor *= sampledDiffuseColor;
+    // Shader hook: inject border overlay and shadow softening
+    this._globeMaterial.onBeforeCompile = (shader) => {
+      // Connect custom uniforms
+      shader.uniforms.bordersMap     = this._customUniforms.bordersMap;
+      shader.uniforms.bordersOpacity = this._customUniforms.bordersOpacity;
+      shader.uniforms.bordersColor   = this._customUniforms.bordersColor;
+
+      // Declare uniforms in fragment shader header
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <map_pars_fragment>',
+        /* glsl */`
+        #include <map_pars_fragment>
+        uniform sampler2D bordersMap;
+        uniform float bordersOpacity;
+        uniform vec3 bordersColor;
+        `
+      );
+
+      // Blend border overlay over diffuseColor
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <map_fragment>',
+        /* glsl */`
+        #ifdef USE_MAP
+          vec4 sampledDiffuseColor = texture2D( map, vMapUv );
+          #ifdef DECODE_VIDEO_TEXTURE
+            sampledDiffuseColor = vec4( mix( pow( sampledDiffuseColor.rgb * 0.9478672986 + vec3( 0.0521327014 ), vec3( 2.4 ) ), sampledDiffuseColor.rgb * 0.0773993808, vec3( lessThanEqual( sampledDiffuseColor.rgb, vec3( 0.04045 ) ) ) ), sampledDiffuseColor.w );
           #endif
-          `
-        );
-      };
-    }
+          // Soften deep shadow crevices in the texture to eliminate harsh cratering
+          #if ${GLOBE_SHADOW_LIFT_GAMMA < 1.0 ? '1' : '0'}
+            sampledDiffuseColor.rgb = pow(sampledDiffuseColor.rgb, vec3(${GLOBE_SHADOW_LIFT_GAMMA.toFixed(2)}));
+          #endif
+          diffuseColor *= sampledDiffuseColor;
+
+          // Political border overlay: sample alpha channel from border texture and blend
+          if (bordersOpacity > 0.0) {
+            vec4 borderSample = texture2D( bordersMap, vMapUv );
+            vec3 bLineCol = bordersColor;
+            diffuseColor.rgb = mix( diffuseColor.rgb, bLineCol, borderSample.a * bordersOpacity );
+          }
+        #endif
+        `
+      );
+    };
 
     const geo = new THREE.SphereGeometry(1, 128, 64);
     this._globe = new THREE.Mesh(geo, this._globeMaterial);
@@ -349,6 +474,18 @@ export class Globe {
   // ── Animation loop ────────────────────────────────────────────────────
   _animate() {
     this._animId = requestAnimationFrame(() => this._animate());
+
+    // Smooth transition for political borders opacity
+    if (this._customUniforms && this._customUniforms.bordersOpacity) {
+      const cur = this._customUniforms.bordersOpacity.value;
+      const tgt = this._targetBordersOpacity;
+      if (Math.abs(cur - tgt) > 0.002) {
+        this._customUniforms.bordersOpacity.value += (tgt - cur) * 0.18;
+      } else if (cur !== tgt) {
+        this._customUniforms.bordersOpacity.value = tgt;
+      }
+    }
+
     this._controls.update();
     this._renderer.render(this._scene, this._camera);
   }
@@ -361,10 +498,6 @@ export class Globe {
    *
    * Employs ticket-based monotonic updates, lookahead preloading, and
    * scrub debouncing to prevent network saturation and frame discarding.
-   */
-  /**
-   * Load and display the discrete globe textures (diffuse, normal, roughness)
-   * for the given Ma value. Switches cleanly at 2.5 Ma midpoints.
    *
    * @param {number} ma — age in millions of years (0-540)
    * @param {string} source — 'play' | 'drag' | 'settle' | 'direct'
@@ -434,6 +567,11 @@ export class Globe {
       this._globeMaterial.roughnessMap = frame.roughness;
       this._globeMaterial.needsUpdate  = true;
 
+      // If borders overlay is enabled, also fetch and apply the border texture
+      if (this._showBorders) {
+        this._loadAndApplyBorder(index, snappedMa, ticket);
+      }
+
       // Lookahead preload:
       // Only preload if the globe has caught up with the current targetMa.
       // If the user already moved on, don't waste network requests on this frame's neighbors.
@@ -442,10 +580,12 @@ export class Globe {
           const nextMa = snappedMa + 5;
           const nextIndex = (nextMa / 5) + 1;
           this._cache.preload(nextIndex, nextMa);
+          if (this._showBorders) this._bordersCache.preload(nextIndex, nextMa);
         } else if (!isForward && snappedMa > 0) {
           const prevMa = snappedMa - 5;
           const prevIndex = (prevMa / 5) + 1;
           this._cache.preload(prevIndex, prevMa);
+          if (this._showBorders) this._bordersCache.preload(prevIndex, prevMa);
         }
       }
     } catch (err) {
@@ -453,6 +593,60 @@ export class Globe {
       if (this._targetMa === snappedMa && this._displayedMa !== snappedMa) {
         this._targetMa = this._displayedMa;
       }
+    }
+  }
+
+  async _loadAndApplyBorder(index, snappedMa, ticket) {
+    try {
+      const borderTex = await this._bordersCache.getBorder(index, snappedMa);
+      if (ticket < this._appliedBorderTicket) return;
+      this._appliedBorderTicket = ticket;
+      this._customUniforms.bordersMap.value = borderTex;
+    } catch (err) {
+      console.warn(`Border texture load failed for frame ${index} (${snappedMa} Ma):`, err);
+    }
+  }
+
+  /**
+   * Toggle political borders overlay on/off.
+   * @returns {boolean} current enabled state
+   */
+  toggleBorders() {
+    return this.setBordersEnabled(!this._showBorders);
+  }
+
+  /**
+   * Enable or disable political borders overlay.
+   * @param {boolean} enabled
+   * @returns {boolean}
+   */
+  setBordersEnabled(enabled) {
+    this._showBorders = !!enabled;
+    this._targetBordersOpacity = this._showBorders ? 1.0 : 0.0;
+
+    if (this._showBorders) {
+      const currentMa = this._displayedMa !== null ? this._displayedMa : (this._targetMa !== null ? this._targetMa : 0);
+      const { index, ma: snappedMa } = getFrameForMa(currentMa);
+      this._loadAndApplyBorder(index, snappedMa, ++this._borderTicket);
+    }
+    return this._showBorders;
+  }
+
+  /**
+   * Get current political borders overlay state.
+   * @returns {boolean}
+   */
+  getBordersEnabled() {
+    return this._showBorders;
+  }
+
+  /**
+   * Set color for political borders (default: #ffffff).
+   * @param {number|string|THREE.Color} color
+   */
+  setBorderColor(color) {
+    if (this._customUniforms && this._customUniforms.bordersColor) {
+      this._customUniforms.bordersColor.value.set(color);
     }
   }
 
@@ -480,6 +674,7 @@ export class Globe {
     this._resizeObserver.disconnect();
     this._controls.dispose();
     this._cache.dispose();
+    this._bordersCache.dispose();
     this._renderer.dispose();
     this._container.removeChild(this._renderer.domElement);
   }
