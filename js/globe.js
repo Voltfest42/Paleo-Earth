@@ -246,8 +246,6 @@ export class Globe {
     this._animId              = null;
     this._ticket              = 0;
     this._appliedTicket       = 0;
-    this._borderTicket        = 0;
-    this._appliedBorderTicket = 0;
     this._targetMa            = null;
     this._displayedMa         = null;
     this._debounceTimer       = null;
@@ -599,8 +597,7 @@ export class Globe {
   async _loadAndApplyBorder(index, snappedMa, ticket) {
     try {
       const borderTex = await this._bordersCache.getBorder(index, snappedMa);
-      if (ticket < this._appliedBorderTicket) return;
-      this._appliedBorderTicket = ticket;
+      if (ticket < this._appliedTicket) return;
       this._customUniforms.bordersMap.value = borderTex;
     } catch (err) {
       console.warn(`Border texture load failed for frame ${index} (${snappedMa} Ma):`, err);
@@ -627,7 +624,7 @@ export class Globe {
     if (this._showBorders) {
       const currentMa = this._displayedMa !== null ? this._displayedMa : (this._targetMa !== null ? this._targetMa : 0);
       const { index, ma: snappedMa } = getFrameForMa(currentMa);
-      this._loadAndApplyBorder(index, snappedMa, ++this._borderTicket);
+      this._loadAndApplyBorder(index, snappedMa, this._appliedTicket);
     }
     return this._showBorders;
   }
