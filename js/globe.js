@@ -389,11 +389,11 @@ export class Globe {
           #endif
           diffuseColor *= sampledDiffuseColor;
 
-          // Political border overlay: sample alpha channel from border texture and blend
+          // Political border overlay: sample luminance (red channel) from B&W border texture and blend
           if (bordersOpacity > 0.0) {
             vec4 borderSample = texture2D( bordersMap, vMapUv );
             vec3 bLineCol = bordersColor;
-            diffuseColor.rgb = mix( diffuseColor.rgb, bLineCol, borderSample.a * bordersOpacity );
+            diffuseColor.rgb = mix( diffuseColor.rgb, bLineCol, borderSample.r * bordersOpacity );
           }
         #endif
         `

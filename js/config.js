@@ -53,7 +53,7 @@ export function roughnessPath(index, ma) {
 }
 
 export function bordersPath(index, ma) {
-  return `textures/${index}_earth_borders_${ma}.png`;
+  return `textures/${index}_earth_borders_${ma}.jpg`;
 }
 
 // Backwards compatibility alias
