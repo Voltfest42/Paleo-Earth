@@ -14,7 +14,7 @@ import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
-import { stopAll  } from './tts.js';
+import { speak, stopAll } from './tts.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -226,32 +226,55 @@ async function main() {
   });
 
   // --- Wiki Tab Renderer -----------------------------------------------------
+  let currentWikiText = '';
+  const wikiHeader = document.querySelector('.wiki-header');
+  const wikiSubtitle = document.getElementById('wikiSubtitle');
+  const wikiTtsBtn = document.getElementById('wikiTtsBtn');
+
+  if (wikiTtsBtn) {
+    wikiTtsBtn.addEventListener('click', () => {
+      if (currentWikiText) {
+        speak(currentWikiText, wikiTtsBtn);
+      }
+    });
+  }
+
   function renderWiki(keyframeId) {
     const el = document.getElementById('wikiContent');
     if (!el) return;
 
     const article = wikiArticles && wikiArticles[keyframeId];
     if (!article) {
+      if (wikiHeader) wikiHeader.style.display = 'none';
+      currentWikiText = '';
       el.innerHTML = '<p style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;">No detailed article available for this period yet.<br>Check back soon!</p>';
       return;
     }
 
-    let html = '';
-    if (article.subtitle) {
-      html += `<p class="wiki-subtitle">${article.subtitle}</p>`;
+    if (wikiHeader) {
+      wikiHeader.style.display = 'flex';
+      if (wikiSubtitle) wikiSubtitle.textContent = article.subtitle || '';
     }
+
+    let html = '';
+    let textForTTS = article.title + '. ' + (article.subtitle ? article.subtitle + '. ' : '');
+
     for (const section of article.sections) {
       html += `<h3 class="wiki-heading">${section.heading}</h3>`;
       html += `<p class="wiki-body">${section.body}</p>`;
+      textForTTS += section.heading + '. ' + section.body + ' ';
     }
     el.innerHTML = html;
     el.scrollTop = 0; // scroll back to top on keyframe change
+    currentWikiText = textForTTS.trim();
   }
 }
 
 main().catch(err => {
   console.error('Fatal error during startup:', err);
 });
+
+
 
 
 
