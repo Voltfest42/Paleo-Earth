@@ -14,7 +14,7 @@ import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
-import { stopAll  } from './tts.js';
+import { speak, stopAll } from './tts.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -226,6 +226,17 @@ async function main() {
   });
 
   // --- Wiki Tab Renderer -----------------------------------------------------
+  // Accumulates plain text for the wiki TTS button
+  let _wikiSpeechText = '';
+
+  // Wire the wiki TTS button once at startup
+  const _wikiTtsBtn = document.getElementById('wikiTtsBtn');
+  if (_wikiTtsBtn) {
+    _wikiTtsBtn.addEventListener('click', () => {
+      speak(_wikiSpeechText, _wikiTtsBtn);
+    });
+  }
+
   function renderWiki(keyframeId) {
     const el = document.getElementById('wikiContent');
     if (!el) return;
@@ -233,25 +244,34 @@ async function main() {
     const article = wikiArticles && wikiArticles[keyframeId];
     if (!article) {
       el.innerHTML = '<p style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;">No detailed article available for this period yet.<br>Check back soon!</p>';
+      _wikiSpeechText = '';
+      if (_wikiTtsBtn) _wikiTtsBtn.disabled = true;
       return;
     }
 
     let html = '';
+    let speech = article.title + '. ' + (article.subtitle || '') + '. ';
     if (article.subtitle) {
       html += `<p class="wiki-subtitle">${article.subtitle}</p>`;
     }
     for (const section of article.sections) {
       html += `<h3 class="wiki-heading">${section.heading}</h3>`;
       html += `<p class="wiki-body">${section.body}</p>`;
+      speech += section.heading + '. ' + section.body + ' ';
     }
     el.innerHTML = html;
-    el.scrollTop = 0; // scroll back to top on keyframe change
+    el.scrollTop = 0;
+
+    _wikiSpeechText = speech.trim();
+    if (_wikiTtsBtn) _wikiTtsBtn.disabled = false;
   }
 }
 
 main().catch(err => {
   console.error('Fatal error during startup:', err);
 });
+
+
 
 
 
