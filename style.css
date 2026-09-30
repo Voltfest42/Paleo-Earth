@@ -36,7 +36,7 @@
   --transition:      0.25s ease;
 
   /* Panel sizing */
-  --left-width:      50%;
+  --left-width:      65%;
   --handle-width:    6px;
   --topbar-height:   56px;
   --footer-height:   196px;
@@ -1233,3 +1233,4 @@ input[type="range"]:hover::-webkit-slider-thumb {
   color: var(--text-secondary);
   margin: 0 0 4px 0;
 }
+
