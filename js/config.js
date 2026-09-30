@@ -104,3 +104,21 @@ export const GLOBE_SHADOW_LIFT_GAMMA = 0.80;
 
 // Political borders overlay color (0xffffff = crisp white, 0x000000 = black)
 export const GLOBE_BORDERS_COLOR = 0xffffff;
+
+// --- Geologic Time Scale Periods -----------------------------------------
+// Used for the visual time bar above the slider. Values map exactly to the 0-540 Ma scale.
+export const GEOLOGIC_PERIODS = [
+  { id: 'Q',  name: 'Quaternary',    start: 0,      end: 2.6,    color: '249, 249, 127' },
+  { id: 'N',  name: 'Neogene',       start: 2.6,    end: 23.0,   color: '255, 230, 25' },
+  { id: 'Pg', name: 'Paleogene',     start: 23.0,   end: 66.0,   color: '253, 167, 95' },
+  { id: 'K',  name: 'Cretaceous',    start: 66.0,   end: 145.0,  color: '127, 198, 78' },
+  { id: 'J',  name: 'Jurassic',      start: 145.0,  end: 201.3,  color: '52, 178, 201' },
+  { id: 'T',  name: 'Triassic',      start: 201.3,  end: 251.9,  color: '129, 43, 146' },
+  { id: 'P',  name: 'Permian',       start: 251.9,  end: 298.9,  color: '240, 64, 40' },
+  { id: 'C',  name: 'Carboniferous', start: 298.9,  end: 358.9,  color: '103, 165, 153' },
+  { id: 'D',  name: 'Devonian',      start: 358.9,  end: 419.2,  color: '203, 140, 55' },
+  { id: 'S',  name: 'Silurian',      start: 419.2,  end: 443.8,  color: '179, 225, 182' },
+  { id: 'O',  name: 'Ordovician',    start: 443.8,  end: 485.4,  color: '0, 146, 112' },
+  { id: '?',  name: 'Cambrian',      start: 485.4,  end: 540.0,  color: '127, 160, 86' }
+];
+

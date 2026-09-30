@@ -14,6 +14,7 @@ import {
   SLIDER_PLAY_DURATION_SEC,
   PERIOD_SNAP_RADIUS,
   EVENT_SNAP_RADIUS,
+  GEOLOGIC_PERIODS,
 } from './config.js';
 
 export class Slider {
@@ -51,6 +52,7 @@ export class Slider {
     this._input.value = '0';
     this._input.setAttribute('autocomplete', 'off');
 
+    this._buildGeologicTimeBar();
     this._buildMarkers();
     this._attach();
     this._initPlayButton();
@@ -58,6 +60,42 @@ export class Slider {
   }
 
   // ── Marker overlay ────────────────────────────────────────────────────
+  _buildGeologicTimeBar() {
+    const barEl = document.getElementById('geologicTimeBar');
+    if (!barEl || !GEOLOGIC_PERIODS) return;
+    
+    // Clear existing (if any)
+    barEl.innerHTML = '';
+    
+    // The total time span is MAX_MA (540). The slider maps 0 to the left and 540 to the right.
+    const totalMa = MAX_MA - MIN_MA;
+    
+    GEOLOGIC_PERIODS.forEach(period => {
+      const block = document.createElement('div');
+      block.className = 'period-block';
+      
+      const duration = period.end - period.start;
+      const widthPct = (duration / totalMa) * 100;
+      
+      block.style.width = `${widthPct}%`;
+      block.style.backgroundColor = `rgba(${period.color}, 0.25)`;
+      block.textContent = period.id;
+      block.title = `${period.name} (${period.start} - ${period.end} Ma)`;
+      
+      // Click interaction: jump to the middle of the period
+      block.addEventListener('click', () => {
+        const middleMa = Math.round((period.start + period.end) / 2);
+        this._input.value = middleMa;
+        
+        // Emulate typical input event dispatching so the slider instantly snaps and updates
+        this._input.dispatchEvent(new Event('input', { bubbles: true }));
+        this._input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      
+      barEl.appendChild(block);
+    });
+  }
+
   _buildMarkers() {
     this._overlay.innerHTML = '';
     const total = MAX_MA - MIN_MA;
