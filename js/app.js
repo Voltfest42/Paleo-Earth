@@ -14,7 +14,7 @@ import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
-import { speak, stopAll } from './tts.js';
+import { stopAll  } from './tts.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -226,45 +226,26 @@ async function main() {
   });
 
   // --- Wiki Tab Renderer -----------------------------------------------------
-  // ── Wiki TTS state ───────────────────────────────────────────────────────
-  let _wikiSpeechText = '';
-  const _wikiTtsBtn = document.getElementById('wikiTtsBtn');
-  if (_wikiTtsBtn) {
-    _wikiTtsBtn.addEventListener('click', () => {
-      speak(_wikiSpeechText, _wikiTtsBtn);
-    });
-  }
-
   function renderWiki(keyframeId) {
     const el = document.getElementById('wikiContent');
-    const subtitleEl = document.getElementById('wikiToolbarSubtitle');
     if (!el) return;
 
     const article = wikiArticles && wikiArticles[keyframeId];
     if (!article) {
       el.innerHTML = '<p style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;">No detailed article available for this period yet.<br>Check back soon!</p>';
-      if (subtitleEl) subtitleEl.textContent = '';
-      _wikiSpeechText = '';
-      if (_wikiTtsBtn) _wikiTtsBtn.disabled = true;
       return;
     }
 
-    // Build the subtitle for the fixed toolbar
-    if (subtitleEl) subtitleEl.textContent = article.subtitle || '';
-
-    // Build HTML (no subtitle paragraph — it's in the toolbar now)
     let html = '';
-    let speech = (article.title || '') + '. ' + (article.subtitle || '') + '. ';
+    if (article.subtitle) {
+      html += `<p class="wiki-subtitle">${article.subtitle}</p>`;
+    }
     for (const section of article.sections) {
       html += `<h3 class="wiki-heading">${section.heading}</h3>`;
       html += `<p class="wiki-body">${section.body}</p>`;
-      speech += section.heading + '. ' + section.body + ' ';
     }
     el.innerHTML = html;
-    el.scrollTop = 0;
-
-    _wikiSpeechText = speech.trim();
-    if (_wikiTtsBtn) _wikiTtsBtn.disabled = false;
+    el.scrollTop = 0; // scroll back to top on keyframe change
   }
 }
 
