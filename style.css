@@ -517,9 +517,22 @@ input[type="range"] {
   width: 100%;
   height: 28px;
   background: transparent;
+  z-index: 2;
   cursor: pointer;
   position: relative;
   direction: rtl;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -1187,3 +1200,5 @@ input[type="range"]:hover::-webkit-slider-thumb {
 .wiki-content::-webkit-scrollbar { width: 4px; }
 .wiki-content::-webkit-scrollbar-track { background: transparent; }
 .wiki-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+
