@@ -1233,14 +1233,3 @@ input[type="range"]:hover::-webkit-slider-thumb {
   color: var(--text-secondary);
   margin: 0 0 4px 0;
 }
-
-/* --- Wiki Toolbar (TTS button row) ------------------------------------- */
-.wiki-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 6px 10px 2px;
-  flex-shrink: 0;
-  border-bottom: 1px solid var(--border);
-  background: rgba(0,0,0,0.1);
-}
