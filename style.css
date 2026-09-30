@@ -39,7 +39,7 @@
   --left-width:      50%;
   --handle-width:    6px;
   --topbar-height:   56px;
-  --footer-height:   170px;
+  --footer-height:   196px;
 }
 
 /* ─── Reset ─────────────────────────────────────────────────────────── */
@@ -1105,7 +1105,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   display: flex;
   width: 100%;
   height: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   border-radius: 4px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
