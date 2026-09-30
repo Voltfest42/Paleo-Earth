@@ -104,7 +104,7 @@ export class Slider {
       const pct = (kf.ma / total) * 100;
       const el  = document.createElement('div');
       el.className = `slider-marker${kf.type === 'event' ? ' event' : ''}`;
-      el.style.left = `${pct}%`;
+      el.style.right = `${pct}%`;
       el.title = `${kf.label} (${kf.ma} Ma)`;
 
       // Tooltip on hover

@@ -119,6 +119,6 @@ export const GEOLOGIC_PERIODS = [
   { id: 'D',  name: 'Devonian',      start: 358.9,  end: 419.2,  color: '203, 140, 55' },
   { id: 'S',  name: 'Silurian',      start: 419.2,  end: 443.8,  color: '179, 225, 182' },
   { id: 'O',  name: 'Ordovician',    start: 443.8,  end: 485.4,  color: '0, 146, 112' },
-  { id: '?',  name: 'Cambrian',      start: 485.4,  end: 540.0,  color: '127, 160, 86' }
+  { id: '\u0404', name: 'Cambrian', start: 485.4,  end: 540.0,  color: '127, 160, 86' }
 ];
 
