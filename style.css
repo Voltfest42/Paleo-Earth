@@ -1202,3 +1202,34 @@ input[type="range"]:hover::-webkit-slider-thumb {
 .wiki-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 
+
+/* --- Wiki Article Styles ------------------------------------------------ */
+.wiki-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 16px 0;
+}
+
+.wiki-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 20px 0 6px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.02em;
+}
+
+.wiki-heading:first-of-type {
+  margin-top: 0;
+}
+
+.wiki-body {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0 0 4px 0;
+}
