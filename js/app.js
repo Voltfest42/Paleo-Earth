@@ -207,6 +207,16 @@ async function main() {
   });
 
   // Settled: update chat thread context divider after dragging pauses
+    // Tab switching logic
+  document.querySelectorAll('.panel-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.panel-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
   document.getElementById('appContainer').addEventListener('keyframesettle', e => {
     const kf = e.detail.keyframe;
     if (kf) chat.onKeyframeSettled(kf);
