@@ -104,6 +104,20 @@ async function main() {
   initFullscreen();
   initResize();
 
+  // Wiki DOM and TTS initialization
+  let currentWikiText = '';
+  const wikiHeader = document.querySelector('.wiki-header');
+  const wikiSubtitle = document.getElementById('wikiSubtitle');
+  const wikiTtsBtn = document.getElementById('wikiTtsBtn');
+
+  if (wikiTtsBtn) {
+    wikiTtsBtn.addEventListener('click', () => {
+      if (currentWikiText) {
+        speak(currentWikiText, wikiTtsBtn);
+      }
+    });
+  }
+
   // Load data
   let keyframes, summaries, imageLibrary, climateTimeline, keyframeImages, wikiArticles;
   try {
@@ -226,18 +240,6 @@ async function main() {
   });
 
   // --- Wiki Tab Renderer -----------------------------------------------------
-  let currentWikiText = '';
-  const wikiHeader = document.querySelector('.wiki-header');
-  const wikiSubtitle = document.getElementById('wikiSubtitle');
-  const wikiTtsBtn = document.getElementById('wikiTtsBtn');
-
-  if (wikiTtsBtn) {
-    wikiTtsBtn.addEventListener('click', () => {
-      if (currentWikiText) {
-        speak(currentWikiText, wikiTtsBtn);
-      }
-    });
-  }
 
   function renderWiki(keyframeId) {
     const el = document.getElementById('wikiContent');
