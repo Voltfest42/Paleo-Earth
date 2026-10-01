@@ -1541,14 +1541,19 @@ input[type="range"]:hover::-webkit-slider-thumb {
     flex: 1; /* Ensure they divide evenly */
   }
   
-  /* Standard Buttons Touch Targets (TTS, Fullscreen, Play, Summary Image) */
-  .tts-btn, .fullscreen-btn, .summary-btn, .play-btn {
+  /* Standard Buttons Touch Targets */
+  .tts-btn, .summary-btn, .play-btn {
     width: 38px;
     height: 38px;
   }
-  .tts-btn svg, .fullscreen-btn svg, .summary-btn svg, .play-btn svg {
+  .tts-btn svg, .summary-btn svg, .play-btn svg {
     width: 20px;
     height: 20px;
+  }
+
+  /* Fullscreen buttons are hidden on mobile because the resize drag bar handles this natively */
+  .fullscreen-btn {
+    display: none !important;
   }
 
   /* Globe Control Buttons (Settings, Borders) */

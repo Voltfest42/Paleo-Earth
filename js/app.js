@@ -249,6 +249,22 @@ async function main() {
     });
   }
 
+  // Atmosphere gauges toggle
+  const toggleAtmosphereBtn = document.getElementById('toggleAtmosphereBtn');
+  const gaugesContainer = document.getElementById('gaugesContainer');
+  let atmosphereActive = true;
+  if (toggleAtmosphereBtn && gaugesContainer) {
+    toggleAtmosphereBtn.addEventListener('click', () => {
+      atmosphereActive = !atmosphereActive;
+      gaugesContainer.style.display = atmosphereActive ? '' : 'none';
+      toggleAtmosphereBtn.classList.toggle('active', atmosphereActive);
+      toggleAtmosphereBtn.setAttribute('aria-pressed', String(atmosphereActive));
+      toggleAtmosphereBtn.title = atmosphereActive
+        ? 'Hide Climate Gauges'
+        : 'Show Climate Gauges';
+    });
+  }
+
   // Climate gauges
   const gauges = new GaugeSet(document.getElementById('gaugesContainer'));
 
