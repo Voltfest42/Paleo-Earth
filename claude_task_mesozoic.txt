@@ -1,0 +1,30 @@
+Task: Update the file \data/wiki.json\ with new encyclopedic entries for ALL keyframes in the Mesozoic era (including boundary events).
+Specifically, generate TWELVE new entries with the following exact keys:
+1. 'kpg_extinction' (Event: K-Pg Mass Extinction, 66 Ma)
+2. 'late_cretaceous'
+3. 'mid_cretaceous'
+4. 'early_cretaceous'
+5. 'late_jurassic'
+6. 'jurassic_marine_revolution' (Event: Mesozoic Marine Revolution)
+7. 'mid_jurassic'
+8. 'early_jurassic'
+9. 'triassic_jurassic_extinction' (Event: Triassic-Jurassic Mass Extinction)
+10. 'late_triassic'
+11. 'mid_triassic'
+12. 'early_triassic'
+
+Follow the exact schema already established in \data/wiki.json\ (title, subtitle, sections array with heading and body).
+
+Section Guidelines:
+- For the NINE period entries:
+  Sections to include: Overview, Climate, Geography, Flora, Fauna, and Vertebrate Evolution (or Dinosaur/Reptilian Evolution).
+- For the THREE event entries ('kpg_extinction', 'jurassic_marine_revolution', 'triassic_jurassic_extinction'):
+  Sections to include: Overview, Causes & Triggers, Climatic/Environmental Changes, Biological Impact (or Impact on Life), and Legacy.
+
+Important Requirements:
+- The text for each section must be detailed, encyclopedic, and well-written.
+- To ensure good readability, break up large walls of text by inserting literal \\n\n\ into the JSON string where appropriate (e.g., between distinct paragraphs, exactly as you did for the Paleogene).
+- Add these twelve new keys to the main JSON object in \data/wiki.json\ preserving ALL existing Cenozoic entries (Holocene through Early Paleogene).
+- You are generating a lot of text, so ensure you output the full valid JSON without truncating.
+
+Execute this edit safely and output a final success message when you are done.

@@ -1,0 +1,11 @@
+Task: Update the file \data/wiki.json\ with new encyclopedic entries for the Neogene period.
+Specifically, generate three new entries: 'late_neogene', 'mid_neogene', and 'early_neogene'.
+
+Follow the exact schema already established in \data/wiki.json\:
+- Each key should contain a \	itle\, a \subtitle\ (approximate time range), and a \sections\ array.
+- The \sections\ array should have objects with \heading\ and \ody\.
+- Sections to include: Overview, Climate, Geography, Flora, Fauna, and Human Evolution / Ape Evolution.
+- Important: The text for each section must be detailed, encyclopedic, and well-written. To ensure good readability, break up large walls of text by inserting literal \\n\n\ into the JSON string where appropriate (e.g., between distinct paragraphs).
+- Add these three new keys to the main JSON object in \data/wiki.json\ preserving the existing Quaternary entries.
+
+Execute this edit safely and let me know when you are done.

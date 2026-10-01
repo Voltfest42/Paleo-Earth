@@ -1,0 +1,22 @@
+Task: Update the file \data/wiki.json\ with new encyclopedic entries for the Paleogene period and its major events.
+Specifically, generate FIVE new entries with the following keys:
+1. 'late_paleogene' (Late Paleogene / Oligocene)
+2. 'mid_paleogene' (Middle Paleogene / Eocene)
+3. 'early_paleogene' (Early Paleogene / Paleocene)
+4. 'eocene_oligocene_transition' (Event)
+5. 'petm' (Event: Paleocene-Eocene Thermal Maximum)
+
+Follow the exact schema already established in \data/wiki.json\ (title, subtitle, sections array with heading and body).
+
+Section Guidelines:
+- For the three period entries ('late_paleogene', 'mid_paleogene', 'early_paleogene'):
+  Sections to include: Overview, Climate, Geography, Flora, Fauna, and Mammalian Evolution (or Avian/Mammalian Evolution).
+- For the two EVENT entries ('eocene_oligocene_transition', 'petm'):
+  Sections to include: Overview, Causes & Triggers, Climatic Changes, Biological Impact (or Impact on Life), and Legacy.
+
+Important Requirements:
+- The text for each section must be detailed, encyclopedic, and well-written.
+- To ensure good readability, break up large walls of text by inserting literal \\n\n\ into the JSON string where appropriate (e.g., between distinct paragraphs).
+- Add these five new keys to the main JSON object in \data/wiki.json\ preserving all the existing Quaternary and Neogene entries.
+
+Execute this edit safely and output a final success message when you are done.
