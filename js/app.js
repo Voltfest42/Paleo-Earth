@@ -218,9 +218,6 @@ async function main() {
     if (kf.climateData) {
       gauges.updateGauges(kf.climateData);
     }
-
-    // Stop any TTS playing when changing keyframes
-    stopAll();
   });
 
   // Settled: update chat thread context divider after dragging pauses
@@ -281,6 +278,8 @@ async function main() {
 main().catch(err => {
   console.error('Fatal error during startup:', err);
 });
+
+
 
 
 
