@@ -580,5 +580,7 @@ export class Chat {
 
   _scrollToBottom() {
     this._el.chatMessages.scrollTop = this._el.chatMessages.scrollHeight;
+    const panelBody = this._el.chatMessages.closest('.right-panel-body');
+    if (panelBody) panelBody.scrollTop = panelBody.scrollHeight;
   }
 }

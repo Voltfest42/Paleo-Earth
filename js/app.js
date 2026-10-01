@@ -83,7 +83,25 @@ function initResize() {
     if (!dragging) return;
     if (isMobile) {
       const delta     = y - startY;
-      const newHeight = Math.max(200, Math.min(startHeight + delta, container.clientHeight - 200));
+      const targetY   = startHeight + delta;
+
+      // Snap to fullscreen if dragged near the edges
+      if (targetY < 80) { // Dragged to the top (Text Fullscreen)
+        panelLeft.style.height = '45vh'; // Reset for when they exit fullscreen
+        const btn = document.getElementById('fullscreenRight');
+        if (btn && !document.getElementById('panelRight').classList.contains('fullscreen')) btn.click();
+        dragEnd();
+        return;
+      }
+      if (targetY > container.clientHeight - 120) { // Dragged to the bottom (Globe Fullscreen)
+        panelLeft.style.height = '45vh'; // Reset for when they exit fullscreen
+        const btn = document.getElementById('fullscreenLeft');
+        if (btn && !document.getElementById('panelLeft').classList.contains('fullscreen')) btn.click();
+        dragEnd();
+        return;
+      }
+
+      const newHeight = Math.max(80, Math.min(targetY, container.clientHeight - 120));
       panelLeft.style.height = `${newHeight}px`;
     } else {
       const delta    = x - startX;

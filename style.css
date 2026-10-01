@@ -89,6 +89,7 @@ html, body {
 /* Fullscreen states */
 .panel-left.fullscreen {
   width: 100vw !important;
+  height: 100% !important;
   position: fixed;
   top: 0; left: 0;
   z-index: 200;
@@ -96,6 +97,7 @@ html, body {
 
 .panel-right.fullscreen {
   width: 100vw !important;
+  height: 100% !important;
   position: fixed;
   top: 0; right: 0;
   z-index: 200;
@@ -1446,5 +1448,26 @@ input[type="range"]:hover::-webkit-slider-thumb {
     color: var(--text-color);
     text-align: left;
     font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Enable scrolling for the entire right panel on mobile */
+@media (max-width: 768px) {
+  .right-panel-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .panel-tab-content, .tab-pane, .wiki-content, .chat-messages {
+    overflow: visible;
+    flex: none;
+    height: auto;
+  }
+
+  .chat-input-area {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
   }
 }
