@@ -34,14 +34,14 @@ function initFullscreen() {
   btnLeft.addEventListener('click', () => {
     const active = panelLeft.classList.toggle('fullscreen');
     panelRight.style.display = active ? 'none' : '';
-    handle.style.display     = active ? 'none' : '';
+    // handle stays visible to allow dragging out of fullscreen
     btnLeft.title = active ? 'Exit fullscreen' : 'Expand globe';
   });
 
   btnRight.addEventListener('click', () => {
     const active = panelRight.classList.toggle('fullscreen');
     panelLeft.style.display  = active ? 'none' : '';
-    handle.style.display     = active ? 'none' : '';
+    // handle stays visible to allow dragging out of fullscreen
     btnRight.title = active ? 'Exit fullscreen' : 'Expand info panel';
   });
 
@@ -71,6 +71,19 @@ function initResize() {
     isMobile    = window.innerWidth <= 768;
     startX      = x;
     startY      = y;
+
+    // Auto-exit fullscreen if user grabs the handle
+    if (panelLeft.classList.contains('fullscreen')) {
+      document.getElementById('fullscreenLeft').click();
+      if (isMobile) panelLeft.style.height = `${window.innerHeight - 18}px`;
+      else panelLeft.style.width = `${window.innerWidth - 5}px`;
+    }
+    if (panelRight.classList.contains('fullscreen')) {
+      document.getElementById('fullscreenRight').click();
+      if (isMobile) panelLeft.style.height = `0px`;
+      else panelLeft.style.width = `0px`;
+    }
+
     const rect  = panelLeft.getBoundingClientRect();
     startWidth  = rect.width;
     startHeight = rect.height;

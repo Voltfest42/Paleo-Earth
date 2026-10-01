@@ -88,19 +88,17 @@ html, body {
 
 /* Fullscreen states */
 .panel-left.fullscreen {
-  width: 100vw !important;
-  height: 100% !important;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 200;
+  flex: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
 }
 
 .panel-right.fullscreen {
-  width: 100vw !important;
-  height: 100% !important;
-  position: fixed;
-  top: 0; right: 0;
-  z-index: 200;
+  flex: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
 }
 
 /* ─── Resize handle ──────────────────────────────────────────────────── */
@@ -1386,8 +1384,23 @@ input[type="range"]:hover::-webkit-slider-thumb {
 
   .resize-handle {
     width: 100%;
-    height: var(--handle-width);
+    height: 18px;
+    background: rgba(255, 255, 255, 0.2);
     cursor: row-resize;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Visual pill for affordance */
+  .resize-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
   }
 }
 
