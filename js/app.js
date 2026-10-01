@@ -14,7 +14,7 @@ import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
-import { speak, stopAll } from './tts.js';
+import { speak, stopAll, getPollyVoice, setPollyVoice } from './tts.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -103,6 +103,38 @@ async function main() {
   // Panel layout
   initFullscreen();
   initResize();
+
+  // "?"?"? Settings Modal Logic "?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?
+  const settingsBtn = document.getElementById('settingsBtn');
+  const settingsModal = document.getElementById('settingsModal');
+  const settingsCloseBtn = document.getElementById('settingsCloseBtn');
+  const ttsVoiceSelect = document.getElementById('ttsVoiceSelect');
+
+  if (settingsBtn && settingsModal && settingsCloseBtn && ttsVoiceSelect) {
+    // Open
+    settingsBtn.addEventListener('click', () => {
+      // Sync UI with current preference
+      ttsVoiceSelect.value = getPollyVoice();
+      settingsModal.classList.add('active');
+    });
+
+    // Close
+    settingsCloseBtn.addEventListener('click', () => {
+      settingsModal.classList.remove('active');
+    });
+    settingsModal.addEventListener('click', (e) => {
+      if (e.target === settingsModal) {
+        settingsModal.classList.remove('active');
+      }
+    });
+
+    // Handle voice change
+    ttsVoiceSelect.addEventListener('change', (e) => {
+      setPollyVoice(e.target.value);
+    });
+  }
+
+
 
   // Wiki DOM and TTS initialization
   let currentWikiText = '';

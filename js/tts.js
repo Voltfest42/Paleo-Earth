@@ -7,6 +7,15 @@
 
 import { DEV_MODE, API_BASE, POLLY_VOICE_ID } from './config.js';
 
+// Get user preferred voice, or default
+export function getPollyVoice() {
+  return localStorage.getItem('paleo_tts_voice') || POLLY_VOICE_ID;
+}
+
+export function setPollyVoice(voiceId) {
+  localStorage.setItem('paleo_tts_voice', voiceId);
+}
+
 // Sanitize text for natural speech synthesis — strips markup/emojis, expands scientific abbreviations
 export function sanitizeForSpeech(text) {
   if (!text) return '';
@@ -149,7 +158,7 @@ async function speakProd(text, btnEl) {
     const res = await fetch(`${API_BASE}/tts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: clean, voiceId: POLLY_VOICE_ID }),
+      body: JSON.stringify({ text: clean, voiceId: getPollyVoice() }),
     });
 
     if (!res.ok) throw new Error(`TTS API error: ${res.status}`);
