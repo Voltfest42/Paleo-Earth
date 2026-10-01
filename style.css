@@ -1353,3 +1353,98 @@ input[type="range"]:hover::-webkit-slider-thumb {
 .globe-viewport-controls {
   flex-direction: column;
 }
+
+
+/* "?"?"? Mobile Layout Overrides "?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"?"? */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .panel-left {
+    width: 100% !important;
+    height: var(--left-width); /* Repurposing --left-width for height */
+    min-width: unset;
+    min-height: 200px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .panel-right {
+    width: 100% !important;
+    flex: 1;
+    min-width: unset;
+    min-height: 200px;
+    border-left: none;
+  }
+
+  .globe-footer {
+    height: auto;
+    padding: 10px 12px 16px;
+  }
+
+  .resize-handle {
+    width: 100%;
+    height: var(--handle-width);
+    cursor: row-resize;
+  }
+}
+
+/* Desktop defaults for gauges */
+.arc-gauge { display: flex; flex-direction: column; align-items: center; }
+.bar-gauge { display: none; }
+
+/* Mobile Layout Overrides for Gauges */
+@media (max-width: 768px) {
+  .arc-gauge { display: none; }
+  .bar-gauge {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+  
+  .climate-gauges {
+    flex-direction: column;
+    height: auto;
+    gap: 6px;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+
+  .gauge-wrap {
+    max-width: none;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .bar-label {
+    width: 40px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: #00ff00; /* Replaced in JS */
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 3px;
+  }
+
+  .bar-value {
+    width: 55px;
+    color: var(--text-color);
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+  }
+}

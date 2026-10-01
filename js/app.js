@@ -61,31 +61,60 @@ function initResize() {
   const container = document.getElementById('appContainer');
   let dragging    = false;
   let startX      = 0;
+  let startY      = 0;
   let startWidth  = 0;
+  let startHeight = 0;
+  let isMobile    = false;
 
-  handle.addEventListener('mousedown', e => {
-    dragging   = true;
-    startX     = e.clientX;
-    startWidth = panelLeft.getBoundingClientRect().width;
+  const dragStart = (x, y) => {
+    dragging    = true;
+    isMobile    = window.innerWidth <= 768;
+    startX      = x;
+    startY      = y;
+    const rect  = panelLeft.getBoundingClientRect();
+    startWidth  = rect.width;
+    startHeight = rect.height;
     handle.classList.add('dragging');
-    document.body.style.cursor    = 'col-resize';
+    document.body.style.cursor     = isMobile ? 'row-resize' : 'col-resize';
     document.body.style.userSelect = 'none';
-  });
+  };
 
-  document.addEventListener('mousemove', e => {
+  const dragMove = (x, y) => {
     if (!dragging) return;
-    const delta    = e.clientX - startX;
-    const newWidth = Math.max(320, Math.min(startWidth + delta, container.clientWidth - 280));
-    panelLeft.style.width = `${newWidth}px`;
-  });
+    if (isMobile) {
+      const delta     = y - startY;
+      const newHeight = Math.max(200, Math.min(startHeight + delta, container.clientHeight - 200));
+      panelLeft.style.height = `${newHeight}px`;
+    } else {
+      const delta    = x - startX;
+      const newWidth = Math.max(320, Math.min(startWidth + delta, container.clientWidth - 280));
+      panelLeft.style.width = `${newWidth}px`;
+    }
+  };
 
-  document.addEventListener('mouseup', () => {
+  const dragEnd = () => {
     if (!dragging) return;
     dragging = false;
     handle.classList.remove('dragging');
     document.body.style.cursor     = '';
     document.body.style.userSelect = '';
-  });
+  };
+
+  // Mouse events
+  handle.addEventListener('mousedown', e => dragStart(e.clientX, e.clientY));
+  document.addEventListener('mousemove', e => dragMove(e.clientX, e.clientY));
+  document.addEventListener('mouseup', dragEnd);
+
+  // Touch events (for mobile)
+  handle.addEventListener('touchstart', e => dragStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (dragging) {
+      // Prevent scrolling while dragging the resizer
+      if (e.cancelable) e.preventDefault();
+      dragMove(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: false });
+  document.addEventListener('touchend', dragEnd);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────

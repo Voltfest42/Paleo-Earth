@@ -128,18 +128,38 @@ export class GaugeSet {
           font-size="7" fill="#7a91b5">${def.unit}</text>
       `;
 
+      // Desktop Arc Gauge
+      const arcWrap = document.createElement('div');
+      arcWrap.className = 'arc-gauge';
+      
       const label = document.createElement('div');
       label.className = 'gauge-label';
       label.textContent = def.label;
+      
+      arcWrap.appendChild(svg);
+      arcWrap.appendChild(label);
 
-      wrap.appendChild(svg);
-      wrap.appendChild(label);
+      // Mobile Bar Gauge
+      const barWrap = document.createElement('div');
+      barWrap.className = 'bar-gauge';
+      barWrap.innerHTML = `
+        <div class="bar-label">${def.label}</div>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-fill-${def.key}"></div>
+        </div>
+        <div class="bar-value" id="bar-val-${def.key}">-- ${def.unit}</div>
+      `;
+
+      wrap.appendChild(arcWrap);
+      wrap.appendChild(barWrap);
       this._container.appendChild(wrap);
 
       this._gauges[def.key] = {
         def,
         fillEl:  svg.getElementById(`fill-${def.key}`),
         valueEl: svg.getElementById(`val-${def.key}`),
+        barFillEl: barWrap.querySelector(`#bar-fill-${def.key}`),
+        barValueEl: barWrap.querySelector(`#bar-val-${def.key}`),
         current: (def.min + def.max) / 2,
         target:  (def.min + def.max) / 2,
         rafId:   null,
@@ -180,18 +200,24 @@ export class GaugeSet {
 
   _renderGauge(key) {
     const g = this._gauges[key];
-    const { def, fillEl, valueEl, current } = g;
+    const { def, fillEl, valueEl, barFillEl, barValueEl, current } = g;
 
     const fraction = Math.max(0, Math.min(1, (current - def.min) / (def.max - def.min)));
     const offset   = ARC_LEN * (1 - fraction);
     fillEl.setAttribute('stroke-dashoffset', offset.toFixed(2));
 
     const hue   = valueToHue(current, def.colorStops);
-    const sat   = 65 + fraction * 15;  // slightly more saturated when high
+    const sat   = 65 + fraction * 15;
     const light = 42 + fraction * 8;
-    fillEl.setAttribute('stroke', `hsl(${Math.round(hue)},${Math.round(sat)}%,${Math.round(light)}%)`);
-
+    const colorStr = `hsl(${Math.round(hue)},${Math.round(sat)}%,${Math.round(light)}%)`;
+    
+    fillEl.setAttribute('stroke', colorStr);
     valueEl.textContent = def.format(current);
+
+    // Update Mobile Bar Gauge
+    barFillEl.style.width = `${fraction * 100}%`;
+    barFillEl.style.backgroundColor = colorStr;
+    barValueEl.textContent = `${def.format(current)} ${def.unit}`;
   }
 
   /** Set all gauges immediately without animation (for instant page load) */
