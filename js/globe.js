@@ -549,7 +549,10 @@ export class Globe {
     const ticket = ++this._ticket;
 
     try {
-      const frame = await this._cache.getFrame(index, snappedMa);
+      const framePromise = this._cache.getFrame(index, snappedMa);
+      const borderPromise = this._showBorders ? this._bordersCache.getBorder(index, snappedMa) : Promise.resolve(null);
+      
+      const [frame, borderTex] = await Promise.all([framePromise, borderPromise]);
 
       // Discard only if a strictly newer frame has ALREADY been applied to the globe
       if (ticket < this._appliedTicket) {
@@ -563,12 +566,12 @@ export class Globe {
       this._globeMaterial.map          = frame.diffuse;
       this._globeMaterial.normalMap    = frame.normal;
       this._globeMaterial.roughnessMap = frame.roughness;
-      this._globeMaterial.needsUpdate  = true;
-
-      // If borders overlay is enabled, also fetch and apply the border texture
-      if (this._showBorders) {
-        this._loadAndApplyBorder(index, snappedMa, ticket);
+      
+      if (borderTex) {
+        this._customUniforms.bordersMap.value = borderTex;
       }
+      
+      this._globeMaterial.needsUpdate  = true;
 
       // Lookahead preload:
       // Only preload if the globe has caught up with the current targetMa.
