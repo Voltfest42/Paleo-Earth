@@ -658,6 +658,26 @@ export class Globe {
     this._globeMaterial.normalScale.set(scale, scale);
   }
 
+  reloadTextures() {
+    // Clear LRU caches fully
+    this._cache._map.forEach(entry => {
+      if (entry.diffuse) entry.diffuse.dispose();
+      if (entry.normal) entry.normal.dispose();
+      if (entry.roughness) entry.roughness.dispose();
+    });
+    this._cache._map.clear();
+    this._cache._pending.clear();
+    
+    this._bordersCache._map.forEach(tex => tex.dispose());
+    this._bordersCache._map.clear();
+    this._bordersCache._pending.clear();
+
+    // Re-apply current frame to trigger fresh fetch
+    if (this._targetMa !== null) {
+      this.setMa(this._targetMa, 'direct');
+    }
+  }
+
   /** Show/hide the loading overlay */
   setLoading(visible) {
     const el = document.getElementById('globeLoading');

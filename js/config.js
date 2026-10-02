@@ -40,20 +40,42 @@ export const TEXTURE_FRAMES = Array.from({ length: 109 }, (_, i) => [i + 1, i * 
  * @param {number} ma     — age in millions of years (0-540)
  * @returns {string}
  */
+// Texture Quality State
+export let ACTIVE_TEXTURE_QUALITY = 'high';
+
+export function setTextureQuality(q) {
+  if (['high', 'medium', 'low'].includes(q)) {
+    ACTIVE_TEXTURE_QUALITY = q;
+  }
+}
+export function getTextureQuality() {
+  return ACTIVE_TEXTURE_QUALITY;
+}
+
+const QUALITY_RES_MAP = {
+  high: { diffuse: '4k', rough: '2k', normal: '2k', borders: '4k' },
+  medium: { diffuse: '2k', rough: '1k', normal: '1k', borders: '2k' },
+  low: { diffuse: '1k', rough: '1k', normal: '1k', borders: '1k' }
+};
+
 export function diffusePath(index, ma) {
-  return `textures/${index}_earth_diffuse_${ma}.jpg`;
+  const res = QUALITY_RES_MAP[ACTIVE_TEXTURE_QUALITY].diffuse;
+  return `textures/${ACTIVE_TEXTURE_QUALITY}/earth_diffuse_${res}_${index}.jpg`;
 }
 
 export function normalPath(index, ma) {
-  return `textures/${index}_earth_normal_${ma}.jpg`;
+  const res = QUALITY_RES_MAP[ACTIVE_TEXTURE_QUALITY].normal;
+  return `textures/${ACTIVE_TEXTURE_QUALITY}/earth_normal_${res}_${index}.jpg`;
 }
 
 export function roughnessPath(index, ma) {
-  return `textures/${index}_earth_rough_${ma}.jpg`;
+  const res = QUALITY_RES_MAP[ACTIVE_TEXTURE_QUALITY].rough;
+  return `textures/${ACTIVE_TEXTURE_QUALITY}/earth_roughness_${res}_${index}.jpg`;
 }
 
 export function bordersPath(index, ma) {
-  return `textures/${index}_earth_borders_${ma}.jpg`;
+  const res = QUALITY_RES_MAP[ACTIVE_TEXTURE_QUALITY].borders;
+  return `textures/${ACTIVE_TEXTURE_QUALITY}/earth_borders_${res}_${index}.png`;
 }
 
 // Backwards compatibility alias

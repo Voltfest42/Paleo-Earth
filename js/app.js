@@ -9,7 +9,7 @@
  * (ES modules cannot be loaded from file:// in most browsers.)
  */
 
-import { DEV_MODE, SLIDER_DEBOUNCE_MS } from './config.js';
+import { DEV_MODE, SLIDER_DEBOUNCE_MS, getTextureQuality, setTextureQuality } from './config.js';
 import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
@@ -169,12 +169,14 @@ async function main() {
   const settingsModal = document.getElementById('settingsModal');
   const settingsCloseBtn = document.getElementById('settingsCloseBtn');
   const ttsVoiceSelect = document.getElementById('ttsVoiceSelect');
+  const textureQualitySelect = document.getElementById('textureQualitySelect');
 
-  if (settingsBtn && settingsModal && settingsCloseBtn && ttsVoiceSelect) {
+  if (settingsBtn && settingsModal && settingsCloseBtn && ttsVoiceSelect && textureQualitySelect) {
     // Open
     settingsBtn.addEventListener('click', () => {
       // Sync UI with current preference
       ttsVoiceSelect.value = getPollyVoice();
+      textureQualitySelect.value = getTextureQuality();
       settingsModal.classList.add('active');
     });
 
@@ -191,6 +193,14 @@ async function main() {
     // Handle voice change
     ttsVoiceSelect.addEventListener('change', (e) => {
       setPollyVoice(e.target.value);
+    });
+
+    // Handle texture quality change
+    textureQualitySelect.addEventListener('change', (e) => {
+      setTextureQuality(e.target.value);
+      if (window._globeInstance) {
+        window._globeInstance.reloadTextures();
+      }
     });
   }
 
