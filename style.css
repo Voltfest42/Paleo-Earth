@@ -1538,6 +1538,26 @@ input[type="range"]:hover::-webkit-slider-thumb {
     height: auto;
   }
   
+  /* Overlay the Globe Header on mobile */
+  .panel-left .panel-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    background: transparent;
+    border-bottom: none;
+    z-index: 10;
+    pointer-events: none; /* Let clicks pass through */
+  }
+  .panel-left .topbar-center,
+  .panel-left .topbar-right {
+    display: none; /* Hide redundant text and buttons */
+  }
+  .panel-left .app-title {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8); /* readable against the globe */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); /* applies to SVG */
+  }
+  
   /* Summary card spacing */
   .summary-card {
     padding: 12px;
