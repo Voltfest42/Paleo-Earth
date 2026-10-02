@@ -143,6 +143,7 @@ html, body {
   background: rgba(0,0,0,0.4);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 10;
 }
@@ -356,6 +357,7 @@ html, body {
   flex-direction: column;
   padding: 10px 16px 12px;
   gap: 8px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -535,13 +537,13 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
   height: 3px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.25);
   border-radius: 2px;
 }
 
 input[type="range"]::-moz-range-track {
   height: 3px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.25);
   border-radius: 2px;
 }
 
@@ -1251,6 +1253,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
@@ -1431,6 +1434,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
       background: rgba(0, 0, 0, 0.45);
       padding: 3px 8px;
       border-radius: 4px;
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -1644,7 +1648,12 @@ input[type="range"]:hover::-webkit-slider-thumb {
 
   /* Increase slider thumb size for touch */
   input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
     width: 20px;
     height: 20px;
+    margin-top: -8.5px; /* Adjust for larger thumb */
+    border: 2px solid #fff;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(74,158,255,0.5);
   }
 }
