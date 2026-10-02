@@ -1379,7 +1379,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
     width: 100% !important;
     height: var(--left-width); /* Repurposing --left-width for height */
     min-width: unset;
-    min-height: 200px;
+    min-height: 100px;
     border-bottom: 1px solid var(--border);
   }
 
@@ -1387,7 +1387,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
     width: 100% !important;
     flex: 1;
     min-width: unset;
-    min-height: 200px;
+    min-height: 100px;
     border-left: none;
   }
 
@@ -1657,3 +1657,4 @@ input[type="range"]:hover::-webkit-slider-thumb {
     box-shadow: 0 0 8px rgba(74,158,255,0.5);
   }
 }
+

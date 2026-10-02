@@ -99,14 +99,14 @@ function initResize() {
       const targetY   = startHeight + delta;
 
       // Snap to fullscreen if dragged near the edges
-      if (targetY < 80) { // Dragged to the top (Text Fullscreen)
+      if (targetY < 50) { // Dragged to the top (Text Fullscreen)
         panelLeft.style.height = '45%'; // Reset for when they exit fullscreen
         const btn = document.getElementById('fullscreenRight');
         if (btn && !document.getElementById('panelRight').classList.contains('fullscreen')) btn.click();
         dragEnd();
         return;
       }
-      if (targetY > container.clientHeight - 120) { // Dragged to the bottom (Globe Fullscreen)
+      if (targetY > container.clientHeight - 90) { // Dragged to the bottom (Globe Fullscreen)
         panelLeft.style.height = '45%'; // Reset for when they exit fullscreen
         const btn = document.getElementById('fullscreenLeft');
         if (btn && !document.getElementById('panelLeft').classList.contains('fullscreen')) btn.click();
@@ -114,7 +114,7 @@ function initResize() {
         return;
       }
 
-      const newHeight = Math.max(80, Math.min(targetY, container.clientHeight - 120));
+      const newHeight = Math.max(50, Math.min(targetY, container.clientHeight - 90));
       panelLeft.style.height = `${newHeight}px`;
     } else {
       const delta    = x - startX;
@@ -386,6 +386,7 @@ async function main() {
 main().catch(err => {
   console.error('Fatal error during startup:', err);
 });
+
 
 
 
