@@ -5,13 +5,16 @@
 
 /* ─── Design tokens ────────────────────────────────────────────────── */
 :root {
-  --bg-space:        #080c14;
-  --bg-panel:        #0d1420;
-  --bg-panel-raised: #121a2a;
-  --bg-input:        #192034;
-  --bg-card:         #111827;
+  /* color-scheme tells browsers not to auto-darken this already-dark theme */
+  color-scheme: dark;
+  
+  --bg-space:        #0a0f18; /* slightly lighter */
+  --bg-panel:        #101826; /* slightly lighter */
+  --bg-panel-raised: #162032; /* slightly lighter */
+  --bg-input:        #1c263b;
+  --bg-card:         #151f32;
 
-  --border:          rgba(255,255,255,0.07);
+  --border:          rgba(255,255,255,0.12); /* Higher contrast borders */
   --border-accent:   rgba(100,160,255,0.25);
 
   --text-primary:    #e8edf5;
@@ -1389,8 +1392,8 @@ input[type="range"]:hover::-webkit-slider-thumb {
     height: 18px;
     background: rgba(255, 255, 255, 0.2);
     cursor: row-resize;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
   
   /* Visual pill for affordance */
