@@ -244,7 +244,7 @@ html, body {
   right: 14px;
   z-index: 10;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Align right edges */
   gap: 8px;
   pointer-events: none;
 }
@@ -1592,15 +1592,20 @@ input[type="range"]:hover::-webkit-slider-thumb {
     display: none !important;
   }
 
-  /* Globe Control Buttons (Settings, Borders) */
+  /* Globe Control Buttons (Settings, Borders, Atmosphere) */
   .globe-control-btn {
-    padding: 8px 16px; /* Increase tap area */
-    font-size: 14px;
-    gap: 8px;
+    padding: 4px 8px; /* Compact for mobile */
+    font-size: 9.5px;
+    gap: 5px;
+    border-radius: 12px;
   }
   .globe-control-btn .globe-control-icon {
-    width: 16px;
-    height: 16px;
+    width: 11px;
+    height: 11px;
+  }
+  .globe-control-btn .status-dot {
+    width: 5px;
+    height: 5px;
   }
   
   /* Timeline Labels */
