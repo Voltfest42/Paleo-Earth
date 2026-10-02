@@ -443,9 +443,9 @@ def main():
     )
     parser.add_argument(
         "--res",
-        choices=["native", "8k", "4k", "2k"],
+        choices=["native", "8k", "4k", "2k", "1k"],
         default="native",
-        help="Resolution preset: 'native' (7656x3828, default), '8k' (8192x4096), '4k' (4096x2048), '2k' (2048x1024)",
+        help="Resolution preset: 'native' (7656x3828, default), '8k' (8192x4096), '4k' (4096x2048), '2k' (2048x1024), '1k' (1024x512)",
     )
     parser.add_argument(
         "--width",
