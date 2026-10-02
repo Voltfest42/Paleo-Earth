@@ -58,6 +58,7 @@ PRESETS = {
     "8k": (8192, 4096),
     "4k": (4096, 2048),
     "2k": (2048, 1024),
+    "1k": (1024, 512),
 }
 
 
@@ -271,19 +272,46 @@ def run_batch_processing(args):
         res_suffix = f"{out_w}x{out_h}"
 
     # Find SVGs
-    if args.file:
-        svg_files = [Path(args.file)]
-        if not svg_files[0].exists():
-            print(f"Error: Specified file '{args.file}' does not exist.")
-            sys.exit(1)
+    all_svgs = sorted(
+        list(input_dir.glob("snapshot_*.svg")) or list(input_dir.glob("*.svg")),
+        key=lambda p: (
+            parse_ma_from_filename(p.name) if parse_ma_from_filename(p.name) is not None else 9999.0,
+            p.name,
+        ),
+    )
+    
+    if args.frame.lower() == "all":
+        svg_files = all_svgs
     else:
-        svg_files = sorted(
-            list(input_dir.glob("snapshot_*.svg")) or list(input_dir.glob("*.svg")),
-            key=lambda p: (
-                parse_ma_from_filename(p.name) if parse_ma_from_filename(p.name) is not None else 9999.0,
-                p.name,
-            ),
-        )
+        svg_files = []
+        sel = args.frame.lower()
+        
+        # Range e.g. '0-50'
+        if "-" in sel and not sel.startswith("-"):
+            try:
+                start_ma, end_ma = map(float, sel.split("-", 1))
+                svg_files = [p for p in all_svgs if parse_ma_from_filename(p.name) is not None and start_ma <= parse_ma_from_filename(p.name) <= end_ma]
+            except ValueError:
+                pass
+        else:
+            # Comma-separated list or single value
+            tokens = [t.strip() for t in sel.split(",") if t.strip()]
+            for tok in tokens:
+                try:
+                    target_ma = float(tok)
+                    # SVG files are named like snapshot_0.00Ma.svg, so direct float match is usually sufficient
+                    matched = [p for p in all_svgs if parse_ma_from_filename(p.name) == target_ma]
+                    svg_files.extend(matched)
+                except ValueError:
+                    # Maybe they passed a literal filename
+                    p = Path(tok)
+                    if p.exists():
+                        svg_files.append(p)
+                    elif (input_dir / tok).exists():
+                        svg_files.append(input_dir / tok)
+            
+            # Remove duplicates while preserving order
+            svg_files = list(dict.fromkeys(svg_files))
 
     if not svg_files:
         print(f"No SVG files found in '{input_dir}'.")
@@ -396,10 +424,10 @@ def main():
         help="Output directory for PNG files (default: working_files/borders_temp/cropped)",
     )
     parser.add_argument(
-        "--file",
+        "--frame",
         "-f",
-        default=None,
-        help="Process a single SVG file instead of the entire directory",
+        default="all",
+        help="Which frame(s) to render: 'all', specific Ma (e.g. '440'), comma list ('0,10,20'), or range ('0-50')",
     )
     parser.add_argument(
         "--stroke-width",
