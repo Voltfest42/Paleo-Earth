@@ -39,7 +39,7 @@
   --left-width:      65%;
   --handle-width:    6px;
   --topbar-height:   56px;
-  --footer-height:   196px;
+  /* --footer-height: 196px; removed */
 }
 
 /* ─── Reset ─────────────────────────────────────────────────────────── */
@@ -345,7 +345,7 @@ html, body {
 
 /* ─── Globe footer (gauges + slider) ────────────────────────────────── */
 .globe-footer {
-  height: var(--footer-height);
+  height: auto;
   flex-shrink: 0;
   background: rgba(0,0,0,0.45);
   border-top: 1px solid var(--border);
@@ -569,6 +569,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   color: var(--text-muted);
   letter-spacing: 0.05em;
   padding: 0 2px;
+  margin-top: -4px; /* Pull closer to the slider */
 }
 
 /* ─── Right panel body ───────────────────────────────────────────────── */
