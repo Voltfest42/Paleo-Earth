@@ -252,7 +252,7 @@ async function main() {
   // Atmosphere gauges toggle
   const toggleAtmosphereBtn = document.getElementById('toggleAtmosphereBtn');
   const gaugesContainer = document.getElementById('gaugesContainer');
-  let atmosphereActive = true;
+  let atmosphereActive = false;
   if (toggleAtmosphereBtn && gaugesContainer) {
     toggleAtmosphereBtn.addEventListener('click', () => {
       atmosphereActive = !atmosphereActive;
