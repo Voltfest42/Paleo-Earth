@@ -170,6 +170,8 @@ async function main() {
   const settingsCloseBtn = document.getElementById('settingsCloseBtn');
   const ttsVoiceSelect = document.getElementById('ttsVoiceSelect');
   const textureQualitySelect = document.getElementById('textureQualitySelect');
+  const settingsApplyBtn = document.getElementById('settingsApplyBtn');
+  const settingsCancelBtn = document.getElementById('settingsCancelBtn');
 
   if (settingsBtn && settingsModal && settingsCloseBtn && ttsVoiceSelect && textureQualitySelect) {
     // Open
@@ -180,28 +182,35 @@ async function main() {
       settingsModal.classList.add('active');
     });
 
-    // Close
-    settingsCloseBtn.addEventListener('click', () => {
-      settingsModal.classList.remove('active');
-    });
+    // Close logic
+    const closeModal = () => settingsModal.classList.remove('active');
+    settingsCloseBtn.addEventListener('click', closeModal);
+    if (settingsCancelBtn) settingsCancelBtn.addEventListener('click', closeModal);
+    
     settingsModal.addEventListener('click', (e) => {
-      if (e.target === settingsModal) {
-        settingsModal.classList.remove('active');
-      }
+      if (e.target === settingsModal) closeModal();
     });
 
-    // Handle voice change
-    ttsVoiceSelect.addEventListener('change', (e) => {
-      setPollyVoice(e.target.value);
-    });
+    // Apply logic
+    if (settingsApplyBtn) {
+      settingsApplyBtn.addEventListener('click', () => {
+        // Save Voice
+        setPollyVoice(ttsVoiceSelect.value);
 
-    // Handle texture quality change
-    textureQualitySelect.addEventListener('change', (e) => {
-      setTextureQuality(e.target.value);
-      if (window._globeInstance) {
-        window._globeInstance.reloadTextures();
-      }
-    });
+        // Save Texture Quality
+        const newQuality = textureQualitySelect.value;
+        const oldQuality = getTextureQuality();
+        
+        if (newQuality !== oldQuality) {
+          setTextureQuality(newQuality);
+          if (window._globeInstance) {
+            window._globeInstance.reloadTextures();
+          }
+        }
+        
+        closeModal();
+      });
+    }
   }
 
 
@@ -241,6 +250,7 @@ async function main() {
   // Globe
   const globeContainer = document.getElementById('globeContainer');
   const globe          = new Globe(globeContainer);
+  window._globeInstance = globe; // Export for settings modal
 
   // Load the initial texture (0 Ma / frame 1)
   await globe.setMa(0);
