@@ -674,7 +674,9 @@ export class Globe {
 
     // Re-apply current frame to trigger fresh fetch
     if (this._targetMa !== null) {
-      this.setMa(this._targetMa, 'direct');
+      const currentMa = this._targetMa;
+      this._targetMa = null; // Bypass early return in setMa
+      this.setMa(currentMa, 'direct');
     }
   }
 
