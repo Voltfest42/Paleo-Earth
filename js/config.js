@@ -41,7 +41,11 @@ export const TEXTURE_FRAMES = Array.from({ length: 109 }, (_, i) => [i + 1, i * 
  * @returns {string}
  */
 // Texture Quality State
-export let ACTIVE_TEXTURE_QUALITY = 'high';
+// Detect mobile client to set appropriate default texture tier
+const isMobile = typeof window !== 'undefined' && 
+  (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || window.innerWidth <= 768);
+
+export let ACTIVE_TEXTURE_QUALITY = isMobile ? 'medium' : 'high';
 
 export function setTextureQuality(q) {
   if (['high', 'medium', 'low'].includes(q)) {
