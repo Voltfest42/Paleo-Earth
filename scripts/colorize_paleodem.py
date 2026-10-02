@@ -735,7 +735,7 @@ def main() -> None:
         "--naming",
         choices=["web", "blender"],
         default="web",
-        help="File naming format: 'web' ({index}_earth_{type}_{ma}.jpg) or 'blender' (earth_{type}_{index}.jpg)",
+        help="File naming format: 'web' (earth_{type}_{res}_{index}.jpg) or 'blender' (earth_{type}_{index}.jpg)",
     )
 
     # Shading and relief knobs
@@ -778,7 +778,7 @@ def main() -> None:
         dest="normal",
         action="store_true",
         default=True,
-        help="Generate normal maps ({index}_earth_normal_{ma}.jpg)",
+        help="Generate normal maps (earth_normal_{res}_{index}.jpg)",
     )
     p.add_argument(
         "--no-normal",
@@ -791,7 +791,7 @@ def main() -> None:
         dest="roughness",
         action="store_true",
         default=True,
-        help="Generate roughness maps ({index}_earth_rough_{ma}.jpg)",
+        help="Generate roughness maps (earth_roughness_{res}_{index}.jpg)",
     )
     p.add_argument(
         "--no-roughness",
@@ -856,10 +856,23 @@ def main() -> None:
     print(f"  Roughness Map: {'Enabled' if args.roughness else 'Disabled'}")
     print("=" * 72)
 
+    # Determine resolution suffix for filenames
+    res_suffix = "8k"
+    if args.res and args.res.lower() in {"8k", "4k", "2k", "1k"}:
+        res_suffix = args.res.lower()
+    else:
+        res_suffix = f"{out_width}x{out_height}"
+
     def get_filenames(idx: int, ma: int) -> tuple[str, str, str]:
         if args.naming == "blender":
-            return f"earth_diffuse_{idx}.{ext}", f"earth_normal_{idx}.{ext}", f"earth_rough_{idx}.{ext}"
-        return f"{idx}_earth_diffuse_{ma}.{ext}", f"{idx}_earth_normal_{ma}.{ext}", f"{idx}_earth_rough_{ma}.{ext}"
+            return f"earth_diffuse_{idx}.{ext}", f"earth_normal_{idx}.{ext}", f"earth_roughness_{idx}.{ext}"
+        
+        # New default naming convention: earth_{type}_{res}_{index}.ext
+        return (
+            f"earth_diffuse_{res_suffix}_{idx}.{ext}",
+            f"earth_normal_{res_suffix}_{idx}.{ext}",
+            f"earth_roughness_{res_suffix}_{idx}.{ext}"
+        )
 
     if args.dry_run:
         print("\n[DRY RUN] Would process the following frames:")
