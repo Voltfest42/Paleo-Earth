@@ -220,6 +220,7 @@ def _render_opencv_fallback(
 def determine_output_filename(
     svg_path: Path,
     naming_scheme: str,
+    res_suffix: str,
     pad_width: int = 0,
 ) -> str:
     """Generate target filename according to requested scheme."""
@@ -236,7 +237,7 @@ def determine_output_filename(
         if ma is not None:
             idx = calculate_frame_index(ma)
             idx_str = f"{idx:0{pad_width}d}" if pad_width > 0 else str(idx)
-            return f"earth_borders_{idx_str}.png"
+            return f"earth_borders_{res_suffix}_{idx_str}.png"
         else:
             return f"{stem}.png"
     elif naming_scheme == "ma":
@@ -261,6 +262,13 @@ def run_batch_processing(args):
         out_w, out_h = args.width, args.height
     else:
         out_w, out_h = NATIVE_WIDTH, NATIVE_HEIGHT
+
+    # Determine resolution suffix for filenames
+    res_suffix = "8k"
+    if args.res and args.res.lower() in {"8k", "4k", "2k", "1k"}:
+        res_suffix = args.res.lower()
+    else:
+        res_suffix = f"{out_w}x{out_h}"
 
     # Find SVGs
     if args.file:
@@ -299,7 +307,7 @@ def run_batch_processing(args):
     # Prepare job list
     jobs = []
     for svg_p in svg_files:
-        out_name = determine_output_filename(svg_p, args.naming, args.pad)
+        out_name = determine_output_filename(svg_p, args.naming, res_suffix, args.pad)
         out_p = out_dir / out_name
         jobs.append((svg_p, out_p))
 
@@ -352,7 +360,7 @@ def run_batch_processing(args):
     # Verification against reference if requested
     if args.verify:
         ref_file = input_dir / "snapshot_0.00Ma_cropped.png"
-        test_file = out_dir / determine_output_filename(Path("snapshot_0.00Ma.svg"), args.naming, args.pad)
+        test_file = out_dir / determine_output_filename(Path("snapshot_0.00Ma.svg"), args.naming, res_suffix, args.pad)
         if ref_file.exists() and test_file.exists() and HAS_CV2:
             print("\n--- Verifying Output Against Manual Reference ---")
             ref_img = cv2.imread(str(ref_file), cv2.IMREAD_GRAYSCALE)
@@ -384,7 +392,7 @@ def main():
     parser.add_argument(
         "--outdir",
         "-o",
-        default="working_files/borders_temp/cropped" if Path("working_files").exists() else "borders_temp/cropped",
+        default="working_files/textures_temp" if Path("working_files").exists() else "textures_temp",
         help="Output directory for PNG files (default: working_files/borders_temp/cropped)",
     )
     parser.add_argument(
