@@ -101,7 +101,7 @@ export const CONTINENT_COLORS = {
   "0,255,132": { id: "gondwana", name: "Gondwana", uiColor: [0.2, 1.0, 0.7] },
   "152,0,255": { id: "pangaea", name: "Pangaea", uiColor: [0.7, 0.2, 1.0] },
   "255,174,133": { id: "laurussia", name: "Laurussia", uiColor: [1.0, 0.68, 0.52] },
-  "255,131,236": { id: "sibiria", name: "Sibiria", uiColor: [1.0, 0.51, 0.92] },
+  "255,131,236": { id: "siberia", name: "Siberia", uiColor: [1.0, 0.51, 0.92] },
   "194,255,137": { id: "laurentia", name: "Laurentia", uiColor: [0.76, 1.0, 0.53] },
   "255,155,160": { id: "baltica", name: "Baltica", uiColor: [1.0, 0.6, 0.62] }
 };

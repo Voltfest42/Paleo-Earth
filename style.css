@@ -1676,3 +1676,43 @@ input[type="range"]:hover::-webkit-slider-thumb {
     transform: none;
   }
 }
+
+/* Credits Button & Modal */
+.credits-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(30, 40, 50, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+.credits-btn:hover {
+  background: rgba(40, 50, 60, 1.0);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+.credits-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.credits-modal {
+  max-width: 500px;
+}
+.credits-list {
+  padding-left: 20px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.credits-list li {
+  margin-bottom: 10px;
+}
