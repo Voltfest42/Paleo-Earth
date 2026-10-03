@@ -621,7 +621,10 @@ export class Globe {
          this._loader.load(continentIdPath(index, snappedMa), tex => res(tex), undefined, () => res(null));
       });
       const outlinePromise = this._showContinents ? new Promise(res => {
-         this._loader.load(continentOutlinePath(index, snappedMa), tex => res(tex), undefined, () => res(null));
+         this._loader.load(continentOutlinePath(index, snappedMa), tex => {
+            tex.colorSpace = THREE.SRGBColorSpace;
+            res(tex);
+         }, undefined, () => res(null));
       }) : Promise.resolve(null);
       
       const [frame, borderTex, idTex, outlineTex] = await Promise.all([framePromise, borderPromise, idPromise, outlinePromise]);
@@ -707,6 +710,7 @@ export class Globe {
       const currentMa = this._displayedMa !== null ? this._displayedMa : (this._targetMa !== null ? this._targetMa : 0);
       const { index, ma: snappedMa } = getFrameForMa(currentMa);
       this._loader.load(continentOutlinePath(index, snappedMa), tex => {
+         tex.colorSpace = THREE.SRGBColorSpace;
          this._customUniforms.continentOutlineMap.value = tex;
       });
     }

@@ -282,39 +282,90 @@ async function main() {
   // Continent Hover Raycasting
   const tooltip = document.getElementById('continentTooltip');
   let currentHover = null;
+
+  // Helper to find closest continent color (solves aliasing/compression issues)
+  function findClosestContinent(r, g, b) {
+    let bestDist = 100000;
+    let bestContinent = null;
+    let bestKey = null;
+    let bestRawColor = null;
+
+    for (const [key, c] of Object.entries(CONTINENT_COLORS)) {
+      const parts = key.split(',').map(Number);
+      const dr = parts[0] - r;
+      const dg = parts[1] - g;
+      const db = parts[2] - b;
+      const dist2 = dr*dr + dg*dg + db*db;
+      if (dist2 < bestDist && dist2 < 8000) { // Tolerance threshold
+        bestDist = dist2;
+        bestContinent = c;
+        bestKey = key;
+        bestRawColor = parts;
+      }
+    }
+    return { key: bestKey, continent: bestContinent, raw: bestRawColor };
+  }
+
   globeContainer.addEventListener('mousemove', (e) => {
-    // Calculate NDC
     const rect = globeContainer.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     
-    const colorKey = globe.getContinentColorAt(x, y);
-    if (colorKey && CONTINENT_COLORS[colorKey]) {
-      const c = CONTINENT_COLORS[colorKey];
-      if (currentHover !== colorKey) {
-        currentHover = colorKey;
-        const parts = colorKey.split(',').map(Number);
-        globe.setHoveredContinent({r: parts[0], g: parts[1], b: parts[2], uiColor: c.uiColor}, 0.5);
-        tooltip.textContent = c.name;
+    const rgbStr = globe.getContinentColorAt(x, y);
+    if (rgbStr) {
+      const [r, g, b] = rgbStr.split(',').map(Number);
+      const match = findClosestContinent(r, g, b);
+      
+      if (match.continent) {
+        if (currentHover !== match.key) {
+          currentHover = match.key;
+        }
+        
+        // Show tooltip ALWAYS
+        tooltip.textContent = match.continent.name;
         tooltip.style.display = 'block';
+        tooltip.style.left = (e.clientX + 15) + 'px';
+        tooltip.style.top = (e.clientY + 15) + 'px';
+        
+        // Only glow if Continents toggle is active
+        if (globe._showContinents) {
+          globe.setHoveredContinent({r: match.raw[0], g: match.raw[1], b: match.raw[2], uiColor: match.continent.uiColor}, 0.6);
+        } else {
+          globe.setHoveredContinent(null, 0.0);
+        }
+      } else {
+        clearHover();
       }
-      tooltip.style.left = (e.clientX + 15) + 'px';
-      tooltip.style.top = (e.clientY + 15) + 'px';
     } else {
-      if (currentHover !== null) {
-        currentHover = null;
-        globe.setHoveredContinent(null, 0.0);
-        tooltip.style.display = 'none';
-      }
+      clearHover();
     }
   });
 
+  function clearHover() {
+    if (currentHover !== null) {
+      currentHover = null;
+      globe.setHoveredContinent(null, 0.0);
+      tooltip.style.display = 'none';
+    }
+  }
+
+  // Update glow instantly if user toggles the button while already hovering
+  document.getElementById('toggleContinentsBtn').addEventListener('click', () => {
+     if (!globe._showContinents && currentHover !== null) {
+         // It just turned off
+         globe.setHoveredContinent(null, 0.0);
+     } else if (globe._showContinents && currentHover !== null) {
+         // It just turned on
+         const match = findClosestContinent(...currentHover.split(',').map(Number));
+         if (match.continent) {
+            globe.setHoveredContinent({r: match.raw[0], g: match.raw[1], b: match.raw[2], uiColor: match.continent.uiColor}, 0.6);
+         }
+     }
+  });
+
+
   globeContainer.addEventListener('mouseleave', () => {
-      if (currentHover !== null) {
-        currentHover = null;
-        globe.setHoveredContinent(null, 0.0);
-        tooltip.style.display = 'none';
-      }
+      clearHover();
   });
 
   // Atmosphere gauges toggle
