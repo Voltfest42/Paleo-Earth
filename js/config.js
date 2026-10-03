@@ -95,7 +95,11 @@ export const CONTINENT_COLORS = {
   "0,0,255": { id: "north_america", name: "North America", uiColor: [0.4, 0.4, 1.0] },
   "255,255,0": { id: "south_america", name: "South America", uiColor: [1.0, 1.0, 0.4] },
   "0,255,255": { id: "australia", name: "Australia", uiColor: [0.4, 1.0, 1.0] },
-  "255,0,255": { id: "antarctica", name: "Antarctica", uiColor: [1.0, 0.4, 1.0] }
+  "255,0,255": { id: "antarctica", name: "Antarctica", uiColor: [1.0, 0.4, 1.0] },
+  "255,129,0": { id: "indian_subcontinent", name: "Indian Subcontinent", uiColor: [1.0, 0.6, 0.2] },
+  "4,154,255": { id: "laurasia", name: "Laurasia", uiColor: [0.2, 0.7, 1.0] },
+  "0,255,132": { id: "gondwana", name: "Gondwana", uiColor: [0.2, 1.0, 0.7] },
+  "152,0,255": { id: "pangaea", name: "Pangaea", uiColor: [0.7, 0.2, 1.0] }
 };
 
 // Backwards compatibility alias
