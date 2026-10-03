@@ -755,7 +755,7 @@ def main() -> None:
     print(f"  Hard Mask:        {'Enabled (8-bit PNG, sealevel > ' + str(args.sealevel) + 'm)' if not args.no_mask else 'Disabled'}")
     print(f"  Soft Mask:        {'Enabled (8-bit PNG, gradient ' + str(args.soft_low) + 'm to ' + str(args.soft_high) + 'm)' if not args.no_soft_mask else 'Disabled'}")
     print(f"  Land Height Map:  {'Enabled (32-bit Float EXR, ZIP)' if not args.no_height else 'Disabled'}")
-    print(f"    - Naming:       earth_{args.height_name}_{{index}}.exr")
+    print(f"    - Naming:       earth_{args.height_name}_{{res}}_{{index}}.exr")
     print(f"    - Scale:        {args.scale.upper()} (Max land = {args.max_land:.0f}m)")
     print(f"  Ocean Depth Map:  {'Enabled (32-bit Float EXR, ZIP)' if not args.no_depth else 'Disabled'}")
     print(f"    - Bathymetry:   0m (shore) to {args.max_depth:.0f}m (deep shelf) -> 0.0 to 1.0")
@@ -763,14 +763,20 @@ def main() -> None:
     print(f"  Fast Resampling:  {'OpenCV (bilinear)' if HAS_CV2 else 'Pillow (bilinear)'}")
     print("=" * 76)
 
+    res_suffix = "8k"
+    if args.res and args.res.lower() in {"8k", "4k", "2k", "1k", "native"}:
+        res_suffix = args.res.lower()
+    elif out_width and out_height:
+        res_suffix = f"{out_width}x{out_height}"
+
     def get_filenames(idx: int) -> dict[str, str]:
         idx_str = f"{idx:0{args.pad}d}" if args.pad > 0 else str(idx)
         return {
-            "mask": f"earth_sealevel_mask_{idx_str}.png",
-            "soft_mask": f"earth_sealevel_soft_mask_{idx_str}.png",
-            "height": f"earth_{args.height_name}_{idx_str}.exr",
-            "depth": f"earth_depth_{idx_str}.exr",
-            "shadows": f"earth_shadows_{idx_str}.{sh_ext}",
+            "mask": f"earth_sealevel_mask_{res_suffix}_{idx_str}.png",
+            "soft_mask": f"earth_sealevel_soft_mask_{res_suffix}_{idx_str}.png",
+            "height": f"earth_{args.height_name}_{res_suffix}_{idx_str}.exr",
+            "depth": f"earth_depth_{res_suffix}_{idx_str}.exr",
+            "shadows": f"earth_shadows_{res_suffix}_{idx_str}.{sh_ext}",
         }
 
     if args.dry_run:
