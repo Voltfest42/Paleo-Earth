@@ -379,9 +379,16 @@ export class Globe {
     // Shader hook: inject border overlay and shadow softening
     this._globeMaterial.onBeforeCompile = (shader) => {
       // Connect custom uniforms
-      shader.uniforms.bordersMap     = this._customUniforms.bordersMap;
+            shader.uniforms.bordersMap     = this._customUniforms.bordersMap;
       shader.uniforms.bordersOpacity = this._customUniforms.bordersOpacity;
       shader.uniforms.bordersColor   = this._customUniforms.bordersColor;
+      
+      shader.uniforms.continentOutlineMap = this._customUniforms.continentOutlineMap;
+      shader.uniforms.continentIdMap = this._customUniforms.continentIdMap;
+      shader.uniforms.continentsOpacity = this._customUniforms.continentsOpacity;
+      shader.uniforms.hoveredContinentColor = this._customUniforms.hoveredContinentColor;
+      shader.uniforms.hoveredContinentUiColor = this._customUniforms.hoveredContinentUiColor;
+      shader.uniforms.hoveredGlowOpacity = this._customUniforms.hoveredGlowOpacity;
 
       // Declare uniforms in fragment shader header
       shader.fragmentShader = shader.fragmentShader.replace(
