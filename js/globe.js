@@ -23,6 +23,8 @@ import {
   roughnessPath,
   bordersPath,
   GLOBE_BORDERS_COLOR,
+  continentIdPath,
+  continentOutlinePath,
 } from './config.js';
 
 // ─── Atmosphere Fresnel Shaders (Pure View Space) ───────────────────────
@@ -252,6 +254,11 @@ export class Globe {
 
     // Political borders overlay state
     this._showBorders          = false;
+    this._showContinents       = false;
+    this._idCanvas = document.createElement('canvas');
+    this._idCtx = this._idCanvas.getContext('2d', { willReadFrequently: true });
+    this._raycaster = new THREE.Raycaster();
+    this._hoveredColorStr = null;
     this._targetBordersOpacity = 0.0;
 
     this._init();
@@ -285,6 +292,8 @@ export class Globe {
     this._loader       = new THREE.TextureLoader();
     this._cache        = new TextureCache(this._loader, TEXTURE_CACHE_SIZE);
     this._bordersCache = new BorderTextureCache(this._loader, TEXTURE_CACHE_SIZE);
+    this._outlineCache = new BorderTextureCache(this._loader, TEXTURE_CACHE_SIZE);
+    this._idCache = new BorderTextureCache(this._loader, TEXTURE_CACHE_SIZE);
   }
 
   // ── Stars ─────────────────────────────────────────────────────────────
@@ -331,6 +340,11 @@ export class Globe {
     roughPlaceholder.needsUpdate = true;
 
     // Transparent 1x1 initial placeholder for political borders overlay
+    
+    const outlinePlaceholder = new THREE.DataTexture(new Uint8Array([0,0,0,0]), 1, 1, THREE.RGBAFormat);
+    outlinePlaceholder.needsUpdate = true;
+    const idPlaceholder = new THREE.DataTexture(new Uint8Array([0,0,0,0]), 1, 1, THREE.RGBAFormat);
+    idPlaceholder.needsUpdate = true;
     const bordersPlaceholder = new THREE.DataTexture(
       new Uint8Array([0, 0, 0, 0]),
       1, 1, THREE.RGBAFormat
@@ -340,6 +354,14 @@ export class Globe {
     // Uniforms object shared between Three.js shader and Globe controller
     this._customUniforms = {
       bordersMap:     { value: bordersPlaceholder },
+
+      continentOutlineMap: { value: outlinePlaceholder },
+      continentIdMap: { value: idPlaceholder },
+      continentsOpacity: { value: 0.0 },
+      hoveredContinentColor: { value: new THREE.Color(0,0,0) },
+      hoveredContinentUiColor: { value: new THREE.Color(0,0,0) },
+      hoveredGlowOpacity: { value: 0.0 },
+
       bordersOpacity: { value: 0.0 },
       bordersColor:   { value: new THREE.Color(GLOBE_BORDERS_COLOR) },
     };
@@ -366,9 +388,18 @@ export class Globe {
         '#include <map_pars_fragment>',
         /* glsl */`
         #include <map_pars_fragment>
+        
         uniform sampler2D bordersMap;
         uniform float bordersOpacity;
         uniform vec3 bordersColor;
+        
+        uniform sampler2D continentOutlineMap;
+        uniform sampler2D continentIdMap;
+        uniform float continentsOpacity;
+        uniform vec3 hoveredContinentColor;
+        uniform vec3 hoveredContinentUiColor;
+        uniform float hoveredGlowOpacity;
+
         `
       );
 
@@ -387,12 +418,31 @@ export class Globe {
           #endif
           diffuseColor *= sampledDiffuseColor;
 
-          // Political border overlay: sample luminance (red channel) from B&W border texture and blend
+          
+          // Political border overlay
           if (bordersOpacity > 0.0) {
             vec4 borderSample = texture2D( bordersMap, vMapUv );
-            vec3 bLineCol = bordersColor;
-            diffuseColor.rgb = mix( diffuseColor.rgb, bLineCol, borderSample.r * bordersOpacity );
+            diffuseColor.rgb = mix( diffuseColor.rgb, bordersColor, borderSample.r * bordersOpacity );
           }
+
+          // Continents Outline overlay
+          if (continentsOpacity > 0.0) {
+            vec4 outlineSample = texture2D( continentOutlineMap, vMapUv );
+            // outlineSample has the color in rgb and opacity in a
+            diffuseColor.rgb = mix( diffuseColor.rgb, outlineSample.rgb, outlineSample.a * continentsOpacity );
+          }
+
+          // Hover Glow
+          if (hoveredGlowOpacity > 0.0) {
+            vec4 idSample = texture2D( continentIdMap, vMapUv );
+            // Match color
+            float dist = distance(idSample.rgb, hoveredContinentColor);
+            if (dist < 0.05 && idSample.a > 0.1) {
+              // Additive glow
+              diffuseColor.rgb += hoveredContinentUiColor * hoveredGlowOpacity;
+            }
+          }
+
         #endif
         `
       );
@@ -484,6 +534,18 @@ export class Globe {
       }
     }
 
+    
+    // Smooth transition for continent opacity
+    if (this._customUniforms && this._customUniforms.continentsOpacity) {
+      const curC = this._customUniforms.continentsOpacity.value;
+      const tgtC = this._showContinents ? 1.0 : 0.0;
+      if (Math.abs(curC - tgtC) > 0.002) {
+        this._customUniforms.continentsOpacity.value += (tgtC - curC) * 0.18;
+      } else {
+        this._customUniforms.continentsOpacity.value = tgtC;
+      }
+    }
+
     this._controls.update();
     this._renderer.render(this._scene, this._camera);
   }
@@ -550,9 +612,20 @@ export class Globe {
 
     try {
       const framePromise = this._cache.getFrame(index, snappedMa);
+      
       const borderPromise = this._showBorders ? this._bordersCache.getBorder(index, snappedMa) : Promise.resolve(null);
       
-      const [frame, borderTex] = await Promise.all([framePromise, borderPromise]);
+      // Load ID map regardless if continents shown or not, so picking works!
+      // But only load if the file exists (we might just have frame 1). We catch errors.
+      const idPromise = new Promise(res => {
+         this._loader.load(continentIdPath(index, snappedMa), tex => res(tex), undefined, () => res(null));
+      });
+      const outlinePromise = this._showContinents ? new Promise(res => {
+         this._loader.load(continentOutlinePath(index, snappedMa), tex => res(tex), undefined, () => res(null));
+      }) : Promise.resolve(null);
+      
+      const [frame, borderTex, idTex, outlineTex] = await Promise.all([framePromise, borderPromise, idPromise, outlinePromise]);
+
 
       // Discard only if a strictly newer frame has ALREADY been applied to the globe
       if (ticket < this._appliedTicket) {
@@ -567,9 +640,25 @@ export class Globe {
       this._globeMaterial.normalMap    = frame.normal;
       this._globeMaterial.roughnessMap = frame.roughness;
       
+      
       if (borderTex) {
         this._customUniforms.bordersMap.value = borderTex;
       }
+      if (outlineTex) {
+        this._customUniforms.continentOutlineMap.value = outlineTex;
+      }
+      if (idTex) {
+        this._customUniforms.continentIdMap.value = idTex;
+        if (idTex.image) {
+            this._idCanvas.width = idTex.image.width;
+            this._idCanvas.height = idTex.image.height;
+            this._idCtx.drawImage(idTex.image, 0, 0);
+        }
+      } else {
+        // Clear canvas if no map
+        this._idCtx.clearRect(0, 0, this._idCanvas.width, this._idCanvas.height);
+      }
+
       
       this._globeMaterial.needsUpdate  = true;
 
@@ -611,6 +700,47 @@ export class Globe {
    * Toggle political borders overlay on/off.
    * @returns {boolean} current enabled state
    */
+  
+  toggleContinents() {
+    this._showContinents = !this._showContinents;
+    if (this._showContinents) {
+      const currentMa = this._displayedMa !== null ? this._displayedMa : (this._targetMa !== null ? this._targetMa : 0);
+      const { index, ma: snappedMa } = getFrameForMa(currentMa);
+      this._loader.load(continentOutlinePath(index, snappedMa), tex => {
+         this._customUniforms.continentOutlineMap.value = tex;
+      });
+    }
+    return this._showContinents;
+  }
+
+  setHoveredContinent(colorObj, opacity) {
+    if (colorObj) {
+        this._customUniforms.hoveredContinentColor.value.setRGB(colorObj.r/255, colorObj.g/255, colorObj.b/255);
+        if (colorObj.uiColor) {
+            this._customUniforms.hoveredContinentUiColor.value.setRGB(colorObj.uiColor[0], colorObj.uiColor[1], colorObj.uiColor[2]);
+        } else {
+            this._customUniforms.hoveredContinentUiColor.value.setRGB(colorObj.r/255, colorObj.g/255, colorObj.b/255);
+        }
+    }
+    this._customUniforms.hoveredGlowOpacity.value = opacity;
+  }
+
+  getContinentColorAt(ndcX, ndcY) {
+    if (this._idCanvas.width === 0 || this._idCanvas.height === 0) return null;
+    this._raycaster.setFromCamera({x: ndcX, y: ndcY}, this._camera);
+    const intersects = this._raycaster.intersectObject(this._globe);
+    if (intersects.length > 0) {
+        const uv = intersects[0].uv;
+        const x = Math.floor(uv.x * this._idCanvas.width);
+        const y = Math.floor((1.0 - uv.y) * this._idCanvas.height);
+        const data = this._idCtx.getImageData(x, y, 1, 1).data;
+        if (data[3] > 0 && !(data[0]===0 && data[1]===0 && data[2]===0) && !(data[0]===255 && data[1]===255 && data[2]===255)) {
+            return `${data[0]},${data[1]},${data[2]}`;
+        }
+    }
+    return null;
+  }
+
   toggleBorders() {
     return this.setBordersEnabled(!this._showBorders);
   }

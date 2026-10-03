@@ -82,6 +82,22 @@ export function bordersPath(index, ma) {
   return `textures/${ACTIVE_TEXTURE_QUALITY}/earth_borders_${res}_${index}.png`;
 }
 
+export function continentIdPath(index, ma) {
+  return "textures/continents_color_id/earth_continent_id_2k_" + index + ".png";
+}
+export function continentOutlinePath(index, ma) {
+  return "textures/continents_outlines/earth_continent_outline_2k_" + index + ".png";
+}
+
+export const CONTINENT_COLORS = {
+  "255,0,0": { id: "eurasia", name: "Eurasia", uiColor: [1.0, 0.4, 0.4] },
+  "0,255,0": { id: "africa", name: "Africa", uiColor: [0.4, 1.0, 0.4] },
+  "0,0,255": { id: "north_america", name: "North America", uiColor: [0.4, 0.4, 1.0] },
+  "255,255,0": { id: "south_america", name: "South America", uiColor: [1.0, 1.0, 0.4] },
+  "0,255,255": { id: "australia", name: "Australia", uiColor: [0.4, 1.0, 1.0] },
+  "255,0,255": { id: "antarctica", name: "Antarctica", uiColor: [1.0, 0.4, 1.0] }
+};
+
 // Backwards compatibility alias
 export const texturePath = diffusePath;
 

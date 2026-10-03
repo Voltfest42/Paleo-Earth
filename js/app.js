@@ -9,7 +9,7 @@
  * (ES modules cannot be loaded from file:// in most browsers.)
  */
 
-import { DEV_MODE, SLIDER_DEBOUNCE_MS, getTextureQuality, setTextureQuality } from './config.js';
+import { DEV_MODE, SLIDER_DEBOUNCE_MS, getTextureQuality, setTextureQuality, CONTINENT_COLORS } from './config.js';
 import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
@@ -268,6 +268,54 @@ async function main() {
         : 'Show Political Borders Overlay';
     });
   }
+
+    // Continents overlay toggle
+  const toggleContinentsBtn = document.getElementById('toggleContinentsBtn');
+  if (toggleContinentsBtn) {
+    toggleContinentsBtn.addEventListener('click', () => {
+      const active = globe.toggleContinents();
+      toggleContinentsBtn.classList.toggle('active', active);
+      toggleContinentsBtn.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  // Continent Hover Raycasting
+  const tooltip = document.getElementById('continentTooltip');
+  let currentHover = null;
+  globeContainer.addEventListener('mousemove', (e) => {
+    // Calculate NDC
+    const rect = globeContainer.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    const colorKey = globe.getContinentColorAt(x, y);
+    if (colorKey && CONTINENT_COLORS[colorKey]) {
+      const c = CONTINENT_COLORS[colorKey];
+      if (currentHover !== colorKey) {
+        currentHover = colorKey;
+        const parts = colorKey.split(',').map(Number);
+        globe.setHoveredContinent({r: parts[0], g: parts[1], b: parts[2], uiColor: c.uiColor}, 0.5);
+        tooltip.textContent = c.name;
+        tooltip.style.display = 'block';
+      }
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top = (e.clientY + 15) + 'px';
+    } else {
+      if (currentHover !== null) {
+        currentHover = null;
+        globe.setHoveredContinent(null, 0.0);
+        tooltip.style.display = 'none';
+      }
+    }
+  });
+
+  globeContainer.addEventListener('mouseleave', () => {
+      if (currentHover !== null) {
+        currentHover = null;
+        globe.setHoveredContinent(null, 0.0);
+        tooltip.style.display = 'none';
+      }
+  });
 
   // Atmosphere gauges toggle
   const toggleAtmosphereBtn = document.getElementById('toggleAtmosphereBtn');
