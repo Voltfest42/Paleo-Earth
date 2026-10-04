@@ -48,16 +48,21 @@ def sanitize_for_speech(text):
     text = re.sub(r'\s{2,}', ' ', text)
     return text.strip()
 
-def synthesize_chunk(text, voice, out_file):
-    # Call AWS Polly
-    # We use engine 'neural' for higher quality voices (Matthew, Joanna support neural)
+def synthesize_chunk(text, voice, out_file, add_break=False):
+    # Escape XML for SSML
+    text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    
+    # Wrap in SSML and conditionally add a 1s break at the end of the chunk
+    break_tag = '<break time="1s"/>' if add_break else ''
+    ssml = f"<speak>{text}{break_tag}</speak>"
+    
     cmd = [
         'aws', 'polly', 'synthesize-speech',
         '--output-format', 'mp3',
         '--voice-id', voice,
         '--engine', 'neural',
-        '--text-type', 'text',
-        '--text', text,
+        '--text-type', 'ssml',
+        '--text', ssml,
         out_file
     ]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL)
@@ -102,20 +107,25 @@ def main():
                     if len(chunk) > 2900:
                         sentences = re.split(r'(?<=[.!?]) +', chunk)
                         sub_chunk = ""
+                        # Collect sub_chunks
+                        sub_chunks_list = []
                         for s in sentences:
                             if len(sub_chunk) + len(s) > 2900:
-                                t = os.path.join(OUT_DIR, f"temp_{article_id}_{voice.lower()}_{i}_{len(temp_files)}.mp3")
-                                synthesize_chunk(sub_chunk, voice, t)
-                                temp_files.append(t)
+                                sub_chunks_list.append(sub_chunk)
                                 sub_chunk = s + " "
                             else:
                                 sub_chunk += s + " "
                         if sub_chunk.strip():
-                            t = os.path.join(OUT_DIR, f"temp_{article_id}_{voice.lower()}_{i}_{len(temp_files)}.mp3")
-                            synthesize_chunk(sub_chunk, voice, t)
+                            sub_chunks_list.append(sub_chunk)
+                            
+                        # Process sub_chunks
+                        for j, sc in enumerate(sub_chunks_list):
+                            t = os.path.join(OUT_DIR, f"temp_{article_id}_{voice.lower()}_{i}_{j}.mp3")
+                            is_last = (j == len(sub_chunks_list) - 1)
+                            synthesize_chunk(sc, voice, t, add_break=is_last)
                             temp_files.append(t)
                     else:
-                        synthesize_chunk(chunk, voice, temp_f)
+                        synthesize_chunk(chunk, voice, temp_f, add_break=True)
                         temp_files.append(temp_f)
                     
                     time.sleep(0.5) # small delay to prevent rate limits
