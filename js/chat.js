@@ -149,7 +149,7 @@ export class Chat {
         speak(text, this._el.summaryTtsBtn);
       } else {
         const voice = getPollyVoice().toLowerCase();
-        const url = `audio/summaries/${this._currentKeyframe.id}_${voice}.mp3`;
+        const url = `audio/summaries/${this._context.id}_${voice}.mp3`;
         playStatic(url, this._el.summaryTtsBtn);
       }
     });
