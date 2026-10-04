@@ -487,6 +487,8 @@ export class Chat {
 
     // Inline images for assistant messages (compact card layout, click to enlarge)
     if (role === 'assistant' && images.length > 0) {
+      const galleryWrap = document.createElement('div');
+      galleryWrap.className = 'message-image-gallery';
       for (const img of images) {
         const card      = document.createElement('div');
         card.className  = 'message-image-card';
@@ -522,8 +524,9 @@ export class Chat {
           }
         });
 
-        bubble.appendChild(card);
+        galleryWrap.appendChild(card);
       }
+        bubble.appendChild(galleryWrap);
     }
 
     wrap.appendChild(bubble);

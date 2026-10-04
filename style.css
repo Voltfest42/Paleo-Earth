@@ -936,9 +936,16 @@ input[type="range"]:hover::-webkit-slider-thumb {
 .message-bubble p:last-child { margin-bottom: 0; }
 
 /* Inline images inside AI responses (half-size card with click to enlarge) */
-.message-image-card {
+.message-image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 10px 0 4px;
-  width: 50%;
+}
+
+.message-image-card {
+  margin: 0;
+  flex: 1 1 160px;
   max-width: 240px;
   min-width: 160px;
   border-radius: var(--radius-sm);
@@ -982,7 +989,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 
 .panel-right.fullscreen .message-image-card {
-  width: 38%;
+  flex: 1 1 200px;
   max-width: 300px;
   min-width: 200px;
 }
