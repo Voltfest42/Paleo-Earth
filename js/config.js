@@ -23,7 +23,7 @@ export const POLLY_VOICE_ID = 'Matthew';
 // ─── Keyframe Hero Illustrations ──────────────────────────────────────────
 // Master feature flag for displaying hero mood illustrations in the summary card.
 // Set to false to disable this feature globally across the entire app.
-export const ENABLE_KEYFRAME_HERO_IMAGES = true;
+export const ENABLE_KEYFRAME_HERO_IMAGES = false;
 
 // ─── Time range ──────────────────────────────────────────────────────────
 export const MIN_MA = 0;

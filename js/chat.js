@@ -10,7 +10,7 @@
  */
 
 import { DEV_MODE, API_BASE, ENABLE_KEYFRAME_HERO_IMAGES } from './config.js';
-import { speak } from './tts.js';
+import { speak, getPollyVoice, playStatic } from './tts.js';
 
 // ─── Markdown → simple HTML ───────────────────────────────────────────────
 function simpleMarkdown(text) {
@@ -144,8 +144,14 @@ export class Chat {
 
     // Summary TTS button
     this._el.summaryTtsBtn.addEventListener('click', () => {
-      const text = this._el.summarySubtitle.textContent + '. ' + this._summaryText;
-      speak(text, this._el.summaryTtsBtn);
+      if (DEV_MODE) {
+        const text = this._el.summarySubtitle.textContent + '. ' + this._summaryText;
+        speak(text, this._el.summaryTtsBtn);
+      } else {
+        const voice = getPollyVoice().toLowerCase();
+        const url = `audio/summaries/${this._currentKeyframe.id}_${voice}.mp3`;
+        playStatic(url, this._el.summaryTtsBtn);
+      }
     });
 
     // Summary hero image toggle button
