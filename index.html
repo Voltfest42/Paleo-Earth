@@ -76,9 +76,17 @@
             <span class="btn-label">Continents</span>
             <span class="status-dot"></span>
           </button>
+
         </div>
 
-        <div class="globe-loading" id="globeLoading">
+        <button id="creditsBtn" class="credits-btn" title="About & Credits">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </button>
+      <div class="globe-loading" id="globeLoading">
           <div class="spinner"></div>
           <span>Loading Earth...</span>
         </div>
@@ -227,7 +235,30 @@
   <script type="module" src="js/app.js"></script>
 
 
-  <!-- Settings Modal -->
+  
+    <!-- Credits Modal -->
+    <div id="creditsModal" class="modal-overlay" style="display: none;">
+      <div class="modal-content credits-modal">
+        <div class="modal-header">
+          <h2>About Paleo Earth</h2>
+          <button class="modal-close" id="closeCreditsBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Created by:</strong> [Your Name Here]</p>
+          <hr>
+          <h3>Data Sources & Accreditation</h3>
+          <ul class="credits-list">
+            <li><strong>Paleogeography & Elevation:</strong> Based on the PALEOMAP Project by Christopher R. Scotese.</li>
+            <li><strong>Oxygen Curve:</strong> Mills et al. (2023) / GEOCARBSULF</li>
+            <li><strong>Temperature Curve:</strong> Scotese et al. (2021) Phanerozoic Paleotemperatures.</li>
+            <li><strong>CO2 Trajectory:</strong> CenCO2PIP Consortium (2023) and Foster et al. (2017).</li>
+            <li><strong>Paleoart:</strong> Images sourced via Wikimedia Commons (Creative Commons). Artists are individually credited on images.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
   <div class="modal-overlay" id="settingsModal">
     <div class="modal-content">
       <div class="modal-header">
