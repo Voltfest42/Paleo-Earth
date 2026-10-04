@@ -215,6 +215,25 @@ async function main() {
 
 
 
+
+  // --- Credits Modal Logic ---
+  const creditsBtn = document.getElementById('creditsBtn');
+  const creditsModal = document.getElementById('creditsModal');
+  const closeCreditsBtn = document.getElementById('closeCreditsBtn');
+
+  if (creditsBtn && creditsModal && closeCreditsBtn) {
+    creditsBtn.addEventListener('click', () => {
+      creditsModal.classList.add('active');
+    });
+
+    const closeCreditsModal = () => creditsModal.classList.remove('active');
+    closeCreditsBtn.addEventListener('click', closeCreditsModal);
+    
+    creditsModal.addEventListener('click', (e) => {
+      if (e.target === creditsModal) closeCreditsModal();
+    });
+  }
+
   // Wiki DOM and TTS initialization
   let currentWikiText = '';
   const wikiHeader = document.querySelector('.wiki-header');
