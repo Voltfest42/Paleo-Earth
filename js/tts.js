@@ -209,3 +209,31 @@ export function speak(text, btnEl) {
 }
 
 export { stopAll };
+
+export async function playStatic(url, btnEl) {
+  // Toggle off if this button is currently playing
+  if (btnEl && btnEl.classList.contains('playing')) {
+    stopAll();
+    return;
+  }
+  
+  stopAll();
+  _setPlaying(btnEl, true);
+
+  try {
+    const audioEl  = new Audio(url);
+    _currentAudio  = audioEl;
+
+    audioEl.onended = () => {
+      _setPlaying(btnEl, false);
+    };
+    audioEl.onerror = () => {
+      _setPlaying(btnEl, false);
+    };
+
+    await audioEl.play();
+  } catch (err) {
+    console.error('TTS static play error:', err);
+    _setPlaying(btnEl, false);
+  }
+}

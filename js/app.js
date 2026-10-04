@@ -14,7 +14,7 @@ import { Globe    } from './globe.js';
 import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
-import { speak, stopAll, getPollyVoice, setPollyVoice } from './tts.js';
+import { speak, stopAll, getPollyVoice, setPollyVoice, playStatic } from './tts.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -236,6 +236,7 @@ async function main() {
 
   // Wiki DOM and TTS initialization
   let currentWikiText = '';
+  let currentKeyframeId = '';
   const wikiHeader = document.querySelector('.wiki-header');
   const wikiSubtitle = document.getElementById('wikiSubtitle');
   const wikiTtsBtn = document.getElementById('wikiTtsBtn');
@@ -243,7 +244,13 @@ async function main() {
   if (wikiTtsBtn) {
     wikiTtsBtn.addEventListener('click', () => {
       if (currentWikiText) {
-        speak(currentWikiText, wikiTtsBtn);
+        if (DEV_MODE) {
+          speak(currentWikiText, wikiTtsBtn);
+        } else {
+          const voice = getPollyVoice().toLowerCase();
+          const url = `audio/wiki/${currentKeyframeId}_${voice}.mp3`;
+          playStatic(url, wikiTtsBtn);
+        }
       }
     });
   }
@@ -485,6 +492,7 @@ async function main() {
   // --- Wiki Tab Renderer -----------------------------------------------------
 
   function renderWiki(keyframeId) {
+    currentKeyframeId = keyframeId;
     const el = document.getElementById('wikiContent');
     if (!el) return;
 
