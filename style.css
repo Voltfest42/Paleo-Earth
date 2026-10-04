@@ -915,6 +915,21 @@ input[type="range"]:hover::-webkit-slider-thumb {
   color: var(--text-primary);
   border: 1px solid var(--border);
   border-bottom-left-radius: 3px;
+  position: relative;
+  padding-right: 44px; /* Space for the TTS button */
+}
+
+.bubble-tts-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .chat-message.assistant .message-bubble {
+    padding-right: 54px; /* Larger touch target on mobile */
+  }
 }
 
 .message-bubble p { margin-bottom: 8px; }
