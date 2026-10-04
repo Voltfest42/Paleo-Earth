@@ -506,17 +506,23 @@ async function main() {
 
     for (const section of article.sections) {
       html += `<h3 class="wiki-heading">${section.heading}</h3>`;
-      textForTTS += section.heading + '. ';
+      const isSources = section.heading.toLowerCase().includes('source') || section.heading.toLowerCase().includes('reference');
+      if (!isSources) {
+        textForTTS += section.heading + '. ';
+      }
 
       const paragraphs = section.body.split('\n\n');
       for (const p of paragraphs) {
         if (!p.trim()) continue;
         html += `<p class="wiki-body">${p.trim()}</p>`;
-        textForTTS += p.trim() + ' ';
+        if (!isSources) {
+          textForTTS += p.trim() + ' ';
+        }
       }
     }
     el.innerHTML = html;
     el.scrollTop = 0; // scroll back to top on keyframe change
+    textForTTS = textForTTS.replace(/\[\d+(,\s*\d+)*\]/g, '');
     currentWikiText = textForTTS.trim();
   }
 }
