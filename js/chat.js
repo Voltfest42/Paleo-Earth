@@ -432,6 +432,7 @@ export class Chat {
 
       const enrichedContext = {
         ...(this._context || {}),
+        isMobile: window.innerWidth <= 768,
         currentPeriodImages: activeImages.map(img => ({
           title: img.title,
           tags: (img.tags || []).slice(0, 8).join(', '),
