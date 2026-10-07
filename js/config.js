@@ -1,43 +1,43 @@
-/**
- * config.js — Global configuration for Paleo Earth
+﻿/**
+ * config.js â€” Global configuration for Paleo Earth
  *
- * ┌─────────────────────────────────────────────────────────┐
- * │  DEV_MODE = true  → local development, no AWS needed    │
- * │  DEV_MODE = false → production mode, calls Lambda APIs  │
- * └─────────────────────────────────────────────────────────┘
+ * â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+ * â”‚  DEV_MODE = true  â†’ local development, no AWS needed    â”‚
+ * â”‚  DEV_MODE = false â†’ production mode, calls Lambda APIs  â”‚
+ * â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
  *
  * For local testing:
  *   python -m http.server 8000
  *   open http://localhost:8000
  */
 
-// ─── Mode switch ────────────────────────────────────────────────────────
+// â”€â”€â”€ Mode switch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export const DEV_MODE = false;
 
 // AWS API Gateway base URL
-export const API_BASE = 'https://zazc8i568e.execute-api.us-east-1.amazonaws.com/prod';
+export const API_BASE = 'https://5h9f59awah.execute-api.us-east-1.amazonaws.com/staging';
 
 // Amazon Polly neural voice ID used for TTS
 export const POLLY_VOICE_ID = 'Matthew';
 
-// ─── Keyframe Hero Illustrations ──────────────────────────────────────────
+// â”€â”€â”€ Keyframe Hero Illustrations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Master feature flag for displaying hero mood illustrations in the summary card.
 // Set to false to disable this feature globally across the entire app.
 export const ENABLE_KEYFRAME_HERO_IMAGES = false;
 
-// ─── Time range ──────────────────────────────────────────────────────────
+// â”€â”€â”€ Time range â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export const MIN_MA = 0;
 export const MAX_MA = 540;
 
-// ─── Texture manifest ────────────────────────────────────────────────────
+// â”€â”€â”€ Texture manifest â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // All 109 diffuse texture frames at strict 5-million-year intervals (0 to 540 Ma).
 // Format: [index (1-109), ma (0-540)]
 export const TEXTURE_FRAMES = Array.from({ length: 109 }, (_, i) => [i + 1, i * 5]);
 
 /**
  * Build texture file paths for a given frame entry.
- * @param {number} index  — texture sequence index (1-109)
- * @param {number} ma     — age in millions of years (0-540)
+ * @param {number} index  â€” texture sequence index (1-109)
+ * @param {number} ma     â€” age in millions of years (0-540)
  * @returns {string}
  */
 // Texture Quality State
@@ -113,7 +113,7 @@ export const texturePath = diffusePath;
  * Find the discrete texture frame for a given Ma value.
  * Hard jumps occur at the 2.5 Ma midpoint (e.g. 0-2 Ma -> 0 Ma, 3-7 Ma -> 5 Ma).
  *
- * @param {number} ma  — current slider value in Ma
+ * @param {number} ma  â€” current slider value in Ma
  * @returns {{ index: number, ma: number }}
  */
 export function getFrameForMa(ma) {
@@ -123,7 +123,7 @@ export function getFrameForMa(ma) {
   return { index, ma: snappedMa };
 }
 
-// ─── Keyframe detection threshold ───────────────────────────────────────
+// â”€â”€â”€ Keyframe detection threshold â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // How close (in Ma) the slider must be to an event keyframe to snap to it.
 export const PERIOD_SNAP_RADIUS = 8;  // Ma
 export const EVENT_SNAP_RADIUS  = 5;  // Ma
@@ -141,7 +141,7 @@ export const SLIDER_PLAY_DURATION_SEC = 24.0;
 // Normal map strength in the shader (0.10 = 10% strength, 0.0 = disabled)
 export const NORMAL_MAP_SCALE = 0.1;
 
-// ─── Globe Lighting & Shading Settings ───────────────────────────────────
+// â”€â”€â”€ Globe Lighting & Shading Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Ambient light intensity (higher keeps unlit terrain readable and prevents pitch-black shadows)
 export const GLOBE_AMBIENT_LIGHT = 0.95;
 
@@ -171,4 +171,5 @@ export const GEOLOGIC_PERIODS = [
   { id: 'O',  name: 'Ordovician',    start: 443.8,  end: 485.4,  color: '0, 146, 112' },
   { id: '\u0404', name: 'Cambrian', start: 485.4,  end: 540.0,  color: '127, 160, 86' }
 ];
+
 
