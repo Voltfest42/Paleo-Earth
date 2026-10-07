@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 import_spinops_image.py
 =======================
@@ -28,7 +28,7 @@ from pathlib import Path
 
 # Paths relative to project root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-IMAGES_DIR = PROJECT_ROOT / "images"
+IMAGES_DIR = PROJECT_ROOT / "images" / "paleo_art"
 IMAGE_LIB_PATH = PROJECT_ROOT / "data" / "image-library.json"
 KEYFRAMES_PATH = PROJECT_ROOT / "data" / "keyframes.json"
 
@@ -514,7 +514,7 @@ ECOSYSTEM_CATALOG = {
         "id": "california_late_cretaceous_vertebrates_tamura",
         "filename": "california_late_cretaceous_vertebrates_nobu_tamura.jpg",
         "title": "Late Cretaceous Vertebrates of California",
-        "description": "An ecosystem reconstruction of marine and coastal vertebrates from the Late Cretaceous (Maastrichtian, ~70–66 Ma) Moreno and Point Loma Formations along the paleo-Pacific coast of California. Featured are the official California state dinosaur Augustynolophus morrisi, the armored dinosaur Aletopelta coombsi, the giant long-necked elasmosaurid plesiosaurs Hydrotherosaurus and Morenosaurus, and the apex predatory mosasaurs Plesiotylosaurus and Plotosaurus.",
+        "description": "An ecosystem reconstruction of marine and coastal vertebrates from the Late Cretaceous (Maastrichtian, ~70â€“66 Ma) Moreno and Point Loma Formations along the paleo-Pacific coast of California. Featured are the official California state dinosaur Augustynolophus morrisi, the armored dinosaur Aletopelta coombsi, the giant long-necked elasmosaurid plesiosaurs Hydrotherosaurus and Morenosaurus, and the apex predatory mosasaurs Plesiotylosaurus and Plotosaurus.",
         "tags": [
             "aletopelta", "apex_predator", "augustynolophus", "california", "chordate",
             "community", "composite", "dinosaur", "elasmosauridae", "hydrotherosaurus",
@@ -1421,7 +1421,7 @@ CURATED_ENTRIES = {
     },
     "mystriosuchus_planirostris": {
         "title": "Mystriosuchus planirostris",
-        "description": "Mystriosuchus was a 4-meter, slender-snouted phytosaur from the Late Triassic (Norian) Löwenstein Formation of Germany. Convergent on modern gharials with its elongated jaws and upward-directed nostrils positioned near the eyes, it was among the most thoroughly aquatic archosaurs of the Triassic.",
+        "description": "Mystriosuchus was a 4-meter, slender-snouted phytosaur from the Late Triassic (Norian) LÃ¶wenstein Formation of Germany. Convergent on modern gharials with its elongated jaws and upward-directed nostrils positioned near the eyes, it was among the most thoroughly aquatic archosaurs of the Triassic.",
         "tags": [
             "archosauriform", "carnivore", "chordate", "germany", "gharial_snout",
             "late_triassic", "loewenstein_formation", "mesozoic", "mystriosuchus",
@@ -1648,7 +1648,7 @@ CURATED_ENTRIES = {
     },
     "vouivria_damparisensis": {
         "title": "Vouivria damparisensis",
-        "description": "Vouivria was a 15-meter brachiosaurid sauropod dinosaur from the Late Jurassic (Oxfordian) Calcaires de Clerval of Franche-Comté, France. Identified as one of the oldest known true brachiosaurids, it possessed elevated forequarters, an elongated neck, and chisel-like teeth suited for high-canopy browsing.",
+        "description": "Vouivria was a 15-meter brachiosaurid sauropod dinosaur from the Late Jurassic (Oxfordian) Calcaires de Clerval of Franche-ComtÃ©, France. Identified as one of the oldest known true brachiosaurids, it possessed elevated forequarters, an elongated neck, and chisel-like teeth suited for high-canopy browsing.",
         "tags": [
             "brachiosauridae", "chordate", "dinosaur", "dinosauria", "france",
             "herbivore", "jurassic", "land_vertebrate", "late_jurassic", "macronaria",
@@ -1670,7 +1670,7 @@ CURATED_ENTRIES = {
     },
     "isaberrysaura_mollensis": {
         "title": "Isaberrysaura mollensis",
-        "description": "Isaberrysaura was a 4.5-meter basal neornithischian dinosaur from the Early to Middle Jurassic (Toarcian-Bajocian) Los Molles Formation of Neuquén, Argentina. Exceptional fossilized gut contents revealed that it fed on large cycad seeds, providing rare and direct evidence of seed-dispersal mutualism between dinosaurs and Mesozoic plants.",
+        "description": "Isaberrysaura was a 4.5-meter basal neornithischian dinosaur from the Early to Middle Jurassic (Toarcian-Bajocian) Los Molles Formation of NeuquÃ©n, Argentina. Exceptional fossilized gut contents revealed that it fed on large cycad seeds, providing rare and direct evidence of seed-dispersal mutualism between dinosaurs and Mesozoic plants.",
         "tags": [
             "argentina", "chordate", "cycad_feeder", "dinosaur", "dinosauria",
             "early_jurassic", "herbivore", "isaberrysaura", "isaberrysaura_mollensis",
@@ -1890,7 +1890,7 @@ CURATED_ENTRIES = {
     },
     "kumimanu_biceae": {
         "title": "Kumimanu biceae",
-        "description": "Kumimanu was a colossal early penguin from the Late Paleocene (~59–56 Ma) Moeraki Formation of Otago, New Zealand. Standing up to 1.6 meters tall and weighing over 100 kg, it evolved gigantism shortly after the extinction of non-avian dinosaurs and marine reptiles, diving in deep waters for large fish and cephalopods.",
+        "description": "Kumimanu was a colossal early penguin from the Late Paleocene (~59â€“56 Ma) Moeraki Formation of Otago, New Zealand. Standing up to 1.6 meters tall and weighing over 100 kg, it evolved gigantism shortly after the extinction of non-avian dinosaurs and marine reptiles, diving in deep waters for large fish and cephalopods.",
         "tags": [
             "aves", "bird", "chordate", "early_paleogene", "giant", "giant_penguin",
             "kumimanu", "kumimanu_biceae", "marine", "moeraki_formation", "new_zealand",
@@ -1900,7 +1900,7 @@ CURATED_ENTRIES = {
     },
     "titanoboa_cerrejonensis": {
         "title": "Titanoboa cerrejonensis",
-        "description": "Titanoboa was a gargantuan boid snake from the Middle to Late Paleocene (~60–58 Ma) Cerrejón Formation of Colombia. Measuring an estimated 13 to 14 meters in length and weighing over 1.1 tonnes, it was the largest snake ever discovered, thriving in equatorial superheated rainforest swamps where it ambushed giant turtles and dyrosaurid crocs.",
+        "description": "Titanoboa was a gargantuan boid snake from the Middle to Late Paleocene (~60â€“58 Ma) CerrejÃ³n Formation of Colombia. Measuring an estimated 13 to 14 meters in length and weighing over 1.1 tonnes, it was the largest snake ever discovered, thriving in equatorial superheated rainforest swamps where it ambushed giant turtles and dyrosaurid crocs.",
         "tags": [
             "apex_predator", "boidae", "carnivore", "cerrejon", "cerrejon_formation", "chordate",
             "colombia", "early_paleogene", "giant", "giant_snake", "land_vertebrate", "paleocene",
@@ -1911,7 +1911,7 @@ CURATED_ENTRIES = {
     },
     "otodus_obliquus": {
         "title": "Otodus obliquus",
-        "description": "Otodus obliquus was a massive 9-meter lamniform megatooth shark that prowled global oceans from the Late Paleocene through the Eocene (~60–45 Ma). Bearing large triangular teeth with smooth cutting edges and distinct lateral cusplets, it is the direct ancestral forerunner of the colossal Neogene shark Otodus megalodon.",
+        "description": "Otodus obliquus was a massive 9-meter lamniform megatooth shark that prowled global oceans from the Late Paleocene through the Eocene (~60â€“45 Ma). Bearing large triangular teeth with smooth cutting edges and distinct lateral cusplets, it is the direct ancestral forerunner of the colossal Neogene shark Otodus megalodon.",
         "tags": [
             "apex_predator", "carnivore", "cartilaginous_fish", "chondrichthyes", "chordate",
             "early_paleogene", "elasmobranchii", "fish", "lamniformes", "marine",
@@ -1944,7 +1944,7 @@ CURATED_ENTRIES = {
     },
     "carbonemys_cofrinii": {
         "title": "Carbonemys cofrinii",
-        "description": "Carbonemys ('coal turtle') was an enormous side-necked pleurodiran turtle from the Middle to Late Paleocene (~60 Ma) Cerrejón coal mines of Colombia. Its shell reached 1.7 meters in length and its heavy jaws possessed crushing alveolar surfaces capable of eating armored fish and juvenile crocodyliforms.",
+        "description": "Carbonemys ('coal turtle') was an enormous side-necked pleurodiran turtle from the Middle to Late Paleocene (~60 Ma) CerrejÃ³n coal mines of Colombia. Its shell reached 1.7 meters in length and its heavy jaws possessed crushing alveolar surfaces capable of eating armored fish and juvenile crocodyliforms.",
         "tags": [
             "cerrejon", "cerrejon_formation", "chordate", "colombia", "early_paleogene",
             "freshwater", "giant", "giant_turtle", "paleocene", "paleogene", "pleurodira",
@@ -2465,3 +2465,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

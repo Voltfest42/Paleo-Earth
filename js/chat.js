@@ -1,5 +1,5 @@
-/**
- * chat.js — Right-panel AI chat and summary card
+﻿/**
+ * chat.js â€” Right-panel AI chat and summary card
  *
  * Responsibilities:
  *  - Display the static summary for the active keyframe
@@ -12,7 +12,7 @@
 import { DEV_MODE, API_BASE, ENABLE_KEYFRAME_HERO_IMAGES } from './config.js';
 import { speak, getPollyVoice, playStatic } from './tts.js';
 
-// ─── Markdown → simple HTML ───────────────────────────────────────────────
+// â”€â”€â”€ Markdown â†’ simple HTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function simpleMarkdown(text) {
   if (!text) return '';
   return text
@@ -26,7 +26,7 @@ function simpleMarkdown(text) {
     .trim();
 }
 
-// ─── Image tag resolution ─────────────────────────────────────────────────
+// â”€â”€â”€ Image tag resolution â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function resolveImages(text, imageLibrary) {
   if (!imageLibrary) return { html: simpleMarkdown(text), images: [] };
 
@@ -68,7 +68,7 @@ function resolveImages(text, imageLibrary) {
   return { html: simpleMarkdown(text), images: matched };
 }
 
-// ─── DEV mock response ────────────────────────────────────────────────────
+// â”€â”€â”€ DEV mock response â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function mockChat(messages, context) {
   await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
 
@@ -82,10 +82,10 @@ async function mockChat(messages, context) {
   ];
   const starter = starters[Math.floor(Math.random() * starters.length)];
 
-  return `[DEV MODE] ${starter} This is a placeholder response generated locally — no AWS connection is needed in development mode.\n\nIn production, this response would come from Claude via Amazon Bedrock with detailed, scientifically accurate information about the paleogeography, climate, and life of this period. You can set DEV_MODE = false in js/config.js to switch to the live API once your Lambda is deployed.\n\nFeel free to explore the timeline and test the full UI flow. Your conversation history is being maintained across keyframe changes.`;
+  return `[DEV MODE] ${starter} This is a placeholder response generated locally â€” no AWS connection is needed in development mode.\n\nIn production, this response would come from Claude via Amazon Bedrock with detailed, scientifically accurate information about the paleogeography, climate, and life of this period. You can set DEV_MODE = false in js/config.js to switch to the live API once your Lambda is deployed.\n\nFeel free to explore the timeline and test the full UI flow. Your conversation history is being maintained across keyframe changes.`;
 }
 
-// ─── Prod: call Lambda /chat ───────────────────────────────────────────────
+// â”€â”€â”€ Prod: call Lambda /chat â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function prodChat(messages, context, userMessage) {
   const res = await fetch(`${API_BASE}/chat`, {
     method: 'POST',
@@ -100,12 +100,12 @@ async function prodChat(messages, context, userMessage) {
   return data.reply || data.response || '';
 }
 
-// ─── Chat class ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Chat class â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export class Chat {
   /**
-   * @param {object}   elements         — DOM element references
-   * @param {object[]} imageLibrary     — image-library.json images array
-   * @param {object}   keyframeImages   — keyframe-images.json mapping object
+   * @param {object}   elements         â€” DOM element references
+   * @param {object[]} imageLibrary     â€” image-library.json images array
+   * @param {object}   keyframeImages   â€” keyframe-images.json mapping object
    */
   constructor(elements, imageLibrary, keyframeImages = {}) {
     this._el          = elements;
@@ -129,7 +129,7 @@ export class Chat {
     this._initLightbox();
   }
 
-  // ── Event listeners ───────────────────────────────────────────────────
+  // â”€â”€ Event listeners â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   _attach() {
     // Send on button click
     this._el.sendBtn.addEventListener('click', () => this._sendUserMessage());
@@ -170,13 +170,13 @@ export class Chat {
     }
   }
 
-  // ── Keyframe update ───────────────────────────────────────────────────
+  // â”€â”€ Keyframe update â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
    * Called immediately in real-time when the active keyframe changes.
    * Updates summary card UI without cluttering the chat history.
-   * @param {object} keyframe  — keyframe object from keyframes.json
-   * @param {object} summary   — summary object from summaries.json
+   * @param {object} keyframe  â€” keyframe object from keyframes.json
+   * @param {object} summary   â€” summary object from summaries.json
    */
   setKeyframe(keyframe, summary) {
     if (!keyframe || !summary) return;
@@ -358,7 +358,7 @@ export class Chat {
   _openHeroLightbox(heroImage, keyframe) {
     const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
     const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
-    const details = [periodStr, maStr].filter(Boolean).join(' · ');
+    const details = [periodStr, maStr].filter(Boolean).join(' Â· ');
     const caption = details ? `${keyframe.label} (${details})` : keyframe.label;
 
     this._openLightbox(heroImage.src || heroImage.fallback, caption);
@@ -384,7 +384,7 @@ export class Chat {
       return;
     }
 
-    const text = `Viewing: ${keyframe.label} · ${keyframe.ma} Ma`;
+    const text = `Viewing: ${keyframe.label} Â· ${keyframe.ma} Ma`;
 
     // If an uncommitted divider already exists, update it in place instead of creating another
     if (this._pendingDividerEl && this._pendingDividerEl.parentNode) {
@@ -395,7 +395,7 @@ export class Chat {
     }
   }
 
-  // ── Message flow ──────────────────────────────────────────────────────
+  // â”€â”€ Message flow â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   async _sendUserMessage() {
     const text = this._el.chatInput.value.trim();
@@ -409,7 +409,7 @@ export class Chat {
       this._pendingDividerEl = null;
     } else if (this._history.length > 0 && this._context && this._context.id !== this._lastCommittedKeyframeId) {
       // Fallback: message sent before slider settle event fired
-      this._appendDivider(`Viewing: ${this._context.label} · ${this._context.ma} Ma`);
+      this._appendDivider(`Viewing: ${this._context.label} Â· ${this._context.ma} Ma`);
     }
 
     this._lastCommittedKeyframeId = this._context ? this._context.id : null;
@@ -469,7 +469,7 @@ export class Chat {
     this._el.chatInput.disabled = sending;
   }
 
-  // ── DOM builders ──────────────────────────────────────────────────────
+  // â”€â”€ DOM builders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   _appendMessage(role, text) {
     // Hide welcome message on first real message
@@ -496,7 +496,7 @@ export class Chat {
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
 
-        const imgPath   = `images/${img.filename}`;
+        const imgPath   = `images/paleo_art/${img.filename}`;
         const imgEl     = document.createElement('img');
         imgEl.src       = imgPath;
         imgEl.alt       = img.title || img.id;
@@ -506,13 +506,13 @@ export class Chat {
 
         const cap       = document.createElement('div');
         cap.className   = 'message-image-caption';
-        cap.textContent = `${img.title} — ${img.credit}`;
+        cap.textContent = `${img.title} â€” ${img.credit}`;
 
         card.appendChild(imgEl);
         card.appendChild(cap);
 
         const openImgModal = () => {
-          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' · ');
+          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' Â· ');
           this._openLightbox(imgPath, attribution);
         };
 
@@ -594,3 +594,4 @@ export class Chat {
     if (panelBody) panelBody.scrollTop = panelBody.scrollHeight;
   }
 }
+
