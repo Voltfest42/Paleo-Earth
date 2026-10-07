@@ -1,218 +1,219 @@
-# =============================================================================
-# Paleo Earth — AWS SAM Template
-# =============================================================================
-#
-# This template defines the serverless backend for Paleo Earth:
-#   • A Lambda function (Python 3.11) handling /chat and /tts routes
-#   • A REST API Gateway (v1) exposing those routes with CORS
-#   • An IAM role granting the Lambda access to Bedrock, Polly, and CloudWatch
-#
-# Deploy:
-#   sam build
-#   sam deploy --guided   (first time, saves samconfig.toml with your choices)
-#   sam deploy            (subsequent deployments, reads samconfig.toml)
-#
-# Required: AWS CLI configured  (aws configure)
-# Required: SAM CLI installed   (pip install aws-sam-cli  or  brew install aws-sam-cli)
-# Required: Bedrock model access granted in the AWS console
-#           → Amazon Bedrock → Model access → Enable "Claude 3 Haiku"
-#
-# =============================================================================
-
-AWSTemplateFormatVersion: "2010-09-09"
-Transform: AWS::Serverless-2016-10-31
-
-Description: >
-  Paleo Earth backend — Lambda + REST API Gateway for AI chat (Bedrock)
-  and text-to-speech (Polly) endpoints.
-
-# -----------------------------------------------------------------------------
-# Parameters — override at deploy time with --parameter-overrides
-# -----------------------------------------------------------------------------
-Parameters:
-  Stage:
-    Type: String
-    Default: prod
-    AllowedValues: [dev, staging, prod]
-    Description: Deployment stage name (used in API Gateway stage URL segment).
-
-  AnthropicApiKey:
-    Type: String
-    Default: ""
-    NoEcho: true
-    Description: Optional Anthropic API Key. When provided, Lambda calls Anthropic Claude API directly (bypassing Bedrock quota restrictions).
-
-# -----------------------------------------------------------------------------
-# Globals — applied to all Lambda functions unless overridden
-# -----------------------------------------------------------------------------
-Globals:
-  Function:
-    Runtime:      python3.11
-    MemorySize:   512          # MB — TTS audio buffering benefits from more memory
-    Timeout:      30           # seconds — Bedrock/Anthropic streaming can take 10–15 s
-    Environment:
-      Variables:
-        LOG_LEVEL: INFO
-        ANTHROPIC_API_KEY: !Ref AnthropicApiKey
-
-# -----------------------------------------------------------------------------
-# Resources
-# -----------------------------------------------------------------------------
-Resources:
-
-  # ---------------------------------------------------------------------------
-  # IAM Role — used by the Lambda function
-  # ---------------------------------------------------------------------------
-  PaleoEarthLambdaRole:
-    Type: AWS::IAM::Role
-    Properties:
-      RoleName: !Sub "PaleoEarthLambdaRole-${Stage}"
-      Description: >
-        Execution role for the Paleo Earth Lambda function.
-        Grants least-privilege access to Bedrock, Polly, and CloudWatch Logs.
-
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: lambda.amazonaws.com
-            Action: sts:AssumeRole
-
-      Policies:
-        # ---- Amazon Bedrock -------------------------------------------------
-        - PolicyName: BedrockInvokeModel
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action: bedrock:InvokeModel
-                # Scope permission to exactly the Claude 3 Haiku model ARN.
-                # If you switch models, update both this ARN and the model ID
-                # constant in lambda/handler.py.
-                Resource:
-                  - arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0
-
-        # ---- Amazon Polly ---------------------------------------------------
-        - PolicyName: PollySynthesizeSpeech
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action: polly:SynthesizeSpeech
-                Resource: "*"   # Polly does not support resource-level restrictions
-
-        # ---- Amazon CloudWatch Logs -----------------------------------------
-        - PolicyName: CloudWatchLogs
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - logs:CreateLogGroup
-                  - logs:CreateLogStream
-                  - logs:PutLogEvents
-                Resource: !Sub "arn:aws:logs:us-east-1:${AWS::AccountId}:log-group:/aws/lambda/PaleoEarthFunction-${Stage}:*"
-
-  # ---------------------------------------------------------------------------
-  # Lambda Function
-  # ---------------------------------------------------------------------------
-  PaleoEarthFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName:  !Sub "PaleoEarthFunction-${Stage}"
-      Description:   "Paleo Earth backend — handles /chat (Bedrock) and /tts (Polly)"
-      CodeUri:       lambda/          # Directory containing handler.py (and requirements.txt)
-      Handler:       handler.lambda_handler
-      Role:          !GetAtt PaleoEarthLambdaRole.Arn
-
-      # API Gateway events — SAM creates the REST API and wires up the proxy
-      Events:
-
-        # ---- /chat ----------------------------------------------------------
-        ChatPost:
-          Type: Api
-          Properties:
-            RestApiId: !Ref PaleoEarthApi
-            Path:      /chat
-            Method:    POST
-
-        ChatOptions:
-          Type: Api
-          Properties:
-            RestApiId: !Ref PaleoEarthApi
-            Path:      /chat
-            Method:    OPTIONS
-
-        # ---- /tts -----------------------------------------------------------
-        TtsPost:
-          Type: Api
-          Properties:
-            RestApiId: !Ref PaleoEarthApi
-            Path:      /tts
-            Method:    POST
-
-        TtsOptions:
-          Type: Api
-          Properties:
-            RestApiId: !Ref PaleoEarthApi
-            Path:      /tts
-            Method:    OPTIONS
-
-  # ---------------------------------------------------------------------------
-  # REST API Gateway (v1)
-  # ---------------------------------------------------------------------------
-  # We define the API explicitly (rather than letting SAM auto-create it) so
-  # we can control the stage name, description, and CORS configuration.
-  # ---------------------------------------------------------------------------
-  PaleoEarthApi:
-    Type: AWS::Serverless::Api
-    Properties:
-      Name:        !Sub "PaleoEarthApi-${Stage}"
-      Description: "REST API for the Paleo Earth educational web app"
-      StageName:   !Ref Stage
-
-      # SAM's built-in CORS support adds the OPTIONS method and response headers
-      # automatically. The Lambda handler also returns CORS headers on every
-      # response so clients behind strict CORS policies are covered either way.
-      Cors:
-        AllowMethods: "'OPTIONS,POST'"
-        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
-        AllowOrigin:  "'*'"
-        MaxAge:       "'600'"   # Browser may cache preflight response for 10 minutes
-
-  # ---------------------------------------------------------------------------
-  # CloudWatch Log Group — explicit so it is managed by the stack
-  # (auto-created log groups are not cleaned up on stack deletion)
-  # ---------------------------------------------------------------------------
-  PaleoEarthFunctionLogGroup:
-    Type: AWS::Logs::LogGroup
-    Properties:
-      LogGroupName:    !Sub "/aws/lambda/PaleoEarthFunction-${Stage}"
-      RetentionInDays: 30   # Adjust as needed; keeps costs low for low-traffic apps
-
-# -----------------------------------------------------------------------------
-# Outputs
-# -----------------------------------------------------------------------------
-Outputs:
-
-  ApiUrl:
-    Description: >
-      Base URL for the Paleo Earth REST API.
-      Append /chat or /tts to reach the respective endpoints.
-      Example: https://<id>.execute-api.us-east-1.amazonaws.com/prod/chat
-    Value: !Sub "https://${PaleoEarthApi}.execute-api.us-east-1.amazonaws.com/${Stage}"
-    Export:
-      Name: !Sub "PaleoEarthApiUrl-${Stage}"
-
-  LambdaFunctionArn:
-    Description: ARN of the deployed Lambda function.
-    Value: !GetAtt PaleoEarthFunction.Arn
-    Export:
-      Name: !Sub "PaleoEarthFunctionArn-${Stage}"
-
-  LambdaRoleArn:
-    Description: ARN of the Lambda execution IAM role.
-    Value: !GetAtt PaleoEarthLambdaRole.Arn
-    Export:
-      Name: !Sub "PaleoEarthLambdaRoleArn-${Stage}"
+﻿-#- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+-#- -P-a-l-e-o- -E-a-r-t-h- --- -A-W-S- -S-A-M- -T-e-m-p-l-a-t-e-
+-#- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+-#-
+-#- -T-h-i-s- -t-e-m-p-l-a-t-e- -d-e-f-i-n-e-s- -t-h-e- -s-e-r-v-e-r-l-e-s-s- -b-a-c-k-e-n-d- -f-o-r- -P-a-l-e-o- -E-a-r-t-h-:-
+-#- - - -â-€-¢- -A- -L-a-m-b-d-a- -f-u-n-c-t-i-o-n- -(-P-y-t-h-o-n- -3-.-1-1-)- -h-a-n-d-l-i-n-g- -/-c-h-a-t- -a-n-d- -/-t-t-s- -r-o-u-t-e-s-
+-#- - - -â-€-¢- -A- -R-E-S-T- -A-P-I- -G-a-t-e-w-a-y- -(-v-1-)- -e-x-p-o-s-i-n-g- -t-h-o-s-e- -r-o-u-t-e-s- -w-i-t-h- -C-O-R-S-
+-#- - - -â-€-¢- -A-n- -I-A-M- -r-o-l-e- -g-r-a-n-t-i-n-g- -t-h-e- -L-a-m-b-d-a- -a-c-c-e-s-s- -t-o- -B-e-d-r-o-c-k-,- -P-o-l-l-y-,- -a-n-d- -C-l-o-u-d-W-a-t-c-h-
+-#-
+-#- -D-e-p-l-o-y-:-
+-#- - - -s-a-m- -b-u-i-l-d-
+-#- - - -s-a-m- -d-e-p-l-o-y- -----g-u-i-d-e-d- - - -(-f-i-r-s-t- -t-i-m-e-,- -s-a-v-e-s- -s-a-m-c-o-n-f-i-g-.-t-o-m-l- -w-i-t-h- -y-o-u-r- -c-h-o-i-c-e-s-)-
+-#- - - -s-a-m- -d-e-p-l-o-y- - - - - - - - - - - - -(-s-u-b-s-e-q-u-e-n-t- -d-e-p-l-o-y-m-e-n-t-s-,- -r-e-a-d-s- -s-a-m-c-o-n-f-i-g-.-t-o-m-l-)-
+-#-
+-#- -R-e-q-u-i-r-e-d-:- -A-W-S- -C-L-I- -c-o-n-f-i-g-u-r-e-d- - -(-a-w-s- -c-o-n-f-i-g-u-r-e-)-
+-#- -R-e-q-u-i-r-e-d-:- -S-A-M- -C-L-I- -i-n-s-t-a-l-l-e-d- - - -(-p-i-p- -i-n-s-t-a-l-l- -a-w-s---s-a-m---c-l-i- - -o-r- - -b-r-e-w- -i-n-s-t-a-l-l- -a-w-s---s-a-m---c-l-i-)-
+-#- -R-e-q-u-i-r-e-d-:- -B-e-d-r-o-c-k- -m-o-d-e-l- -a-c-c-e-s-s- -g-r-a-n-t-e-d- -i-n- -t-h-e- -A-W-S- -c-o-n-s-o-l-e-
+-#- - - - - - - - - - - -â-†-’- -A-m-a-z-o-n- -B-e-d-r-o-c-k- -â-†-’- -M-o-d-e-l- -a-c-c-e-s-s- -â-†-’- -E-n-a-b-l-e- -"-C-l-a-u-d-e- -3- -H-a-i-k-u-"-
+-#-
+-#- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+-
+-A-W-S-T-e-m-p-l-a-t-e-F-o-r-m-a-t-V-e-r-s-i-o-n-:- -"-2-0-1-0---0-9---0-9-"-
+-T-r-a-n-s-f-o-r-m-:- -A-W-S-:-:-S-e-r-v-e-r-l-e-s-s---2-0-1-6---1-0---3-1-
+-
+-D-e-s-c-r-i-p-t-i-o-n-:- ->-
+- - -P-a-l-e-o- -E-a-r-t-h- -b-a-c-k-e-n-d- --- -L-a-m-b-d-a- -+- -R-E-S-T- -A-P-I- -G-a-t-e-w-a-y- -f-o-r- -A-I- -c-h-a-t- -(-B-e-d-r-o-c-k-)-
+- - -a-n-d- -t-e-x-t---t-o---s-p-e-e-c-h- -(-P-o-l-l-y-)- -e-n-d-p-o-i-n-t-s-.-
+-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-#- -P-a-r-a-m-e-t-e-r-s- --- -o-v-e-r-r-i-d-e- -a-t- -d-e-p-l-o-y- -t-i-m-e- -w-i-t-h- -----p-a-r-a-m-e-t-e-r---o-v-e-r-r-i-d-e-s-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-P-a-r-a-m-e-t-e-r-s-:-
+- - -S-t-a-g-e-:-
+- - - - -T-y-p-e-:- -S-t-r-i-n-g-
+- - - - -D-e-f-a-u-l-t-:- -p-r-o-d-
+- - - - -A-l-l-o-w-e-d-V-a-l-u-e-s-:- -[-d-e-v-,- -s-t-a-g-i-n-g-,- -p-r-o-d-]-
+- - - - -D-e-s-c-r-i-p-t-i-o-n-:- -D-e-p-l-o-y-m-e-n-t- -s-t-a-g-e- -n-a-m-e- -(-u-s-e-d- -i-n- -A-P-I- -G-a-t-e-w-a-y- -s-t-a-g-e- -U-R-L- -s-e-g-m-e-n-t-)-.-
+-
+- - -A-n-t-h-r-o-p-i-c-A-p-i-K-e-y-:-
+- - - - -T-y-p-e-:- -S-t-r-i-n-g-
+- - - - -D-e-f-a-u-l-t-:- -"-"-
+- - - - -N-o-E-c-h-o-:- -t-r-u-e-
+- - - - -D-e-s-c-r-i-p-t-i-o-n-:- -O-p-t-i-o-n-a-l- -A-n-t-h-r-o-p-i-c- -A-P-I- -K-e-y-.- -W-h-e-n- -p-r-o-v-i-d-e-d-,- -L-a-m-b-d-a- -c-a-l-l-s- -A-n-t-h-r-o-p-i-c- -C-l-a-u-d-e- -A-P-I- -d-i-r-e-c-t-l-y- -(-b-y-p-a-s-s-i-n-g- -B-e-d-r-o-c-k- -q-u-o-t-a- -r-e-s-t-r-i-c-t-i-o-n-s-)-.-
+-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-#- -G-l-o-b-a-l-s- --- -a-p-p-l-i-e-d- -t-o- -a-l-l- -L-a-m-b-d-a- -f-u-n-c-t-i-o-n-s- -u-n-l-e-s-s- -o-v-e-r-r-i-d-d-e-n-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-G-l-o-b-a-l-s-:-
+- - -F-u-n-c-t-i-o-n-:-
+- - - - -R-u-n-t-i-m-e-:- - - - - - -p-y-t-h-o-n-3-.-1-1-
+- - - - -M-e-m-o-r-y-S-i-z-e-:- - - -5-1-2- - - - - - - - - - -#- -M-B- --- -T-T-S- -a-u-d-i-o- -b-u-f-f-e-r-i-n-g- -b-e-n-e-f-i-t-s- -f-r-o-m- -m-o-r-e- -m-e-m-o-r-y-
+- - - - -T-i-m-e-o-u-t-:- - - - - - -3-0- - - - - - - - - - - -#- -s-e-c-o-n-d-s- --- -B-e-d-r-o-c-k-/-A-n-t-h-r-o-p-i-c- -s-t-r-e-a-m-i-n-g- -c-a-n- -t-a-k-e- -1-0-â-€-“-1-5- -s-
+- - - - -E-n-v-i-r-o-n-m-e-n-t-:-
+- - - - - - -V-a-r-i-a-b-l-e-s-:-
+- - - - - - - - -L-O-G-_-L-E-V-E-L-:- -I-N-F-O-
+- - - - - - - - -A-N-T-H-R-O-P-I-C-_-A-P-I-_-K-E-Y-:- -!-R-e-f- -A-n-t-h-r-o-p-i-c-A-p-i-K-e-y-
+-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-#- -R-e-s-o-u-r-c-e-s-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-R-e-s-o-u-r-c-e-s-:-
+-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -#- -I-A-M- -R-o-l-e- --- -u-s-e-d- -b-y- -t-h-e- -L-a-m-b-d-a- -f-u-n-c-t-i-o-n-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -P-a-l-e-o-E-a-r-t-h-L-a-m-b-d-a-R-o-l-e-:-
+- - - - -T-y-p-e-:- -A-W-S-:-:-I-A-M-:-:-R-o-l-e-
+- - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - -R-o-l-e-N-a-m-e-:- -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-L-a-m-b-d-a-R-o-l-e---$-{-S-t-a-g-e-}-"-
+- - - - - - -D-e-s-c-r-i-p-t-i-o-n-:- ->-
+- - - - - - - - -E-x-e-c-u-t-i-o-n- -r-o-l-e- -f-o-r- -t-h-e- -P-a-l-e-o- -E-a-r-t-h- -L-a-m-b-d-a- -f-u-n-c-t-i-o-n-.-
+- - - - - - - - -G-r-a-n-t-s- -l-e-a-s-t---p-r-i-v-i-l-e-g-e- -a-c-c-e-s-s- -t-o- -B-e-d-r-o-c-k-,- -P-o-l-l-y-,- -a-n-d- -C-l-o-u-d-W-a-t-c-h- -L-o-g-s-.-
+-
+- - - - - - -A-s-s-u-m-e-R-o-l-e-P-o-l-i-c-y-D-o-c-u-m-e-n-t-:-
+- - - - - - - - -V-e-r-s-i-o-n-:- -"-2-0-1-2---1-0---1-7-"-
+- - - - - - - - -S-t-a-t-e-m-e-n-t-:-
+- - - - - - - - - - --- -E-f-f-e-c-t-:- -A-l-l-o-w-
+- - - - - - - - - - - - -P-r-i-n-c-i-p-a-l-:-
+- - - - - - - - - - - - - - -S-e-r-v-i-c-e-:- -l-a-m-b-d-a-.-a-m-a-z-o-n-a-w-s-.-c-o-m-
+- - - - - - - - - - - - -A-c-t-i-o-n-:- -s-t-s-:-A-s-s-u-m-e-R-o-l-e-
+-
+- - - - - - -P-o-l-i-c-i-e-s-:-
+- - - - - - - - -#- --------- -A-m-a-z-o-n- -B-e-d-r-o-c-k- ---------------------------------------------------------------------------------------------------
+- - - - - - - - --- -P-o-l-i-c-y-N-a-m-e-:- -B-e-d-r-o-c-k-I-n-v-o-k-e-M-o-d-e-l-
+- - - - - - - - - - -P-o-l-i-c-y-D-o-c-u-m-e-n-t-:-
+- - - - - - - - - - - - -V-e-r-s-i-o-n-:- -"-2-0-1-2---1-0---1-7-"-
+- - - - - - - - - - - - -S-t-a-t-e-m-e-n-t-:-
+- - - - - - - - - - - - - - --- -E-f-f-e-c-t-:- -A-l-l-o-w-
+- - - - - - - - - - - - - - - - -A-c-t-i-o-n-:- -b-e-d-r-o-c-k-:-I-n-v-o-k-e-M-o-d-e-l-
+- - - - - - - - - - - - - - - - -#- -S-c-o-p-e- -p-e-r-m-i-s-s-i-o-n- -t-o- -e-x-a-c-t-l-y- -t-h-e- -C-l-a-u-d-e- -3- -H-a-i-k-u- -m-o-d-e-l- -A-R-N-.-
+- - - - - - - - - - - - - - - - -#- -I-f- -y-o-u- -s-w-i-t-c-h- -m-o-d-e-l-s-,- -u-p-d-a-t-e- -b-o-t-h- -t-h-i-s- -A-R-N- -a-n-d- -t-h-e- -m-o-d-e-l- -I-D-
+- - - - - - - - - - - - - - - - -#- -c-o-n-s-t-a-n-t- -i-n- -l-a-m-b-d-a-/-h-a-n-d-l-e-r-.-p-y-.-
+- - - - - - - - - - - - - - - - -R-e-s-o-u-r-c-e-:-
+- - - - - - - - - - - - - - - - - - --- -a-r-n-:-a-w-s-:-b-e-d-r-o-c-k-:-u-s---e-a-s-t---1-:-:-f-o-u-n-d-a-t-i-o-n---m-o-d-e-l-/-a-n-t-h-r-o-p-i-c-.-c-l-a-u-d-e---3---h-a-i-k-u---2-0-2-4-0-3-0-7---v-1-:-0-
+-
+- - - - - - - - -#- --------- -A-m-a-z-o-n- -P-o-l-l-y- -------------------------------------------------------------------------------------------------------
+- - - - - - - - --- -P-o-l-i-c-y-N-a-m-e-:- -P-o-l-l-y-S-y-n-t-h-e-s-i-z-e-S-p-e-e-c-h-
+- - - - - - - - - - -P-o-l-i-c-y-D-o-c-u-m-e-n-t-:-
+- - - - - - - - - - - - -V-e-r-s-i-o-n-:- -"-2-0-1-2---1-0---1-7-"-
+- - - - - - - - - - - - -S-t-a-t-e-m-e-n-t-:-
+- - - - - - - - - - - - - - --- -E-f-f-e-c-t-:- -A-l-l-o-w-
+- - - - - - - - - - - - - - - - -A-c-t-i-o-n-:- -p-o-l-l-y-:-S-y-n-t-h-e-s-i-z-e-S-p-e-e-c-h-
+- - - - - - - - - - - - - - - - -R-e-s-o-u-r-c-e-:- -"-*-"- - - -#- -P-o-l-l-y- -d-o-e-s- -n-o-t- -s-u-p-p-o-r-t- -r-e-s-o-u-r-c-e---l-e-v-e-l- -r-e-s-t-r-i-c-t-i-o-n-s-
+-
+- - - - - - - - -#- --------- -A-m-a-z-o-n- -C-l-o-u-d-W-a-t-c-h- -L-o-g-s- -----------------------------------------------------------------------------------
+- - - - - - - - --- -P-o-l-i-c-y-N-a-m-e-:- -C-l-o-u-d-W-a-t-c-h-L-o-g-s-
+- - - - - - - - - - -P-o-l-i-c-y-D-o-c-u-m-e-n-t-:-
+- - - - - - - - - - - - -V-e-r-s-i-o-n-:- -"-2-0-1-2---1-0---1-7-"-
+- - - - - - - - - - - - -S-t-a-t-e-m-e-n-t-:-
+- - - - - - - - - - - - - - --- -E-f-f-e-c-t-:- -A-l-l-o-w-
+- - - - - - - - - - - - - - - - -A-c-t-i-o-n-:-
+- - - - - - - - - - - - - - - - - - --- -l-o-g-s-:-C-r-e-a-t-e-L-o-g-G-r-o-u-p-
+- - - - - - - - - - - - - - - - - - --- -l-o-g-s-:-C-r-e-a-t-e-L-o-g-S-t-r-e-a-m-
+- - - - - - - - - - - - - - - - - - --- -l-o-g-s-:-P-u-t-L-o-g-E-v-e-n-t-s-
+- - - - - - - - - - - - - - - - -R-e-s-o-u-r-c-e-:- -!-S-u-b- -"-a-r-n-:-a-w-s-:-l-o-g-s-:-u-s---e-a-s-t---1-:-$-{-A-W-S-:-:-A-c-c-o-u-n-t-I-d-}-:-l-o-g---g-r-o-u-p-:-/-a-w-s-/-l-a-m-b-d-a-/-P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n---$-{-S-t-a-g-e-}-:-*-"-
+-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -#- -L-a-m-b-d-a- -F-u-n-c-t-i-o-n-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n-:-
+- - - - -T-y-p-e-:- -A-W-S-:-:-S-e-r-v-e-r-l-e-s-s-:-:-F-u-n-c-t-i-o-n-
+- - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - -F-u-n-c-t-i-o-n-N-a-m-e-:- - -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n---$-{-S-t-a-g-e-}-"-
+- - - - - - -D-e-s-c-r-i-p-t-i-o-n-:- - - -"-P-a-l-e-o- -E-a-r-t-h- -b-a-c-k-e-n-d- --- -h-a-n-d-l-e-s- -/-c-h-a-t- -(-B-e-d-r-o-c-k-)- -a-n-d- -/-t-t-s- -(-P-o-l-l-y-)-"-
+- - - - - - -C-o-d-e-U-r-i-:- - - - - - - -l-a-m-b-d-a-/- - - - - - - - - - -#- -D-i-r-e-c-t-o-r-y- -c-o-n-t-a-i-n-i-n-g- -h-a-n-d-l-e-r-.-p-y- -(-a-n-d- -r-e-q-u-i-r-e-m-e-n-t-s-.-t-x-t-)-
+- - - - - - -H-a-n-d-l-e-r-:- - - - - - - -h-a-n-d-l-e-r-.-l-a-m-b-d-a-_-h-a-n-d-l-e-r-
+- - - - - - -R-o-l-e-:- - - - - - - - - - -!-G-e-t-A-t-t- -P-a-l-e-o-E-a-r-t-h-L-a-m-b-d-a-R-o-l-e-.-A-r-n-
+-
+- - - - - - -#- -A-P-I- -G-a-t-e-w-a-y- -e-v-e-n-t-s- --- -S-A-M- -c-r-e-a-t-e-s- -t-h-e- -R-E-S-T- -A-P-I- -a-n-d- -w-i-r-e-s- -u-p- -t-h-e- -p-r-o-x-y-
+- - - - - - -E-v-e-n-t-s-:-
+-
+- - - - - - - - -#- --------- -/-c-h-a-t- ---------------------------------------------------------------------------------------------------------------------
+- - - - - - - - -C-h-a-t-P-o-s-t-:-
+- - - - - - - - - - -T-y-p-e-:- -A-p-i-
+- - - - - - - - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - - - - - - - -R-e-s-t-A-p-i-I-d-:- -!-R-e-f- -P-a-l-e-o-E-a-r-t-h-A-p-i-
+- - - - - - - - - - - - -P-a-t-h-:- - - - - - -/-c-h-a-t-
+- - - - - - - - - - - - -M-e-t-h-o-d-:- - - - -P-O-S-T-
+-
+- - - - - - - - -C-h-a-t-O-p-t-i-o-n-s-:-
+- - - - - - - - - - -T-y-p-e-:- -A-p-i-
+- - - - - - - - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - - - - - - - -R-e-s-t-A-p-i-I-d-:- -!-R-e-f- -P-a-l-e-o-E-a-r-t-h-A-p-i-
+- - - - - - - - - - - - -P-a-t-h-:- - - - - - -/-c-h-a-t-
+- - - - - - - - - - - - -M-e-t-h-o-d-:- - - - -O-P-T-I-O-N-S-
+-
+- - - - - - - - -#- --------- -/-t-t-s- -----------------------------------------------------------------------------------------------------------------------
+- - - - - - - - -T-t-s-P-o-s-t-:-
+- - - - - - - - - - -T-y-p-e-:- -A-p-i-
+- - - - - - - - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - - - - - - - -R-e-s-t-A-p-i-I-d-:- -!-R-e-f- -P-a-l-e-o-E-a-r-t-h-A-p-i-
+- - - - - - - - - - - - -P-a-t-h-:- - - - - - -/-t-t-s-
+- - - - - - - - - - - - -M-e-t-h-o-d-:- - - - -P-O-S-T-
+-
+- - - - - - - - -T-t-s-O-p-t-i-o-n-s-:-
+- - - - - - - - - - -T-y-p-e-:- -A-p-i-
+- - - - - - - - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - - - - - - - -R-e-s-t-A-p-i-I-d-:- -!-R-e-f- -P-a-l-e-o-E-a-r-t-h-A-p-i-
+- - - - - - - - - - - - -P-a-t-h-:- - - - - - -/-t-t-s-
+- - - - - - - - - - - - -M-e-t-h-o-d-:- - - - -O-P-T-I-O-N-S-
+-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -#- -R-E-S-T- -A-P-I- -G-a-t-e-w-a-y- -(-v-1-)-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -#- -W-e- -d-e-f-i-n-e- -t-h-e- -A-P-I- -e-x-p-l-i-c-i-t-l-y- -(-r-a-t-h-e-r- -t-h-a-n- -l-e-t-t-i-n-g- -S-A-M- -a-u-t-o---c-r-e-a-t-e- -i-t-)- -s-o-
+- - -#- -w-e- -c-a-n- -c-o-n-t-r-o-l- -t-h-e- -s-t-a-g-e- -n-a-m-e-,- -d-e-s-c-r-i-p-t-i-o-n-,- -a-n-d- -C-O-R-S- -c-o-n-f-i-g-u-r-a-t-i-o-n-.-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -P-a-l-e-o-E-a-r-t-h-A-p-i-:-
+- - - - -T-y-p-e-:- -A-W-S-:-:-S-e-r-v-e-r-l-e-s-s-:-:-A-p-i-
+- - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - -N-a-m-e-:- - - - - - - - -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-A-p-i---$-{-S-t-a-g-e-}-"-
+- - - - - - -D-e-s-c-r-i-p-t-i-o-n-:- -"-R-E-S-T- -A-P-I- -f-o-r- -t-h-e- -P-a-l-e-o- -E-a-r-t-h- -e-d-u-c-a-t-i-o-n-a-l- -w-e-b- -a-p-p-"-
+- - - - - - -S-t-a-g-e-N-a-m-e-:- - - -!-R-e-f- -S-t-a-g-e-
+-
+- - - - - - -#- -S-A-M-'-s- -b-u-i-l-t---i-n- -C-O-R-S- -s-u-p-p-o-r-t- -a-d-d-s- -t-h-e- -O-P-T-I-O-N-S- -m-e-t-h-o-d- -a-n-d- -r-e-s-p-o-n-s-e- -h-e-a-d-e-r-s-
+- - - - - - -#- -a-u-t-o-m-a-t-i-c-a-l-l-y-.- -T-h-e- -L-a-m-b-d-a- -h-a-n-d-l-e-r- -a-l-s-o- -r-e-t-u-r-n-s- -C-O-R-S- -h-e-a-d-e-r-s- -o-n- -e-v-e-r-y-
+- - - - - - -#- -r-e-s-p-o-n-s-e- -s-o- -c-l-i-e-n-t-s- -b-e-h-i-n-d- -s-t-r-i-c-t- -C-O-R-S- -p-o-l-i-c-i-e-s- -a-r-e- -c-o-v-e-r-e-d- -e-i-t-h-e-r- -w-a-y-.-
+- - - - - - -C-o-r-s-:-
+- - - - - - - - -A-l-l-o-w-M-e-t-h-o-d-s-:- -"-'-O-P-T-I-O-N-S-,-P-O-S-T-'-"-
+- - - - - - - - -A-l-l-o-w-H-e-a-d-e-r-s-:- -"-'-C-o-n-t-e-n-t---T-y-p-e-,-X---A-m-z---D-a-t-e-,-A-u-t-h-o-r-i-z-a-t-i-o-n-,-X---A-p-i---K-e-y-,-X---A-m-z---S-e-c-u-r-i-t-y---T-o-k-e-n-'-"-
+- - - - - - - - -A-l-l-o-w-O-r-i-g-i-n-:- - -"-'-*-'-"-
+- - - - - - - - -M-a-x-A-g-e-:- - - - - - - -"-'-6-0-0-'-"- - - -#- -B-r-o-w-s-e-r- -m-a-y- -c-a-c-h-e- -p-r-e-f-l-i-g-h-t- -r-e-s-p-o-n-s-e- -f-o-r- -1-0- -m-i-n-u-t-e-s-
+-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -#- -C-l-o-u-d-W-a-t-c-h- -L-o-g- -G-r-o-u-p- --- -e-x-p-l-i-c-i-t- -s-o- -i-t- -i-s- -m-a-n-a-g-e-d- -b-y- -t-h-e- -s-t-a-c-k-
+- - -#- -(-a-u-t-o---c-r-e-a-t-e-d- -l-o-g- -g-r-o-u-p-s- -a-r-e- -n-o-t- -c-l-e-a-n-e-d- -u-p- -o-n- -s-t-a-c-k- -d-e-l-e-t-i-o-n-)-
+- - -#- -------------------------------------------------------------------------------------------------------------------------------------------------------
+- - -P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n-L-o-g-G-r-o-u-p-:-
+- - - - -T-y-p-e-:- -A-W-S-:-:-L-o-g-s-:-:-L-o-g-G-r-o-u-p-
+- - - - -P-r-o-p-e-r-t-i-e-s-:-
+- - - - - - -L-o-g-G-r-o-u-p-N-a-m-e-:- - - - -!-S-u-b- -"-/-a-w-s-/-l-a-m-b-d-a-/-P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n---$-{-S-t-a-g-e-}-"-
+- - - - - - -R-e-t-e-n-t-i-o-n-I-n-D-a-y-s-:- -3-0- - - -#- -A-d-j-u-s-t- -a-s- -n-e-e-d-e-d-;- -k-e-e-p-s- -c-o-s-t-s- -l-o-w- -f-o-r- -l-o-w---t-r-a-f-f-i-c- -a-p-p-s-
+-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-#- -O-u-t-p-u-t-s-
+-#- -----------------------------------------------------------------------------------------------------------------------------------------------------------
+-O-u-t-p-u-t-s-:-
+-
+- - -A-p-i-U-r-l-:-
+- - - - -D-e-s-c-r-i-p-t-i-o-n-:- ->-
+- - - - - - -B-a-s-e- -U-R-L- -f-o-r- -t-h-e- -P-a-l-e-o- -E-a-r-t-h- -R-E-S-T- -A-P-I-.-
+- - - - - - -A-p-p-e-n-d- -/-c-h-a-t- -o-r- -/-t-t-s- -t-o- -r-e-a-c-h- -t-h-e- -r-e-s-p-e-c-t-i-v-e- -e-n-d-p-o-i-n-t-s-.-
+- - - - - - -E-x-a-m-p-l-e-:- -h-t-t-p-s-:-/-/-<-i-d->-.-e-x-e-c-u-t-e---a-p-i-.-u-s---e-a-s-t---1-.-a-m-a-z-o-n-a-w-s-.-c-o-m-/-p-r-o-d-/-c-h-a-t-
+- - - - -V-a-l-u-e-:- -!-S-u-b- -"-h-t-t-p-s-:-/-/-$-{-P-a-l-e-o-E-a-r-t-h-A-p-i-}-.-e-x-e-c-u-t-e---a-p-i-.-u-s---e-a-s-t---1-.-a-m-a-z-o-n-a-w-s-.-c-o-m-/-$-{-S-t-a-g-e-}-"-
+- - - - -E-x-p-o-r-t-:-
+- - - - - - -N-a-m-e-:- -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-A-p-i-U-r-l---$-{-S-t-a-g-e-}-"-
+-
+- - -L-a-m-b-d-a-F-u-n-c-t-i-o-n-A-r-n-:-
+- - - - -D-e-s-c-r-i-p-t-i-o-n-:- -A-R-N- -o-f- -t-h-e- -d-e-p-l-o-y-e-d- -L-a-m-b-d-a- -f-u-n-c-t-i-o-n-.-
+- - - - -V-a-l-u-e-:- -!-G-e-t-A-t-t- -P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n-.-A-r-n-
+- - - - -E-x-p-o-r-t-:-
+- - - - - - -N-a-m-e-:- -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-F-u-n-c-t-i-o-n-A-r-n---$-{-S-t-a-g-e-}-"-
+-
+- - -L-a-m-b-d-a-R-o-l-e-A-r-n-:-
+- - - - -D-e-s-c-r-i-p-t-i-o-n-:- -A-R-N- -o-f- -t-h-e- -L-a-m-b-d-a- -e-x-e-c-u-t-i-o-n- -I-A-M- -r-o-l-e-.-
+- - - - -V-a-l-u-e-:- -!-G-e-t-A-t-t- -P-a-l-e-o-E-a-r-t-h-L-a-m-b-d-a-R-o-l-e-.-A-r-n-
+- - - - -E-x-p-o-r-t-:-
+- - - - - - -N-a-m-e-:- -!-S-u-b- -"-P-a-l-e-o-E-a-r-t-h-L-a-m-b-d-a-R-o-l-e-A-r-n---$-{-S-t-a-g-e-}-"-
+-
