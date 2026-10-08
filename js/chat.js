@@ -134,6 +134,12 @@ export class Chat {
     // Send on button click
     this._el.sendBtn.addEventListener('click', () => this._sendUserMessage());
 
+    // Auto-resize textarea
+    this._el.chatInput.addEventListener('input', () => {
+      this._el.chatInput.style.height = 'auto';
+      this._el.chatInput.style.height = Math.min(this._el.chatInput.scrollHeight, 150) + 'px';
+    });
+
     // Send on Enter key
     this._el.chatInput.addEventListener('keydown', e => {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -402,6 +408,7 @@ export class Chat {
     if (!text || this._sending) return;
 
     this._el.chatInput.value = '';
+    this._el.chatInput.style.height = 'auto';
     this._setSending(true);
 
     // If there is an active provisional divider, lock it into permanent chat history
@@ -594,4 +601,5 @@ export class Chat {
     if (panelBody) panelBody.scrollTop = panelBody.scrollHeight;
   }
 }
+
 

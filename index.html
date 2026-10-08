@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="color-scheme" content="dark">
-  <title>Paleo Earth — Journey Through Deep Time</title>
+  <title>Paleo Earth â€” Journey Through Deep Time</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
@@ -25,7 +25,7 @@
 
   <div class="app-container" id="appContainer">
 
-    <!-- ═══════════════════ LEFT PANEL — Globe ═══════════════════ -->
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• LEFT PANEL â€” Globe â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
     <div class="panel panel-left" id="panelLeft">
 
       <div class="panel-topbar">
@@ -33,7 +33,7 @@
           <span class="app-title">PALEO EARTH</span>
         </div>
         <div class="topbar-center">
-          <span class="era-label" id="eraLabel">Holocene · 0 Ma</span>
+          <span class="era-label" id="eraLabel">Holocene Â· 0 Ma</span>
         </div>
         <div class="topbar-right">
           <button class="fullscreen-btn" id="fullscreenLeft" title="Expand globe" aria-label="Toggle globe fullscreen">
@@ -117,7 +117,7 @@
             </div>
             <input type="range" id="timeSlider"
               min="0" max="540" value="0" step="1" autocomplete="off"
-              aria-label="Time slider — millions of years ago">
+              aria-label="Time slider â€” millions of years ago">
           </div>
           <div class="slider-axis">
             <span>540 Ma</span>
@@ -132,7 +132,7 @@
     <!-- Draggable resize handle -->
       <div class="resize-handle" id="resizeHandle" title="Drag to resize panels"></div>
 
-    <!-- ═══════════════════ RIGHT PANEL — Info + Chat ═══════════════════ -->
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• RIGHT PANEL â€” Info + Chat â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
     <div class="panel panel-right" id="panelRight">
 
       <div class="panel-topbar">
@@ -189,16 +189,13 @@
           <div class="tab-pane" id="chatTab">
             <div class="chat-messages" id="chatMessages">
               <div class="chat-welcome" id="chatWelcome">
-                <p>Ask me anything about this period — the animals, climate, geography, or major events. I'll remember our conversation as you explore through time.</p>
+                <p>Ask me anything about this period â€” the animals, climate, geography, or major events. I'll remember our conversation as you explore through time.</p>
               </div>
             </div>
 
             <div class="chat-input-area">
               <div class="chat-input-row">
-                <input type="text" id="chatInput"
-                  placeholder="Ask about this period..."
-                  autocomplete="off"
-                  aria-label="Chat input">
+                <textarea id="chatInput" rows="1" maxlength="2000" placeholder="Ask about this period..." aria-label="Chat input"></textarea>
                 <button id="sendBtn" aria-label="Send message">
                   <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
@@ -308,5 +305,6 @@
 
 </body>
 </html>
+
 
 
