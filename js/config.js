@@ -15,7 +15,14 @@
 export const DEV_MODE = false;
 
 // AWS API Gateway base URL
-export const API_BASE = 'https://5h9f59awah.execute-api.us-east-1.amazonaws.com/staging';
+// Dynamic API routing based on environment
+let _apiBase = 'https://zazc8i568e.execute-api.us-east-1.amazonaws.com/prod';
+if (window.location.hostname === 'localhost' || 
+    window.location.hostname === '127.0.0.1' || 
+    window.location.hostname.includes('staging')) {
+    _apiBase = 'https://5h9f59awah.execute-api.us-east-1.amazonaws.com/staging';
+}
+export const API_BASE = _apiBase;
 
 // Amazon Polly neural voice ID used for TTS
 export const POLLY_VOICE_ID = 'Matthew';
