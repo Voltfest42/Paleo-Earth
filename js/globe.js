@@ -300,8 +300,18 @@ export class Globe {
   _buildStars() {
     const count  = 8000;
     const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 400;
+    for (let i = 0; i < count; i++) {
+      let x, y, z, dist;
+      do {
+        x = (Math.random() - 0.5) * 400;
+        y = (Math.random() - 0.5) * 400;
+        z = (Math.random() - 0.5) * 400;
+        dist = Math.sqrt(x*x + y*y + z*z);
+      } while (dist < 50); // Prevent stars from spawning too close to the Earth/Camera
+
+      positions[i * 3]     = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
