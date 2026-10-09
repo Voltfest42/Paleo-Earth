@@ -1,5 +1,5 @@
 ﻿/**
- * config.js â€” Global configuration for Paleo Earth
+ * config.js — Global configuration for Paleo Earth
  *
  * â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
  * â”‚  DEV_MODE = true  â†’ local development, no AWS needed    â”‚
@@ -43,8 +43,8 @@ export const TEXTURE_FRAMES = Array.from({ length: 109 }, (_, i) => [i + 1, i * 
 
 /**
  * Build texture file paths for a given frame entry.
- * @param {number} index  â€” texture sequence index (1-109)
- * @param {number} ma     â€” age in millions of years (0-540)
+ * @param {number} index  — texture sequence index (1-109)
+ * @param {number} ma     — age in millions of years (0-540)
  * @returns {string}
  */
 // Texture Quality State
@@ -120,7 +120,7 @@ export const texturePath = diffusePath;
  * Find the discrete texture frame for a given Ma value.
  * Hard jumps occur at the 2.5 Ma midpoint (e.g. 0-2 Ma -> 0 Ma, 3-7 Ma -> 5 Ma).
  *
- * @param {number} ma  â€” current slider value in Ma
+ * @param {number} ma  — current slider value in Ma
  * @returns {{ index: number, ma: number }}
  */
 export function getFrameForMa(ma) {

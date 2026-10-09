@@ -1,5 +1,5 @@
 ﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   Paleo Earth â€” Main Stylesheet
+   Paleo Earth — Main Stylesheet
    Dark space theme. Two-panel layout with draggable resize handle.
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
@@ -522,7 +522,7 @@ html, body {
   box-shadow: 0 0 4px var(--event-color);
 }
 
-/* HTML range input â€” custom styled */
+/* HTML range input — custom styled */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;

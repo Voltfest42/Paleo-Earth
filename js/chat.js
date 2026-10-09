@@ -1,5 +1,5 @@
 ﻿/**
- * chat.js â€” Right-panel AI chat and summary card
+ * chat.js — Right-panel AI chat and summary card
  *
  * Responsibilities:
  *  - Display the static summary for the active keyframe
@@ -82,7 +82,7 @@ async function mockChat(messages, context) {
   ];
   const starter = starters[Math.floor(Math.random() * starters.length)];
 
-  return `[DEV MODE] ${starter} This is a placeholder response generated locally â€” no AWS connection is needed in development mode.\n\nIn production, this response would come from Claude via Amazon Bedrock with detailed, scientifically accurate information about the paleogeography, climate, and life of this period. You can set DEV_MODE = false in js/config.js to switch to the live API once your Lambda is deployed.\n\nFeel free to explore the timeline and test the full UI flow. Your conversation history is being maintained across keyframe changes.`;
+  return `[DEV MODE] ${starter} This is a placeholder response generated locally — no AWS connection is needed in development mode.\n\nIn production, this response would come from Claude via Amazon Bedrock with detailed, scientifically accurate information about the paleogeography, climate, and life of this period. You can set DEV_MODE = false in js/config.js to switch to the live API once your Lambda is deployed.\n\nFeel free to explore the timeline and test the full UI flow. Your conversation history is being maintained across keyframe changes.`;
 }
 
 // â”€â”€â”€ Prod: call Lambda /chat â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -103,9 +103,9 @@ async function prodChat(messages, context, userMessage) {
 // â”€â”€â”€ Chat class â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export class Chat {
   /**
-   * @param {object}   elements         â€” DOM element references
-   * @param {object[]} imageLibrary     â€” image-library.json images array
-   * @param {object}   keyframeImages   â€” keyframe-images.json mapping object
+   * @param {object}   elements         — DOM element references
+   * @param {object[]} imageLibrary     — image-library.json images array
+   * @param {object}   keyframeImages   — keyframe-images.json mapping object
    */
   constructor(elements, imageLibrary, keyframeImages = {}) {
     this._el          = elements;
@@ -181,8 +181,8 @@ export class Chat {
   /**
    * Called immediately in real-time when the active keyframe changes.
    * Updates summary card UI without cluttering the chat history.
-   * @param {object} keyframe  â€” keyframe object from keyframes.json
-   * @param {object} summary   â€” summary object from summaries.json
+   * @param {object} keyframe  — keyframe object from keyframes.json
+   * @param {object} summary   — summary object from summaries.json
    */
   setKeyframe(keyframe, summary) {
     if (!keyframe || !summary) return;
@@ -364,7 +364,7 @@ export class Chat {
   _openHeroLightbox(heroImage, keyframe) {
     const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
     const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
-    const details = [periodStr, maStr].filter(Boolean).join(' Â· ');
+    const details = [periodStr, maStr].filter(Boolean).join(' · ');
     const caption = details ? `${keyframe.label} (${details})` : keyframe.label;
 
     this._openLightbox(heroImage.src || heroImage.fallback, caption);
@@ -390,7 +390,7 @@ export class Chat {
       return;
     }
 
-    const text = `Viewing: ${keyframe.label} Â· ${keyframe.ma} Ma`;
+    const text = `Viewing: ${keyframe.label} · ${keyframe.ma} Ma`;
 
     // If an uncommitted divider already exists, update it in place instead of creating another
     if (this._pendingDividerEl && this._pendingDividerEl.parentNode) {
@@ -416,7 +416,7 @@ export class Chat {
       this._pendingDividerEl = null;
     } else if (this._history.length > 0 && this._context && this._context.id !== this._lastCommittedKeyframeId) {
       // Fallback: message sent before slider settle event fired
-      this._appendDivider(`Viewing: ${this._context.label} Â· ${this._context.ma} Ma`);
+      this._appendDivider(`Viewing: ${this._context.label} · ${this._context.ma} Ma`);
     }
 
     this._lastCommittedKeyframeId = this._context ? this._context.id : null;
@@ -513,13 +513,13 @@ export class Chat {
 
         const cap       = document.createElement('div');
         cap.className   = 'message-image-caption';
-        cap.textContent = `${img.title} â€” ${img.credit}`;
+        cap.textContent = `${img.title} — ${img.credit}`;
 
         card.appendChild(imgEl);
         card.appendChild(cap);
 
         const openImgModal = () => {
-          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' Â· ');
+          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' · ');
           this._openLightbox(imgPath, attribution);
         };
 
