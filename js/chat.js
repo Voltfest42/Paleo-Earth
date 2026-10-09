@@ -364,7 +364,7 @@ export class Chat {
   _openHeroLightbox(heroImage, keyframe) {
     const periodStr = keyframe.type === 'event' ? 'Key Event' : (keyframe.period || '');
     const maStr = keyframe.ma !== undefined ? `${keyframe.ma} Ma` : '';
-    const details = [periodStr, maStr].filter(Boolean).join(' · ');
+    const details = [periodStr, maStr].filter(Boolean).join(' \u00B7 ');
     const caption = details ? `${keyframe.label} (${details})` : keyframe.label;
 
     this._openLightbox(heroImage.src || heroImage.fallback, caption);
@@ -513,13 +513,13 @@ export class Chat {
 
         const cap       = document.createElement('div');
         cap.className   = 'message-image-caption';
-        cap.textContent = `${img.title} — ${img.credit}`;
+        cap.textContent = `${img.title} \u2014 ${img.credit}`;
 
         card.appendChild(imgEl);
         card.appendChild(cap);
 
         const openImgModal = () => {
-          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' · ');
+          const attribution = [img.title, img.credit, img.license].filter(Boolean).join(' \u00B7 ');
           this._openLightbox(imgPath, attribution);
         };
 
