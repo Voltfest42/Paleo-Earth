@@ -1525,7 +1525,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Cambrian, comprising the Terreneuvian and Series 2 epochs, lasted from about 538.8 to 509 million years ago. It marks the beginning of the Cambrian period, the Palaeozoic era and the Phanerozoic eon, the eon of 'visible life'. Its base is defined by the first appearance of the trace fossil Treptichnus pedum at Fortune Head in Newfoundland, Canada, which records the burrowing of complex animals [1].\n\nThe Early Cambrian was the time of the Cambrian Explosion, a remarkable episode of evolution in which most major groups of animals appeared in the fossil record over a period of around 20 to 25 million years. During this time, animals developed hard skeletons, eyes, legs and complex behaviours, and the first food webs based on active predation took shape.\n\nThe Early Cambrian is known from several sites of exceptional preservation, most notably the Chengjiang biota of Yunnan, China, and the Sirius Passet fauna of Greenland, both around 518 million years old. These sites preserve soft-bodied animals in remarkable detail, providing a unique insight into the earliest animal communities."
+        "body": "The Early Cambrian, comprising the Terreneuvian and Series 2 epochs, lasted from about 538.8 to 509 million years ago. It marks the beginning of the Cambrian period, the Palaeozoic era and the Phanerozoic eon, the eon of 'visible life'. Its base is defined by the first appearance of the trace fossil Treptichnus pedum at Fortune Head in Newfoundland, Canada, which records the burrowing of complex animals [1].\n\nThe Early Cambrian was the time of the Cambrian Explosion, a remarkable episode of evolution in which most major groups of animals appeared in the fossil record over a period of around 20 to 25 million years. During this time, animals developed hard skeletons, eyes, legs and complex behaviours, and the first food webs based on active predation took shape.\n\nThe Early Cambrian is known from several sites of exceptional preservation, most notably the Chengjiang biota of Yunnan, China, and the Sirius Passet fauna of Greenland, both around 518 million years old. These sites preserve soft-bodied animals in remarkable detail, providing a unique insight into the earliest animal communities.",
+        "image": {
+          "src": "images/paleo_art/fallotaspis_bondoni_nobu_tamura.jpg",
+          "caption": "Fallotaspis bondoni, a primitive trilobite (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1533,7 +1538,12 @@
       },
       {
         "heading": "Geography",
-        "body": "During the Early Cambrian, the continents were arranged quite differently from today. The supercontinent Gondwana, which had assembled during the Pan-African orogeny at the end of the Precambrian, was the largest landmass. It comprised present-day South America, Africa, Antarctica, Australia, India and Arabia, and it stretched from the equator to high southern latitudes.\n\nSeveral smaller continents lay separate from Gondwana, including Laurentia, Baltica and Siberia. These had broken away from the earlier supercontinent Rodinia during the Neoproterozoic, and they were now separated by young and growing oceans, including the Iapetus Ocean. South China and North China were located near the margins of Gondwana in the tropics, and the Chengjiang biota was deposited in shallow seas on the South China block.\n\nSea levels rose dramatically during the Early Cambrian, flooding the margins of the continents and creating extensive shallow seas. This marine transgression, which deposited widespread sandstones and limestones, has left a remarkable surface called the Great Unconformity in many parts of the world, where Cambrian rocks lie directly on much older eroded Precambrian rocks [2]."
+        "body": "During the Early Cambrian, the continents were arranged quite differently from today. The supercontinent Gondwana, which had assembled during the Pan-African orogeny at the end of the Precambrian, was the largest landmass. It comprised present-day South America, Africa, Antarctica, Australia, India and Arabia, and it stretched from the equator to high southern latitudes.\n\nSeveral smaller continents lay separate from Gondwana, including Laurentia, Baltica and Siberia. These had broken away from the earlier supercontinent Rodinia during the Neoproterozoic, and they were now separated by young and growing oceans, including the Iapetus Ocean. South China and North China were located near the margins of Gondwana in the tropics, and the Chengjiang biota was deposited in shallow seas on the South China block.\n\nSea levels rose dramatically during the Early Cambrian, flooding the margins of the continents and creating extensive shallow seas. This marine transgression, which deposited widespread sandstones and limestones, has left a remarkable surface called the Great Unconformity in many parts of the world, where Cambrian rocks lie directly on much older eroded Precambrian rocks [2].",
+        "image": {
+          "src": "images/wikipedia_images/cambrian/Basal_Cambrian_GSSP.jpg",
+          "caption": "Basal Cambrian GSSP at Fortune Head, Newfoundland",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -1541,7 +1551,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The earliest part of the Cambrian, the Terreneuvian, is characterised by the 'small shelly fauna', a collection of tiny mineralised tubes, cones, scales and plates produced by a variety of early animals, including molluscs, brachiopods and armoured worm-like animals. Trace fossils also became more complex as animals began to burrow deeper into the sediment.\n\nThe first trilobites appeared around 521 million years ago, and they rapidly diversified to become some of the most common animals of the Cambrian. Archaeocyathans, a group of sponges with cup-shaped skeletons, built the first animal reefs. The Chengjiang and Sirius Passet biotas reveal a wide variety of soft-bodied animals, including arthropods, sponges, worms, lobopodians, early echinoderms and chordates.\n\nChordates are represented in the Chengjiang biota by animals such as Myllokunmingia and Haikouichthys, which are among the earliest known vertebrates [4]. These small, fish-like animals had a skull-like structure, gills and a dorsal fin. Other notable animals include Yunnanozoon, the vetulicolians, and the predatory radiodonts, such as Amplectobelua, which were the largest animals of their time, reaching lengths of up to a metre."
+        "body": "The earliest part of the Cambrian, the Terreneuvian, is characterised by the 'small shelly fauna', a collection of tiny mineralised tubes, cones, scales and plates produced by a variety of early animals, including molluscs, brachiopods and armoured worm-like animals. Trace fossils also became more complex as animals began to burrow deeper into the sediment.\n\nThe first trilobites appeared around 521 million years ago, and they rapidly diversified to become some of the most common animals of the Cambrian. Archaeocyathans, a group of sponges with cup-shaped skeletons, built the first animal reefs. The Chengjiang and Sirius Passet biotas reveal a wide variety of soft-bodied animals, including arthropods, sponges, worms, lobopodians, early echinoderms and chordates.\n\nChordates are represented in the Chengjiang biota by animals such as Myllokunmingia and Haikouichthys, which are among the earliest known vertebrates [4]. These small, fish-like animals had a skull-like structure, gills and a dorsal fin. Other notable animals include Yunnanozoon, the vetulicolians, and the predatory radiodonts, such as Amplectobelua, which were the largest animals of their time, reaching lengths of up to a metre.",
+        "image": {
+          "src": "images/paleo_art/myllokunmingia_fengjiaoa_nobu_tamura.jpg",
+          "caption": "Myllokunmingia fengjiaoa, an early vertebrate (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Animal Origins",

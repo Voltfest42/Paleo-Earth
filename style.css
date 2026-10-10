@@ -1751,3 +1751,33 @@ input[type="range"]:hover::-webkit-slider-thumb {
   margin-bottom: 10px;
 }
 
+
+/* Wiki Image Embedding */
+.wiki-figure {
+    margin: 0 0 15px 15px;
+    padding: 0;
+    max-width: 50%;
+    display: table;
+}
+.wiki-figure.wiki-img-right {
+    float: right;
+    margin: 0 0 15px 15px;
+}
+.wiki-figure.wiki-img-left {
+    float: left;
+    margin: 0 15px 15px 0;
+}
+.wiki-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.wiki-figure figcaption {
+    font-size: 0.8rem;
+    color: #bbb;
+    text-align: center;
+    margin-top: 6px;
+    font-style: italic;
+    line-height: 1.2;
+}

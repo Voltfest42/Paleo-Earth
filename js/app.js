@@ -518,8 +518,19 @@ async function main() {
       if (!isSources) {
         textForTTS += section.heading + '. ';
       }
+      
+      // Inject image if present
+      if (section.image) {
+        const alignClass = section.image.align === 'left' ? 'wiki-img-left' : 'wiki-img-right';
+        html += `<figure class="wiki-figure ${alignClass}">
+                   <img src="${section.image.src}" alt="${section.image.caption || ''}" class="wiki-img">
+                   ${section.image.caption ? `<figcaption>${section.image.caption}</figcaption>` : ''}
+                 </figure>`;
+      }
 
-      const paragraphs = section.body.split('\n\n');
+      const paragraphs = section.body.split('
+
+');
       for (const p of paragraphs) {
         if (!p.trim()) continue;
         html += `<p class="wiki-body">${p.trim()}</p>`;
