@@ -513,6 +513,7 @@ async function main() {
     let textForTTS = article.title + '. ' + (article.subtitle ? article.subtitle + '. ' : '');
 
     for (const section of article.sections) {
+      html += `<div class="wiki-section">`;
       html += `<h3 class="wiki-heading">${section.heading}</h3>`;
       const isSources = section.heading.toLowerCase().includes('source') || section.heading.toLowerCase().includes('reference');
       if (!isSources) {
@@ -536,6 +537,7 @@ async function main() {
           textForTTS += p.trim() + ' ';
         }
       }
+      html += `</div>`;
     }
     el.innerHTML = html;
     el.scrollTop = 0; // scroll back to top on keyframe change
@@ -547,7 +549,6 @@ async function main() {
 main().catch(err => {
   console.error('Fatal error during startup:', err);
 });
-
 
 
 
