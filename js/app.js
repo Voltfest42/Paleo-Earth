@@ -528,9 +528,7 @@ async function main() {
                  </figure>`;
       }
 
-      const paragraphs = section.body.split('
-
-');
+      const paragraphs = section.body.split('\n\n');
       for (const p of paragraphs) {
         if (!p.trim()) continue;
         html += `<p class="wiki-body">${p.trim()}</p>`;
