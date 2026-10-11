@@ -1151,7 +1151,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Devonian was the final epoch of the Devonian period, lasting from about 382.7 to 358.9 million years ago. It is divided into two stages, the Frasnian and the Famennian, and it closed the long interval often called the 'Age of Fishes'. The epoch saw the culmination of several great evolutionary trends that had begun earlier in the Devonian, including the spread of the first true forests and the emergence of four-limbed vertebrates.\n\nThe Late Devonian is best known for the Late Devonian extinction, one of the 'Big Five' mass extinctions in Earth's history. Rather than a single catastrophe, it consisted of a series of pulses, the most severe of which, the Kellwasser event, occurred near the Frasnian–Famennian boundary around 372 million years ago. A later crisis, the Hangenberg event, struck at the very end of the Devonian [1].\n\nTogether these events eliminated an estimated 70 to 80 percent of marine species. Tropical reef ecosystems were devastated, and many groups of armoured fishes vanished entirely, reshaping the course of vertebrate evolution as the world entered the Carboniferous period."
+        "body": "The Late Devonian was the final epoch of the Devonian period, lasting from about 382.7 to 358.9 million years ago. It is divided into two stages, the Frasnian and the Famennian, and it closed the long interval often called the 'Age of Fishes'. The epoch saw the culmination of several great evolutionary trends that had begun earlier in the Devonian, including the spread of the first true forests and the emergence of four-limbed vertebrates.\n\nThe Late Devonian is best known for the Late Devonian extinction, one of the 'Big Five' mass extinctions in Earth's history. Rather than a single catastrophe, it consisted of a series of pulses, the most severe of which, the Kellwasser event, occurred near the Frasnian–Famennian boundary around 372 million years ago. A later crisis, the Hangenberg event, struck at the very end of the Devonian [1].\n\nTogether these events eliminated an estimated 70 to 80 percent of marine species. Tropical reef ecosystems were devastated, and many groups of armoured fishes vanished entirely, reshaping the course of vertebrate evolution as the world entered the Carboniferous period.",
+        "image": {
+          "src": "images/wikipedia_images/devonian/Dunkleosteus_terrelli_2024_reconstruction.jpg",
+          "caption": "Life reconstruction of the apex placoderm Dunkleosteus terrelli (2024)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1167,7 +1172,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The seas of the Late Devonian were dominated by fishes of remarkable diversity. The placoderms, armoured jawed fishes, reached their peak, and the arthrodire Dunkleosteus, which may have exceeded 4 metres in length, was among the largest predators of its time. Its jaws bore self-sharpening bony plates capable of delivering a powerful bite. Sharks such as Cladoselache, along with ray-finned and lobe-finned fishes, also thrived.\n\nInvertebrate life was equally rich. Vast reefs built by stromatoporoid sponges and tabulate and rugose corals covered shallow tropical seafloors, while ammonoids, brachiopods, crinoids, trilobites, and conodonts were abundant. These reef ecosystems were among the most extensive in Earth's history before the Kellwasser event caused their collapse.\n\nOn land, arthropods such as millipedes, early arachnids, and wingless hexapods lived among the growing forests. The Late Devonian extinction struck hardest in the tropics and among shallow-water organisms: reef builders, many trilobite groups, and nearly all jawless fishes disappeared, and the placoderms were entirely extinct by the end of the epoch [1]."
+        "body": "The seas of the Late Devonian were dominated by fishes of remarkable diversity. The placoderms, armoured jawed fishes, reached their peak, and the arthrodire Dunkleosteus, which may have exceeded 4 metres in length, was among the largest predators of its time. Its jaws bore self-sharpening bony plates capable of delivering a powerful bite. Sharks such as Cladoselache, along with ray-finned and lobe-finned fishes, also thrived.\n\nInvertebrate life was equally rich. Vast reefs built by stromatoporoid sponges and tabulate and rugose corals covered shallow tropical seafloors, while ammonoids, brachiopods, crinoids, trilobites, and conodonts were abundant. These reef ecosystems were among the most extensive in Earth's history before the Kellwasser event caused their collapse.\n\nOn land, arthropods such as millipedes, early arachnids, and wingless hexapods lived among the growing forests. The Late Devonian extinction struck hardest in the tropics and among shallow-water organisms: reef builders, many trilobite groups, and nearly all jawless fishes disappeared, and the placoderms were entirely extinct by the end of the epoch [1].",
+        "image": {
+          "src": "images/paleo_art/titanichthys_clarki_nobu_tamura.jpg",
+          "caption": "Titanichthys clarki, a giant suspension-feeding placoderm (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Rise of Tetrapods",
@@ -1185,7 +1195,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Devonian was the second epoch of the Devonian period, lasting from about 393.3 to 382.7 million years ago. It is divided into two stages, the Eifelian and the Givetian, named after rock sequences in Germany and France. Although shorter than the epochs before and after it, the Middle Devonian was a time of exceptional biological richness both in the oceans and on land.\n\nThe epoch is often regarded as the heart of the 'Age of Fishes', when jawed fishes of many kinds diversified and spread through marine and freshwater environments around the world. At the same time, the land was being transformed by the appearance of the first tree-sized plants and the earliest forests.\n\nThe Middle Devonian also saw the greatest development of reefs in the entire Paleozoic era [1]. Warm, shallow seas covered much of the continents, supporting enormous reef complexes. The epoch was punctuated by several smaller extinction events, including the Kačák event near the Eifelian–Givetian boundary and the Taghanic event late in the Givetian, both associated with episodes of ocean anoxia and sea level change [2]."
+        "body": "The Middle Devonian was the second epoch of the Devonian period, lasting from about 393.3 to 382.7 million years ago. It is divided into two stages, the Eifelian and the Givetian, named after rock sequences in Germany and France. Although shorter than the epochs before and after it, the Middle Devonian was a time of exceptional biological richness both in the oceans and on land.\n\nThe epoch is often regarded as the heart of the 'Age of Fishes', when jawed fishes of many kinds diversified and spread through marine and freshwater environments around the world. At the same time, the land was being transformed by the appearance of the first tree-sized plants and the earliest forests.\n\nThe Middle Devonian also saw the greatest development of reefs in the entire Paleozoic era [1]. Warm, shallow seas covered much of the continents, supporting enormous reef complexes. The epoch was punctuated by several smaller extinction events, including the Kačák event near the Eifelian–Givetian boundary and the Taghanic event late in the Givetian, both associated with episodes of ocean anoxia and sea level change [2].",
+        "image": {
+          "src": "images/paleo_art/tinirau_clackae_nobu_tamura.jpg",
+          "caption": "Tinirau clackae, a stem-tetrapodomorph fish (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1197,11 +1212,21 @@
       },
       {
         "heading": "Flora",
-        "body": "The Middle Devonian marked a turning point in the evolution of land plants, as vegetation grew from low-lying ground cover into the first forests. Among the earliest tree-like plants were the cladoxylopsids, such as Wattieza and Calamophyton. These plants had tall, unbranched trunks topped by crowns of branchlets, resembling modern tree ferns or palms, and reached heights of around 8 to 10 metres [3].\n\nFossil stumps of Wattieza discovered at Gilboa in New York State, dating to around 385 million years ago, represent some of the oldest known forest trees [3]. Excavations at Gilboa and at Cairo, New York, have revealed entire forest floors with rooting systems, showing that complex woodland ecosystems with several kinds of trees already existed by the end of the epoch [4].\n\nOther important plants included early lycopsids, the ancestors of the giant scale trees of the Carboniferous, as well as early sphenopsids and the first progymnosperms, such as Archaeopteris, which appeared near the end of the Givetian [4]. Smaller plants including zosterophylls and trimerophytes still grew along wet lowlands, and soils became deeper and richer as root systems expanded."
+        "body": "The Middle Devonian marked a turning point in the evolution of land plants, as vegetation grew from low-lying ground cover into the first forests. Among the earliest tree-like plants were the cladoxylopsids, such as Wattieza and Calamophyton. These plants had tall, unbranched trunks topped by crowns of branchlets, resembling modern tree ferns or palms, and reached heights of around 8 to 10 metres [3].\n\nFossil stumps of Wattieza discovered at Gilboa in New York State, dating to around 385 million years ago, represent some of the oldest known forest trees [3]. Excavations at Gilboa and at Cairo, New York, have revealed entire forest floors with rooting systems, showing that complex woodland ecosystems with several kinds of trees already existed by the end of the epoch [4].\n\nOther important plants included early lycopsids, the ancestors of the giant scale trees of the Carboniferous, as well as early sphenopsids and the first progymnosperms, such as Archaeopteris, which appeared near the end of the Givetian [4]. Smaller plants including zosterophylls and trimerophytes still grew along wet lowlands, and soils became deeper and richer as root systems expanded.",
+        "image": {
+          "src": "images/wikipedia_images/devonian/Devonianscene-green.jpg",
+          "caption": "Artistic depiction of Devonian early land plant flora",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "The marine life of the Middle Devonian was among the most diverse of the Paleozoic era. Enormous reefs were built by stromatoporoid sponges together with tabulate and rugose corals, forming structures that in some regions stretched for hundreds of kilometres [1]. These reefs supported a wealth of brachiopods, crinoids, bryozoans, gastropods, and bivalves.\n\nTrilobites were still common, and the Middle Devonian produced some of the most elaborate forms ever known, including heavily spined species such as Walliserops and Dicranurus, preserved in spectacular detail in the rocks of Morocco. Ammonoids, which had first appeared in the Early Devonian, diversified rapidly and became important both as predators and as index fossils for dating rocks. Eurypterids, or sea scorpions, persisted in brackish and freshwater habitats.\n\nOn land, arthropods were the dominant animals. Millipedes, centipedes, and early arachnids such as trigonotarbids inhabited the growing forests and leaf litter. Fossils from Gilboa include some of the earliest known pseudoscorpions and spider-like arachnids, providing evidence that complex terrestrial food webs were becoming established."
+        "body": "The marine life of the Middle Devonian was among the most diverse of the Paleozoic era. Enormous reefs were built by stromatoporoid sponges together with tabulate and rugose corals, forming structures that in some regions stretched for hundreds of kilometres [1]. These reefs supported a wealth of brachiopods, crinoids, bryozoans, gastropods, and bivalves.\n\nTrilobites were still common, and the Middle Devonian produced some of the most elaborate forms ever known, including heavily spined species such as Walliserops and Dicranurus, preserved in spectacular detail in the rocks of Morocco. Ammonoids, which had first appeared in the Early Devonian, diversified rapidly and became important both as predators and as index fossils for dating rocks. Eurypterids, or sea scorpions, persisted in brackish and freshwater habitats.\n\nOn land, arthropods were the dominant animals. Millipedes, centipedes, and early arachnids such as trigonotarbids inhabited the growing forests and leaf litter. Fossils from Gilboa include some of the earliest known pseudoscorpions and spider-like arachnids, providing evidence that complex terrestrial food webs were becoming established.",
+        "image": {
+          "src": "images/wikipedia_images/devonian/Melocrinites_nodosus_spinosus.jpg",
+          "caption": "Middle Devonian crinoid Melocrinites nodosus spinosus fossil",
+          "align": "right"
+        }
       },
       {
         "heading": "Age of Fishes",
@@ -1219,7 +1244,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Devonian was the first epoch of the Devonian period, lasting from about 419.2 to 393.3 million years ago. It is divided into three stages: the Lochkovian, the Pragian, and the Emsian, the first two named after localities in the Czech Republic. At more than 25 million years long, it was the longest of the three Devonian epochs.\n\nThe Early Devonian followed the Silurian period without any major extinction, and many Silurian groups continued to flourish. However, it was a time of important evolutionary change. Jawed fishes began to replace the jawless fishes that had dominated earlier seas, ammonoids made their first appearance, and life on land expanded from narrow coastal fringes into a wider range of habitats.\n\nThe epoch is especially famous for the Rhynie Chert of Scotland, a deposit of silica-rich hot spring sediments dating to around 407 million years ago [1]. It preserves early plants, fungi, and animals in microscopic, cellular detail, providing an extraordinary snapshot of one of the earliest terrestrial ecosystems [1]."
+        "body": "The Early Devonian was the first epoch of the Devonian period, lasting from about 419.2 to 393.3 million years ago. It is divided into three stages: the Lochkovian, the Pragian, and the Emsian, the first two named after localities in the Czech Republic. At more than 25 million years long, it was the longest of the three Devonian epochs.\n\nThe Early Devonian followed the Silurian period without any major extinction, and many Silurian groups continued to flourish. However, it was a time of important evolutionary change. Jawed fishes began to replace the jawless fishes that had dominated earlier seas, ammonoids made their first appearance, and life on land expanded from narrow coastal fringes into a wider range of habitats.\n\nThe epoch is especially famous for the Rhynie Chert of Scotland, a deposit of silica-rich hot spring sediments dating to around 407 million years ago [1]. It preserves early plants, fungi, and animals in microscopic, cellular detail, providing an extraordinary snapshot of one of the earliest terrestrial ecosystems [1].",
+        "image": {
+          "src": "images/paleo_art/boreaspis_rostrata_nobu_tamura.jpg",
+          "caption": "Boreaspis rostrata, an armored osteostracan jawless fish with a long rostrum (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1235,7 +1265,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The seas of the Early Devonian supported rich communities of invertebrates. Brachiopods were especially abundant and diverse, and corals, stromatoporoids, bryozoans, and crinoids built reefs and carpeted shallow seafloors. Trilobites remained common, while graptolites, which had been abundant in earlier periods, dwindled and became largely extinct in the open ocean during this epoch.\n\nOne of the most important events of the Early Devonian was the first appearance of ammonoids, coiled cephalopods that evolved from straight-shelled bactritid ancestors during the Emsian [3]. Ammonoids would go on to become one of the most successful groups of marine animals, surviving until the end of the Cretaceous. The Early Devonian also saw a broader shift known as the 'Devonian nekton revolution', in which swimming animals became increasingly common in the water column [3].\n\nIn freshwater and brackish environments, eurypterids reached enormous sizes. Jaekelopterus, known from Early Devonian rocks of Germany, may have reached around 2.5 metres in length, making it one of the largest arthropods ever to have lived [4]. Jawless fishes, placoderms, and acanthodians shared these waters."
+        "body": "The seas of the Early Devonian supported rich communities of invertebrates. Brachiopods were especially abundant and diverse, and corals, stromatoporoids, bryozoans, and crinoids built reefs and carpeted shallow seafloors. Trilobites remained common, while graptolites, which had been abundant in earlier periods, dwindled and became largely extinct in the open ocean during this epoch.\n\nOne of the most important events of the Early Devonian was the first appearance of ammonoids, coiled cephalopods that evolved from straight-shelled bactritid ancestors during the Emsian [3]. Ammonoids would go on to become one of the most successful groups of marine animals, surviving until the end of the Cretaceous. The Early Devonian also saw a broader shift known as the 'Devonian nekton revolution', in which swimming animals became increasingly common in the water column [3].\n\nIn freshwater and brackish environments, eurypterids reached enormous sizes. Jaekelopterus, known from Early Devonian rocks of Germany, may have reached around 2.5 metres in length, making it one of the largest arthropods ever to have lived [4]. Jawless fishes, placoderms, and acanthodians shared these waters.",
+        "image": {
+          "src": "images/wikipedia_images/devonian/Fish_evolution.png",
+          "caption": "Spindle diagram showing the rapid diversification of fishes through time",
+          "align": "right"
+        }
       },
       {
         "heading": "Terrestrial Colonization",
