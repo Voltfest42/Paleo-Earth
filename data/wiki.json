@@ -1457,7 +1457,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Cambrian, formally known as the Furongian series, was the final epoch of the Cambrian period, lasting from about 497 to 485.4 million years ago. It is divided into the Paibian, Jiangshanian and Stage 10, the last of which has not yet been formally named. The name Furongian comes from the Chinese word for the lotus, a reference to Hunan province in southern China, where key rock sections are found.\n\nThe Furongian has sometimes been described as a 'gap' in the history of animal diversity, since it lies between the Cambrian Explosion and the Great Ordovician Biodiversification Event. Fossil diversity appears relatively low during this time, though this may partly reflect a scarcity of well-studied fossil sites rather than a genuine absence of life [1].\n\nThe Late Cambrian was marked by a series of extinction events among trilobites, known as biomere boundaries, as well as by major disturbances in the carbon cycle. The most famous of these is the Steptoean Positive Carbon Isotope Excursion, or SPICE event, which began near the start of the epoch and is recognised in rocks worldwide [2]."
+        "body": "The Late Cambrian, formally known as the Furongian series, was the final epoch of the Cambrian period, lasting from about 497 to 485.4 million years ago. It is divided into the Paibian, Jiangshanian and Stage 10, the last of which has not yet been formally named. The name Furongian comes from the Chinese word for the lotus, a reference to Hunan province in southern China, where key rock sections are found.\n\nThe Furongian has sometimes been described as a 'gap' in the history of animal diversity, since it lies between the Cambrian Explosion and the Great Ordovician Biodiversification Event. Fossil diversity appears relatively low during this time, though this may partly reflect a scarcity of well-studied fossil sites rather than a genuine absence of life [1].\n\nThe Late Cambrian was marked by a series of extinction events among trilobites, known as biomere boundaries, as well as by major disturbances in the carbon cycle. The most famous of these is the Steptoean Positive Carbon Isotope Excursion, or SPICE event, which began near the start of the epoch and is recognised in rocks worldwide [2].",
+        "image": {
+          "src": "images/wikipedia_images/cambrian/Artistic_reconstruction_of_the_Cambrian_(Drumian)_Marjum_biota.png",
+          "caption": "Artistic reconstruction of the Cambrian Marjum biota",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1465,7 +1470,12 @@
       },
       {
         "heading": "Geography",
-        "body": "During the Late Cambrian, the supercontinent Gondwana was the largest landmass on Earth, extending from the equator to high southern latitudes. It included present-day South America, Africa, Antarctica, Australia, India and Arabia, along with fragments of southern Europe, the Middle East and China. Australia and East Antarctica lay in the tropics along the northern margin of Gondwana.\n\nSmaller continents, including Laurentia, Baltica and Siberia, were separated from Gondwana by oceans. Laurentia lay on the equator and was surrounded by broad shallow seas and carbonate platforms, while Baltica lay in cooler southern latitudes. The Iapetus Ocean separated Laurentia from Baltica and Gondwana, and the vast Panthalassic Ocean covered much of the northern hemisphere.\n\nSea levels were high during much of the Late Cambrian, and large areas of the continents were covered by shallow seas. Sandstones deposited in these seas and along their shorelines are widespread in North America, where some contain trackways and other trace fossils left by arthropods crawling across tidal flats. The land itself was barren, with no plants and only microbial crusts covering damp ground."
+        "body": "During the Late Cambrian, the supercontinent Gondwana was the largest landmass on Earth, extending from the equator to high southern latitudes. It included present-day South America, Africa, Antarctica, Australia, India and Arabia, along with fragments of southern Europe, the Middle East and China. Australia and East Antarctica lay in the tropics along the northern margin of Gondwana.\n\nSmaller continents, including Laurentia, Baltica and Siberia, were separated from Gondwana by oceans. Laurentia lay on the equator and was surrounded by broad shallow seas and carbonate platforms, while Baltica lay in cooler southern latitudes. The Iapetus Ocean separated Laurentia from Baltica and Gondwana, and the vast Panthalassic Ocean covered much of the northern hemisphere.\n\nSea levels were high during much of the Late Cambrian, and large areas of the continents were covered by shallow seas. Sandstones deposited in these seas and along their shorelines are widespread in North America, where some contain trackways and other trace fossils left by arthropods crawling across tidal flats. The land itself was barren, with no plants and only microbial crusts covering damp ground.",
+        "image": {
+          "src": "images/wikipedia_images/cambrian/Gondwana,_China_and_Siberia.png",
+          "caption": "Reconstruction of Gondwana, China, and Siberia",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
