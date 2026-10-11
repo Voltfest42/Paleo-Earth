@@ -1423,7 +1423,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Ordovician was the first epoch of the Ordovician period, lasting from about 485.4 to 470 million years ago. It is divided into two stages, the Tremadocian and the Floian. The beginning of the Ordovician is defined by the first appearance of the conodont Iapetognathus fluctivagus in rocks at Green Point in Newfoundland, Canada [1].\n\nThe Early Ordovician followed a series of extinction events at the end of the Cambrian, and marine life was in a phase of recovery and renewal. During this epoch the Great Ordovician Biodiversification Event began, as many groups of animals that would dominate Palaeozoic seas started to diversify.\n\nThe Early Ordovician is famous for its exceptionally preserved fossils from the Fezouata Formation in Morocco, which reveal that many soft-bodied animals typical of the Cambrian, including giant filter-feeding radiodonts and early relatives of arthropods, survived well into the Ordovician alongside newer groups such as graptolites, bryozoans and diverse cephalopods [2]."
+        "body": "The Early Ordovician was the first epoch of the Ordovician period, lasting from about 485.4 to 470 million years ago. It is divided into two stages, the Tremadocian and the Floian. The beginning of the Ordovician is defined by the first appearance of the conodont Iapetognathus fluctivagus in rocks at Green Point in Newfoundland, Canada [1].\n\nThe Early Ordovician followed a series of extinction events at the end of the Cambrian, and marine life was in a phase of recovery and renewal. During this epoch the Great Ordovician Biodiversification Event began, as many groups of animals that would dominate Palaeozoic seas started to diversify.\n\nThe Early Ordovician is famous for its exceptionally preserved fossils from the Fezouata Formation in Morocco, which reveal that many soft-bodied animals typical of the Cambrian, including giant filter-feeding radiodonts and early relatives of arthropods, survived well into the Ordovician alongside newer groups such as graptolites, bryozoans and diverse cephalopods [2].",
+        "image": {
+          "src": "images/paleo_art/obolus_apollinis_nobu_tamura.jpg",
+          "caption": "Obolus apollinis, a lingulid brachiopod (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1443,7 +1448,12 @@
       },
       {
         "heading": "Marine Evolution",
-        "body": "The Early Ordovician marks the beginning of the Great Ordovician Biodiversification Event, a prolonged radiation of marine life that lasted for around 25 million years. Unlike the Cambrian Explosion, which saw the origin of most animal body plans, the Ordovician radiation involved a huge increase in the diversity of species, genera and families within existing groups.\n\nOne of the most important changes was the development of a more complex plankton. The diversification of acritarchs, the move of graptolites into the open water, and the radiation of planktonic larvae among many animal groups created new food sources. This in turn supported more filter-feeding animals on the seafloor, such as brachiopods, bryozoans and crinoids, and more predators, such as cephalopods.\n\nThe Early Ordovician also saw the beginning of ecological tiering, in which animals lived at different heights above and depths below the seafloor. Burrowing became deeper and more intense, and the first hard surfaces covered with encrusting animals appeared. These changes laid the foundations for the complex marine ecosystems of the rest of the Palaeozoic era."
+        "body": "The Early Ordovician marks the beginning of the Great Ordovician Biodiversification Event, a prolonged radiation of marine life that lasted for around 25 million years. Unlike the Cambrian Explosion, which saw the origin of most animal body plans, the Ordovician radiation involved a huge increase in the diversity of species, genera and families within existing groups.\n\nOne of the most important changes was the development of a more complex plankton. The diversification of acritarchs, the move of graptolites into the open water, and the radiation of planktonic larvae among many animal groups created new food sources. This in turn supported more filter-feeding animals on the seafloor, such as brachiopods, bryozoans and crinoids, and more predators, such as cephalopods.\n\nThe Early Ordovician also saw the beginning of ecological tiering, in which animals lived at different heights above and depths below the seafloor. Burrowing became deeper and more intense, and the first hard surfaces covered with encrusting animals appeared. These changes laid the foundations for the complex marine ecosystems of the rest of the Palaeozoic era.",
+        "image": {
+          "src": "images/paleo_art/tetragraptus_fruticosis_nobu_tamura.jpg",
+          "caption": "Tetragraptus fruticosus, an Early Ordovician graptolite (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
