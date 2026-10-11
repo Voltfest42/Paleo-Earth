@@ -426,6 +426,30 @@ async function main() {
     keyframeBadge:        document.getElementById('keyframeBadge'),
   }, imageLibrary, keyframeImages);
 
+  // Wiki image lightbox click & keyboard interaction
+  const wikiContentEl = document.getElementById('wikiContent');
+  if (wikiContentEl) {
+    const handleWikiImageClick = (e) => {
+      const img = e.target.closest('.wiki-img');
+      if (!img) return;
+      const figure = img.closest('.wiki-figure');
+      const captionEl = figure ? figure.querySelector('figcaption') : null;
+      const caption = captionEl ? captionEl.textContent : (img.alt || '');
+      chat.openLightbox(img.src, caption);
+    };
+
+    wikiContentEl.addEventListener('click', handleWikiImageClick);
+    wikiContentEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const img = e.target.closest('.wiki-img');
+        if (img) {
+          e.preventDefault();
+          handleWikiImageClick(e);
+        }
+      }
+    });
+  }
+
   // Set initial keyframe (holocene, 0 Ma)
   const initialKeyframe = keyframes.find(k => k.id === 'holocene') || keyframes[0];
   const initialSummary  = summaries[initialKeyframe.id];
@@ -524,7 +548,7 @@ async function main() {
       if (section.image) {
         const alignClass = section.image.align === 'left' ? 'wiki-img-left' : 'wiki-img-right';
         html += `<figure class="wiki-figure ${alignClass}">
-                   <img src="${section.image.src}" alt="${section.image.caption || ''}" class="wiki-img">
+                   <img src="${section.image.src}" alt="${section.image.caption || ''}" class="wiki-img" tabindex="0" role="button" aria-label="View larger image: ${section.image.caption || ''}" title="Click to view full size">
                    ${section.image.caption ? `<figcaption>${section.image.caption}</figcaption>` : ''}
                  </figure>`;
       }

@@ -346,6 +346,10 @@ export class Chat {
   /**
    * Generic lightbox opener for any image and caption.
    */
+  openLightbox(src, captionText = '') {
+    this._openLightbox(src, captionText);
+  }
+
   _openLightbox(src, captionText = '') {
     if (!this._lightboxModal || !this._lightboxImg) return;
     this._lightboxImg.src = src;
