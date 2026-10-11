@@ -1491,7 +1491,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Cambrian, formally known as the Miaolingian series, lasted from about 509 to 497 million years ago. It is divided into three stages: the Wuliuan, the Drumian and the Guzhangian. The name Miaolingian comes from the Miaoling mountains in Guizhou province, China, where important rock sections of this age are exposed [1].\n\nThe Middle Cambrian followed the extinction events at the end of the Early Cambrian, which eliminated the reef-building archaeocyathan sponges and many trilobite groups. During this time, marine ecosystems continued to develop in the wake of the Cambrian Explosion, and trilobites diversified to become the most prominent animals of the seafloor.\n\nThe Middle Cambrian is best known for the Burgess Shale of British Columbia, Canada, one of the most famous fossil sites in the world. Discovered by Charles Walcott in 1909, it preserves a remarkable variety of soft-bodied animals, including many strange creatures that do not fit easily into modern groups. Other important sites of this age include the Kaili biota of China and the Wheeler Shale of Utah."
+        "body": "The Middle Cambrian, formally known as the Miaolingian series, lasted from about 509 to 497 million years ago. It is divided into three stages: the Wuliuan, the Drumian and the Guzhangian. The name Miaolingian comes from the Miaoling mountains in Guizhou province, China, where important rock sections of this age are exposed [1].\n\nThe Middle Cambrian followed the extinction events at the end of the Early Cambrian, which eliminated the reef-building archaeocyathan sponges and many trilobite groups. During this time, marine ecosystems continued to develop in the wake of the Cambrian Explosion, and trilobites diversified to become the most prominent animals of the seafloor.\n\nThe Middle Cambrian is best known for the Burgess Shale of British Columbia, Canada, one of the most famous fossil sites in the world. Discovered by Charles Walcott in 1909, it preserves a remarkable variety of soft-bodied animals, including many strange creatures that do not fit easily into modern groups. Other important sites of this age include the Kaili biota of China and the Wheeler Shale of Utah.",
+        "image": {
+          "src": "images/paleo_art/burgess_shale_fauna_nobu_tamura.jpg",
+          "caption": "Burgess Shale marine community reconstruction (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1507,7 +1512,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The fauna of the Middle Cambrian is known in remarkable detail thanks to the Burgess Shale and similar deposits. Arthropods were the most diverse animals, including trilobites and many other forms such as Marrella, the most common animal in the Burgess Shale, and the large predator Anomalocaris, a radiodont that could reach about a metre in length.\n\nOther animals included sponges, such as Vauxia; priapulid worms, such as Ottoia; polychaete worms; and the lobopodian Hallucigenia, a strange worm-like animal with spines on its back and legs below. Wiwaxia was a slug-like animal covered in scales and spines, and Opabinia had five eyes and a long, flexible proboscis ending in a grasping claw. Echinoderms, brachiopods and early molluscs were also present.\n\nChordates were represented by Pikaia, a small, swimming animal with a notochord and segmented muscles, which is related to the ancestors of vertebrates. Metaspriggina, a primitive jawless fish from the Burgess Shale, shows that true vertebrates were already present [3]. The Middle Cambrian also saw the rise of agnostid trilobites, tiny blind arthropods that may have lived in the plankton and are valuable for correlating rocks around the world."
+        "body": "The fauna of the Middle Cambrian is known in remarkable detail thanks to the Burgess Shale and similar deposits. Arthropods were the most diverse animals, including trilobites and many other forms such as Marrella, the most common animal in the Burgess Shale, and the large predator Anomalocaris, a radiodont that could reach about a metre in length.\n\nOther animals included sponges, such as Vauxia; priapulid worms, such as Ottoia; polychaete worms; and the lobopodian Hallucigenia, a strange worm-like animal with spines on its back and legs below. Wiwaxia was a slug-like animal covered in scales and spines, and Opabinia had five eyes and a long, flexible proboscis ending in a grasping claw. Echinoderms, brachiopods and early molluscs were also present.\n\nChordates were represented by Pikaia, a small, swimming animal with a notochord and segmented muscles, which is related to the ancestors of vertebrates. Metaspriggina, a primitive jawless fish from the Burgess Shale, shows that true vertebrates were already present [3]. The Middle Cambrian also saw the rise of agnostid trilobites, tiny blind arthropods that may have lived in the plankton and are valuable for correlating rocks around the world.",
+        "image": {
+          "src": "images/paleo_art/calymene_blumenbachii_nobu_tamura.jpg",
+          "caption": "Calymene blumenbachii, a trilobite (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Early Arthropods",
