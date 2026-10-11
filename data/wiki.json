@@ -1253,7 +1253,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Silurian encompasses the final two epochs of the Silurian period, the Ludlow and the Pridoli, spanning from about 427.4 to 419.2 million years ago. The Ludlow is named after the town of Ludlow in Shropshire, England, while the Pridoli takes its name from a locality near Prague in the Czech Republic. The Pridoli is unusual in being the only epoch in the geological timescale that is not subdivided into stages.\n\nThe Late Silurian was a time of warm seas and growing biological diversity. Marine ecosystems had largely recovered from the Late Ordovician mass extinction, and reefs, brachiopods, and early fishes flourished. At the same time, life on land was taking hold, with the earliest well-documented vascular plants appearing in coastal habitats.\n\nThe epoch was not without its crises. The Lau event, during the middle Ludlow around 424 million years ago, was a significant extinction episode that affected conodonts, graptolites, trilobites, and early fishes [1]. It coincided with one of the largest positive carbon isotope excursions of the Phanerozoic, reflecting major disturbances to the global carbon cycle [1]."
+        "body": "The Late Silurian encompasses the final two epochs of the Silurian period, the Ludlow and the Pridoli, spanning from about 427.4 to 419.2 million years ago. The Ludlow is named after the town of Ludlow in Shropshire, England, while the Pridoli takes its name from a locality near Prague in the Czech Republic. The Pridoli is unusual in being the only epoch in the geological timescale that is not subdivided into stages.\n\nThe Late Silurian was a time of warm seas and growing biological diversity. Marine ecosystems had largely recovered from the Late Ordovician mass extinction, and reefs, brachiopods, and early fishes flourished. At the same time, life on land was taking hold, with the earliest well-documented vascular plants appearing in coastal habitats.\n\nThe epoch was not without its crises. The Lau event, during the middle Ludlow around 424 million years ago, was a significant extinction episode that affected conodonts, graptolites, trilobites, and early fishes [1]. It coincided with one of the largest positive carbon isotope excursions of the Phanerozoic, reflecting major disturbances to the global carbon cycle [1].",
+        "image": {
+          "src": "images/wikipedia_images/silurian/Eurypterus_Paleoart.jpg",
+          "caption": "Life reconstruction of the eurypterid Eurypterus",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1273,7 +1278,12 @@
       },
       {
         "heading": "Jawed Fish Evolution",
-        "body": "The Late Silurian was a critical time in the evolution of jawed vertebrates, or gnathostomes. Although jawless fishes such as the armoured heterostracans, osteostracans, and anaspids were still widespread and diverse, jawed fishes were becoming increasingly common and varied. The evolution of jaws, derived from the skeletal arches that supported the gills, allowed vertebrates to feed in new ways and opened up a wide range of ecological opportunities.\n\nSeveral major groups of jawed fishes were already present. Acanthodians, small fishes with sharp spines in front of their fins, were common in both marine and freshwater environments. Placoderms, the armoured fishes, are well represented in Late Silurian rocks of China, where fossils such as Entelognathus show a surprising combination of placoderm armour and bony-fish-like jaw bones, shedding light on the origins of modern jaws.\n\nThe bony fishes, or osteichthyans, had also appeared by this time. Guiyu oneiros, from the Ludlow of Yunnan, China, is one of the oldest known bony fishes and among the earliest jawed vertebrates preserved nearly complete [4]. It combines features of both ray-finned and lobe-finned fishes, showing that the two great lineages of bony fishes had already begun to diverge [4]. Their descendants would dominate the waters of the Devonian and ultimately give rise to the tetrapods."
+        "body": "The Late Silurian was a critical time in the evolution of jawed vertebrates, or gnathostomes. Although jawless fishes such as the armoured heterostracans, osteostracans, and anaspids were still widespread and diverse, jawed fishes were becoming increasingly common and varied. The evolution of jaws, derived from the skeletal arches that supported the gills, allowed vertebrates to feed in new ways and opened up a wide range of ecological opportunities.\n\nSeveral major groups of jawed fishes were already present. Acanthodians, small fishes with sharp spines in front of their fins, were common in both marine and freshwater environments. Placoderms, the armoured fishes, are well represented in Late Silurian rocks of China, where fossils such as Entelognathus show a surprising combination of placoderm armour and bony-fish-like jaw bones, shedding light on the origins of modern jaws.\n\nThe bony fishes, or osteichthyans, had also appeared by this time. Guiyu oneiros, from the Ludlow of Yunnan, China, is one of the oldest known bony fishes and among the earliest jawed vertebrates preserved nearly complete [4]. It combines features of both ray-finned and lobe-finned fishes, showing that the two great lineages of bony fishes had already begun to diverge [4]. Their descendants would dominate the waters of the Devonian and ultimately give rise to the tetrapods.",
+        "image": {
+          "src": "images/paleo_art/lanarkia_horrida_nobu_tamura.jpg",
+          "caption": "Lanarkia horrida, a thelodont agnathan with tooth-like scales (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -1287,7 +1297,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Silurian corresponds to the Wenlock epoch, which lasted from about 433.4 to 427.4 million years ago. It is divided into two stages, the Sheinwoodian and the Homerian, and is named after Wenlock Edge, a limestone escarpment in Shropshire, England, where rocks of this age are exposed and richly fossiliferous.\n\nThe Wenlock was a time of warm, shallow seas and flourishing reef ecosystems. Marine life had substantially recovered from the Late Ordovician mass extinction, and communities of corals, brachiopods, crinoids, and trilobites were diverse and widespread. The famous Wenlock Limestone of England, with its abundant fossil reefs, is one of the classic records of Silurian marine life.\n\nThe epoch was also punctuated by biological crises. The Ireviken event, at the start of the Wenlock, and the Mulde event, in the Homerian, both caused significant extinctions among conodonts, graptolites, and trilobites [1]. These events were associated with marked changes in ocean chemistry and carbon isotope ratios, reflecting the sensitivity of Silurian ecosystems to environmental change [2]."
+        "body": "The Middle Silurian corresponds to the Wenlock epoch, which lasted from about 433.4 to 427.4 million years ago. It is divided into two stages, the Sheinwoodian and the Homerian, and is named after Wenlock Edge, a limestone escarpment in Shropshire, England, where rocks of this age are exposed and richly fossiliferous.\n\nThe Wenlock was a time of warm, shallow seas and flourishing reef ecosystems. Marine life had substantially recovered from the Late Ordovician mass extinction, and communities of corals, brachiopods, crinoids, and trilobites were diverse and widespread. The famous Wenlock Limestone of England, with its abundant fossil reefs, is one of the classic records of Silurian marine life.\n\nThe epoch was also punctuated by biological crises. The Ireviken event, at the start of the Wenlock, and the Mulde event, in the Homerian, both caused significant extinctions among conodonts, graptolites, and trilobites [1]. These events were associated with marked changes in ocean chemistry and carbon isotope ratios, reflecting the sensitivity of Silurian ecosystems to environmental change [2].",
+        "image": {
+          "src": "images/paleo_art/eurypterus_tetragonophthalmus_nobu_tamura.jpg",
+          "caption": "Eurypterus tetragonophthalmus, an iconic sea scorpion (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1299,7 +1314,12 @@
       },
       {
         "heading": "Flora",
-        "body": "Life on land during the Middle Silurian was still in its early stages. The continents were largely barren of complex vegetation, but microbial mats, algae, and lichen-like organisms covered damp surfaces, helping to weather rocks and form primitive soils. Fossil spores show that non-vascular plants, related to modern liverworts and mosses, were well established in moist environments.\n\nThe Wenlock contains some of the earliest known fossils of vascular plants. Cooksonia, a tiny plant with forking, leafless stems tipped with spore capsules, first appears in rocks of this age in Ireland [3]. Its water-conducting tissues and protective cuticle represent important adaptations that would allow later plants to grow taller and spread into drier habitats.\n\nIn the oceans, the base of the food chain was formed by photosynthetic plankton, including acritarchs, which were abundant and diverse, as well as various seaweeds and calcareous algae. Algae also contributed to building reefs and carbonate sediments in shallow tropical seas. Changes in acritarch diversity are recorded across the extinction events of the Wenlock, reflecting the disruption of marine productivity."
+        "body": "Life on land during the Middle Silurian was still in its early stages. The continents were largely barren of complex vegetation, but microbial mats, algae, and lichen-like organisms covered damp surfaces, helping to weather rocks and form primitive soils. Fossil spores show that non-vascular plants, related to modern liverworts and mosses, were well established in moist environments.\n\nThe Wenlock contains some of the earliest known fossils of vascular plants. Cooksonia, a tiny plant with forking, leafless stems tipped with spore capsules, first appears in rocks of this age in Ireland [3]. Its water-conducting tissues and protective cuticle represent important adaptations that would allow later plants to grow taller and spread into drier habitats.\n\nIn the oceans, the base of the food chain was formed by photosynthetic plankton, including acritarchs, which were abundant and diverse, as well as various seaweeds and calcareous algae. Algae also contributed to building reefs and carbonate sediments in shallow tropical seas. Changes in acritarch diversity are recorded across the extinction events of the Wenlock, reflecting the disruption of marine productivity.",
+        "image": {
+          "src": "images/paleo_art/cooksonia_pertoni_nobu_tamura.jpg",
+          "caption": "Cooksonia pertoni, an early pioneering vascular land plant (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
@@ -1321,7 +1341,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Silurian corresponds to the Llandovery epoch, the first epoch of the Silurian period, lasting from about 443.8 to 433.4 million years ago. It is divided into three stages, the Rhuddanian, the Aeronian, and the Telychian, and is named after the town of Llandovery in Wales, where rocks of this age were first studied in the nineteenth century.\n\nThe Llandovery began in the aftermath of the Late Ordovician mass extinction, the second most severe extinction in Earth's history, which eliminated around 85 percent of marine species [1]. The extinction was closely linked to a major glaciation centred on Gondwana, and the beginning of the Silurian was marked by the melting of these ice sheets and a substantial rise in sea level [1].\n\nThe Early Silurian was therefore a time of recovery and rebuilding. Surviving groups of marine organisms diversified to fill vacant ecological niches, and graptolites, brachiopods, corals, and other groups rapidly radiated. By the end of the epoch, marine ecosystems had largely regained their former richness, and reefs once again flourished in tropical seas."
+        "body": "The Early Silurian corresponds to the Llandovery epoch, the first epoch of the Silurian period, lasting from about 443.8 to 433.4 million years ago. It is divided into three stages, the Rhuddanian, the Aeronian, and the Telychian, and is named after the town of Llandovery in Wales, where rocks of this age were first studied in the nineteenth century.\n\nThe Llandovery began in the aftermath of the Late Ordovician mass extinction, the second most severe extinction in Earth's history, which eliminated around 85 percent of marine species [1]. The extinction was closely linked to a major glaciation centred on Gondwana, and the beginning of the Silurian was marked by the melting of these ice sheets and a substantial rise in sea level [1].\n\nThe Early Silurian was therefore a time of recovery and rebuilding. Surviving groups of marine organisms diversified to fill vacant ecological niches, and graptolites, brachiopods, corals, and other groups rapidly radiated. By the end of the epoch, marine ecosystems had largely regained their former richness, and reefs once again flourished in tropical seas.",
+        "image": {
+          "src": "images/paleo_art/athenaegis_chattertoni_nobu_tamura.jpg",
+          "caption": "Athenaegis chattertoni, a primitive cyathaspidid jawless fish (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1329,7 +1354,12 @@
       },
       {
         "heading": "Geography",
-        "body": "In the Early Silurian, the supercontinent Gondwana dominated the southern hemisphere, extending from the tropics to the South Pole, which lay beneath what is now northern or central Africa. Its northern margin bordered the Rheic Ocean, which had opened during the Ordovician as the microcontinent Avalonia rifted away from Gondwana and drifted northward.\n\nLaurentia, the core of present-day North America, lay across the equator, while Baltica, comprising much of northern Europe, lay to its east in the southern tropics. Between them, the Iapetus Ocean was narrowing as these continents and Avalonia converged. Their collision during the later Silurian would build the Caledonian mountains. Siberia, North China, and South China were separate landmasses situated in tropical latitudes, and the rest of the northern hemisphere was occupied by the vast Panthalassic Ocean.\n\nThe post-glacial rise in sea level flooded broad areas of the continents, creating extensive shallow seas. In Laurentia, Baltica, and South China, these seas supported carbonate platforms and early reef systems, while deeper waters accumulated graptolite-rich shales that are used today to subdivide Silurian time."
+        "body": "In the Early Silurian, the supercontinent Gondwana dominated the southern hemisphere, extending from the tropics to the South Pole, which lay beneath what is now northern or central Africa. Its northern margin bordered the Rheic Ocean, which had opened during the Ordovician as the microcontinent Avalonia rifted away from Gondwana and drifted northward.\n\nLaurentia, the core of present-day North America, lay across the equator, while Baltica, comprising much of northern Europe, lay to its east in the southern tropics. Between them, the Iapetus Ocean was narrowing as these continents and Avalonia converged. Their collision during the later Silurian would build the Caledonian mountains. Siberia, North China, and South China were separate landmasses situated in tropical latitudes, and the rest of the northern hemisphere was occupied by the vast Panthalassic Ocean.\n\nThe post-glacial rise in sea level flooded broad areas of the continents, creating extensive shallow seas. In Laurentia, Baltica, and South China, these seas supported carbonate platforms and early reef systems, while deeper waters accumulated graptolite-rich shales that are used today to subdivide Silurian time.",
+        "image": {
+          "src": "images/wikipedia_images/silurian/Ordovicium-Silurian.jpg",
+          "caption": "Ordovician-Silurian boundary exposure on Hovedøya, Norway",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -1337,7 +1367,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The fauna of the Early Silurian was shaped by recovery from the Late Ordovician mass extinction. Groups that survived the extinction, including brachiopods, trilobites, corals, crinoids, and bryozoans, diversified as warm seas spread across the continental shelves. Brachiopods such as the pentamerids formed dense shell beds on shallow seafloors, and communities of these animals are often used to reconstruct Silurian water depths.\n\nGraptolites, colonial planktonic organisms, underwent a dramatic radiation during the Llandovery. The monograptids, characterized by a single row of cups along a straight or coiled stipe, became dominant, and their rapid evolution makes them excellent index fossils. Spectacularly spiral forms such as Rastrites and Spirograptus appeared during this time.\n\nReefs, which had been severely affected by the extinction, began to re-establish themselves later in the epoch, built by tabulate and rugose corals and stromatoporoid sponges. Nautiloids, eurypterids, and early fishes also inhabited Llandovery seas. The Waukesha biota of Wisconsin, dating to the Telychian, preserves soft-bodied animals including worms, arthropods, and early relatives of horseshoe crabs."
+        "body": "The fauna of the Early Silurian was shaped by recovery from the Late Ordovician mass extinction. Groups that survived the extinction, including brachiopods, trilobites, corals, crinoids, and bryozoans, diversified as warm seas spread across the continental shelves. Brachiopods such as the pentamerids formed dense shell beds on shallow seafloors, and communities of these animals are often used to reconstruct Silurian water depths.\n\nGraptolites, colonial planktonic organisms, underwent a dramatic radiation during the Llandovery. The monograptids, characterized by a single row of cups along a straight or coiled stipe, became dominant, and their rapid evolution makes them excellent index fossils. Spectacularly spiral forms such as Rastrites and Spirograptus appeared during this time.\n\nReefs, which had been severely affected by the extinction, began to re-establish themselves later in the epoch, built by tabulate and rugose corals and stromatoporoid sponges. Nautiloids, eurypterids, and early fishes also inhabited Llandovery seas. The Waukesha biota of Wisconsin, dating to the Telychian, preserves soft-bodied animals including worms, arthropods, and early relatives of horseshoe crabs.",
+        "image": {
+          "src": "images/paleo_art/euphaneropida_nobu_tamura.jpg",
+          "caption": "Euphaneropida, an extinct stem-lamprey anaspid jawless fish (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Marine Evolution",
