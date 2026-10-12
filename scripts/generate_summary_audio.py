@@ -21,10 +21,10 @@ def sanitize_for_speech(text):
     text = re.sub(r'\bbya\b', 'billion years ago', text, flags=re.IGNORECASE)
     
     # Events
-    text = re.sub(r'\bK[-\u2013\u2014/]?Pg\b', 'K-P-G', text, flags=re.IGNORECASE)
-    text = re.sub(r'\bK[-\u2013\u2014/]?T\b', 'K-T', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bK[-\u2013\u2014/]?Pg\b', 'Cretaceous-Paleogene', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bK[-\u2013\u2014/]?T\b', 'Cretaceous-Tertiary', text, flags=re.IGNORECASE)
     text = re.sub(r'\bP[-\u2013\u2014/]?Tr\b', 'Permian-Triassic', text, flags=re.IGNORECASE)
-    text = re.sub(r'\bPETM\b', 'P-E-T-M', text)
+    text = re.sub(r'\bPETM\b', 'Paleocene-Eocene Thermal Maximum', text)
     
     # Chemistry
     text = re.sub(r'\bCO2\b', 'carbon dioxide', text, flags=re.IGNORECASE)
@@ -36,6 +36,7 @@ def sanitize_for_speech(text):
     text = re.sub(r'\u00b7|\u2022', ' ', text) # bullets
     
     # Formatting
+    text = re.sub(r'\s*[\u2014\u2013]\s*', ', ', text)
     text = text.replace('\n', ' ')
     text = re.sub(r'\s{2,}', ' ', text)
     
