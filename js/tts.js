@@ -49,11 +49,12 @@ export function sanitizeForSpeech(text) {
     .replace(/\bbya\b/gi, 'billion years ago')
 
     // Mass extinctions and geological boundaries
-    .replace(/\bK[-–—/]?Pg\b/gi, 'K-P-G')
-    .replace(/\bK[-–—/]?T\b/gi, 'K-T')
+    .replace(/\bK[-–—/]?Pg\b/gi, 'Cretaceous-Paleogene')
+    .replace(/\bK[-–—/]?T\b/gi, 'Cretaceous-Tertiary')
     .replace(/\bP[-–—/]?Tr\b/gi, 'Permian-Triassic')
     .replace(/\bO[-–—/]?S\b/gi, 'Ordovician-Silurian')
-    .replace(/\bPETM\b/g, 'P-E-T-M')
+    .replace(/\bTr[-–—/]?J\b/gi, 'Triassic-Jurassic')
+    .replace(/\bPETM\b/g, 'Paleocene-Eocene Thermal Maximum')
 
     // Chemistry, atmosphere and climate symbols
     .replace(/\bCO[2₂\u2082](?!\w)/gi, 'carbon dioxide')
@@ -81,6 +82,7 @@ export function sanitizeForSpeech(text) {
     .replace(/\s*[·•∙⋅|│]\s*/g, ', ')
 
     // Punctuation and flow
+    .replace(/\s*[—–]\s*/g, ', ')
     .replace(/\.{3,}/g, ', ')
     .replace(/\n{2,}/g, '. ')
     .replace(/\n/g, ' ')
