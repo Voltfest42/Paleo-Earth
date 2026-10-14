@@ -56,6 +56,50 @@ export function sanitizeForSpeech(text) {
     .replace(/\bTr[-–—/]?J\b/gi, 'Triassic-Jurassic')
     .replace(/\bPETM\b/g, 'Paleocene-Eocene Thermal Maximum')
 
+    // Major geological & extinction acronyms
+    .replace(/\bGOBE\b/g, 'Great Ordovician Biodiversification Event')
+    .replace(/\bCAMP\b/g, 'Central Atlantic Magmatic Province')
+    .replace(/\bCRC\b/g, 'Carboniferous Rainforest Collapse')
+    .replace(/\bEOT\b/g, 'Eocene-Oligocene Transition')
+    .replace(/\bMPT\b/g, 'Mid-Pleistocene Transition')
+    .replace(/\bLIPs\b/g, 'Large Igneous Provinces')
+    .replace(/\bLIP\b/g, 'Large Igneous Province')
+    .replace(/\bBIFs\b/g, 'Banded Iron Formations')
+    .replace(/\bBIF\b/g, 'Banded Iron Formation')
+    .replace(/\bOAEs?\b/gi, 'Oceanic Anoxic Event')
+    .replace(/\bGSSP\b/g, 'G-S-S-P')
+
+    // Scientific word slashes (e.g. Climatic/Environmental -> Climatic and Environmental)
+    .replace(/([a-zA-Z]{3,})\/([a-zA-Z]{3,})/g, '$1 and $2')
+
+    // Geochemical isotopes & scientific notation (e.g. ¹³C-enriched -> carbon-13 enriched)
+    .replace(/\u03B4\s*/g, 'delta ')
+    .replace(/\u2030/g, ' per mil')
+    .replace(/([\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079]+)(Sr|Pb|Ar|He|Fe|[CONSUTH])\s*\/\s*([\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079]+)(Sr|Pb|Ar|He|Fe|[CONSUTH])/g, (m, n1, el1, n2, el2) => {
+      const sMap = {'\u2070':'0','\u00B9':'1','\u00B2':'2','\u00B3':'3','\u2074':'4','\u2075':'5','\u2076':'6','\u2077':'7','\u2078':'8','\u2079':'9'};
+      const eMap = {'C':'carbon','O':'oxygen','N':'nitrogen','S':'sulfur','U':'uranium','Pb':'lead','Sr':'strontium','Ar':'argon','He':'helium','H':'hydrogen','Fe':'iron'};
+      const num1 = n1.split('').map(c => sMap[c] || c).join('');
+      const num2 = n2.split('').map(c => sMap[c] || c).join('');
+      return `${eMap[el1] || el1}-${num1} to ${eMap[el2] || el2}-${num2} ratio`;
+    })
+    .replace(/([\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079]+)(Sr|Pb|Ar|He|Fe|[CONSUTH])\b/g, (m, nums, el) => {
+      const sMap = {'\u2070':'0','\u00B9':'1','\u00B2':'2','\u00B3':'3','\u2074':'4','\u2075':'5','\u2076':'6','\u2077':'7','\u2078':'8','\u2079':'9'};
+      const eMap = {'C':'carbon','O':'oxygen','N':'nitrogen','S':'sulfur','U':'uranium','Pb':'lead','Sr':'strontium','Ar':'argon','He':'helium','H':'hydrogen','Fe':'iron'};
+      const num = nums.split('').map(c => sMap[c] || c).join('');
+      return `${eMap[el] || el}-${num}`;
+    })
+    .replace(/\bcarbon-(\d+)-enriched\b/gi, 'carbon-$1 enriched')
+    .replace(/\bcarbon-(\d+)-depleted\b/gi, 'carbon-$1 depleted')
+    .replace(/\boxygen-(\d+)-enriched\b/gi, 'oxygen-$1 enriched')
+    .replace(/\boxygen-(\d+)-depleted\b/gi, 'oxygen-$1 depleted')
+    .replace(/\b(?:delta|d)13C\b/gi, 'delta carbon-13')
+    .replace(/\b(?:delta|d)18O\b/gi, 'delta oxygen-18')
+    .replace(/\b(?:delta|d)34S\b/gi, 'delta sulfur-34')
+    .replace(/\b13C-enriched\b/gi, 'carbon-13 enriched')
+    .replace(/\b13C-depleted\b/gi, 'carbon-13 depleted')
+    .replace(/\b18O-enriched\b/gi, 'oxygen-18 enriched')
+    .replace(/\b18O-depleted\b/gi, 'oxygen-18 depleted')
+
     // Chemistry, atmosphere and climate symbols
     .replace(/\bCO[2₂\u2082](?!\w)/gi, 'carbon dioxide')
     .replace(/\bO[2₂\u2082](?!\w)/gi, 'oxygen')

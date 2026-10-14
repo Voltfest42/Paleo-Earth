@@ -136,7 +136,7 @@ Your role and guidelines:
    (curious adults, students, enthusiasts — not specialists).
 2. Anchor every answer in the correct geologic time: use full period names and Ma values \
    when referencing time (e.g. "during the Cambrian Period, around 520 Ma").
-3. Keep responses focused and concise — aim for 2–4 paragraphs maximum. \
+3. Keep responses focused and concise — aim for 2–3 structured paragraphs (around 250–350 words). \
    Prioritise depth over breadth; it is fine to cover fewer topics well.
 4. Do not fabricate fossil evidence or species names. If something is uncertain or \
    debated in the scientific literature, say so.
@@ -301,6 +301,50 @@ def handle_chat(body: dict) -> dict:
     return _response(200, {"reply": reply_text, "response": reply_text, "success": True})
 
 
+def _chunk_text_for_polly(text: str, max_chars: int = 2500) -> list:
+    """
+    Split text into chunks smaller than max_chars at sentence boundaries
+    to prevent exceeding Polly's 3,000-character single-call limit.
+    """
+    if len(text) <= max_chars:
+        return [text]
+
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    chunks = []
+    current_chunk = []
+    current_len = 0
+
+    for s in sentences:
+        s_len = len(s)
+        if current_len + s_len + 1 > max_chars:
+            if current_chunk:
+                chunks.append(" ".join(current_chunk).strip())
+                current_chunk = []
+                current_len = 0
+            if s_len > max_chars:
+                parts = re.split(r'(?<=[,;])\s+', s)
+                sub_chunk = []
+                sub_len = 0
+                for p in parts:
+                    if sub_len + len(p) + 1 > max_chars:
+                        if sub_chunk:
+                            chunks.append(" ".join(sub_chunk).strip())
+                            sub_chunk = []
+                            sub_len = 0
+                    sub_chunk.append(p)
+                    sub_len += len(p) + 1
+                if sub_chunk:
+                    chunks.append(" ".join(sub_chunk).strip())
+                continue
+        current_chunk.append(s)
+        current_len += s_len + 1
+
+    if current_chunk:
+        chunks.append(" ".join(current_chunk).strip())
+
+    return [c for c in chunks if c]
+
+
 def handle_tts(body: dict) -> dict:
     """
     POST /tts
@@ -323,40 +367,34 @@ def handle_tts(body: dict) -> dict:
     if not text:
         return _error(400, "text is required and must not be empty.")
 
-    # Polly has a hard limit of 3,000 characters for the SynthesizeSpeech action.
-    # Truncate gracefully rather than failing, and warn in logs.
-    POLLY_CHAR_LIMIT = 3000
-    if len(text) > POLLY_CHAR_LIMIT:
-        print(f"[tts] text length {len(text)} exceeds Polly limit "
-              f"({POLLY_CHAR_LIMIT}); truncating.")
-        text = text[:POLLY_CHAR_LIMIT]
+    chunks = _chunk_text_for_polly(text, max_chars=2500)
+    print(f"[tts] Synthesising speech: voiceId={voice_id}, total_chars={len(text)}, chunks={len(chunks)}")
 
-    print(f"[tts] Synthesising speech: voiceId={voice_id}, text_length={len(text)}")
+    all_audio_bytes = bytearray()
+    for chunk in chunks:
+        try:
+            polly_response = polly.synthesize_speech(
+                Text       = chunk,
+                VoiceId    = voice_id,
+                Engine     = "neural",       # Higher quality, more natural delivery
+                OutputFormat = "mp3",
+                TextType   = "text",         # Plain text — markdown stripped client-side
+            )
+            all_audio_bytes.extend(polly_response["AudioStream"].read())
+        except polly.exceptions.InvalidSsmlException as exc:
+            return _error(400, "Invalid text sent to Polly.", str(exc))
+        except polly.exceptions.UnsupportedPlsLanguageException as exc:
+            return _error(400, "Unsupported language for Polly.", str(exc))
+        except polly.exceptions.LexiconNotFoundException as exc:
+            return _error(400, "Polly lexicon not found.", str(exc))
+        except Exception as exc:
+            print(traceback.format_exc())
+            return _error(502, "Failed to call Polly.", str(exc))
 
-    try:
-        polly_response = polly.synthesize_speech(
-            Text       = text,
-            VoiceId    = voice_id,
-            Engine     = "neural",       # Higher quality, more natural delivery
-            OutputFormat = "mp3",
-            TextType   = "text",         # Plain text — markdown stripped client-side
-        )
-    except polly.exceptions.InvalidSsmlException as exc:
-        # Shouldn't happen with TextType='text', but guard anyway
-        return _error(400, "Invalid text sent to Polly.", str(exc))
-    except polly.exceptions.UnsupportedPlsLanguageException as exc:
-        return _error(400, "Unsupported language for Polly.", str(exc))
-    except polly.exceptions.LexiconNotFoundException as exc:
-        return _error(400, "Polly lexicon not found.", str(exc))
-    except Exception as exc:
-        print(traceback.format_exc())
-        return _error(502, "Failed to call Polly.", str(exc))
+    # Read and base64-encode the combined MP3 audio stream
+    audio_base64 = base64.b64encode(bytes(all_audio_bytes)).decode("utf-8")
 
-    # Read and base64-encode the MP3 audio stream
-    audio_bytes  = polly_response["AudioStream"].read()
-    audio_base64 = base64.b64encode(audio_bytes).decode("utf-8")
-
-    print(f"[tts] Success: audio_bytes={len(audio_bytes)}, voice={voice_id}")
+    print(f"[tts] Success: audio_bytes={len(all_audio_bytes)}, voice={voice_id}, chunks={len(chunks)}")
 
     return _response(200, {
         "audio":       audio_base64,
