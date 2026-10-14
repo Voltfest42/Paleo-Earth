@@ -48,6 +48,10 @@ export function sanitizeForSpeech(text) {
     .replace(/\bmya\b/gi, 'million years ago')
     .replace(/\bbya\b/gi, 'billion years ago')
 
+    // Strip redundant parenthetical acronyms following spelled-out names
+    // e.g. "Paleocene–Eocene Thermal Maximum (PETM)" -> "Paleocene–Eocene Thermal Maximum"
+    .replace(/\s*\([A-Z0-9\-–—/]{2,8}\)/g, '')
+
     // Mass extinctions and geological boundaries
     .replace(/\bK[-–—/]?Pg\b/gi, 'Cretaceous-Paleogene')
     .replace(/\bK[-–—/]?T\b/gi, 'Cretaceous-Tertiary')

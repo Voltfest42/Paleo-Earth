@@ -20,6 +20,9 @@ def sanitize_for_speech(text):
     text = re.sub(r'\b(\d+(?:\.\d+)?)\s*Ga\b', r'\1 billion years ago', text, flags=re.IGNORECASE)
     text = re.sub(r'\bbya\b', 'billion years ago', text, flags=re.IGNORECASE)
     
+    # Strip redundant parenthetical acronyms following spelled-out names
+    text = re.sub(r'\s*\([A-Z0-9\-–—/]{2,8}\)', '', text)
+
     # Events and Major Geological Acronyms
     text = re.sub(r'\bK[-\u2013\u2014/]?Pg\b', 'Cretaceous-Paleogene', text, flags=re.IGNORECASE)
     text = re.sub(r'\bK[-\u2013\u2014/]?T\b', 'Cretaceous-Tertiary', text, flags=re.IGNORECASE)
