@@ -1049,7 +1049,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Carboniferous, corresponding to the Late Pennsylvanian epoch, lasted from about 307 to 298.9 million years ago. It comprises two stages, the Kasimovian and the Gzhelian, both named after localities in Russia, and it was the final part of the Carboniferous period before the beginning of the Permian [1].\n\nThe Late Carboniferous was a time of major environmental change. It began shortly after the Carboniferous Rainforest Collapse, a series of events in which the vast tropical coal swamp forests of Euramerica fragmented and were largely replaced by drier, more seasonal vegetation [2]. This change had important consequences for the animals that lived in these forests.\n\nAt the same time, the Late Paleozoic Ice Age continued, with large ice sheets covering parts of the southern supercontinent Gondwana. Repeated advances and retreats of these ice sheets caused sea levels to rise and fall many times, producing the rhythmic layers of coal, shale, and limestone known as cyclothems [3]."
+        "body": "The Late Carboniferous, corresponding to the Late Pennsylvanian epoch, lasted from about 307 to 298.9 million years ago. It comprises two stages, the Kasimovian and the Gzhelian, both named after localities in Russia, and it was the final part of the Carboniferous period before the beginning of the Permian [1].\n\nThe Late Carboniferous was a time of major environmental change. It began shortly after the Carboniferous Rainforest Collapse, a series of events in which the vast tropical coal swamp forests of Euramerica fragmented and were largely replaced by drier, more seasonal vegetation [2]. This change had important consequences for the animals that lived in these forests.\n\nAt the same time, the Late Paleozoic Ice Age continued, with large ice sheets covering parts of the southern supercontinent Gondwana. Repeated advances and retreats of these ice sheets caused sea levels to rise and fall many times, producing the rhythmic layers of coal, shale, and limestone known as cyclothems [3].",
+        "image": {
+          "src": "images/wikipedia_images/carboniferous/Arthropleura_Reconstruction.jpg",
+          "caption": "Life reconstruction of the giant myriapod Arthropleura",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1065,11 +1070,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "The Late Carboniferous was a time of giant arthropods. The high oxygen levels of the atmosphere are thought to have allowed insects and other arthropods to grow to enormous sizes [4]. The griffinfly Meganeura, a relative of modern dragonflies, had a wingspan of about 70 centimetres, and the millipede-like Arthropleura could reach more than 2 metres in length.\n\nAmphibians were the most diverse land vertebrates. Temnospondyls and lepospondyls lived in swamps and rivers, while early amniotes, including both reptiles and synapsids, were becoming more common. The breakup of the rainforests into isolated patches is thought to have favoured amniotes, which were better adapted to drier conditions [2].\n\nIn the seas, brachiopods, crinoids, bryozoans, rugose and tabulate corals, and fusulinid foraminifera were abundant on shallow shelves. Ammonoids, nautiloids, and a wide variety of fish, including many unusual cartilaginous fish such as the eugeneodonts and the iniopterygians, swam in the oceans."
+        "body": "The Late Carboniferous was a time of giant arthropods. The high oxygen levels of the atmosphere are thought to have allowed insects and other arthropods to grow to enormous sizes [4]. The griffinfly Meganeura, a relative of modern dragonflies, had a wingspan of about 70 centimetres, and the millipede-like Arthropleura could reach more than 2 metres in length.\n\nAmphibians were the most diverse land vertebrates. Temnospondyls and lepospondyls lived in swamps and rivers, while early amniotes, including both reptiles and synapsids, were becoming more common. The breakup of the rainforests into isolated patches is thought to have favoured amniotes, which were better adapted to drier conditions [2].\n\nIn the seas, brachiopods, crinoids, bryozoans, rugose and tabulate corals, and fusulinid foraminifera were abundant on shallow shelves. Ammonoids, nautiloids, and a wide variety of fish, including many unusual cartilaginous fish such as the eugeneodonts and the iniopterygians, swam in the oceans.",
+        "image": {
+          "src": "images/wikipedia_images/carboniferous/Meganeura.png",
+          "caption": "Life reconstruction of the giant griffin fly Meganeura monyi",
+          "align": "right"
+        }
       },
       {
         "heading": "Rise of Amniotes",
-        "body": "The Late Carboniferous was an important time in the early evolution of the amniotes, the group of vertebrates that includes reptiles, birds, and mammals. Amniotes lay eggs with protective membranes and shells, allowing them to reproduce away from water, and they have waterproof skin that reduces water loss.\n\nBy this epoch, the two main branches of amniotes had already split: the sauropsids, which would give rise to reptiles and birds, and the synapsids, which would give rise to mammals. Early synapsids such as the ophiacodontids, edaphosaurids, and sphenacodontids grew larger and more diverse, while early diapsid reptiles such as Petrolacosaurus appeared.\n\nThe Carboniferous Rainforest Collapse is thought to have accelerated the rise of amniotes. As the wet forests fragmented, amphibians, which depend on water for reproduction, suffered, while amniotes, better able to cope with dry conditions, spread and diversified [2]. Herbivory among land vertebrates also became established, with forms such as Edaphosaurus and the diadectids feeding on plants."
+        "body": "The Late Carboniferous was an important time in the early evolution of the amniotes, the group of vertebrates that includes reptiles, birds, and mammals. Amniotes lay eggs with protective membranes and shells, allowing them to reproduce away from water, and they have waterproof skin that reduces water loss.\n\nBy this epoch, the two main branches of amniotes had already split: the sauropsids, which would give rise to reptiles and birds, and the synapsids, which would give rise to mammals. Early synapsids such as the ophiacodontids, edaphosaurids, and sphenacodontids grew larger and more diverse, while early diapsid reptiles such as Petrolacosaurus appeared.\n\nThe Carboniferous Rainforest Collapse is thought to have accelerated the rise of amniotes. As the wet forests fragmented, amphibians, which depend on water for reproduction, suffered, while amniotes, better able to cope with dry conditions, spread and diversified [2]. Herbivory among land vertebrates also became established, with forms such as Edaphosaurus and the diadectids feeding on plants.",
+        "image": {
+          "src": "images/paleo_art/diadectomorpha_nobu_tamura.jpg",
+          "caption": "Diadectomorpha, large herbivorous reptile-like stem-amniotes (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -1095,11 +1110,21 @@
       },
       {
         "heading": "Flora",
-        "body": "The Middle Carboniferous was the time of the great coal swamp forests [2]. These forests were dominated by giant lycopsids, such as Lepidodendron and Sigillaria, which could reach heights of 30 metres or more. These trees had trunks covered with diamond-shaped leaf scars and were anchored by spreading root systems known as Stigmaria.\n\nOther important plants included giant horsetails such as Calamites, which grew along river banks and in disturbed areas, as well as tree ferns, seed ferns, and the cordaitaleans, tall seed plants with long, strap-like leaves that grew in coastal and drier settings. Early conifers also appeared in upland environments.\n\nThe coal swamps were remarkably productive, and the slow decay of plant material in their waterlogged soils led to the formation of thick deposits of peat, which later became coal. In regions such as North America, Europe, and China, these coal deposits are among the most important in the world."
+        "body": "The Middle Carboniferous was the time of the great coal swamp forests [2]. These forests were dominated by giant lycopsids, such as Lepidodendron and Sigillaria, which could reach heights of 30 metres or more. These trees had trunks covered with diamond-shaped leaf scars and were anchored by spreading root systems known as Stigmaria.\n\nOther important plants included giant horsetails such as Calamites, which grew along river banks and in disturbed areas, as well as tree ferns, seed ferns, and the cordaitaleans, tall seed plants with long, strap-like leaves that grew in coastal and drier settings. Early conifers also appeared in upland environments.\n\nThe coal swamps were remarkably productive, and the slow decay of plant material in their waterlogged soils led to the formation of thick deposits of peat, which later became coal. In regions such as North America, Europe, and China, these coal deposits are among the most important in the world.",
+        "image": {
+          "src": "images/wikipedia_images/carboniferous/Lycopsid_joggins_mcr1.JPG",
+          "caption": "Fossil lycopsid tree trunk at the Joggins Fossil Cliffs",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "The Middle Carboniferous saw a major diversification of terrestrial animals. Winged insects, which first appeared in the earlier Carboniferous, radiated rapidly and included early relatives of dragonflies, mayflies, cockroaches, and the extinct palaeodictyopterans with their piercing mouthparts. Giant arthropods such as Arthropleura and early griffinflies roamed the forests.\n\nAmphibians were the dominant land vertebrates. Large temnospondyls lived in swamps and rivers, while lepospondyls included small, snake-like, and lizard-like forms. Fossil sites such as Mazon Creek in Illinois and Joggins in Nova Scotia preserve remarkable snapshots of life in and around the coal swamps.\n\nIn the seas, brachiopods, crinoids, bryozoans, and corals flourished, and fusulinid foraminifera became abundant. Ammonoids diversified, and the oceans contained a wide variety of fish, including early ray-finned fish and many unusual sharks and their relatives, such as the stethacanthids with their distinctive dorsal fins."
+        "body": "The Middle Carboniferous saw a major diversification of terrestrial animals. Winged insects, which first appeared in the earlier Carboniferous, radiated rapidly and included early relatives of dragonflies, mayflies, cockroaches, and the extinct palaeodictyopterans with their piercing mouthparts. Giant arthropods such as Arthropleura and early griffinflies roamed the forests.\n\nAmphibians were the dominant land vertebrates. Large temnospondyls lived in swamps and rivers, while lepospondyls included small, snake-like, and lizard-like forms. Fossil sites such as Mazon Creek in Illinois and Joggins in Nova Scotia preserve remarkable snapshots of life in and around the coal swamps.\n\nIn the seas, brachiopods, crinoids, bryozoans, and corals flourished, and fusulinid foraminifera became abundant. Ammonoids diversified, and the oceans contained a wide variety of fish, including early ray-finned fish and many unusual sharks and their relatives, such as the stethacanthids with their distinctive dorsal fins.",
+        "image": {
+          "src": "images/paleo_art/arthropleura_armata_nobu_tamura.jpg",
+          "caption": "Arthropleura armata, a giant millipede relative (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Rise of Amniotes",
@@ -1117,7 +1142,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Carboniferous, corresponding to the Mississippian subperiod, lasted from about 358.9 to 323.4 million years ago. It is divided into three stages, the Tournaisian, Visean, and Serpukhovian, and takes its name from the Mississippi River valley in North America, where limestones of this age are widely exposed [1].\n\nThe Early Carboniferous began in the aftermath of the Late Devonian extinctions, including the Hangenberg event at the end of the Devonian, which devastated marine ecosystems and early vertebrates [2]. The recovery from these extinctions shaped the ecosystems of the Carboniferous, both in the seas and on land.\n\nThe Early Carboniferous was a time of extensive shallow tropical seas, in which vast limestone deposits formed from the remains of crinoids and other marine organisms. On land, tetrapods diversified and spread into new environments, and the first great forests of lycopsids began to develop in coastal wetlands."
+        "body": "The Early Carboniferous, corresponding to the Mississippian subperiod, lasted from about 358.9 to 323.4 million years ago. It is divided into three stages, the Tournaisian, Visean, and Serpukhovian, and takes its name from the Mississippi River valley in North America, where limestones of this age are widely exposed [1].\n\nThe Early Carboniferous began in the aftermath of the Late Devonian extinctions, including the Hangenberg event at the end of the Devonian, which devastated marine ecosystems and early vertebrates [2]. The recovery from these extinctions shaped the ecosystems of the Carboniferous, both in the seas and on land.\n\nThe Early Carboniferous was a time of extensive shallow tropical seas, in which vast limestone deposits formed from the remains of crinoids and other marine organisms. On land, tetrapods diversified and spread into new environments, and the first great forests of lycopsids began to develop in coastal wetlands.",
+        "image": {
+          "src": "images/paleo_art/colosteidae_nobu_tamura.jpg",
+          "caption": "Colosteidae, early aquatic stem-tetrapods (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1129,11 +1159,21 @@
       },
       {
         "heading": "Flora",
-        "body": "The flora of the Early Carboniferous was dominated by spore-bearing plants, although seed plants were also present. Lycopsids, such as early forms of Lepidodendron, formed forests in wetland environments, and they would later become the dominant trees of the great coal swamps. Horsetails, ferns, and fern-like plants were also common.\n\nThe first seed plants had appeared in the Late Devonian, and during the Early Carboniferous they diversified into a wide range of seed ferns. These plants were able to colonise drier habitats than spore-bearing plants, as their seeds did not need water for fertilisation.\n\nThe vegetation of the Early Carboniferous recovered from the effects of the end-Devonian extinction, which had affected land plants as well as animals. Fossil plant sites in Scotland, such as Pettycur, preserve detailed records of these early Carboniferous floras, often buried by volcanic ash."
+        "body": "The flora of the Early Carboniferous was dominated by spore-bearing plants, although seed plants were also present. Lycopsids, such as early forms of Lepidodendron, formed forests in wetland environments, and they would later become the dominant trees of the great coal swamps. Horsetails, ferns, and fern-like plants were also common.\n\nThe first seed plants had appeared in the Late Devonian, and during the Early Carboniferous they diversified into a wide range of seed ferns. These plants were able to colonise drier habitats than spore-bearing plants, as their seeds did not need water for fertilisation.\n\nThe vegetation of the Early Carboniferous recovered from the effects of the end-Devonian extinction, which had affected land plants as well as animals. Fossil plant sites in Scotland, such as Pettycur, preserve detailed records of these early Carboniferous floras, often buried by volcanic ash.",
+        "image": {
+          "src": "images/wikipedia_images/carboniferous/Plants_of_the_Carboniferous_age_MKL_Bd._15_1890_(128660878).jpg",
+          "caption": "Historic botanical plate of Carboniferous swamp flora",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "The seas of the Early Carboniferous were dominated by crinoids, or sea lilies, which formed vast 'meadows' on the sea floor. So abundant were they that this time is sometimes called the 'Age of Crinoids'. Brachiopods, bryozoans, rugose and tabulate corals, and blastoids were also common, and ammonoids diversified after the end-Devonian extinction.\n\nThe fish fauna changed dramatically after the Late Devonian extinctions. The armoured placoderms had disappeared, and cartilaginous fish, such as sharks and their relatives, became very diverse [2]. The Bear Gulch Limestone of Montana preserves an extraordinary array of these animals, including the bizarre Falcatus and Stethacanthus. Ray-finned fish also diversified.\n\nOn land, arthropods such as scorpions and millipedes were present, and the first winged insects appeared towards the end of the subperiod. Early tetrapods lived in and around swamps, rivers, and lakes, and some were becoming increasingly adapted to life on land."
+        "body": "The seas of the Early Carboniferous were dominated by crinoids, or sea lilies, which formed vast 'meadows' on the sea floor. So abundant were they that this time is sometimes called the 'Age of Crinoids'. Brachiopods, bryozoans, rugose and tabulate corals, and blastoids were also common, and ammonoids diversified after the end-Devonian extinction.\n\nThe fish fauna changed dramatically after the Late Devonian extinctions. The armoured placoderms had disappeared, and cartilaginous fish, such as sharks and their relatives, became very diverse [2]. The Bear Gulch Limestone of Montana preserves an extraordinary array of these animals, including the bizarre Falcatus and Stethacanthus. Ray-finned fish also diversified.\n\nOn land, arthropods such as scorpions and millipedes were present, and the first winged insects appeared towards the end of the subperiod. Early tetrapods lived in and around swamps, rivers, and lakes, and some were becoming increasingly adapted to life on land.",
+        "image": {
+          "src": "images/paleo_art/akmonistion_zangerli_nobu_tamura.jpg",
+          "caption": "Akmonistion zangerli, a holocephalian with an anvil-shaped spine (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Early Tetrapods",
