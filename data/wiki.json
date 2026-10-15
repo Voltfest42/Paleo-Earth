@@ -401,7 +401,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Cretaceous was the final epoch of the Mesozoic era, spanning from about 100.5 to 66 million years ago. It represents the culmination of the Age of Dinosaurs, when some of the most famous prehistoric animals — including Tyrannosaurus, Triceratops, and the duck-billed hadrosaurs — roamed the continents.\n\nThe epoch was a time of high sea levels, warm global temperatures, and continued fragmentation of the continents. Flowering plants, which had appeared in the Early Cretaceous, rose to ecological dominance, transforming landscapes and forging new relationships with insect pollinators.\n\nThe Late Cretaceous ended abruptly with the K-Pg mass extinction, triggered by the Chicxulub asteroid impact. This catastrophe brought an end to the non-avian dinosaurs and many other groups, closing a chapter of Earth's history that had lasted more than 180 million years [1]."
+        "body": "The Late Cretaceous was the final epoch of the Mesozoic era, spanning from about 100.5 to 66 million years ago. It represents the culmination of the Age of Dinosaurs, when some of the most famous prehistoric animals — including Tyrannosaurus, Triceratops, and the duck-billed hadrosaurs — roamed the continents.\n\nThe epoch was a time of high sea levels, warm global temperatures, and continued fragmentation of the continents. Flowering plants, which had appeared in the Early Cretaceous, rose to ecological dominance, transforming landscapes and forging new relationships with insect pollinators.\n\nThe Late Cretaceous ended abruptly with the K-Pg mass extinction, triggered by the Chicxulub asteroid impact. This catastrophe brought an end to the non-avian dinosaurs and many other groups, closing a chapter of Earth's history that had lasted more than 180 million years [1].",
+        "image": {
+          "src": "images/paleo_art/tyrannosaurus_rex_nobu_tamura.jpg",
+          "caption": "Tyrannosaurus rex, the iconic apex coelurosaurian theropod (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -417,11 +422,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Late Cretaceous seas teemed with life. Mosasaurs — giant marine lizards related to modern monitor lizards and snakes — became the apex predators of the oceans, some exceeding 15 metres in length. Long-necked elasmosaurid plesiosaurs, sea turtles such as Archelon, and large predatory fish like Xiphactinus shared these waters. Ammonites remained abundant and diverse, including bizarre heteromorph forms with uncoiled shells, while rudist bivalves built extensive reef-like structures in tropical seas.\n\nIn the skies, pterosaurs reached their largest sizes. Azhdarchids such as Quetzalcoatlus had wingspans of around 10 metres and may have stalked prey on the ground like giant storks. Birds were diverse, including toothed seabirds such as Hesperornis and Ichthyornis, as well as the enantiornithines and early members of the modern bird lineage.\n\nOn land, mammals remained generally small but were more diverse than often assumed. Multituberculates, early marsupial relatives, and placental relatives occupied a wide range of niches. Snakes, lizards, crocodylomorphs, turtles, and frogs were common, and social insects such as ants and termites were becoming established."
+        "body": "Late Cretaceous seas teemed with life. Mosasaurs — giant marine lizards related to modern monitor lizards and snakes — became the apex predators of the oceans, some exceeding 15 metres in length. Long-necked elasmosaurid plesiosaurs, sea turtles such as Archelon, and large predatory fish like Xiphactinus shared these waters. Ammonites remained abundant and diverse, including bizarre heteromorph forms with uncoiled shells, while rudist bivalves built extensive reef-like structures in tropical seas.\n\nIn the skies, pterosaurs reached their largest sizes. Azhdarchids such as Quetzalcoatlus had wingspans of around 10 metres and may have stalked prey on the ground like giant storks. Birds were diverse, including toothed seabirds such as Hesperornis and Ichthyornis, as well as the enantiornithines and early members of the modern bird lineage.\n\nOn land, mammals remained generally small but were more diverse than often assumed. Multituberculates, early marsupial relatives, and placental relatives occupied a wide range of niches. Snakes, lizards, crocodylomorphs, turtles, and frogs were common, and social insects such as ants and termites were becoming established.",
+        "image": {
+          "src": "images/paleo_art/mosasaurus_hoffmannii_nobu_tamura.jpg",
+          "caption": "Mosasaurus hoffmannii, the giant apex marine squamate reptile (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
-        "body": "The Late Cretaceous was a golden age of dinosaur diversity. In Asia and North America, tyrannosaurids evolved into enormous apex predators, culminating in Tyrannosaurus rex, one of the largest land carnivores of all time. In the southern continents, abelisaurids such as Carnotaurus and Majungasaurus filled similar roles, while giant carcharodontosaurids had largely disappeared early in the epoch.\n\nHerbivorous dinosaurs developed sophisticated feeding adaptations. Hadrosaurs possessed dental batteries containing hundreds of tightly packed teeth for grinding tough plant material, and many sported elaborate hollow crests used for display and vocal communication. Ceratopsians, including Triceratops and Styracosaurus, developed spectacular horns and frills, while heavily armoured ankylosaurids carried bony tail clubs.\n\nSauropods were rare in North America for much of the epoch but thrived in the southern continents, where titanosaurs such as Argentinosaurus and Patagotitan reached lengths of more than 30 metres. Small feathered theropods — including dromaeosaurs like Velociraptor, troodontids, and the beaked oviraptorosaurs — highlighted the close evolutionary relationship between dinosaurs and birds."
+        "body": "The Late Cretaceous was a golden age of dinosaur diversity. In Asia and North America, tyrannosaurids evolved into enormous apex predators, culminating in Tyrannosaurus rex, one of the largest land carnivores of all time. In the southern continents, abelisaurids such as Carnotaurus and Majungasaurus filled similar roles, while giant carcharodontosaurids had largely disappeared early in the epoch.\n\nHerbivorous dinosaurs developed sophisticated feeding adaptations. Hadrosaurs possessed dental batteries containing hundreds of tightly packed teeth for grinding tough plant material, and many sported elaborate hollow crests used for display and vocal communication. Ceratopsians, including Triceratops and Styracosaurus, developed spectacular horns and frills, while heavily armoured ankylosaurids carried bony tail clubs.\n\nSauropods were rare in North America for much of the epoch but thrived in the southern continents, where titanosaurs such as Argentinosaurus and Patagotitan reached lengths of more than 30 metres. Small feathered theropods — including dromaeosaurs like Velociraptor, troodontids, and the beaked oviraptorosaurs — highlighted the close evolutionary relationship between dinosaurs and birds.",
+        "image": {
+          "src": "images/paleo_art/echkar_formation_nobu_tamura.jpg",
+          "caption": "Echkar Formation Late Cretaceous theropods and titanosaurs in Niger (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -435,7 +450,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The mid-Cretaceous is an informal term used for the interval spanning roughly the Albian and Cenomanian stages, from about 113 to 94 million years ago, bridging the Early and Late Cretaceous epochs. It is remembered as one of the warmest times in Earth's history and as a period of intense geological and biological change.\n\nDuring this time, a pulse of volcanic activity and rapid seafloor spreading drove atmospheric carbon dioxide to very high levels, producing a 'greenhouse world' with no permanent polar ice. Sea levels rose dramatically, and the oceans repeatedly became starved of oxygen in episodes known as Oceanic Anoxic Events [1, 2].\n\nBiologically, the mid-Cretaceous is marked by the rapid spread of flowering plants and by a turnover in dinosaur faunas, as giant predators such as Spinosaurus and Giganotosaurus reached their peak and the lineages that would dominate the Late Cretaceous began to emerge."
+        "body": "The mid-Cretaceous is an informal term used for the interval spanning roughly the Albian and Cenomanian stages, from about 113 to 94 million years ago, bridging the Early and Late Cretaceous epochs. It is remembered as one of the warmest times in Earth's history and as a period of intense geological and biological change.\n\nDuring this time, a pulse of volcanic activity and rapid seafloor spreading drove atmospheric carbon dioxide to very high levels, producing a 'greenhouse world' with no permanent polar ice. Sea levels rose dramatically, and the oceans repeatedly became starved of oxygen in episodes known as Oceanic Anoxic Events [1, 2].\n\nBiologically, the mid-Cretaceous is marked by the rapid spread of flowering plants and by a turnover in dinosaur faunas, as giant predators such as Spinosaurus and Giganotosaurus reached their peak and the lineages that would dominate the Late Cretaceous began to emerge.",
+        "image": {
+          "src": "images/paleo_art/borealopelta_markmitchelli_nobu_tamura.jpg",
+          "caption": "Borealopelta markmitchelli, an exceptionally preserved nodosaurid ankylosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -451,7 +471,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "Mid-Cretaceous oceans were home to a rich variety of marine reptiles. Ichthyosaurs survived into the late Cenomanian before finally going extinct [3], while short-necked pliosaurs and long-necked plesiosaurs remained common. The first mosasaurs appeared toward the end of this interval, beginning an evolutionary radiation that would make them the dominant marine predators of the Late Cretaceous.\n\nInvertebrate life flourished in the warm, shallow seas. Ammonites were abundant, rudist bivalves formed extensive reef-like buildups, and planktonic foraminifera and coccolithophores diversified, the latter contributing to vast chalk deposits. Early modern sharks and ray-finned fishes continued to diversify.\n\nOn land, the spread of flowering plants was accompanied by a diversification of insects, including early bees, moths, and pollinating beetles. Lizards, snakes, crocodylomorphs, and turtles were widespread, and mammals — including early relatives of placentals and marsupials — scurried through the undergrowth. In the skies, pterosaurs such as the toothed ornithocheirids soared over the seas alongside a growing diversity of birds."
+        "body": "Mid-Cretaceous oceans were home to a rich variety of marine reptiles. Ichthyosaurs survived into the late Cenomanian before finally going extinct [3], while short-necked pliosaurs and long-necked plesiosaurs remained common. The first mosasaurs appeared toward the end of this interval, beginning an evolutionary radiation that would make them the dominant marine predators of the Late Cretaceous.\n\nInvertebrate life flourished in the warm, shallow seas. Ammonites were abundant, rudist bivalves formed extensive reef-like buildups, and planktonic foraminifera and coccolithophores diversified, the latter contributing to vast chalk deposits. Early modern sharks and ray-finned fishes continued to diversify.\n\nOn land, the spread of flowering plants was accompanied by a diversification of insects, including early bees, moths, and pollinating beetles. Lizards, snakes, crocodylomorphs, and turtles were widespread, and mammals — including early relatives of placentals and marsupials — scurried through the undergrowth. In the skies, pterosaurs such as the toothed ornithocheirids soared over the seas alongside a growing diversity of birds.",
+        "image": {
+          "src": "images/paleo_art/zuniceratops_christopheri_nobu_tamura.jpg",
+          "caption": "Zuniceratops christopheri, an early brow-horned ceratopsian dinosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
@@ -469,7 +494,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Cretaceous was the first epoch of the Cretaceous period, lasting from about 145 to 100.5 million years ago. At more than 40 million years, it is one of the longest epochs in the geological timescale, and it witnessed some of the most important events in the history of life, including the origin and early diversification of flowering plants.\n\nThe epoch was characterised by the continued break-up of the supercontinent Pangaea. The southern landmass of Gondwana began to split apart, opening the South Atlantic and Indian oceans and increasingly isolating the faunas of different continents.\n\nDinosaurs remained the dominant land animals, but the Early Cretaceous saw a changing of the guard, as many of the giant sauropods of the Jurassic declined in the north and new groups of herbivores and feathered theropods rose to prominence. Exceptionally preserved fossils from sites such as the Jehol Biota of China have revealed an astonishing diversity of feathered dinosaurs, early birds, and mammals [1]."
+        "body": "The Early Cretaceous was the first epoch of the Cretaceous period, lasting from about 145 to 100.5 million years ago. At more than 40 million years, it is one of the longest epochs in the geological timescale, and it witnessed some of the most important events in the history of life, including the origin and early diversification of flowering plants.\n\nThe epoch was characterised by the continued break-up of the supercontinent Pangaea. The southern landmass of Gondwana began to split apart, opening the South Atlantic and Indian oceans and increasingly isolating the faunas of different continents.\n\nDinosaurs remained the dominant land animals, but the Early Cretaceous saw a changing of the guard, as many of the giant sauropods of the Jurassic declined in the north and new groups of herbivores and feathered theropods rose to prominence. Exceptionally preserved fossils from sites such as the Jehol Biota of China have revealed an astonishing diversity of feathered dinosaurs, early birds, and mammals [1].",
+        "image": {
+          "src": "images/paleo_art/xenoceratops_foremostensis_nobu_tamura.jpg",
+          "caption": "Xenoceratops foremostensis, an early centrosaurine ceratopsid (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -481,15 +511,30 @@
       },
       {
         "heading": "Flora",
-        "body": "The Early Cretaceous is the time when flowering plants, or angiosperms, first appear clearly in the fossil record. The earliest definite angiosperm pollen dates to around 135 to 130 million years ago, and early flowering plants such as Archaefructus from the Jehol Biota of China and Montsechia from Spain were small, likely aquatic or semi-aquatic plants [3].\n\nFor most of the epoch, however, landscapes were dominated by more ancient plant groups. Conifers, including araucarians, podocarps, and the now-extinct cheirolepidiaceans, formed extensive forests. Ferns carpeted the ground in many habitats, and cycads, bennettitaleans, and ginkgos were widespread. Horsetails grew along the margins of rivers and lakes.\n\nBy the end of the Early Cretaceous, angiosperms had diversified considerably and begun to spread into a wider range of habitats. Their rapid life cycles and efficient reproduction allowed them to colonise disturbed environments such as floodplains, setting the stage for their explosive rise to dominance later in the Cretaceous."
+        "body": "The Early Cretaceous is the time when flowering plants, or angiosperms, first appear clearly in the fossil record. The earliest definite angiosperm pollen dates to around 135 to 130 million years ago, and early flowering plants such as Archaefructus from the Jehol Biota of China and Montsechia from Spain were small, likely aquatic or semi-aquatic plants [3].\n\nFor most of the epoch, however, landscapes were dominated by more ancient plant groups. Conifers, including araucarians, podocarps, and the now-extinct cheirolepidiaceans, formed extensive forests. Ferns carpeted the ground in many habitats, and cycads, bennettitaleans, and ginkgos were widespread. Horsetails grew along the margins of rivers and lakes.\n\nBy the end of the Early Cretaceous, angiosperms had diversified considerably and begun to spread into a wider range of habitats. Their rapid life cycles and efficient reproduction allowed them to colonise disturbed environments such as floodplains, setting the stage for their explosive rise to dominance later in the Cretaceous.",
+        "image": {
+          "src": "images/wikipedia_images/cretaceous/Archaefructus_liaoningensis.jpg",
+          "caption": "Archaefructus liaoningensis fossil, one of the earliest known flowering plants",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "Early Cretaceous ecosystems were rich and varied. Lake deposits such as those of the Jehol Biota in northeastern China and Las Hoyas in Spain preserve entire communities in remarkable detail, including insects, fish, salamanders, frogs, turtles, lizards, and choristoderes — aquatic reptiles resembling crocodiles [1].\n\nMammals were diverse and more ecologically varied than once thought. Repenomamus, a badger-sized mammal from China, was found with the remains of a juvenile dinosaur in its stomach, demonstrating that some Mesozoic mammals preyed on small dinosaurs [4]. Early members of the lineages leading to placentals and marsupials also appeared during this time.\n\nIn the seas, ichthyosaurs, plesiosaurs, and pliosaurs remained important predators, while ammonites, belemnites, and bivalves were abundant. Pterosaurs diversified into a variety of forms, including the filter-feeding Pterodaustro, and the toothed, crested ornithocheirids that soared over the oceans. Early birds such as Confuciusornis and a variety of enantiornithines shared the skies with them."
+        "body": "Early Cretaceous ecosystems were rich and varied. Lake deposits such as those of the Jehol Biota in northeastern China and Las Hoyas in Spain preserve entire communities in remarkable detail, including insects, fish, salamanders, frogs, turtles, lizards, and choristoderes — aquatic reptiles resembling crocodiles [1].\n\nMammals were diverse and more ecologically varied than once thought. Repenomamus, a badger-sized mammal from China, was found with the remains of a juvenile dinosaur in its stomach, demonstrating that some Mesozoic mammals preyed on small dinosaurs [4]. Early members of the lineages leading to placentals and marsupials also appeared during this time.\n\nIn the seas, ichthyosaurs, plesiosaurs, and pliosaurs remained important predators, while ammonites, belemnites, and bivalves were abundant. Pterosaurs diversified into a variety of forms, including the filter-feeding Pterodaustro, and the toothed, crested ornithocheirids that soared over the oceans. Early birds such as Confuciusornis and a variety of enantiornithines shared the skies with them.",
+        "image": {
+          "src": "images/paleo_art/vintana_sertichi_nobu_tamura.jpg",
+          "caption": "Vintana sertichi, an early gondwanatherian mammal from Madagascar (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
-        "body": "The Early Cretaceous saw a major reorganisation of dinosaur communities. In the Northern Hemisphere, the giant diplodocid and brachiosaurid sauropods of the Jurassic became rarer, and herbivorous ornithopods such as Iguanodon — one of the first dinosaurs ever described — became dominant, together with armoured nodosaurids and early ceratopsians such as Psittacosaurus.\n\nIn the Southern Hemisphere, sauropods remained important, with rebbachisaurids and early titanosaurs thriving across Gondwana. Large predatory theropods included spinosaurids such as Baryonyx, with crocodile-like snouts adapted for catching fish, and allosauroids such as Acrocanthosaurus, with its distinctive ridge of tall spines along its back.\n\nPerhaps the most significant discoveries from the Early Cretaceous are the feathered dinosaurs of the Jehol Biota. Species such as Sinosauropteryx, Microraptor, and the early tyrannosauroid Yutyrannus preserve feathers ranging from simple filaments to fully formed flight feathers. These fossils have transformed our understanding of dinosaur biology and provided compelling evidence that birds are the living descendants of theropod dinosaurs [1]."
+        "body": "The Early Cretaceous saw a major reorganisation of dinosaur communities. In the Northern Hemisphere, the giant diplodocid and brachiosaurid sauropods of the Jurassic became rarer, and herbivorous ornithopods such as Iguanodon — one of the first dinosaurs ever described — became dominant, together with armoured nodosaurids and early ceratopsians such as Psittacosaurus.\n\nIn the Southern Hemisphere, sauropods remained important, with rebbachisaurids and early titanosaurs thriving across Gondwana. Large predatory theropods included spinosaurids such as Baryonyx, with crocodile-like snouts adapted for catching fish, and allosauroids such as Acrocanthosaurus, with its distinctive ridge of tall spines along its back.\n\nPerhaps the most significant discoveries from the Early Cretaceous are the feathered dinosaurs of the Jehol Biota. Species such as Sinosauropteryx, Microraptor, and the early tyrannosauroid Yutyrannus preserve feathers ranging from simple filaments to fully formed flight feathers. These fossils have transformed our understanding of dinosaur biology and provided compelling evidence that birds are the living descendants of theropod dinosaurs [1].",
+        "image": {
+          "src": "images/paleo_art/mantellodon_carpenteri_nobu_tamura.jpg",
+          "caption": "Mantellodon carpenteri, an early iguanodontian dinosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -503,7 +548,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Jurassic was the final epoch of the Jurassic period, spanning from about 161.5 to 145 million years ago. It is often regarded as the iconic age of the dinosaurs, when colossal long-necked sauropods such as Brachiosaurus, Diplodocus, and Apatosaurus roamed the land alongside predators like Allosaurus and armoured herbivores like Stegosaurus.\n\nThe epoch was a time of warm, largely ice-free climates and high sea levels, as the supercontinent Pangaea continued to break apart. Shallow tropical seas covered much of Europe, providing habitats for rich marine faunas and giving rise to famous fossil deposits.\n\nThe Late Jurassic is also notable for the appearance of Archaeopteryx, the famous 'first bird', whose exquisitely preserved fossils from the Solnhofen limestone of Germany became a landmark in the understanding of evolution shortly after the publication of Darwin's On the Origin of Species."
+        "body": "The Late Jurassic was the final epoch of the Jurassic period, spanning from about 161.5 to 145 million years ago. It is often regarded as the iconic age of the dinosaurs, when colossal long-necked sauropods such as Brachiosaurus, Diplodocus, and Apatosaurus roamed the land alongside predators like Allosaurus and armoured herbivores like Stegosaurus.\n\nThe epoch was a time of warm, largely ice-free climates and high sea levels, as the supercontinent Pangaea continued to break apart. Shallow tropical seas covered much of Europe, providing habitats for rich marine faunas and giving rise to famous fossil deposits.\n\nThe Late Jurassic is also notable for the appearance of Archaeopteryx, the famous 'first bird', whose exquisitely preserved fossils from the Solnhofen limestone of Germany became a landmark in the understanding of evolution shortly after the publication of Darwin's On the Origin of Species.",
+        "image": {
+          "src": "images/paleo_art/seismosaurus_halli_nobu_tamura.jpg",
+          "caption": "Seismosaurus (Diplodocus) halli, a colossal Morrison diplodocid (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -511,7 +561,12 @@
       },
       {
         "heading": "Geography",
-        "body": "By the Late Jurassic, Pangaea was well into its break-up. The central Atlantic Ocean had opened between North America and northwest Africa, creating a widening seaway that connected the Tethys Ocean to the proto-Pacific. Laurasia to the north and Gondwana to the south were increasingly separated, although land connections likely persisted in some areas.\n\nHigh sea levels caused shallow seas to flood much of Europe, which existed as an archipelago of islands surrounded by warm lagoons and carbonate platforms. Some of these lagoons, such as those around Solnhofen in Bavaria, had stagnant, hypersaline bottom waters that preserved fossils in extraordinary detail.\n\nIn western North America, the Sundance Sea retreated, and rivers draining newly uplifted highlands to the west deposited the sediments of the Morrison Formation across a broad lowland [2]. Gondwana remained largely intact, but rifting had begun along the margins that would later separate Africa, India, Antarctica, and Australia."
+        "body": "By the Late Jurassic, Pangaea was well into its break-up. The central Atlantic Ocean had opened between North America and northwest Africa, creating a widening seaway that connected the Tethys Ocean to the proto-Pacific. Laurasia to the north and Gondwana to the south were increasingly separated, although land connections likely persisted in some areas.\n\nHigh sea levels caused shallow seas to flood much of Europe, which existed as an archipelago of islands surrounded by warm lagoons and carbonate platforms. Some of these lagoons, such as those around Solnhofen in Bavaria, had stagnant, hypersaline bottom waters that preserved fossils in extraordinary detail.\n\nIn western North America, the Sundance Sea retreated, and rivers draining newly uplifted highlands to the west deposited the sediments of the Morrison Formation across a broad lowland [2]. Gondwana remained largely intact, but rifting had begun along the margins that would later separate Africa, India, Antarctica, and Australia.",
+        "image": {
+          "src": "images/wikipedia_images/jurassic/Tidwell_Member_of_the_Morrison_Formation_over_Wanakah_Formation_(Jurassic;_roadcut_near_Artists_Point,_Colorado_National_Monument,_Colorado,_USA)_1_(23644153939).jpg",
+          "caption": "Morrison Formation (Tidwell Member) over Wanakah Formation, Colorado",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -519,11 +574,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Late Jurassic seas were ruled by marine reptiles. Giant pliosaurs such as Pliosaurus and Liopleurodon were apex predators with massive skulls and powerful jaws, while long-necked plesiosaurs hunted fish and cephalopods. Ichthyosaurs such as Ophthalmosaurus, with enormous eyes adapted for deep diving, were common, and marine crocodylomorphs known as metriorhynchids had evolved paddle-like limbs and tail flukes for a fully aquatic life.\n\nAmmonites and belemnites were abundant, and reefs built by sponges and corals flourished in the warm, shallow waters of the Tethys. Bony fishes and sharks continued to diversify, including the giant filter-feeding fish Leedsichthys, one of the largest fish ever to have lived.\n\nOn land and in the air, pterosaurs were diverse, including long-tailed rhamphorhynchids and the first short-tailed pterodactyloids. Small mammals were widespread, including docodonts and early relatives of modern mammal groups, some of which were adapted for swimming, burrowing, or gliding. Lizards, turtles, crocodylomorphs, and sphenodontians also inhabited Late Jurassic ecosystems."
+        "body": "Late Jurassic seas were ruled by marine reptiles. Giant pliosaurs such as Pliosaurus and Liopleurodon were apex predators with massive skulls and powerful jaws, while long-necked plesiosaurs hunted fish and cephalopods. Ichthyosaurs such as Ophthalmosaurus, with enormous eyes adapted for deep diving, were common, and marine crocodylomorphs known as metriorhynchids had evolved paddle-like limbs and tail flukes for a fully aquatic life.\n\nAmmonites and belemnites were abundant, and reefs built by sponges and corals flourished in the warm, shallow waters of the Tethys. Bony fishes and sharks continued to diversify, including the giant filter-feeding fish Leedsichthys, one of the largest fish ever to have lived.\n\nOn land and in the air, pterosaurs were diverse, including long-tailed rhamphorhynchids and the first short-tailed pterodactyloids. Small mammals were widespread, including docodonts and early relatives of modern mammal groups, some of which were adapted for swimming, burrowing, or gliding. Lizards, turtles, crocodylomorphs, and sphenodontians also inhabited Late Jurassic ecosystems.",
+        "image": {
+          "src": "images/paleo_art/simolestes_vorax_nobu_tamura.jpg",
+          "caption": "Simolestes vorax, a massive short-necked pliosaurid marine predator (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
-        "body": "The Late Jurassic is renowned for its giant sauropods. In North America, the Morrison Formation has yielded Diplodocus, Apatosaurus, Brontosaurus, Camarasaurus, and Brachiosaurus, while the Tendaguru beds of Tanzania preserve the towering Giraffatitan. These animals evolved long necks for reaching vegetation across wide areas, air-filled bones to reduce weight, and efficient bird-like respiratory systems [3].\n\nThe principal predators were large theropods such as Allosaurus, Torvosaurus, and Ceratosaurus, which likely preyed on juvenile sauropods and other herbivores. Among the plant-eaters, stegosaurs with their distinctive plates and spiked tails reached their peak diversity, and early ankylosaurs and small ornithopods were also present.\n\nThe epoch also marked a key stage in the evolution of birds. Archaeopteryx, from the Solnhofen limestone, combined bird-like features such as feathered wings with reptilian traits including teeth, clawed fingers, and a long bony tail. Other small feathered theropods from China, such as Anchiornis, show that feathers were widespread among the dinosaur lineage leading to birds [4]."
+        "body": "The Late Jurassic is renowned for its giant sauropods. In North America, the Morrison Formation has yielded Diplodocus, Apatosaurus, Brontosaurus, Camarasaurus, and Brachiosaurus, while the Tendaguru beds of Tanzania preserve the towering Giraffatitan. These animals evolved long necks for reaching vegetation across wide areas, air-filled bones to reduce weight, and efficient bird-like respiratory systems [3].\n\nThe principal predators were large theropods such as Allosaurus, Torvosaurus, and Ceratosaurus, which likely preyed on juvenile sauropods and other herbivores. Among the plant-eaters, stegosaurs with their distinctive plates and spiked tails reached their peak diversity, and early ankylosaurs and small ornithopods were also present.\n\nThe epoch also marked a key stage in the evolution of birds. Archaeopteryx, from the Solnhofen limestone, combined bird-like features such as feathered wings with reptilian traits including teeth, clawed fingers, and a long bony tail. Other small feathered theropods from China, such as Anchiornis, show that feathers were widespread among the dinosaur lineage leading to birds [4].",
+        "image": {
+          "src": "images/paleo_art/stegosaurus_ungulatus_nobu_tamura.jpg",
+          "caption": "Stegosaurus ungulatus, the iconic armored plated dinosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -567,7 +632,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Jurassic was the second of the three epochs of the Jurassic period, lasting from about 174 to 161.5 million years ago. Although historically less well known than the Early and Late Jurassic, due in part to a relative scarcity of rich fossil sites, it was a time of key evolutionary innovations and of major changes in the Earth's geography.\n\nDuring this epoch, Pangaea continued to break apart, and the young central Atlantic Ocean began to widen as true oceanic crust formed between North America and Africa. The world was warm and largely ice-free, and shallow seas spread across large parts of the continents.\n\nThe Middle Jurassic saw the diversification of many of the dinosaur lineages that would dominate the later Mesozoic, including the first large tetanuran theropods, early stegosaurs, and the ancestors of the giant sauropods of the Late Jurassic. Important discoveries from China, England, and Argentina have revealed much about life during this formative interval."
+        "body": "The Middle Jurassic was the second of the three epochs of the Jurassic period, lasting from about 174 to 161.5 million years ago. Although historically less well known than the Early and Late Jurassic, due in part to a relative scarcity of rich fossil sites, it was a time of key evolutionary innovations and of major changes in the Earth's geography.\n\nDuring this epoch, Pangaea continued to break apart, and the young central Atlantic Ocean began to widen as true oceanic crust formed between North America and Africa. The world was warm and largely ice-free, and shallow seas spread across large parts of the continents.\n\nThe Middle Jurassic saw the diversification of many of the dinosaur lineages that would dominate the later Mesozoic, including the first large tetanuran theropods, early stegosaurs, and the ancestors of the giant sauropods of the Late Jurassic. Important discoveries from China, England, and Argentina have revealed much about life during this formative interval.",
+        "image": {
+          "src": "images/paleo_art/gavialinum_rhodani_nobu_tamura.jpg",
+          "caption": "Gavialinum rhodani, a marine teleosauroid thalattosuchian crocodylomorph (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -575,7 +645,12 @@
       },
       {
         "heading": "Geography",
-        "body": "During the Middle Jurassic, the supercontinent Pangaea was in the process of splitting into two great landmasses: Laurasia in the north, comprising North America, Europe, and Asia, and Gondwana in the south, comprising South America, Africa, Antarctica, Australia, and India. Seafloor spreading in the central Atlantic began around this time, gradually pushing North America away from Africa.\n\nIn the Gulf of Mexico region, rifting created a restricted basin where seawater evaporated to form thick salt deposits, which later played an important role in the formation of oil and gas reservoirs. Extensive shallow seas covered much of Europe, depositing limestones and oolitic sediments that are now widely used as building stone in England and France.\n\nIn East Asia, large lake basins formed in what is now northern China, preserving the remarkable fossils of the Yanliao Biota. In western North America, the Sundance Sea spread southward from the Arctic, flooding parts of the continental interior."
+        "body": "During the Middle Jurassic, the supercontinent Pangaea was in the process of splitting into two great landmasses: Laurasia in the north, comprising North America, Europe, and Asia, and Gondwana in the south, comprising South America, Africa, Antarctica, Australia, and India. Seafloor spreading in the central Atlantic began around this time, gradually pushing North America away from Africa.\n\nIn the Gulf of Mexico region, rifting created a restricted basin where seawater evaporated to form thick salt deposits, which later played an important role in the formation of oil and gas reservoirs. Extensive shallow seas covered much of Europe, depositing limestones and oolitic sediments that are now widely used as building stone in England and France.\n\nIn East Asia, large lake basins formed in what is now northern China, preserving the remarkable fossils of the Yanliao Biota. In western North America, the Sundance Sea spread southward from the Arctic, flooding parts of the continental interior.",
+        "image": {
+          "src": "images/wikipedia_images/jurassic/Fm_Lajas_Maquina_Cura.jpg",
+          "caption": "Outcrops of the Middle Jurassic Lajas Formation in Neuquén, Argentina",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -583,7 +658,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "Middle Jurassic marine ecosystems were rich in marine reptiles. Ichthyosaurs, plesiosaurs, and increasingly large pliosaurs hunted in the oceans, while the thalattosuchian crocodylomorphs, including the first fully marine metriorhynchids, were diversifying. Ammonites and belemnites were abundant, and bivalves and brachiopods formed dense communities on the seafloor.\n\nOn land, the Middle Jurassic was a key interval in the evolution of mammals. Fossils from the Yanliao Biota of China include Castorocauda, a beaver-like swimming docodont [2], Volaticotherium, a gliding mammal, and early relatives of modern mammal groups. These discoveries show that Mesozoic mammals were far more ecologically diverse than once believed [2, 3].\n\nPterosaurs were well established in the skies, and the Yanliao Biota has also produced exceptionally preserved insects, salamanders, and the first known examples of many modern insect groups [3]. Lizards, turtles, and early crocodyliforms were also present in terrestrial and freshwater habitats."
+        "body": "Middle Jurassic marine ecosystems were rich in marine reptiles. Ichthyosaurs, plesiosaurs, and increasingly large pliosaurs hunted in the oceans, while the thalattosuchian crocodylomorphs, including the first fully marine metriorhynchids, were diversifying. Ammonites and belemnites were abundant, and bivalves and brachiopods formed dense communities on the seafloor.\n\nOn land, the Middle Jurassic was a key interval in the evolution of mammals. Fossils from the Yanliao Biota of China include Castorocauda, a beaver-like swimming docodont [2], Volaticotherium, a gliding mammal, and early relatives of modern mammal groups. These discoveries show that Mesozoic mammals were far more ecologically diverse than once believed [2, 3].\n\nPterosaurs were well established in the skies, and the Yanliao Biota has also produced exceptionally preserved insects, salamanders, and the first known examples of many modern insect groups [3]. Lizards, turtles, and early crocodyliforms were also present in terrestrial and freshwater habitats.",
+        "image": {
+          "src": "images/wikipedia_images/jurassic/Heterodontosaurus_tucki_cast_-_University_of_California_Museum_of_Paleontology_-_Berkeley,_CA_-_DSC04696.JPG",
+          "caption": "Skeletal mount cast of Heterodontosaurus tucki (UCMP Berkeley)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
@@ -601,7 +681,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Jurassic was the first epoch of the Jurassic period, lasting from about 201.4 to 174 million years ago [1]. It began in the aftermath of the Triassic–Jurassic mass extinction, which removed many of the competitors of the dinosaurs and allowed them to rise to dominance on land [2].\n\nDuring this epoch, Pangaea was beginning to break apart, and the rifting that would eventually open the Atlantic Ocean was well under way. The climate was warm, and shallow seas spread across the margins of the continents, preserving rich marine fossil deposits in places such as the Jurassic Coast of southern England and the Posidonia Shale of Germany.\n\nThe Early Jurassic is an important period for palaeontology. It was from rocks of this age that some of the first marine reptile fossils were discovered and described in the early nineteenth century, notably by the pioneering English fossil collector Mary Anning, whose finds of ichthyosaurs and plesiosaurs helped lay the foundations of the science."
+        "body": "The Early Jurassic was the first epoch of the Jurassic period, lasting from about 201.4 to 174 million years ago [1]. It began in the aftermath of the Triassic–Jurassic mass extinction, which removed many of the competitors of the dinosaurs and allowed them to rise to dominance on land [2].\n\nDuring this epoch, Pangaea was beginning to break apart, and the rifting that would eventually open the Atlantic Ocean was well under way. The climate was warm, and shallow seas spread across the margins of the continents, preserving rich marine fossil deposits in places such as the Jurassic Coast of southern England and the Posidonia Shale of Germany.\n\nThe Early Jurassic is an important period for palaeontology. It was from rocks of this age that some of the first marine reptile fossils were discovered and described in the early nineteenth century, notably by the pioneering English fossil collector Mary Anning, whose finds of ichthyosaurs and plesiosaurs helped lay the foundations of the science.",
+        "image": {
+          "src": "images/paleo_art/brachytrachelopan_mesai_nobu_tamura.jpg",
+          "caption": "Brachytrachelopan mesai, an unusual short-necked dicraeosaurid sauropod (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -617,11 +702,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Early Jurassic seas were home to a rich diversity of marine reptiles. Ichthyosaurs, such as the dolphin-shaped Stenopterygius, were abundant and have been found with preserved skin outlines and even embryos, showing that they gave birth to live young. Plesiosaurs such as Plesiosaurus and early pliosaurs hunted fish and cephalopods, and marine crocodylomorphs began to adapt to life in the sea.\n\nAmmonites diversified rapidly after the Triassic–Jurassic extinction, and their fast evolution makes them valuable index fossils for dating rocks. Belemnites, bivalves, brachiopods, and crinoids were common, and modern-type corals built reefs in shallow tropical waters.\n\nOn land, early mammaliaforms such as Morganucodon and Hadrocodium were small, shrew-like animals, likely nocturnal insectivores. Pterosaurs such as Dimorphodon and Dorygnathus flew over coastal environments, and early turtles, crocodylomorphs, lizards, and amphibians occupied various niches."
+        "body": "Early Jurassic seas were home to a rich diversity of marine reptiles. Ichthyosaurs, such as the dolphin-shaped Stenopterygius, were abundant and have been found with preserved skin outlines and even embryos, showing that they gave birth to live young. Plesiosaurs such as Plesiosaurus and early pliosaurs hunted fish and cephalopods, and marine crocodylomorphs began to adapt to life in the sea.\n\nAmmonites diversified rapidly after the Triassic–Jurassic extinction, and their fast evolution makes them valuable index fossils for dating rocks. Belemnites, bivalves, brachiopods, and crinoids were common, and modern-type corals built reefs in shallow tropical waters.\n\nOn land, early mammaliaforms such as Morganucodon and Hadrocodium were small, shrew-like animals, likely nocturnal insectivores. Pterosaurs such as Dimorphodon and Dorygnathus flew over coastal environments, and early turtles, crocodylomorphs, lizards, and amphibians occupied various niches.",
+        "image": {
+          "src": "images/paleo_art/ichthyosaurus_anningae_nobu_tamura.jpg",
+          "caption": "Ichthyosaurus anningae, an iconic Early Jurassic marine reptile (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
-        "body": "The Early Jurassic marked the beginning of dinosaur dominance on land. With many large crurotarsan reptiles eliminated in the Triassic–Jurassic extinction, dinosaurs rapidly diversified and increased in size, occupying most of the major ecological niches for large terrestrial vertebrates [2].\n\nAmong the predators, coelophysoids and the larger Dilophosaurus, with its distinctive twin crests, were widespread. Cryolophosaurus, discovered in Antarctica, bore an unusual crest across its head and shows that dinosaurs inhabited polar latitudes. Among the herbivores, sauropodomorphs such as Massospondylus and early true sauropods were diversifying, and some began to evolve toward the gigantic sizes of later sauropods.\n\nOrnithischian dinosaurs also became more diverse. Early armoured forms such as Scelidosaurus and Scutellosaurus represent the ancestors of the stegosaurs and ankylosaurs, while small, bipedal heterodontosaurids had differentiated teeth, including canine-like tusks. Fossil trackways from this period, particularly in North America, provide rich evidence of dinosaur behaviour, including possible herding."
+        "body": "The Early Jurassic marked the beginning of dinosaur dominance on land. With many large crurotarsan reptiles eliminated in the Triassic–Jurassic extinction, dinosaurs rapidly diversified and increased in size, occupying most of the major ecological niches for large terrestrial vertebrates [2].\n\nAmong the predators, coelophysoids and the larger Dilophosaurus, with its distinctive twin crests, were widespread. Cryolophosaurus, discovered in Antarctica, bore an unusual crest across its head and shows that dinosaurs inhabited polar latitudes. Among the herbivores, sauropodomorphs such as Massospondylus and early true sauropods were diversifying, and some began to evolve toward the gigantic sizes of later sauropods.\n\nOrnithischian dinosaurs also became more diverse. Early armoured forms such as Scelidosaurus and Scutellosaurus represent the ancestors of the stegosaurs and ankylosaurs, while small, bipedal heterodontosaurids had differentiated teeth, including canine-like tusks. Fossil trackways from this period, particularly in North America, provide rich evidence of dinosaur behaviour, including possible herding.",
+        "image": {
+          "src": "images/paleo_art/megalosauridae_nobu_tamura.jpg",
+          "caption": "Megalosauridae, early large tetanuran theropod dinosaurs (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -665,7 +760,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Triassic was the final epoch of the Triassic period, lasting from about 237 to 201.4 million years ago [1]. At more than 35 million years in duration, it was the longest epoch of the Triassic and a time of profound evolutionary change, during which many of the major groups of modern vertebrates first appeared.\n\nDuring this epoch, the first dinosaurs, pterosaurs, crocodylomorphs, turtles, and mammaliaforms evolved, alongside a wide variety of other reptiles that later went extinct. The supercontinent Pangaea was fully assembled, although signs of its impending break-up were becoming apparent.\n\nThe Late Triassic was punctuated by the Carnian Pluvial Episode, a period of increased rainfall and climatic change that reshaped ecosystems, and ended with the Triassic–Jurassic mass extinction, one of the five largest extinctions in Earth's history."
+        "body": "The Late Triassic was the final epoch of the Triassic period, lasting from about 237 to 201.4 million years ago [1]. At more than 35 million years in duration, it was the longest epoch of the Triassic and a time of profound evolutionary change, during which many of the major groups of modern vertebrates first appeared.\n\nDuring this epoch, the first dinosaurs, pterosaurs, crocodylomorphs, turtles, and mammaliaforms evolved, alongside a wide variety of other reptiles that later went extinct. The supercontinent Pangaea was fully assembled, although signs of its impending break-up were becoming apparent.\n\nThe Late Triassic was punctuated by the Carnian Pluvial Episode, a period of increased rainfall and climatic change that reshaped ecosystems, and ended with the Triassic–Jurassic mass extinction, one of the five largest extinctions in Earth's history.",
+        "image": {
+          "src": "images/paleo_art/bergamodactylus_wildi_nobu_tamura.jpg",
+          "caption": "Bergamodactylus wildi, an early pterosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -681,11 +781,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Late Triassic ecosystems were remarkably diverse. On land, a wide variety of archosaurs dominated. The crurotarsans — relatives of crocodiles — included the armoured, herbivorous aetosaurs, the crocodile-like phytosaurs, and the large predatory rauisuchians, which were apex predators in many ecosystems. The first crocodylomorphs were small, lightly built, and long-legged.\n\nOther reptiles included the beaked rhynchosaurs and the sprawling, parrot-beaked dicynodonts, the last of the great synapsid herbivores. The first turtles, such as Proganochelys, appeared with fully formed shells, and large amphibians such as metoposaurs lived in rivers and lakes. The earliest mammaliaforms, small shrew-like animals, evolved from cynodont ancestors near the end of the epoch.\n\nIn the seas, ichthyosaurs reached enormous sizes; Shonisaurus and related forms may have exceeded 20 metres in length. Placodonts and nothosaurs lived in shallow coastal waters, and ammonoids, bivalves, and corals were abundant. The first pterosaurs took to the skies, becoming the first vertebrates to achieve powered flight."
+        "body": "Late Triassic ecosystems were remarkably diverse. On land, a wide variety of archosaurs dominated. The crurotarsans — relatives of crocodiles — included the armoured, herbivorous aetosaurs, the crocodile-like phytosaurs, and the large predatory rauisuchians, which were apex predators in many ecosystems. The first crocodylomorphs were small, lightly built, and long-legged.\n\nOther reptiles included the beaked rhynchosaurs and the sprawling, parrot-beaked dicynodonts, the last of the great synapsid herbivores. The first turtles, such as Proganochelys, appeared with fully formed shells, and large amphibians such as metoposaurs lived in rivers and lakes. The earliest mammaliaforms, small shrew-like animals, evolved from cynodont ancestors near the end of the epoch.\n\nIn the seas, ichthyosaurs reached enormous sizes; Shonisaurus and related forms may have exceeded 20 metres in length. Placodonts and nothosaurs lived in shallow coastal waters, and ammonoids, bivalves, and corals were abundant. The first pterosaurs took to the skies, becoming the first vertebrates to achieve powered flight.",
+        "image": {
+          "src": "images/paleo_art/ischigualasto_formation_nobu_tamura.jpg",
+          "caption": "Ischigualasto Formation Late Triassic fauna reconstruction (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Dinosaur Evolution",
-        "body": "The earliest known dinosaurs appeared in the early Late Triassic, around 233 to 230 million years ago. Fossils from the Ischigualasto Formation of Argentina and the Santa Maria Formation of Brazil, including Eoraptor, Herrerasaurus, and Staurikosaurus, represent some of the oldest known dinosaurs [3]. These early forms were relatively small, bipedal animals.\n\nDuring the Late Triassic, dinosaurs diversified into their three major lineages: the theropods, the sauropodomorphs, and the ornithischians [3]. Early theropods such as Coelophysis were lightly built, agile predators, and fossils from Ghost Ranch in New Mexico preserve hundreds of individuals. Sauropodomorphs such as Plateosaurus became the first large herbivorous dinosaurs, reaching lengths of up to 10 metres.\n\nDespite this diversification, dinosaurs were not yet the dominant land animals for much of the Late Triassic. The crurotarsan archosaurs remained ecologically important, and it was only after the Triassic–Jurassic extinction removed many of these competitors that the dinosaurs rose to dominance [4]."
+        "body": "The earliest known dinosaurs appeared in the early Late Triassic, around 233 to 230 million years ago. Fossils from the Ischigualasto Formation of Argentina and the Santa Maria Formation of Brazil, including Eoraptor, Herrerasaurus, and Staurikosaurus, represent some of the oldest known dinosaurs [3]. These early forms were relatively small, bipedal animals.\n\nDuring the Late Triassic, dinosaurs diversified into their three major lineages: the theropods, the sauropodomorphs, and the ornithischians [3]. Early theropods such as Coelophysis were lightly built, agile predators, and fossils from Ghost Ranch in New Mexico preserve hundreds of individuals. Sauropodomorphs such as Plateosaurus became the first large herbivorous dinosaurs, reaching lengths of up to 10 metres.\n\nDespite this diversification, dinosaurs were not yet the dominant land animals for much of the Late Triassic. The crurotarsan archosaurs remained ecologically important, and it was only after the Triassic–Jurassic extinction removed many of these competitors that the dinosaurs rose to dominance [4].",
+        "image": {
+          "src": "images/paleo_art/guaibasaurus_candeleriensis_nobu_tamura.jpg",
+          "caption": "Guaibasaurus candeleriensis, a basal saurischian dinosaur (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -699,7 +809,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Triassic was the second epoch of the Triassic period, lasting from about 247 to 237 million years ago [1]. It was a time of recovery and renewal following the catastrophic Permian–Triassic extinction, which had wiped out most life on Earth roughly 5 to 10 million years earlier.\n\nBy the Middle Triassic, ecosystems on land and in the sea had largely recovered their complexity. New groups of animals, including the archosaurs, marine reptiles, and the ancestors of mammals, diversified rapidly and filled the ecological niches left vacant by the extinction [2].\n\nThe epoch is known for exceptional fossil sites, such as Monte San Giorgio on the border of Switzerland and Italy, a UNESCO World Heritage Site, which preserves a remarkable variety of marine reptiles and fish in extraordinary detail."
+        "body": "The Middle Triassic was the second epoch of the Triassic period, lasting from about 247 to 237 million years ago [1]. It was a time of recovery and renewal following the catastrophic Permian–Triassic extinction, which had wiped out most life on Earth roughly 5 to 10 million years earlier.\n\nBy the Middle Triassic, ecosystems on land and in the sea had largely recovered their complexity. New groups of animals, including the archosaurs, marine reptiles, and the ancestors of mammals, diversified rapidly and filled the ecological niches left vacant by the extinction [2].\n\nThe epoch is known for exceptional fossil sites, such as Monte San Giorgio on the border of Switzerland and Italy, a UNESCO World Heritage Site, which preserves a remarkable variety of marine reptiles and fish in extraordinary detail.",
+        "image": {
+          "src": "images/paleo_art/fodonyx_spenceri_nobu_tamura.jpg",
+          "caption": "Fodonyx spenceri, a rhynchosaur from the Middle Triassic (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -715,7 +830,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "In the seas, the Middle Triassic saw a remarkable diversification of marine reptiles. Nothosaurs, with their long necks and sharp teeth, hunted fish in shallow coastal waters, while placodonts, with their broad, flat teeth, crushed shellfish on the seafloor. Ichthyosaurs, which had first appeared in the Early Triassic, grew larger and more diverse, and the bizarre, long-necked Tanystropheus hunted along the shoreline.\n\nMarine invertebrates also recovered, with ammonoids, bivalves, and crinoids becoming abundant. The first scleractinian corals — the group that includes modern reef-building corals — appeared during this epoch, beginning the gradual reconstruction of reef ecosystems [3].\n\nOn land, the dicynodonts and cynodonts, groups of synapsids related to the ancestors of mammals, were important herbivores and predators. Rhynchosaurs were common in many regions, and large temnospondyl amphibians such as Mastodonsaurus lived in rivers and lakes. Early archosaurs, including crurotarsans and the ancestors of dinosaurs and pterosaurs, were diversifying."
+        "body": "In the seas, the Middle Triassic saw a remarkable diversification of marine reptiles. Nothosaurs, with their long necks and sharp teeth, hunted fish in shallow coastal waters, while placodonts, with their broad, flat teeth, crushed shellfish on the seafloor. Ichthyosaurs, which had first appeared in the Early Triassic, grew larger and more diverse, and the bizarre, long-necked Tanystropheus hunted along the shoreline.\n\nMarine invertebrates also recovered, with ammonoids, bivalves, and crinoids becoming abundant. The first scleractinian corals — the group that includes modern reef-building corals — appeared during this epoch, beginning the gradual reconstruction of reef ecosystems [3].\n\nOn land, the dicynodonts and cynodonts, groups of synapsids related to the ancestors of mammals, were important herbivores and predators. Rhynchosaurs were common in many regions, and large temnospondyl amphibians such as Mastodonsaurus lived in rivers and lakes. Early archosaurs, including crurotarsans and the ancestors of dinosaurs and pterosaurs, were diversifying.",
+        "image": {
+          "src": "images/paleo_art/prida_formation_nobu_tamura.jpg",
+          "caption": "Prida Formation Middle Triassic marine fauna reconstruction (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Reptilian Evolution",
@@ -733,7 +853,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Triassic was the first epoch of the Triassic period and of the Mesozoic era, lasting from about 251.9 to 247 million years ago. It began immediately after the Permian–Triassic extinction, often known as the 'Great Dying', the most severe mass extinction in Earth's history, which eliminated around 90 percent of marine species and about 70 percent of terrestrial vertebrate species.\n\nThe Early Triassic was a time of harsh environmental conditions and slow biological recovery. Ecosystems were impoverished and dominated by a small number of hardy 'disaster taxa' that thrived in the absence of competition [1].\n\nDespite these challenges, the Early Triassic was also a time of evolutionary innovation. Many groups that would later dominate the Mesozoic, including the archosaurs and the marine reptiles, first appeared or began to diversify during this epoch."
+        "body": "The Early Triassic was the first epoch of the Triassic period and of the Mesozoic era, lasting from about 251.9 to 247 million years ago. It began immediately after the Permian–Triassic extinction, often known as the 'Great Dying', the most severe mass extinction in Earth's history, which eliminated around 90 percent of marine species and about 70 percent of terrestrial vertebrate species.\n\nThe Early Triassic was a time of harsh environmental conditions and slow biological recovery. Ecosystems were impoverished and dominated by a small number of hardy 'disaster taxa' that thrived in the absence of competition [1].\n\nDespite these challenges, the Early Triassic was also a time of evolutionary innovation. Many groups that would later dominate the Mesozoic, including the archosaurs and the marine reptiles, first appeared or began to diversify during this epoch.",
+        "image": {
+          "src": "images/paleo_art/ischigualastia_jenseni_nobu_tamura.jpg",
+          "caption": "Ischigualastia jenseni, a massive herbivorous dicynodont (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -741,11 +866,21 @@
       },
       {
         "heading": "Geography",
-        "body": "During the Early Triassic, all the continents were joined together in the supercontinent Pangaea, which stretched from the North Pole to the South Pole. The global ocean Panthalassa surrounded the supercontinent, while the Tethys Ocean formed a large embayment on its eastern side.\n\nThe interior of Pangaea was largely dry, with extensive deserts and red beds. In many regions, the loss of vegetation following the extinction led to a change in river systems, from meandering rivers with stable banks to braided rivers with rapidly shifting channels, reflecting increased erosion and runoff.\n\nThe Siberian Traps, a vast volcanic province in what is now Siberia, continued to erupt into the earliest Triassic, covering an area of millions of square kilometres with basalt. The ocean was stratified, and large areas of the seafloor were starved of oxygen, preventing the recovery of marine life in many regions."
+        "body": "During the Early Triassic, all the continents were joined together in the supercontinent Pangaea, which stretched from the North Pole to the South Pole. The global ocean Panthalassa surrounded the supercontinent, while the Tethys Ocean formed a large embayment on its eastern side.\n\nThe interior of Pangaea was largely dry, with extensive deserts and red beds. In many regions, the loss of vegetation following the extinction led to a change in river systems, from meandering rivers with stable banks to braided rivers with rapidly shifting channels, reflecting increased erosion and runoff.\n\nThe Siberian Traps, a vast volcanic province in what is now Siberia, continued to erupt into the earliest Triassic, covering an area of millions of square kilometres with basalt. The ocean was stratified, and large areas of the seafloor were starved of oxygen, preventing the recovery of marine life in many regions.",
+        "image": {
+          "src": "images/wikipedia_images/triassic/Stadtroda_Sandstein.jpg",
+          "caption": "Buntsandstein (Early Triassic sandstone) near Stadtroda, Germany",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
-        "body": "The Permian–Triassic extinction had a devastating effect on plant life. The Glossopteris flora, which had dominated the southern continents during the Permian, disappeared, and coal formation ceased globally for several million years, a phenomenon known as the 'coal gap'.\n\nIn the aftermath of the extinction, vegetation was dominated by hardy, opportunistic plants. The small lycopsid Pleuromeia, a relative of modern quillworts, was particularly widespread and formed low-growing communities along coastlines. Spore-bearing plants such as ferns and lycopsids were common, and fungal spores are abundant in some sediments from around the extinction.\n\nForests slowly began to recover during the Early Triassic, with the gradual re-establishment of conifers and seed ferns. By the end of the epoch, more diverse plant communities were beginning to appear, laying the foundations for the recovery of terrestrial ecosystems in the Middle Triassic."
+        "body": "The Permian–Triassic extinction had a devastating effect on plant life. The Glossopteris flora, which had dominated the southern continents during the Permian, disappeared, and coal formation ceased globally for several million years, a phenomenon known as the 'coal gap'.\n\nIn the aftermath of the extinction, vegetation was dominated by hardy, opportunistic plants. The small lycopsid Pleuromeia, a relative of modern quillworts, was particularly widespread and formed low-growing communities along coastlines. Spore-bearing plants such as ferns and lycopsids were common, and fungal spores are abundant in some sediments from around the extinction.\n\nForests slowly began to recover during the Early Triassic, with the gradual re-establishment of conifers and seed ferns. By the end of the epoch, more diverse plant communities were beginning to appear, laying the foundations for the recovery of terrestrial ecosystems in the Middle Triassic.",
+        "image": {
+          "src": "images/wikipedia_images/triassic/Bulgo_Sandstone_biota.jpg",
+          "caption": "Early Triassic Bulgo Sandstone plant ecosystem with Pleuromeia (Michael Rothman)",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
@@ -753,7 +888,12 @@
       },
       {
         "heading": "Reptilian Evolution",
-        "body": "The Early Triassic was a critical period for reptilian evolution. In the aftermath of the Permian–Triassic extinction, the archosauromorphs — a group that includes the archosaurs and their close relatives — underwent a rapid radiation, producing a variety of forms, from small insectivores to large predators such as Erythrosuchus, which reached lengths of up to 5 metres.\n\nThe archosaurs proper, the group that would later give rise to crocodiles, dinosaurs, pterosaurs, and birds, originated during the Early Triassic or perhaps in the latest Permian. Fossil footprints from Poland suggest that dinosauromorphs, the close relatives of dinosaurs, may have existed as early as 250 million years ago [4].\n\nThe Early Triassic also saw the rapid evolution of marine reptiles from terrestrial ancestors. The ichthyosauromorphs, sauropterygians, and other groups colonised the oceans, taking advantage of the ecological opportunities created by the extinction. This rapid radiation of reptiles on land and in the sea set the stage for the Age of Reptiles that would characterise the rest of the Mesozoic era."
+        "body": "The Early Triassic was a critical period for reptilian evolution. In the aftermath of the Permian–Triassic extinction, the archosauromorphs — a group that includes the archosaurs and their close relatives — underwent a rapid radiation, producing a variety of forms, from small insectivores to large predators such as Erythrosuchus, which reached lengths of up to 5 metres.\n\nThe archosaurs proper, the group that would later give rise to crocodiles, dinosaurs, pterosaurs, and birds, originated during the Early Triassic or perhaps in the latest Permian. Fossil footprints from Poland suggest that dinosauromorphs, the close relatives of dinosaurs, may have existed as early as 250 million years ago [4].\n\nThe Early Triassic also saw the rapid evolution of marine reptiles from terrestrial ancestors. The ichthyosauromorphs, sauropterygians, and other groups colonised the oceans, taking advantage of the ecological opportunities created by the extinction. This rapid radiation of reptiles on land and in the sea set the stage for the Age of Reptiles that would characterise the rest of the Mesozoic era.",
+        "image": {
+          "src": "images/paleo_art/sclerocormus_parviceps_nobu_tamura.jpg",
+          "caption": "Sclerocormus parviceps, an early ichthyosauriform marine reptile (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -947,7 +1087,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Permian, also known as the Lopingian epoch, was the final epoch of the Permian period and of the Paleozoic era, lasting from about 259.5 to 251.9 million years ago [1]. It is divided into two stages, the Wuchiapingian and the Changhsingian, and its rocks are best known from southern China, where the boundary sections that define the end of the Paleozoic are preserved [1].\n\nThe Late Permian opened in the aftermath of the end-Guadalupian (Capitanian) extinction, which had struck tropical marine life and many terrestrial vertebrate groups. Over the following millions of years, life on land and in the sea rebuilt diverse communities, and the therapsids came to dominate terrestrial ecosystems across the supercontinent Pangaea.\n\nThe epoch ended with the Permian–Triassic extinction, often called the 'Great Dying', the most severe mass extinction in Earth's history. Triggered largely by the vast eruptions of the Siberian Traps, it eliminated around 90 percent of marine species and about 70 percent of terrestrial vertebrate species, closing the Paleozoic and setting the stage for the Mesozoic [2, 3]."
+        "body": "The Late Permian, also known as the Lopingian epoch, was the final epoch of the Permian period and of the Paleozoic era, lasting from about 259.5 to 251.9 million years ago [1]. It is divided into two stages, the Wuchiapingian and the Changhsingian, and its rocks are best known from southern China, where the boundary sections that define the end of the Paleozoic are preserved [1].\n\nThe Late Permian opened in the aftermath of the end-Guadalupian (Capitanian) extinction, which had struck tropical marine life and many terrestrial vertebrate groups. Over the following millions of years, life on land and in the sea rebuilt diverse communities, and the therapsids came to dominate terrestrial ecosystems across the supercontinent Pangaea.\n\nThe epoch ended with the Permian–Triassic extinction, often called the 'Great Dying', the most severe mass extinction in Earth's history. Triggered largely by the vast eruptions of the Siberian Traps, it eliminated around 90 percent of marine species and about 70 percent of terrestrial vertebrate species, closing the Paleozoic and setting the stage for the Mesozoic [2, 3].",
+        "image": {
+          "src": "images/paleo_art/moschops_capensis_nobu_tamura.jpg",
+          "caption": "Moschops capensis, a massive herbivorous dinocephalian (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -963,7 +1108,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The terrestrial fauna of the Late Permian was dominated by therapsids, the synapsid group that would later give rise to mammals. Herbivorous dicynodonts such as Dicynodon were extraordinarily abundant, while predatory gorgonopsians such as Inostrancevia, which reached about 3.5 metres in length, were the apex predators of the time [3].\n\nOther important land animals included the large, armoured, plant-eating pareiasaurs such as Scutosaurus, and a variety of temnospondyl amphibians living in rivers and lakes. Early archosauromorphs, including Archosaurus from Russia, appeared near the end of the epoch, foreshadowing the rise of the reptiles that would later dominate the Mesozoic.\n\nIn the oceans, brachiopods, crinoids, bryozoans, rugose and tabulate corals, fusulinid foraminifera, and ammonoids flourished on reefs and shelves. The last trilobites survived until the end of the Permian. The end-Permian extinction wiped out these groups entirely or reduced them to a handful of survivors, transforming marine ecosystems permanently."
+        "body": "The terrestrial fauna of the Late Permian was dominated by therapsids, the synapsid group that would later give rise to mammals. Herbivorous dicynodonts such as Dicynodon were extraordinarily abundant, while predatory gorgonopsians such as Inostrancevia, which reached about 3.5 metres in length, were the apex predators of the time [3].\n\nOther important land animals included the large, armoured, plant-eating pareiasaurs such as Scutosaurus, and a variety of temnospondyl amphibians living in rivers and lakes. Early archosauromorphs, including Archosaurus from Russia, appeared near the end of the epoch, foreshadowing the rise of the reptiles that would later dominate the Mesozoic.\n\nIn the oceans, brachiopods, crinoids, bryozoans, rugose and tabulate corals, fusulinid foraminifera, and ammonoids flourished on reefs and shelves. The last trilobites survived until the end of the Permian. The end-Permian extinction wiped out these groups entirely or reduced them to a handful of survivors, transforming marine ecosystems permanently.",
+        "image": {
+          "src": "images/paleo_art/charassognathus_gracilis_nobu_tamura.jpg",
+          "caption": "Charassognathus gracilis, a basal cynodont from the Late Permian (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Synapsid Evolution",
@@ -981,7 +1131,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Permian, also known as the Guadalupian epoch, lasted from about 274.4 to 259.5 million years ago. It is divided into three stages, the Roadian, Wordian, and Capitanian, and takes its name from the Guadalupe Mountains of Texas and New Mexico, where spectacular fossil reefs of this age are exposed [1].\n\nThe Middle Permian was a time of major turnover in terrestrial ecosystems. The pelycosaur-grade synapsids that had dominated the Early Permian declined, and the therapsids rapidly diversified to become the dominant land vertebrates [2]. A short period of reduced diversity at this transition is sometimes called 'Olson's Gap', though its significance is debated.\n\nThe epoch ended with the end-Guadalupian or Capitanian extinction, around 260 million years ago. This event, possibly linked to the eruption of the Emeishan Traps in southern China, caused heavy losses among tropical marine organisms such as fusulinids, corals, and brachiopods, and also affected land animals, including the dinocephalians [3]."
+        "body": "The Middle Permian, also known as the Guadalupian epoch, lasted from about 274.4 to 259.5 million years ago. It is divided into three stages, the Roadian, Wordian, and Capitanian, and takes its name from the Guadalupe Mountains of Texas and New Mexico, where spectacular fossil reefs of this age are exposed [1].\n\nThe Middle Permian was a time of major turnover in terrestrial ecosystems. The pelycosaur-grade synapsids that had dominated the Early Permian declined, and the therapsids rapidly diversified to become the dominant land vertebrates [2]. A short period of reduced diversity at this transition is sometimes called 'Olson's Gap', though its significance is debated.\n\nThe epoch ended with the end-Guadalupian or Capitanian extinction, around 260 million years ago. This event, possibly linked to the eruption of the Emeishan Traps in southern China, caused heavy losses among tropical marine organisms such as fusulinids, corals, and brachiopods, and also affected land animals, including the dinocephalians [3].",
+        "image": {
+          "src": "images/paleo_art/eotitanosuchus_olsoni_nobu_tamura.jpg",
+          "caption": "Eotitanosuchus olsoni, a predatory biarmosuchian therapsid (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -989,7 +1144,12 @@
       },
       {
         "heading": "Geography",
-        "body": "During the Middle Permian, Pangaea was fully assembled, stretching from the south polar region to high northern latitudes. The Central Pangean Mountains, raised during the earlier collision of Gondwana and Laurussia, ran across the equatorial region, while the Uralian mountains joined Europe to Siberia along the supercontinent's northern side.\n\nThe Paleo-Tethys Ocean formed a large embayment on the eastern side of Pangaea. During this epoch the Cimmerian terranes began to rift away from the northern margin of Gondwana, opening the Neo-Tethys Ocean behind them. North China, South China, and Indochina lay as separate landmasses within the Tethys, surrounded by warm, shallow seas.\n\nIn western North America, the Delaware Basin was rimmed by the Capitan Reef, a massive reef complex built by sponges, algae, and bryozoans that is now exposed in the Guadalupe Mountains. Elsewhere, extensive evaporite and red-bed deposits accumulated in basins across the arid interior of the supercontinent."
+        "body": "During the Middle Permian, Pangaea was fully assembled, stretching from the south polar region to high northern latitudes. The Central Pangean Mountains, raised during the earlier collision of Gondwana and Laurussia, ran across the equatorial region, while the Uralian mountains joined Europe to Siberia along the supercontinent's northern side.\n\nThe Paleo-Tethys Ocean formed a large embayment on the eastern side of Pangaea. During this epoch the Cimmerian terranes began to rift away from the northern margin of Gondwana, opening the Neo-Tethys Ocean behind them. North China, South China, and Indochina lay as separate landmasses within the Tethys, surrounded by warm, shallow seas.\n\nIn western North America, the Delaware Basin was rimmed by the Capitan Reef, a massive reef complex built by sponges, algae, and bryozoans that is now exposed in the Guadalupe Mountains. Elsewhere, extensive evaporite and red-bed deposits accumulated in basins across the arid interior of the supercontinent.",
+        "image": {
+          "src": "images/wikipedia_images/permian/Selwyn_Rock_2.JPG",
+          "caption": "Selwyn Rock, South Australia: exhumed Permian glacial pavement",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -997,7 +1157,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The terrestrial fauna of the Middle Permian was marked by the rise of the therapsids. Among the most distinctive were the dinocephalians, a group of large herbivores and carnivores such as Moschops, Estemmenosuchus, and Anteosaurus, some of which reached the size of a modern rhinoceros. Many had thickened skulls that may have been used in head-butting contests.\n\nThe earliest dicynodonts and gorgonopsians also appeared in this epoch, alongside therocephalians and early pareiasaurs. Rich fossil assemblages from the Karoo Basin of South Africa and the Ural region of Russia record these communities in detail. Temnospondyl amphibians, some of which were large aquatic predators, remained important in rivers and lakes.\n\nIn the seas, reefs built by sponges, bryozoans, and calcareous algae flourished, along with diverse brachiopods, crinoids, ammonoids, and large fusulinid foraminifera. The end-Guadalupian extinction severely affected many of these groups, especially the large fusulinids and tropical reef communities, and on land it brought the dinocephalians to extinction [3]."
+        "body": "The terrestrial fauna of the Middle Permian was marked by the rise of the therapsids. Among the most distinctive were the dinocephalians, a group of large herbivores and carnivores such as Moschops, Estemmenosuchus, and Anteosaurus, some of which reached the size of a modern rhinoceros. Many had thickened skulls that may have been used in head-butting contests.\n\nThe earliest dicynodonts and gorgonopsians also appeared in this epoch, alongside therocephalians and early pareiasaurs. Rich fossil assemblages from the Karoo Basin of South Africa and the Ural region of Russia record these communities in detail. Temnospondyl amphibians, some of which were large aquatic predators, remained important in rivers and lakes.\n\nIn the seas, reefs built by sponges, bryozoans, and calcareous algae flourished, along with diverse brachiopods, crinoids, ammonoids, and large fusulinid foraminifera. The end-Guadalupian extinction severely affected many of these groups, especially the large fusulinids and tropical reef communities, and on land it brought the dinocephalians to extinction [3].",
+        "image": {
+          "src": "images/paleo_art/eunotosaurus_africanus_nobu_tamura.jpg",
+          "caption": "Eunotosaurus africanus, an early stem-turtle reptile (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Synapsid Evolution",
@@ -1015,7 +1180,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Permian, also known as the Cisuralian epoch, was the first epoch of the Permian period, lasting from about 298.9 to 274.4 million years ago. It is divided into four stages, the Asselian, Sakmarian, Artinskian, and Kungurian, and takes its name from the western slopes of the Ural Mountains, where marine rocks of this age are well exposed [1].\n\nThe Early Permian was a time of transition. It began during the final phase of the Late Paleozoic Ice Age, when large ice sheets still covered much of southern Gondwana, and ended in a much warmer and drier world [2]. These climatic changes had profound effects on plant and animal life across the supercontinent Pangaea.\n\nOn land, the Early Permian was the age of the pelycosaur-grade synapsids, such as the sail-backed Dimetrodon and Edaphosaurus, which were the dominant large land animals of the time [3]. Amphibians and early reptiles were also diverse, and the famous red beds of Texas preserve one of the richest records of Early Permian terrestrial life."
+        "body": "The Early Permian, also known as the Cisuralian epoch, was the first epoch of the Permian period, lasting from about 298.9 to 274.4 million years ago. It is divided into four stages, the Asselian, Sakmarian, Artinskian, and Kungurian, and takes its name from the western slopes of the Ural Mountains, where marine rocks of this age are well exposed [1].\n\nThe Early Permian was a time of transition. It began during the final phase of the Late Paleozoic Ice Age, when large ice sheets still covered much of southern Gondwana, and ended in a much warmer and drier world [2]. These climatic changes had profound effects on plant and animal life across the supercontinent Pangaea.\n\nOn land, the Early Permian was the age of the pelycosaur-grade synapsids, such as the sail-backed Dimetrodon and Edaphosaurus, which were the dominant large land animals of the time [3]. Amphibians and early reptiles were also diverse, and the famous red beds of Texas preserve one of the richest records of Early Permian terrestrial life.",
+        "image": {
+          "src": "images/paleo_art/dimetrodon_incisivus_nobu_tamura.jpg",
+          "caption": "Dimetrodon incisivus, an apex sphenacodontid synapsid (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -1031,7 +1201,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The terrestrial fauna of the Early Permian was dominated by pelycosaur-grade synapsids. The predator Dimetrodon, which reached more than 3 metres in length and bore a tall sail on its back, was the apex predator of many ecosystems, while the herbivorous Edaphosaurus had a similar sail. Large herbivorous caseids such as Cotylorhynchus were also present.\n\nAmphibians were still diverse and important. The temnospondyl Eryops was a large, heavily built predator of rivers and swamps, while the lepospondyl Diplocaulus had a distinctive boomerang-shaped head. Early reptiles, including the captorhinids and the bipedal bolosaurid Eudibamus, were also present, as were the reptile-like seymouriamorphs and diadectids.\n\nIn the oceans, fusulinid foraminifera, brachiopods, bryozoans, crinoids, and ammonoids were abundant. The small aquatic reptile Mesosaurus lived in a shallow inland sea between what are now South America and Africa, and its fossils were later used as evidence for continental drift."
+        "body": "The terrestrial fauna of the Early Permian was dominated by pelycosaur-grade synapsids. The predator Dimetrodon, which reached more than 3 metres in length and bore a tall sail on its back, was the apex predator of many ecosystems, while the herbivorous Edaphosaurus had a similar sail. Large herbivorous caseids such as Cotylorhynchus were also present.\n\nAmphibians were still diverse and important. The temnospondyl Eryops was a large, heavily built predator of rivers and swamps, while the lepospondyl Diplocaulus had a distinctive boomerang-shaped head. Early reptiles, including the captorhinids and the bipedal bolosaurid Eudibamus, were also present, as were the reptile-like seymouriamorphs and diadectids.\n\nIn the oceans, fusulinid foraminifera, brachiopods, bryozoans, crinoids, and ammonoids were abundant. The small aquatic reptile Mesosaurus lived in a shallow inland sea between what are now South America and Africa, and its fossils were later used as evidence for continental drift.",
+        "image": {
+          "src": "images/paleo_art/caseasauria_nobu_tamura.jpg",
+          "caption": "Caseasauria, early herbivorous pelycosaurian synapsids (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Synapsid Evolution",
