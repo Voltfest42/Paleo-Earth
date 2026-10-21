@@ -3093,5 +3093,27 @@
       "end_ordovician_extinction",
       "late_ordovician"
     ]
+  },
+  {
+    "filename": "neogene/Great_American_Biotic_Interchange_examples.png",
+    "title": "Examples of migrating species during the Great American Biotic Interchange (GABI) following the tectonic creation of the Isthmus of Panama in the late Pliocene.",
+    "creator": "Woudloper",
+    "license": "CC BY-SA 1.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Great_American_Biotic_Interchange_examples.svg",
+    "keyframes": [
+      "neogene",
+      "late_neogene"
+    ]
+  },
+  {
+    "filename": "neogene/Great_American_Biotic_Interchange_examples.svg",
+    "title": "Examples of migrating species during the Great American Biotic Interchange (GABI) following the tectonic creation of the Isthmus of Panama in the late Pliocene.",
+    "creator": "Woudloper",
+    "license": "CC BY-SA 1.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Great_American_Biotic_Interchange_examples.svg",
+    "keyframes": [
+      "neogene",
+      "late_neogene"
+    ]
   }
 ]
