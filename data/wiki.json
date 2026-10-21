@@ -5,7 +5,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Holocene is the current geological epoch, beginning approximately 11,700 years ago at the close of the last glacial period [1]. It is formally classified as the second epoch of the Quaternary period and represents an unusually stable warm interval — an interglacial — within the broader Pleistocene ice age cycles.\n\nIn geological terms, the Holocene is remarkably brief, yet it encompasses the entirety of recorded human history and the rise of every major civilization on Earth. Some scientists have argued that humanity's growing impact on Earth's systems warrants designating a new epoch, the Anthropocene, beginning roughly in the mid-20th century."
+        "body": "The Holocene is the current geological epoch, beginning approximately 11,700 years ago at the close of the last glacial period [1]. It is formally classified as the second epoch of the Quaternary period and represents an unusually stable warm interval — an interglacial — within the broader Pleistocene ice age cycles.\n\nIn geological terms, the Holocene is remarkably brief, yet it encompasses the entirety of recorded human history and the rise of every major civilization on Earth. Some scientists have argued that humanity's growing impact on Earth's systems warrants designating a new epoch, the Anthropocene, beginning roughly in the mid-20th century.",
+        "image": {
+          "src": "images/wikipedia_images/holocene/Urfa_Gobeklitepe_Building_B_5326.jpg",
+          "caption": "Excavated circular megalithic enclosure B with T-shaped pillars at Göbekli Tepe (Dosseman)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -17,15 +22,30 @@
       },
       {
         "heading": "Flora",
-        "body": "As ice sheets retreated northward, vegetation zones followed, dramatically reshaping plant communities across the Northern Hemisphere. Tundra and cold steppe gave way to boreal forest, then temperate deciduous and mixed forest, spreading into regions that had been barren or icy for tens of thousands of years.\n\nThe great temperate forests of Europe and North America formed largely during the early and middle Holocene. Grasslands expanded across interior continental regions, and the tropics saw reorganization of forest boundaries as monsoon patterns shifted.\n\nAgriculture, beginning around 10,000–12,000 years ago in the Fertile Crescent and independently in China, Mesoamerica, and elsewhere, fundamentally altered plant communities through the domestication and spread of crops. Forests across Europe, Asia, and the Americas were progressively cleared for farmland, a transformation that accelerated dramatically in the last two millennia."
+        "body": "As ice sheets retreated northward, vegetation zones followed, dramatically reshaping plant communities across the Northern Hemisphere. Tundra and cold steppe gave way to boreal forest, then temperate deciduous and mixed forest, spreading into regions that had been barren or icy for tens of thousands of years.\n\nThe great temperate forests of Europe and North America formed largely during the early and middle Holocene. Grasslands expanded across interior continental regions, and the tropics saw reorganization of forest boundaries as monsoon patterns shifted.\n\nAgriculture, beginning around 10,000–12,000 years ago in the Fertile Crescent and independently in China, Mesoamerica, and elsewhere, fundamentally altered plant communities through the domestication and spread of crops. Forests across Europe, Asia, and the Americas were progressively cleared for farmland, a transformation that accelerated dramatically in the last two millennia.",
+        "image": {
+          "src": "images/wikipedia_images/holocene/Associations_of_wild_cereals_and_other_wild_grasses_in_north.jpg",
+          "caption": "Wild progenitor cereals and grasses of the Fertile Crescent in northern Israel (Weide et al.)",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "The earliest Holocene witnessed a cascade of megafaunal extinctions that had begun in the late Pleistocene and continued into this epoch. Woolly mammoths, woolly rhinoceroses, cave lions, Irish elk, American horses, ground sloths, and the majority of large mammal species in the Americas and Australia vanished — a die-off disproportionately affecting large-bodied animals [4].\n\nThe causes remain debated, but most evidence points to a lethal combination of rapid climate change disrupting habitats and intensive hunting by expanding human populations [4]. Isolated populations of woolly mammoths survived on Wrangel Island in the Arctic Ocean until as recently as 4,000 years ago [4].\n\nTerrestrial megafauna that survived — bison, elephants, rhinoceroses, large bovids — persisted mainly in Africa and southern Asia, regions where animals had co-evolved with modern humans for hundreds of thousands of years and developed stronger flight responses. The Holocene is also notable as the period in which domesticated animals — dogs, cattle, horses, sheep, goats, and pigs — became integral to human civilization."
+        "body": "The earliest Holocene witnessed a cascade of megafaunal extinctions that had begun in the late Pleistocene and continued into this epoch. Woolly mammoths, woolly rhinoceroses, cave lions, Irish elk, American horses, ground sloths, and the majority of large mammal species in the Americas and Australia vanished — a die-off disproportionately affecting large-bodied animals [4].\n\nThe causes remain debated, but most evidence points to a lethal combination of rapid climate change disrupting habitats and intensive hunting by expanding human populations [4]. Isolated populations of woolly mammoths survived on Wrangel Island in the Arctic Ocean until as recently as 4,000 years ago [4].\n\nTerrestrial megafauna that survived — bison, elephants, rhinoceroses, large bovids — persisted mainly in Africa and southern Asia, regions where animals had co-evolved with modern humans for hundreds of thousands of years and developed stronger flight responses. The Holocene is also notable as the period in which domesticated animals — dogs, cattle, horses, sheep, goats, and pigs — became integral to human civilization.",
+        "image": {
+          "src": "images/wikipedia_images/holocene/Egyptian_Domesticated_Animals.jpg",
+          "caption": "Ancient Egyptian relief depicting cattle domestication and early pastoral agriculture",
+          "align": "right"
+        }
       },
       {
         "heading": "Human History",
-        "body": "The Holocene is entirely coincident with modern Homo sapiens' global dominance. At the epoch's start, humans were skilled hunter-gatherers spread across every continent except Antarctica.\n\nThe development of agriculture — independently arising in at least seven to nine regions worldwide — led to permanent settlements, population growth, and eventually the first cities. The Sumerian civilization of Mesopotamia, the Egyptian dynasties of the Nile Valley, the Indus Valley Civilization, and the early Chinese states all arose within the last 6,000 years.\n\nWritten language, metallurgy, trade networks, organized religion, and formal governance all developed during this epoch. The industrial revolution, beginning in the 18th century, marks a dramatic acceleration in human modification of Earth's atmosphere, land, and biodiversity — changes that are now inscribed in the geological record and form the primary scientific basis for proposing the Anthropocene as a new epoch."
+        "body": "The Holocene is entirely coincident with modern Homo sapiens' global dominance. At the epoch's start, humans were skilled hunter-gatherers spread across every continent except Antarctica.\n\nThe development of agriculture — independently arising in at least seven to nine regions worldwide — led to permanent settlements, population growth, and eventually the first cities. The Sumerian civilization of Mesopotamia, the Egyptian dynasties of the Nile Valley, the Indus Valley Civilization, and the early Chinese states all arose within the last 6,000 years.\n\nWritten language, metallurgy, trade networks, organized religion, and formal governance all developed during this epoch. The industrial revolution, beginning in the 18th century, marks a dramatic acceleration in human modification of Earth's atmosphere, land, and biodiversity — changes that are now inscribed in the geological record and form the primary scientific basis for proposing the Anthropocene as a new epoch.",
+        "image": {
+          "src": "images/wikipedia_images/holocene/Asikli_Hoyuk_sarah_c_murray_6176.jpg",
+          "caption": "Excavated early aceramic Neolithic mudbrick settlement architecture at Aşıklı Höyük (Sarah Murray)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
