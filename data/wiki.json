@@ -39,7 +39,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Mid Pleistocene spans a critical interval in Earth's Quaternary history, roughly from 780,000 to 130,000 years ago. It encompasses several defining transitions: the Mid-Pleistocene Transition, in which glacial-interglacial cycles shifted from 41,000-year rhythms to the dominant 100,000-year cycles that still operate today; the appearance and expansion of Homo heidelbergensis and the first anatomically archaic members of our own lineage; and the rise of some of the most spectacular megafauna the Earth has ever seen.\n\nThe Middle Pleistocene was a time of dramatic climatic swings, with ice sheets advancing and retreating repeatedly across the high latitudes, sculpting landscapes and reshaping ecosystems on a continental scale."
+        "body": "The Mid Pleistocene spans a critical interval in Earth's Quaternary history, roughly from 780,000 to 130,000 years ago. It encompasses several defining transitions: the Mid-Pleistocene Transition, in which glacial-interglacial cycles shifted from 41,000-year rhythms to the dominant 100,000-year cycles that still operate today; the appearance and expansion of Homo heidelbergensis and the first anatomically archaic members of our own lineage; and the rise of some of the most spectacular megafauna the Earth has ever seen.\n\nThe Middle Pleistocene was a time of dramatic climatic swings, with ice sheets advancing and retreating repeatedly across the high latitudes, sculpting landscapes and reshaping ecosystems on a continental scale.",
+        "image": {
+          "src": "images/wikipedia_images/quaternary/Ice_age_fauna_of_northern_Spain_-_Mauricio_Anton.jpg",
+          "caption": "Woolly mammoths, woolly rhinos, and cave lions in northern Spain (Mauricio Antón)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -47,7 +52,12 @@
       },
       {
         "heading": "Geography",
-        "body": "Mid Pleistocene geography was broadly similar to today, but coastlines fluctuated dramatically with glacial cycles. At glacial maxima, sea levels dropped by as much as 120–130 metres, exposing vast continental shelves.\n\nThe North Sea and English Channel were dry land connecting Britain to Europe. Southeast Asia's Sunda Shelf formed an enormous extension of the Asian continent, connecting what are now Sumatra, Java, and Borneo. In the Southern Hemisphere, the Sahul Shelf linked Australia to New Guinea.\n\nGlaciers gouged the valleys and fjords of Scandinavia, Scotland, Canada, and Patagonia into their recognizable modern forms. The ice itself was massive: the Laurentide Ice Sheet over North America and the Fennoscandian Ice Sheet over Europe were several kilometres thick at their maximum extent, depressing the crust beneath them and raising sea levels globally once they melted."
+        "body": "Mid Pleistocene geography was broadly similar to today, but coastlines fluctuated dramatically with glacial cycles. At glacial maxima, sea levels dropped by as much as 120–130 metres, exposing vast continental shelves.\n\nThe North Sea and English Channel were dry land connecting Britain to Europe. Southeast Asia's Sunda Shelf formed an enormous extension of the Asian continent, connecting what are now Sumatra, Java, and Borneo. In the Southern Hemisphere, the Sahul Shelf linked Australia to New Guinea.\n\nGlaciers gouged the valleys and fjords of Scandinavia, Scotland, Canada, and Patagonia into their recognizable modern forms. The ice itself was massive: the Laurentide Ice Sheet over North America and the Fennoscandian Ice Sheet over Europe were several kilometres thick at their maximum extent, depressing the crust beneath them and raising sea levels globally once they melted.",
+        "image": {
+          "src": "images/wikipedia_images/quaternary/IceAgeEarth.jpg",
+          "caption": "Global vegetation and extensive ice sheet coverage during the Last Glacial Maximum",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -55,11 +65,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "The Mid Pleistocene megafauna was extraordinary in both diversity and scale. In Eurasia, woolly mammoths (Mammuthus primigenius) were evolving from their steppe mammoth ancestors, while straight-tusked elephants roamed the warmer interglacial forests of Europe.\n\nThe woolly rhinoceros (Coelodonta antiquitatis) was spreading across northern Eurasia alongside giant deer (Megaloceros giganteus), cave bears (Ursus spelaeus), cave lions (Panthera spelaea), hyenas, and enormous bison.\n\nIn North America, mammoths, mastodons, giant ground sloths, American lions, short-faced bears, and a diverse horse fauna dominated the landscape. In Africa, the megafauna was somewhat more similar to today's, though with additional extinct species of hippo, elephant relatives, and large predators. Marine ecosystems supported massive baleen whales and a diversity of large sharks, though the enormous Otodus megalodon had already gone extinct millions of years before this interval."
+        "body": "The Mid Pleistocene megafauna was extraordinary in both diversity and scale. In Eurasia, woolly mammoths (Mammuthus primigenius) were evolving from their steppe mammoth ancestors, while straight-tusked elephants roamed the warmer interglacial forests of Europe.\n\nThe woolly rhinoceros (Coelodonta antiquitatis) was spreading across northern Eurasia alongside giant deer (Megaloceros giganteus), cave bears (Ursus spelaeus), cave lions (Panthera spelaea), hyenas, and enormous bison.\n\nIn North America, mammoths, mastodons, giant ground sloths, American lions, short-faced bears, and a diverse horse fauna dominated the landscape. In Africa, the megafauna was somewhat more similar to today's, though with additional extinct species of hippo, elephant relatives, and large predators. Marine ecosystems supported massive baleen whales and a diversity of large sharks, though the enormous Otodus megalodon had already gone extinct millions of years before this interval.",
+        "image": {
+          "src": "images/paleo_art/coelodonta_antiquitatis_nobu_tamura.jpg",
+          "caption": "Coelodonta antiquitatis, the cold-adapted woolly rhinoceros (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Human Evolution",
-        "body": "The Mid Pleistocene is one of the most important chapters in human evolutionary history. Homo heidelbergensis — a large-brained, robust hominin considered ancestral to both Neanderthals and modern Homo sapiens — was widespread across Africa and Europe by 600,000 years ago.\n\nEvidence of controlled fire use dates to this period, with hearths at sites like Gesher Benot Ya'aqov in Israel (~790,000 years ago) and Wonderwerk Cave in South Africa. Some of the earliest known wooden spears, found at Schöningen, Germany, date to approximately 300,000–200,000 years ago and reveal sophisticated hunting technology [3].\n\nIn Africa, populations were evolving toward anatomically modern humans, with transitional fossils found at sites like Jebel Irhoud in Morocco (~315,000 years ago) [4]. Neanderthals were emerging in Europe and western Asia, adapting brilliantly to cold glacial conditions. The period also saw the first evidence of long-distance raw material transport and the beginnings of symbolic thought, foreshadowing the cognitive revolution to come."
+        "body": "The Mid Pleistocene is one of the most important chapters in human evolutionary history. Homo heidelbergensis — a large-brained, robust hominin considered ancestral to both Neanderthals and modern Homo sapiens — was widespread across Africa and Europe by 600,000 years ago.\n\nEvidence of controlled fire use dates to this period, with hearths at sites like Gesher Benot Ya'aqov in Israel (~790,000 years ago) and Wonderwerk Cave in South Africa. Some of the earliest known wooden spears, found at Schöningen, Germany, date to approximately 300,000–200,000 years ago and reveal sophisticated hunting technology [3].\n\nIn Africa, populations were evolving toward anatomically modern humans, with transitional fossils found at sites like Jebel Irhoud in Morocco (~315,000 years ago) [4]. Neanderthals were emerging in Europe and western Asia, adapting brilliantly to cold glacial conditions. The period also saw the first evidence of long-distance raw material transport and the beginnings of symbolic thought, foreshadowing the cognitive revolution to come.",
+        "image": {
+          "src": "images/paleo_art/homo_longi_nobu_tamura.jpg",
+          "caption": "Homo longi ('Dragon Man'), an archaic human lineage from Northeast Asia (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -73,7 +93,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Quaternary, also called the Early Pleistocene, spans from approximately 2.6 million years ago — when the onset of major Northern Hemisphere glaciation marks the formal base of the Pleistocene [1] — to roughly 800,000 years ago, by which time the Mid-Pleistocene Transition was reorganizing the periodicity of ice ages.\n\nThis was the dawn of a new climatic regime on Earth: a world rhythmically pulsing between glacial cold and interglacial warmth, driven by subtle variations in Earth's orbit and tilt. It was also a transformative period in human evolution, witnessing the rise of the genus Homo, the first dispersal of hominins out of Africa, and the development of the earliest stone tool industries. The landscapes of this time were recognizably modern in their broad outlines, yet populated by a strikingly different cast of animals."
+        "body": "The Early Quaternary, also called the Early Pleistocene, spans from approximately 2.6 million years ago — when the onset of major Northern Hemisphere glaciation marks the formal base of the Pleistocene [1] — to roughly 800,000 years ago, by which time the Mid-Pleistocene Transition was reorganizing the periodicity of ice ages.\n\nThis was the dawn of a new climatic regime on Earth: a world rhythmically pulsing between glacial cold and interglacial warmth, driven by subtle variations in Earth's orbit and tilt. It was also a transformative period in human evolution, witnessing the rise of the genus Homo, the first dispersal of hominins out of Africa, and the development of the earliest stone tool industries. The landscapes of this time were recognizably modern in their broad outlines, yet populated by a strikingly different cast of animals.",
+        "image": {
+          "src": "images/paleo_art/arctodus_simus_nobu_tamura.jpg",
+          "caption": "Arctodus simus, the giant short-faced bear of North America (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -93,7 +118,12 @@
       },
       {
         "heading": "Human Evolution",
-        "body": "The Early Quaternary is the crucible in which the genus Homo emerged and first spread beyond Africa. Australopithecines — bipedal but small-brained hominins — were still present in Africa in the early part of this interval, with Australopithecus africanus and the robust Paranthropus lineages coexisting with the earliest Homo.\n\nThe transition to Homo habilis, recognized by its larger brain (~600–700 cc) and association with the Oldowan stone tool industry (simple flaked cobbles and choppers), occurred around 2.4–2.3 million years ago.\n\nBy 1.9 million years ago, the more derived Homo erectus had appeared — taller, with a larger brain (~900 cc), a more modern body plan, and the more sophisticated Acheulean hand axe technology. Homo erectus was the first hominin to leave Africa, with populations reaching the Caucasus (Dmanisi, Georgia, ~1.85 Ma), Southeast Asia (Java, ~1.7 Ma), and China (Yuanmou, ~1.7 Ma) remarkably quickly in geological terms [4]. This first out-of-Africa dispersal represents one of the pivotal moments in the story of our lineage."
+        "body": "The Early Quaternary is the crucible in which the genus Homo emerged and first spread beyond Africa. Australopithecines — bipedal but small-brained hominins — were still present in Africa in the early part of this interval, with Australopithecus africanus and the robust Paranthropus lineages coexisting with the earliest Homo.\n\nThe transition to Homo habilis, recognized by its larger brain (~600–700 cc) and association with the Oldowan stone tool industry (simple flaked cobbles and choppers), occurred around 2.4–2.3 million years ago.\n\nBy 1.9 million years ago, the more derived Homo erectus had appeared — taller, with a larger brain (~900 cc), a more modern body plan, and the more sophisticated Acheulean hand axe technology. Homo erectus was the first hominin to leave Africa, with populations reaching the Caucasus (Dmanisi, Georgia, ~1.85 Ma), Southeast Asia (Java, ~1.7 Ma), and China (Yuanmou, ~1.7 Ma) remarkably quickly in geological terms [4]. This first out-of-Africa dispersal represents one of the pivotal moments in the story of our lineage.",
+        "image": {
+          "src": "images/paleo_art/australopithecus_sediba_nobu_tamura.jpg",
+          "caption": "Australopithecus sediba, an early Pleistocene hominin from South Africa (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -107,7 +137,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Neogene corresponds to the Pliocene Epoch, the final chapter of the Neogene Period, spanning from roughly 5.3 to 2.6 million years ago. It opened as the Atlantic Ocean flooded back into a desiccated Mediterranean basin, and it closed with the onset of large-scale Northern Hemisphere glaciation that ushered in the Quaternary ice ages.\n\nThe Pliocene is often described as the most recent time in Earth's history when global conditions resembled those projected for the coming centuries. Atmospheric carbon dioxide hovered near 350–450 parts per million, global temperatures were 2–3°C warmer than pre-industrial levels, and sea levels stood perhaps 10–25 meters higher than today. For this reason, the epoch is intensively studied as a natural analogue for a warming world [1].\n\nContinents had nearly reached their modern positions, and many recognizable mammal families were already in place. It was against this backdrop of a slowly cooling, drying planet that the earliest well-documented members of the human lineage walked upright across the woodlands and grasslands of Africa."
+        "body": "The Late Neogene corresponds to the Pliocene Epoch, the final chapter of the Neogene Period, spanning from roughly 5.3 to 2.6 million years ago. It opened as the Atlantic Ocean flooded back into a desiccated Mediterranean basin, and it closed with the onset of large-scale Northern Hemisphere glaciation that ushered in the Quaternary ice ages.\n\nThe Pliocene is often described as the most recent time in Earth's history when global conditions resembled those projected for the coming centuries. Atmospheric carbon dioxide hovered near 350–450 parts per million, global temperatures were 2–3°C warmer than pre-industrial levels, and sea levels stood perhaps 10–25 meters higher than today. For this reason, the epoch is intensively studied as a natural analogue for a warming world [1].\n\nContinents had nearly reached their modern positions, and many recognizable mammal families were already in place. It was against this backdrop of a slowly cooling, drying planet that the earliest well-documented members of the human lineage walked upright across the woodlands and grasslands of Africa.",
+        "image": {
+          "src": "images/paleo_art/dinopithecus_ingens_nobu_tamura.jpg",
+          "caption": "Dinopithecus ingens, a giant terrestrial cercopithecid baboon (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -119,15 +154,30 @@
       },
       {
         "heading": "Flora",
-        "body": "The long Neogene trend toward open landscapes accelerated during the Pliocene. Grasslands and savannas, particularly those dominated by C4 grasses adapted to warm, dry, and seasonal conditions, continued to expand across Africa, South Asia, and the Americas at the expense of closed forests.\n\nIn the warm early Pliocene, forests extended much farther poleward than today. Boreal conifer forests of larch, spruce, and pine reached the shores of the Arctic Ocean, and tundra was far more restricted. Mixed temperate forests covered much of Europe, including genera now confined to East Asia or North America, such as Sequoia and Liquidambar.\n\nAs cooling intensified toward the end of the epoch, these relict forests retreated, steppe and tundra spread in the north, and the modern biogeographic zonation of vegetation began to take shape. In East Africa, a mosaic of riverine woodland, bushland, and grassland provided the varied habitats in which early hominins lived."
+        "body": "The long Neogene trend toward open landscapes accelerated during the Pliocene. Grasslands and savannas, particularly those dominated by C4 grasses adapted to warm, dry, and seasonal conditions, continued to expand across Africa, South Asia, and the Americas at the expense of closed forests.\n\nIn the warm early Pliocene, forests extended much farther poleward than today. Boreal conifer forests of larch, spruce, and pine reached the shores of the Arctic Ocean, and tundra was far more restricted. Mixed temperate forests covered much of Europe, including genera now confined to East Asia or North America, such as Sequoia and Liquidambar.\n\nAs cooling intensified toward the end of the epoch, these relict forests retreated, steppe and tundra spread in the north, and the modern biogeographic zonation of vegetation began to take shape. In East Africa, a mosaic of riverine woodland, bushland, and grassland provided the varied habitats in which early hominins lived.",
+        "image": {
+          "src": "images/wikipedia_images/neogene/Socotra_dragon_tree.JPG",
+          "caption": "Dracaena cinnabari (Dragon's Blood Tree), an ancient relict flora of the Tethyan realm",
+          "align": "right"
+        }
       },
       {
         "heading": "Fauna",
-        "body": "Pliocene faunas were rich and increasingly modern in character. Across the African savannas roamed ancestral elephants, giraffes, rhinoceroses, hippos, a great diversity of antelopes, and three-toed hipparionine horses. They were hunted by saber-toothed cats such as Homotherium and Megantereon, alongside giant hyenas and early members of the lion and leopard lineages.\n\nIn the Americas, the rise of the Panamanian land bridge triggered the Great American Biotic Interchange. North American carnivores, camels, horses, and deer moved south, while ground sloths, glyptodonts, armadillos, porcupines, and opossums moved north. South America's native predators, including the flightless 'terror birds' and marsupial saber-tooths, declined in the face of this new competition.\n\nIn the oceans, the colossal shark Otodus megalodon persisted through much of the epoch before disappearing around 3.6 million years ago, possibly due to cooling seas, shifting prey, and competition from the emerging great white shark [3]. Baleen whales began their evolutionary trend toward gigantism, exploiting the increasingly productive, seasonally upwelling waters of a cooler world."
+        "body": "Pliocene faunas were rich and increasingly modern in character. Across the African savannas roamed ancestral elephants, giraffes, rhinoceroses, hippos, a great diversity of antelopes, and three-toed hipparionine horses. They were hunted by saber-toothed cats such as Homotherium and Megantereon, alongside giant hyenas and early members of the lion and leopard lineages.\n\nIn the Americas, the rise of the Panamanian land bridge triggered the Great American Biotic Interchange. North American carnivores, camels, horses, and deer moved south, while ground sloths, glyptodonts, armadillos, porcupines, and opossums moved north. South America's native predators, including the flightless 'terror birds' and marsupial saber-tooths, declined in the face of this new competition.\n\nIn the oceans, the colossal shark Otodus megalodon persisted through much of the epoch before disappearing around 3.6 million years ago, possibly due to cooling seas, shifting prey, and competition from the emerging great white shark [3]. Baleen whales began their evolutionary trend toward gigantism, exploiting the increasingly productive, seasonally upwelling waters of a cooler world.",
+        "image": {
+          "src": "images/wikipedia_images/neogene/Great_American_Biotic_Interchange_examples.png",
+          "caption": "Interchange of North and South American fauna across the Isthmus of Panama (Woudloper)",
+          "align": "right"
+        }
       },
       {
         "heading": "Human Evolution",
-        "body": "The Pliocene is the epoch of the australopiths. Following the divergence of the human and chimpanzee lineages in the Late Miocene (roughly 7–6 million years ago), the hominin record becomes considerably richer after 4.2 million years ago with Australopithecus anamensis in Kenya and Ethiopia.\n\nAustralopithecus afarensis, famous from the 'Lucy' skeleton (about 3.2 million years ago) and the Laetoli footprints of Tanzania (about 3.66 million years ago), was a fully committed biped on the ground, while retaining long arms and curved fingers that suggest continued tree climbing. Its brain was only slightly larger than a chimpanzee's, demonstrating that upright walking evolved long before significant brain expansion.\n\nOther lineages coexisted, including Kenyanthropus platyops and Australopithecus bahrelghazali, as well as the enigmatic 'Burtele foot' hominin. The oldest known stone tools, from Lomekwi in Kenya, date to about 3.3 million years ago. By the close of the epoch, around 2.8 million years ago, the first fossils attributed to the genus Homo appear at Ledi-Geraru in Ethiopia [4], while the robust Paranthropus lineage began to specialize in tough, fibrous plant foods."
+        "body": "The Pliocene is the epoch of the australopiths. Following the divergence of the human and chimpanzee lineages in the Late Miocene (roughly 7–6 million years ago), the hominin record becomes considerably richer after 4.2 million years ago with Australopithecus anamensis in Kenya and Ethiopia.\n\nAustralopithecus afarensis, famous from the 'Lucy' skeleton (about 3.2 million years ago) and the Laetoli footprints of Tanzania (about 3.66 million years ago), was a fully committed biped on the ground, while retaining long arms and curved fingers that suggest continued tree climbing. Its brain was only slightly larger than a chimpanzee's, demonstrating that upright walking evolved long before significant brain expansion.\n\nOther lineages coexisted, including Kenyanthropus platyops and Australopithecus bahrelghazali, as well as the enigmatic 'Burtele foot' hominin. The oldest known stone tools, from Lomekwi in Kenya, date to about 3.3 million years ago. By the close of the epoch, around 2.8 million years ago, the first fossils attributed to the genus Homo appear at Ledi-Geraru in Ethiopia [4], while the robust Paranthropus lineage began to specialize in tough, fibrous plant foods.",
+        "image": {
+          "src": "images/paleo_art/ardipithecus_ramidus_nobu_tamura.jpg",
+          "caption": "Ardipithecus ramidus ('Ardi'), an early bipedal hominin (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -149,7 +199,12 @@
       },
       {
         "heading": "Geography",
-        "body": "Continents were close to their present positions, but several important seaways were still open or in the process of closing. The collision of the Afro-Arabian plate with Eurasia had severed the eastern link between the Mediterranean and the Indian Ocean, eliminating the last remnant of the ancient Tethys Sea as a through-flowing ocean.\n\nIn Europe, a large inland sea called the Paratethys stretched from the Alpine foreland to Central Asia. Around 14 to 13 million years ago, it became progressively isolated and fragmented into brackish basins, the forerunners of the Black, Caspian, and Aral Seas.\n\nThe Tibetan Plateau and Himalayas continued to rise, strengthening the South Asian and East Asian monsoon systems. In South America, the uplift of the northern Andes reshaped drainage patterns, and the vast Pebas wetland system occupied western Amazonia, home to giant crocodilians and endemic mollusks [3]. Meanwhile, the Drake Passage and Tasmanian Gateway were fully open, allowing the Antarctic Circumpolar Current to thermally isolate Antarctica."
+        "body": "Continents were close to their present positions, but several important seaways were still open or in the process of closing. The collision of the Afro-Arabian plate with Eurasia had severed the eastern link between the Mediterranean and the Indian Ocean, eliminating the last remnant of the ancient Tethys Sea as a through-flowing ocean.\n\nIn Europe, a large inland sea called the Paratethys stretched from the Alpine foreland to Central Asia. Around 14 to 13 million years ago, it became progressively isolated and fragmented into brackish basins, the forerunners of the Black, Caspian, and Aral Seas.\n\nThe Tibetan Plateau and Himalayas continued to rise, strengthening the South Asian and East Asian monsoon systems. In South America, the uplift of the northern Andes reshaped drainage patterns, and the vast Pebas wetland system occupied western Amazonia, home to giant crocodilians and endemic mollusks [3]. Meanwhile, the Drake Passage and Tasmanian Gateway were fully open, allowing the Antarctic Circumpolar Current to thermally isolate Antarctica.",
+        "image": {
+          "src": "images/wikipedia_images/neogene/Rattlesnake_Formation_Mural.jpg",
+          "caption": "Riparian and floodplain landscape of the Miocene Rattlesnake Formation (Roger Witter)",
+          "align": "right"
+        }
       },
       {
         "heading": "Flora",
@@ -157,7 +212,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The Middle Miocene hosted some of the most diverse mammal communities ever to exist. In North America, horse diversity reached its peak, with many coexisting genera of three-toed browsing and grazing horses, including Merychippus, which had high-crowned teeth adapted for grinding abrasive grasses. Camels, pronghorns, oreodonts, and rhinoceroses such as Teleoceras shared these landscapes.\n\nProboscideans had spread out of Africa and diversified widely across Eurasia and North America. Gomphotheres with four tusks, shovel-tusked amebelodonts, and the deinotheres with downward-curving lower tusks represented a variety of feeding strategies. Among carnivores, the bear-dogs (amphicyonids) remained formidable predators, while early cats, hyenas, and the bone-crushing borophagine dogs of North America rose in importance.\n\nIn the seas, Otodus megalodon became the apex predator, feeding on the diverse small and medium-sized baleen whales of the time. Raptorial sperm whales such as Livyatan, known from slightly younger deposits in Peru, show that the oceans supported multiple giant predators. Kelp forests, seals, sea lions, and early walruses diversified along the productive margins of the North Pacific."
+        "body": "The Middle Miocene hosted some of the most diverse mammal communities ever to exist. In North America, horse diversity reached its peak, with many coexisting genera of three-toed browsing and grazing horses, including Merychippus, which had high-crowned teeth adapted for grinding abrasive grasses. Camels, pronghorns, oreodonts, and rhinoceroses such as Teleoceras shared these landscapes.\n\nProboscideans had spread out of Africa and diversified widely across Eurasia and North America. Gomphotheres with four tusks, shovel-tusked amebelodonts, and the deinotheres with downward-curving lower tusks represented a variety of feeding strategies. Among carnivores, the bear-dogs (amphicyonids) remained formidable predators, while early cats, hyenas, and the bone-crushing borophagine dogs of North America rose in importance.\n\nIn the seas, Otodus megalodon became the apex predator, feeding on the diverse small and medium-sized baleen whales of the time. Raptorial sperm whales such as Livyatan, known from slightly younger deposits in Peru, show that the oceans supported multiple giant predators. Kelp forests, seals, sea lions, and early walruses diversified along the productive margins of the North Pacific.",
+        "image": {
+          "src": "images/paleo_art/blackhawk_ranch_fauna_nobu_tamura.jpg",
+          "caption": "Blackhawk Ranch Clarendonian terrestrial fauna of Late Miocene California (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Ape Evolution",
@@ -175,7 +235,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Neogene corresponds to the Early Miocene, the opening chapter of the Neogene Period, spanning from about 23 to 16 million years ago. Its base is defined by a brief but significant glacial event at the Oligocene–Miocene boundary, after which the planet entered a prolonged phase of warming that culminated in the Miocene Climatic Optimum.\n\nThe Early Miocene was a time of major biogeographic reorganization. The collision of Africa and Arabia with Eurasia created a land bridge that allowed animals to move between continents that had long been separated. This 'Proboscidean Datum Event' brought elephants, apes, and many other African groups into Eurasia, and Eurasian mammals into Africa.\n\nMany of the mammal groups that dominate the modern world — including true cats, dogs, bears, deer, and bovids — appeared or began to diversify during this interval, while several archaic lineages of the Paleogene faded away."
+        "body": "The Early Neogene corresponds to the Early Miocene, the opening chapter of the Neogene Period, spanning from about 23 to 16 million years ago. Its base is defined by a brief but significant glacial event at the Oligocene–Miocene boundary, after which the planet entered a prolonged phase of warming that culminated in the Miocene Climatic Optimum.\n\nThe Early Miocene was a time of major biogeographic reorganization. The collision of Africa and Arabia with Eurasia created a land bridge that allowed animals to move between continents that had long been separated. This 'Proboscidean Datum Event' brought elephants, apes, and many other African groups into Eurasia, and Eurasian mammals into Africa.\n\nMany of the mammal groups that dominate the modern world — including true cats, dogs, bears, deer, and bovids — appeared or began to diversify during this interval, while several archaic lineages of the Paleogene faded away.",
+        "image": {
+          "src": "images/paleo_art/astrapotherium_magnum_nobu_tamura.jpg",
+          "caption": "Astrapotherium magnum, an amphibious tusked South American ungulate (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -191,7 +256,12 @@
       },
       {
         "heading": "Fauna",
-        "body": "The opening of the Africa–Eurasia land bridge triggered a wave of faunal exchange. Proboscideans, including gomphotheres and deinotheres, spread out of Africa into Eurasia and, soon afterward, reached North America. Moving in the opposite direction, cats, rhinos, pigs, and early bovids entered Africa, profoundly changing its ecosystems.\n\nIn North America, a rich fauna included three-toed horses, oreodonts, camels, pronghorns, and the long-necked 'giraffe camels' such as Aepycamelus. Predators included bear-dogs, early canids, and the 'false saber-toothed cats' (nimravids), which were soon joined by true felids arriving from Eurasia.\n\nSouth America, still isolated, maintained its unique fauna of native ungulates such as litopterns and notoungulates, giant ground sloths, glyptodonts, and marsupial predators, all ruled over by the formidable flightless 'terror birds.' In the oceans, early baleen whales, dolphins, and the first true seals and sea lions diversified, while the megatooth shark lineage was evolving toward Otodus megalodon."
+        "body": "The opening of the Africa–Eurasia land bridge triggered a wave of faunal exchange. Proboscideans, including gomphotheres and deinotheres, spread out of Africa into Eurasia and, soon afterward, reached North America. Moving in the opposite direction, cats, rhinos, pigs, and early bovids entered Africa, profoundly changing its ecosystems.\n\nIn North America, a rich fauna included three-toed horses, oreodonts, camels, pronghorns, and the long-necked 'giraffe camels' such as Aepycamelus. Predators included bear-dogs, early canids, and the 'false saber-toothed cats' (nimravids), which were soon joined by true felids arriving from Eurasia.\n\nSouth America, still isolated, maintained its unique fauna of native ungulates such as litopterns and notoungulates, giant ground sloths, glyptodonts, and marsupial predators, all ruled over by the formidable flightless 'terror birds.' In the oceans, early baleen whales, dolphins, and the first true seals and sea lions diversified, while the megatooth shark lineage was evolving toward Otodus megalodon.",
+        "image": {
+          "src": "images/paleo_art/barbourofelis_loveorum_nobu_tamura.jpg",
+          "caption": "Barbourofelis loveorum, a heavily built barbourofelid false saber-tooth (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Mammalian Evolution",
@@ -209,7 +279,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Late Paleogene corresponds to the Oligocene Epoch, the final chapter of the Paleogene Period, spanning from about 33.9 to 23 million years ago. Its name, from the Greek for \"few new,\" was coined in the nineteenth century to reflect the relatively small number of modern mollusc species found in its rocks compared with later epochs.\n\nThe Oligocene opened with one of the most profound climatic shifts of the entire Cenozoic Era: the Eocene–Oligocene Transition, when the Earth moved decisively from a warm \"greenhouse\" state into a cooler \"icehouse\" state and a continental ice sheet became established on Antarctica for the first time [1].\n\nThe world that emerged was drier, cooler, and more seasonal than the lush Eocene. Tropical forests retreated toward the equator, open woodlands and early grass-rich habitats expanded, and many mammal groups underwent dramatic turnover. By the end of the epoch, the foundations of the modern biosphere — including its major ocean currents, polar ice, and many living mammal families — were firmly in place."
+        "body": "The Late Paleogene corresponds to the Oligocene Epoch, the final chapter of the Paleogene Period, spanning from about 33.9 to 23 million years ago. Its name, from the Greek for \"few new,\" was coined in the nineteenth century to reflect the relatively small number of modern mollusc species found in its rocks compared with later epochs.\n\nThe Oligocene opened with one of the most profound climatic shifts of the entire Cenozoic Era: the Eocene–Oligocene Transition, when the Earth moved decisively from a warm \"greenhouse\" state into a cooler \"icehouse\" state and a continental ice sheet became established on Antarctica for the first time [1].\n\nThe world that emerged was drier, cooler, and more seasonal than the lush Eocene. Tropical forests retreated toward the equator, open woodlands and early grass-rich habitats expanded, and many mammal groups underwent dramatic turnover. By the end of the epoch, the foundations of the modern biosphere — including its major ocean currents, polar ice, and many living mammal families — were firmly in place.",
+        "image": {
+          "src": "images/paleo_art/hyaenodon_horridus_nobu_tamura.jpg",
+          "caption": "Hyaenodon horridus, a hypercarnivorous hyaenodontid apex predator (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -225,11 +300,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Oligocene faunas reflected the changing habitats. In the oceans, the cooler, more nutrient-rich waters around Antarctica fuelled a burst of productivity that supported the diversification of modern whales. Both the toothed whales (odontocetes), which evolved echolocation, and the baleen whales (mysticetes), which evolved filter-feeding, diversify during this epoch. Penguins also diversified, some reaching sizes far larger than any living species.\n\nOn land, a major faunal turnover in Europe known as the \"Grande Coupure\" (great break) occurred near the start of the epoch, when many endemic European mammals disappeared and were replaced by immigrants from Asia [2]. In Asia and Mongolia, a similar turnover is known as the \"Mongolian Remodelling,\" in which perissodactyl-dominated faunas were replaced by rodent- and lagomorph-dominated ones.\n\nReptiles and amphibians declined at higher latitudes as temperatures fell, while birds continued to diversify. Among the most striking Oligocene animals were the large flightless birds of South America and the pelagornithids, sea birds with bony tooth-like projections on their beaks and wingspans that may have exceeded six metres."
+        "body": "Oligocene faunas reflected the changing habitats. In the oceans, the cooler, more nutrient-rich waters around Antarctica fuelled a burst of productivity that supported the diversification of modern whales. Both the toothed whales (odontocetes), which evolved echolocation, and the baleen whales (mysticetes), which evolved filter-feeding, diversify during this epoch. Penguins also diversified, some reaching sizes far larger than any living species.\n\nOn land, a major faunal turnover in Europe known as the \"Grande Coupure\" (great break) occurred near the start of the epoch, when many endemic European mammals disappeared and were replaced by immigrants from Asia [2]. In Asia and Mongolia, a similar turnover is known as the \"Mongolian Remodelling,\" in which perissodactyl-dominated faunas were replaced by rodent- and lagomorph-dominated ones.\n\nReptiles and amphibians declined at higher latitudes as temperatures fell, while birds continued to diversify. Among the most striking Oligocene animals were the large flightless birds of South America and the pelagornithids, sea birds with bony tooth-like projections on their beaks and wingspans that may have exceeded six metres.",
+        "image": {
+          "src": "images/paleo_art/horopeta_umarere_nobu_tamura.jpg",
+          "caption": "Horopeta umarere, an early filter-feeding baleen whale from New Zealand (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Mammalian Evolution",
-        "body": "The Oligocene was a crucial period for the emergence of many modern mammal lineages. The first true cats (felids), early canids, and the ancestors of bears and seals appeared, alongside the extinct \"false sabre-toothed cats\" known as nimravids. Among herbivores, early horses such as Mesohippus and Miohippus had three toes and longer legs than their Eocene ancestors, reflecting adaptation to more open terrain.\n\nThe epoch is famous for Paraceratherium, a hornless relative of rhinoceroses that inhabited Central Asia and is among the largest land mammals ever to have lived, standing nearly five metres tall at the shoulder. The entelodonts, large pig-like omnivores sometimes called \"hell pigs,\" and the chalicotheres, odd clawed browsers related to horses and rhinos, were also prominent.\n\nPrimates retreated from the higher latitudes as forests shrank, but in Africa they continued to evolve. Fossils from the Fayum Depression in Egypt document early anthropoids such as Aegyptopithecus, and the split between Old World monkeys and apes is thought to have occurred late in the Oligocene [3]. By this time, monkeys and rodents appear to have crossed the Atlantic from Africa to South America, likely on rafts of vegetation, founding the lineages of New World monkeys and caviomorph rodents [4]."
+        "body": "The Oligocene was a crucial period for the emergence of many modern mammal lineages. The first true cats (felids), early canids, and the ancestors of bears and seals appeared, alongside the extinct \"false sabre-toothed cats\" known as nimravids. Among herbivores, early horses such as Mesohippus and Miohippus had three toes and longer legs than their Eocene ancestors, reflecting adaptation to more open terrain.\n\nThe epoch is famous for Paraceratherium, a hornless relative of rhinoceroses that inhabited Central Asia and is among the largest land mammals ever to have lived, standing nearly five metres tall at the shoulder. The entelodonts, large pig-like omnivores sometimes called \"hell pigs,\" and the chalicotheres, odd clawed browsers related to horses and rhinos, were also prominent.\n\nPrimates retreated from the higher latitudes as forests shrank, but in Africa they continued to evolve. Fossils from the Fayum Depression in Egypt document early anthropoids such as Aegyptopithecus, and the split between Old World monkeys and apes is thought to have occurred late in the Oligocene [3]. By this time, monkeys and rodents appear to have crossed the Atlantic from Africa to South America, likely on rafts of vegetation, founding the lineages of New World monkeys and caviomorph rodents [4].",
+        "image": {
+          "src": "images/paleo_art/pogonodon_platycopis_nobu_tamura.jpg",
+          "caption": "Pogonodon platycopis, a false saber-toothed cat of the family Nimravidae (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -243,7 +328,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Middle Paleogene corresponds to the Eocene Epoch, spanning from about 56 to 33.9 million years ago. Its name, from the Greek for \"dawn of the new,\" refers to the appearance in its rocks of many modern groups of organisms. The Eocene is the longest epoch of the Cenozoic Era, lasting more than twenty million years.\n\nThe Eocene began with the Paleocene–Eocene Thermal Maximum, an abrupt spike in global temperatures, and went on to reach the warmest sustained conditions of the last 66 million years during the Early Eocene Climatic Optimum. Forests extended to the poles, crocodile relatives lived in the Arctic, and there was little or no permanent ice anywhere on the planet.\n\nOver the course of the epoch, however, the climate gradually cooled. By its close, the Earth was poised on the threshold of the Eocene–Oligocene Transition, when the first major Antarctic ice sheet would form. In between, the Eocene saw the first appearances of many familiar mammal orders, including primates, horses, bats, and whales."
+        "body": "The Middle Paleogene corresponds to the Eocene Epoch, spanning from about 56 to 33.9 million years ago. Its name, from the Greek for \"dawn of the new,\" refers to the appearance in its rocks of many modern groups of organisms. The Eocene is the longest epoch of the Cenozoic Era, lasting more than twenty million years.\n\nThe Eocene began with the Paleocene–Eocene Thermal Maximum, an abrupt spike in global temperatures, and went on to reach the warmest sustained conditions of the last 66 million years during the Early Eocene Climatic Optimum. Forests extended to the poles, crocodile relatives lived in the Arctic, and there was little or no permanent ice anywhere on the planet.\n\nOver the course of the epoch, however, the climate gradually cooled. By its close, the Earth was poised on the threshold of the Eocene–Oligocene Transition, when the first major Antarctic ice sheet would form. In between, the Eocene saw the first appearances of many familiar mammal orders, including primates, horses, bats, and whales.",
+        "image": {
+          "src": "images/paleo_art/eobasileus_cornutus_nobu_tamura.jpg",
+          "caption": "Eobasileus cornutus, a massive horned uintathere dinocerate (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -259,11 +349,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "Eocene ecosystems were extraordinarily diverse. Warm waters supported rich reef communities and abundant large foraminifera called nummulites, whose coin-shaped shells are so abundant in some limestones that they were used to build the Egyptian pyramids. Sharks thrived, and the Eocene saw the evolution of many modern groups of bony fishes.\n\nOn land, reptiles such as crocodilians, turtles, and large constricting snakes ranged into high latitudes. Birds were diverse, and among the largest predators in some regions were flightless \"terror birds\" and gastornithids such as Gastornis, a massive ground bird of Europe and North America. Fossil sites such as the Messel Pit in Germany and the Green River Formation in the United States preserve exceptionally detailed records of Eocene life, including insects, fishes, birds, and mammals with soft tissues and even stomach contents intact.\n\nIn the seas, one of the most remarkable evolutionary transitions in the fossil record unfolded: the evolution of whales from land-dwelling ancestors. Early forms such as Pakicetus and Ambulocetus lived partly on land, while by the Late Eocene fully aquatic whales such as Basilosaurus and Dorudon patrolled the oceans [3]."
+        "body": "Eocene ecosystems were extraordinarily diverse. Warm waters supported rich reef communities and abundant large foraminifera called nummulites, whose coin-shaped shells are so abundant in some limestones that they were used to build the Egyptian pyramids. Sharks thrived, and the Eocene saw the evolution of many modern groups of bony fishes.\n\nOn land, reptiles such as crocodilians, turtles, and large constricting snakes ranged into high latitudes. Birds were diverse, and among the largest predators in some regions were flightless \"terror birds\" and gastornithids such as Gastornis, a massive ground bird of Europe and North America. Fossil sites such as the Messel Pit in Germany and the Green River Formation in the United States preserve exceptionally detailed records of Eocene life, including insects, fishes, birds, and mammals with soft tissues and even stomach contents intact.\n\nIn the seas, one of the most remarkable evolutionary transitions in the fossil record unfolded: the evolution of whales from land-dwelling ancestors. Early forms such as Pakicetus and Ambulocetus lived partly on land, while by the Late Eocene fully aquatic whales such as Basilosaurus and Dorudon patrolled the oceans [3].",
+        "image": {
+          "src": "images/paleo_art/otodus_obliquus_nobu_tamura.jpg",
+          "caption": "Otodus obliquus, a giant predatory megatooth mackerel shark (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Mammalian Evolution",
-        "body": "The Eocene was the epoch in which modern mammal orders came into their own. The earliest undisputed members of the odd-toed ungulates (horses, rhinos, and tapirs) and even-toed ungulates (the group including pigs, camels, and ruminants) appear at its base, spreading across the Northern Hemisphere in the wake of the Paleocene–Eocene Thermal Maximum. Early horses such as Eohippus (Hyracotherium) were small, forest-dwelling browsers the size of a dog.\n\nPrimates diversified rapidly, with lemur-like adapiforms and tarsier-like omomyids common in the forests of North America, Europe, and Asia. Bats appear fully formed and capable of flight and, in most cases, echolocation, as shown by exceptionally preserved fossils like Onychonycteris and Icaronycteris [4]. Rodents, too, radiated widely.\n\nAlongside these modern groups, many archaic lineages still flourished. Large herbivores such as the rhino-like brontotheres and the horned uintatheres were prominent, and the carnivorous niches were occupied by creodonts and mesonychids rather than true carnivorans. Toward the end of the Eocene, many of these archaic groups began to decline as cooling and drying transformed their habitats, foreshadowing the large-scale turnover at the Eocene–Oligocene boundary."
+        "body": "The Eocene was the epoch in which modern mammal orders came into their own. The earliest undisputed members of the odd-toed ungulates (horses, rhinos, and tapirs) and even-toed ungulates (the group including pigs, camels, and ruminants) appear at its base, spreading across the Northern Hemisphere in the wake of the Paleocene–Eocene Thermal Maximum. Early horses such as Eohippus (Hyracotherium) were small, forest-dwelling browsers the size of a dog.\n\nPrimates diversified rapidly, with lemur-like adapiforms and tarsier-like omomyids common in the forests of North America, Europe, and Asia. Bats appear fully formed and capable of flight and, in most cases, echolocation, as shown by exceptionally preserved fossils like Onychonycteris and Icaronycteris [4]. Rodents, too, radiated widely.\n\nAlongside these modern groups, many archaic lineages still flourished. Large herbivores such as the rhino-like brontotheres and the horned uintatheres were prominent, and the carnivorous niches were occupied by creodonts and mesonychids rather than true carnivorans. Toward the end of the Eocene, many of these archaic groups began to decline as cooling and drying transformed their habitats, foreshadowing the large-scale turnover at the Eocene–Oligocene boundary.",
+        "image": {
+          "src": "images/paleo_art/litopterna_radiation_nobu_tamura.jpg",
+          "caption": "Litopterna, endemic South American archaic ungulate radiation (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
@@ -277,7 +377,12 @@
     "sections": [
       {
         "heading": "Overview",
-        "body": "The Early Paleogene corresponds to the Paleocene Epoch, the first epoch of the Cenozoic Era, spanning from about 66 to 56 million years ago. It began immediately after the Cretaceous–Paleogene mass extinction, in which an asteroid impact near the Yucatán Peninsula, together with massive volcanic eruptions in India, wiped out the non-avian dinosaurs and roughly three-quarters of all species on Earth [1].\n\nThe Paleocene is therefore fundamentally an epoch of recovery. In its opening millennia, ecosystems were impoverished and unstable, dominated by \"disaster taxa\" such as ferns and opportunistic species. Over the following millions of years, however, life rebounded, and the surviving groups — especially mammals and birds — diversified rapidly into the ecological space left vacant by the dinosaurs.\n\nThe epoch ended with the Paleocene–Eocene Thermal Maximum, a sudden global warming event around 56 million years ago that marked the transition into the Eocene and drove further profound changes in the world's biota."
+        "body": "The Early Paleogene corresponds to the Paleocene Epoch, the first epoch of the Cenozoic Era, spanning from about 66 to 56 million years ago. It began immediately after the Cretaceous–Paleogene mass extinction, in which an asteroid impact near the Yucatán Peninsula, together with massive volcanic eruptions in India, wiped out the non-avian dinosaurs and roughly three-quarters of all species on Earth [1].\n\nThe Paleocene is therefore fundamentally an epoch of recovery. In its opening millennia, ecosystems were impoverished and unstable, dominated by \"disaster taxa\" such as ferns and opportunistic species. Over the following millions of years, however, life rebounded, and the surviving groups — especially mammals and birds — diversified rapidly into the ecological space left vacant by the dinosaurs.\n\nThe epoch ended with the Paleocene–Eocene Thermal Maximum, a sudden global warming event around 56 million years ago that marked the transition into the Eocene and drove further profound changes in the world's biota.",
+        "image": {
+          "src": "images/paleo_art/taeniolabis_taoensis_nobu_tamura.jpg",
+          "caption": "Taeniolabis taoensis, a large herbivorous multituberculate mammal (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Climate",
@@ -293,11 +398,21 @@
       },
       {
         "heading": "Fauna",
-        "body": "With the non-avian dinosaurs gone, the Paleocene world was one of opportunity. Crocodilians, turtles, and champsosaurs (crocodile-like aquatic reptiles) survived the extinction and flourished in rivers and swamps. Snakes also thrived, and the Cerrejón Formation of Colombia has yielded Titanoboa, a giant snake estimated to have reached around 13 metres in length — its size a testament to the warm tropical climate [3].\n\nBirds, the only surviving dinosaurs, diversified rapidly. Early representatives of many modern bird lineages appeared, and in the absence of large mammalian predators, some birds evolved into large, flightless ground-dwellers. Penguins appeared in the Southern Hemisphere, with early forms such as Waimanu already adapted for swimming.\n\nIn the oceans, the extinction had eliminated the great marine reptiles such as mosasaurs and plesiosaurs, as well as the ammonites. Sharks and bony fishes diversified to fill these roles, and the recovery of plankton communities over hundreds of thousands of years gradually restored ocean productivity."
+        "body": "With the non-avian dinosaurs gone, the Paleocene world was one of opportunity. Crocodilians, turtles, and champsosaurs (crocodile-like aquatic reptiles) survived the extinction and flourished in rivers and swamps. Snakes also thrived, and the Cerrejón Formation of Colombia has yielded Titanoboa, a giant snake estimated to have reached around 13 metres in length — its size a testament to the warm tropical climate [3].\n\nBirds, the only surviving dinosaurs, diversified rapidly. Early representatives of many modern bird lineages appeared, and in the absence of large mammalian predators, some birds evolved into large, flightless ground-dwellers. Penguins appeared in the Southern Hemisphere, with early forms such as Waimanu already adapted for swimming.\n\nIn the oceans, the extinction had eliminated the great marine reptiles such as mosasaurs and plesiosaurs, as well as the ammonites. Sharks and bony fishes diversified to fill these roles, and the recovery of plankton communities over hundreds of thousands of years gradually restored ocean productivity.",
+        "image": {
+          "src": "images/paleo_art/titanoboa_cerrejonensis_nobu_tamura.jpg",
+          "caption": "Titanoboa cerrejonensis, the colossal Paleocene boid snake (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Mammalian Evolution",
-        "body": "Mammals had lived alongside dinosaurs for more than 150 million years, but most were small. After the extinction, they underwent an explosive adaptive radiation. Within just a few hundred thousand years of the impact, mammals had increased markedly in body size and diversity, as documented by exceptional fossil sites such as Corral Bluffs in Colorado [4].\n\nMany Paleocene mammals belonged to archaic groups with no close living relatives. The multituberculates, rodent-like mammals that had flourished in the Cretaceous, remained abundant. Condylarths, a loose assemblage of early hoofed mammals, and pantodonts, heavy-bodied herbivores such as Pantolambda and Barylambda, became widespread. Early carnivorous mammals included creodonts and small, weasel-like relatives of modern carnivorans.\n\nThe Paleocene also saw the origins, or early diversification, of lineages leading to modern placental groups, including primate relatives such as the plesiadapiforms. In South America, isolated from other continents, an entirely distinctive fauna of native ungulates and marsupials began to evolve. By the end of the epoch, mammals had become the dominant large land animals, a status they have held ever since."
+        "body": "Mammals had lived alongside dinosaurs for more than 150 million years, but most were small. After the extinction, they underwent an explosive adaptive radiation. Within just a few hundred thousand years of the impact, mammals had increased markedly in body size and diversity, as documented by exceptional fossil sites such as Corral Bluffs in Colorado [4].\n\nMany Paleocene mammals belonged to archaic groups with no close living relatives. The multituberculates, rodent-like mammals that had flourished in the Cretaceous, remained abundant. Condylarths, a loose assemblage of early hoofed mammals, and pantodonts, heavy-bodied herbivores such as Pantolambda and Barylambda, became widespread. Early carnivorous mammals included creodonts and small, weasel-like relatives of modern carnivorans.\n\nThe Paleocene also saw the origins, or early diversification, of lineages leading to modern placental groups, including primate relatives such as the plesiadapiforms. In South America, isolated from other continents, an entirely distinctive fauna of native ungulates and marsupials began to evolve. By the end of the epoch, mammals had become the dominant large land animals, a status they have held ever since.",
+        "image": {
+          "src": "images/paleo_art/pantolambda_bathmodon_nobu_tamura.jpg",
+          "caption": "Pantolambda bathmodon, an early herbivorous pantodont mammal (Nobu Tamura)",
+          "align": "right"
+        }
       },
       {
         "heading": "Sources",
