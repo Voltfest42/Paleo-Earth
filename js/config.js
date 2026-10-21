@@ -1,4 +1,4 @@
-﻿/**
+/**
  * config.js — Global configuration for Paleo Earth
  *
  * â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
@@ -19,7 +19,8 @@ export const DEV_MODE = false;
 let _apiBase = 'https://zazc8i568e.execute-api.us-east-1.amazonaws.com/prod';
 if (window.location.hostname === 'localhost' || 
     window.location.hostname === '127.0.0.1' || 
-    window.location.hostname.includes('staging')) {
+    window.location.hostname.includes('staging') ||
+    window.location.hostname.includes('dev.')) {
     _apiBase = 'https://5h9f59awah.execute-api.us-east-1.amazonaws.com/staging';
 }
 export const API_BASE = _apiBase;
