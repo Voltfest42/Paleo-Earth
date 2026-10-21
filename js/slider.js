@@ -75,9 +75,16 @@ export class Slider {
       block.className = 'period-block';
       
       const duration = period.end - period.start;
-      const widthPct = (duration / totalMa) * 100;
+      const frac = duration / totalMa;
       
-      block.style.width = `${widthPct}%`;
+      // Align period boundaries with the actual travel span of the slider thumb center.
+      // The range input insets the thumb center by --slider-thumb-radius on both ends,
+      // and .geologic-time-bar has a 1px border on each end.
+      if (period.start === MIN_MA || period.end === MAX_MA) {
+        block.style.width = `calc((100% - (var(--slider-thumb-radius, 8px) - 1px) * 2) * ${frac} + (var(--slider-thumb-radius, 8px) - 1px))`;
+      } else {
+        block.style.width = `calc((100% - (var(--slider-thumb-radius, 8px) - 1px) * 2) * ${frac})`;
+      }
       block.style.backgroundColor = `rgba(${period.color}, 0.25)`;
       block.textContent = period.id;
       block.title = `${period.name} (${period.start} - ${period.end} Ma)`;
@@ -332,7 +339,27 @@ export class Slider {
     }
     if (bestEvent) return bestEvent;
 
-    // 2. Otherwise find the closest period keyframe
+    // 2. Determine which geologic period (from GEOLOGIC_PERIODS) contains `ma`,
+    //    so period transitions align with the true ICS boundaries on the GTS ribbon.
+    const currentGeoPeriod = GEOLOGIC_PERIODS
+      ? GEOLOGIC_PERIODS.find(p => ma >= p.start && ma <= p.end)
+      : null;
+
+    if (currentGeoPeriod) {
+      let bestInPeriod = null, bestInPeriodDist = Infinity;
+      for (const kf of this._keyframes) {
+        if (kf.type === 'period' && kf.period === currentGeoPeriod.name) {
+          const d = Math.abs(kf.ma - ma);
+          if (d < bestInPeriodDist) {
+            bestInPeriodDist = d;
+            bestInPeriod = kf;
+          }
+        }
+      }
+      if (bestInPeriod) return bestInPeriod;
+    }
+
+    // 3. Fallback: closest period keyframe overall
     let bestPeriod = null, bestPeriodDist = Infinity;
     for (const kf of this._keyframes) {
       if (kf.type === 'period') {
@@ -345,7 +372,7 @@ export class Slider {
     }
     if (bestPeriod) return bestPeriod;
 
-    // 3. Fallback to closest keyframe of any type
+    // 4. Fallback to closest keyframe of any type
     let best = null, bestDist = Infinity;
     for (const kf of this._keyframes) {
       const d = Math.abs(kf.ma - ma);

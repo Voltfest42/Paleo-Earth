@@ -42,6 +42,7 @@
   --left-width:      65%;
   --handle-width:    6px;
   --topbar-height:   56px;
+  --slider-thumb-radius: 8px;
   /* --footer-height: 196px; removed */
 }
 
@@ -493,12 +494,13 @@ html, body {
   position: relative;
 }
 
-/* Marker overlay sits above the track but below the thumb */
+/* Marker overlay sits above the track but below the thumb.
+   Inset by --slider-thumb-radius on both ends so 0%..100% matches the thumb center's travel range. */
 .slider-track-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: var(--slider-thumb-radius, 8px);
+  right: var(--slider-thumb-radius, 8px);
   height: 100%;
   pointer-events: none;
   z-index: 1;
@@ -507,7 +509,7 @@ html, body {
 .slider-marker {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
   width: 2px;
   height: 8px;
   border-radius: 1px;
@@ -1171,6 +1173,8 @@ input[type="range"]:hover::-webkit-slider-thumb {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-sizing: border-box;
+  min-width: 0;
+  flex-shrink: 0;
   user-select: none;
   overflow: hidden;
   white-space: nowrap;
@@ -1684,6 +1688,10 @@ input[type="range"]:hover::-webkit-slider-thumb {
   }
 
   /* Increase slider thumb size for touch */
+  :root {
+    --slider-thumb-radius: 10px;
+  }
+
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 20px;
@@ -1692,6 +1700,11 @@ input[type="range"]:hover::-webkit-slider-thumb {
     border: 2px solid #fff;
     background: var(--accent);
     box-shadow: 0 0 8px rgba(74,158,255,0.5);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
   }
 }
 
