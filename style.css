@@ -139,8 +139,10 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--topbar-height);
-  padding: 0 16px;
+  min-height: var(--topbar-height);
+  height: auto;
+  padding: 10px 16px;
+  gap: 12px;
   background: rgba(0,0,0,0.4);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
@@ -155,7 +157,9 @@ html, body {
   gap: 12px;
 }
 
-.topbar-center { flex: 1; justify-content: center; }
+.topbar-left { min-width: 0; }
+.topbar-right { flex-shrink: 0; }
+.topbar-center { flex: 1; justify-content: center; min-width: 0; text-align: center; }
 
 .app-title {
   font-size: 16px;
@@ -163,6 +167,7 @@ html, body {
   letter-spacing: 0.16em;
   color: var(--accent);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .era-label {
@@ -170,6 +175,7 @@ html, body {
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.02em;
+  line-height: 1.25;
 }
 
 .keyframe-title {
@@ -177,6 +183,7 @@ html, body {
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 .keyframe-badge {
