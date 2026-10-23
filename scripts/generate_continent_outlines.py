@@ -105,7 +105,7 @@ def main():
         if generate_outlines(img_path, out_dir / out_name, args.thickness):
             processed_count += 1
             
-    print(f"\\nFinished processing {processed_count} files.")
+    print(f"\\Finished processing {processed_count} files.")
 
 if __name__ == "__main__":
     main()
