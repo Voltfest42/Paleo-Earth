@@ -35,7 +35,7 @@ export class TourGuide {
       },
       {
         id: 'periods-events',
-        selector: '.panel-topbar, .summary-card',
+        selector: '#panelRight .panel-topbar, #summaryCard',
         title: 'Periods and Events',
         content: 'As you scrub, the timeline snaps to geologic periods and major milestones—including evolutionary radiations, climate transitions, and extinction events. The header badge and summary update dynamically to reflect the active era.',
         placement: 'left',
