@@ -1314,6 +1314,10 @@ input[type="range"]:hover::-webkit-slider-thumb {
   border-radius: 12px;
   width: 90%;
   max-width: 500px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transform: translateY(20px);
   transition: transform 0.3s ease;
@@ -1330,6 +1334,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .modal-header h2 {
@@ -1355,6 +1360,23 @@ input[type="range"]:hover::-webkit-slider-thumb {
 
 .modal-body {
   padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .setting-row {
@@ -2215,5 +2237,74 @@ input[type="range"]:hover::-webkit-slider-thumb {
   }
   .tour-dot.active {
     width: 14px;
+  }
+
+  /* Mobile Credits Button */
+  .credits-btn {
+    width: 24px;
+    height: 24px;
+    bottom: 8px;
+    right: 8px;
+    padding: 0;
+  }
+  .credits-btn svg {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2.2;
+  }
+
+  /* Mobile Modals (About / Credits & Settings) */
+  .modal-overlay {
+    padding: 12px;
+  }
+  .modal-content {
+    width: 94%;
+    max-width: 94%;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 10px;
+  }
+  .modal-header {
+    padding: 12px 16px;
+  }
+  .modal-header h2 {
+    font-size: 1.15rem;
+  }
+  .modal-close {
+    font-size: 1.6rem;
+    padding: 2px 6px;
+  }
+  .modal-body {
+    padding: 14px 16px;
+  }
+  .credits-modal h3 {
+    font-size: 0.95rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .credits-list {
+    padding-left: 18px;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .credits-list li {
+    margin-bottom: 8px;
+  }
+  .creator-info {
+    gap: 8px;
+    font-size: 13px;
+  }
+  .creator-links {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .creator-link {
+    font-size: 11.5px;
+    padding: 3px 8px;
+  }
+  .creator-link svg {
+    width: 12px;
+    height: 12px;
   }
 }
