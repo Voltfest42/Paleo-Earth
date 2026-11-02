@@ -15,6 +15,7 @@ import { GaugeSet } from './gauges.js';
 import { Slider   } from './slider.js';
 import { Chat     } from './chat.js';
 import { speak, stopAll, getPollyVoice, setPollyVoice, playStatic } from './tts.js';
+import { TourGuide } from './tour.js';
 
 // ─── Data loading ──────────────────────────────────────────────────────────
 async function loadJSON(path) {
@@ -231,6 +232,27 @@ async function main() {
     
     creditsModal.addEventListener('click', (e) => {
       if (e.target === creditsModal) closeCreditsModal();
+    });
+  }
+
+  // --- Tour Guide & Onboarding ----------------------------------------------
+  const tourGuide = new TourGuide();
+  tourGuide.init();
+
+  const tourGuideBtn = document.getElementById('tourGuideBtn');
+  if (tourGuideBtn) {
+    tourGuideBtn.addEventListener('click', () => {
+      tourGuide.start();
+    });
+  }
+
+  const settingsRestartTourBtn = document.getElementById('settingsRestartTourBtn');
+  if (settingsRestartTourBtn && settingsModal) {
+    settingsRestartTourBtn.addEventListener('click', () => {
+      settingsModal.classList.remove('active');
+      setTimeout(() => {
+        tourGuide.start();
+      }, 250);
     });
   }
 

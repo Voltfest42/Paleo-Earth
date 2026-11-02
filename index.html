@@ -103,6 +103,13 @@
       <div class="globe-container" id="globeContainer">
         <!-- Viewport Overlay Controls (top right corner, below header) -->
         <div class="globe-viewport-controls">
+          <button class="globe-control-btn" id="tourGuideBtn" title="Take Interactive Tour">
+            <svg class="globe-control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+            <span class="btn-label">Tour</span>
+          </button>
           <button class="globe-control-btn" id="settingsBtn" title="Settings">
             <svg class="globe-control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"></circle>
@@ -290,6 +297,60 @@
 
 
   
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="modal-overlay">
+      <div class="modal-content welcome-modal">
+        <div class="modal-header">
+          <div class="welcome-header-title">
+            <span class="welcome-badge">Interactive 3D Deep Time</span>
+            <h2>Welcome to Paleo Earth</h2>
+          </div>
+          <button class="modal-close" id="closeWelcomeBtn" title="Close" aria-label="Close welcome modal">&times;</button>
+        </div>
+        <div class="modal-body welcome-body">
+          <p class="welcome-intro">
+            Explore 540 million years of continental drift, prehistoric climate, and evolutionary history on an interactive 3D WebGL globe.
+          </p>
+          <div class="welcome-features-list">
+            <div class="welcome-feature-item">
+              <div class="welcome-feature-icon">🌍</div>
+              <div class="welcome-feature-text">
+                <strong>3D Paleoglobe</strong>
+                <span>Drag to rotate, pinch/scroll to zoom, and toggle ancient continent outlines.</span>
+              </div>
+            </div>
+            <div class="welcome-feature-item">
+              <div class="welcome-feature-icon">⏱️</div>
+              <div class="welcome-feature-text">
+                <strong>540 Ma Timeline & GTS Ribbon</strong>
+                <span>Scrub through geologic time or jump between periods and mass extinction events.</span>
+              </div>
+            </div>
+            <div class="welcome-feature-item">
+              <div class="welcome-feature-icon">📖</div>
+              <div class="welcome-feature-text">
+                <strong>Encyclopedia, Audio & AI Chat</strong>
+                <span>Read detailed summaries, listen to voice narration, or ask questions to the AI assistant.</span>
+              </div>
+            </div>
+          </div>
+          <div class="welcome-opt-out">
+            <label class="welcome-checkbox-label">
+              <input type="checkbox" id="welcomeDontShowAgain" checked>
+              <span>Don't show this again on startup</span>
+            </label>
+          </div>
+          <div class="welcome-actions">
+            <button id="welcomeExploreBtn" class="globe-control-btn welcome-secondary-btn">Explore on My Own</button>
+            <button id="welcomeStartTourBtn" class="globe-control-btn welcome-primary-btn">
+              <span>Take 1-Minute Tour</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M5 13l4 4L19 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Credits Modal -->
     <div id="creditsModal" class="modal-overlay">
       <div class="modal-content credits-modal">
@@ -353,6 +414,15 @@
               <option value="Matthew">Matthew (Male)</option>
               <option value="Joanna">Joanna (Female)</option>
             </select>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-info">
+            <h3>Interactive Tutorial</h3>
+            <p>Revisit the guided walkthrough of Paleo Earth's controls and features.</p>
+          </div>
+          <div class="setting-control">
+            <button id="settingsRestartTourBtn" class="globe-control-btn" style="border-radius: 6px; padding: 6px 14px; font-size: 13px;">Start Tour</button>
           </div>
         </div>
         <div class="setting-row">
