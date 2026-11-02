@@ -85,18 +85,16 @@ export class Slider {
       } else {
         block.style.width = `calc((100% - (var(--slider-thumb-radius, 8px) - 1px) * 2) * ${frac})`;
       }
-      // Pre-blend period color with dark background into an opaque RGB value (Lightness < 42%)
-      // so mobile browsers with Force Dark Mode (like Samsung Internet) never invert bright hues to black.
-      const [r, g, b] = period.color.split(',').map(n => parseInt(n.trim(), 10));
-      const isSamsung = typeof navigator !== 'undefined' && /SamsungBrowser/i.test(navigator.userAgent);
-      const alpha = isSamsung ? 0.38 : 0.25;
-      const bgR = isSamsung ? 24 : 10;
-      const bgG = isSamsung ? 34 : 15;
-      const bgB = isSamsung ? 52 : 24;
-      const mixR = Math.round(r * alpha + bgR * (1 - alpha));
-      const mixG = Math.round(g * alpha + bgG * (1 - alpha));
-      const mixB = Math.round(b * alpha + bgB * (1 - alpha));
-      block.style.backgroundColor = `rgb(${mixR}, ${mixG}, ${mixB})`;
+      if (typeof navigator !== 'undefined' && /SamsungBrowser/i.test(navigator.userAgent)) {
+        const [r, g, b] = period.color.split(',').map(n => parseInt(n.trim(), 10));
+        const alpha = 0.38;
+        const mixR = Math.round(r * alpha + 24 * (1 - alpha));
+        const mixG = Math.round(g * alpha + 34 * (1 - alpha));
+        const mixB = Math.round(b * alpha + 52 * (1 - alpha));
+        block.style.backgroundColor = `rgb(${mixR}, ${mixG}, ${mixB})`;
+      } else {
+        block.style.backgroundColor = `rgba(${period.color}, 0.25)`;
+      }
       block.textContent = period.id;
       block.title = `${period.name} (${period.start} - ${period.end} Ma)`;
       
