@@ -2137,3 +2137,83 @@ input[type="range"]:hover::-webkit-slider-thumb {
   background: var(--accent);
   box-shadow: 0 0 6px var(--accent);
 }
+
+/* Mobile adjustments for Guided Tour Popover & Welcome Modal */
+@media (max-width: 768px) {
+  .welcome-modal {
+    max-width: 92vw;
+    border-radius: 12px;
+  }
+  .welcome-intro {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .welcome-features-list {
+    padding: 10px 12px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .welcome-feature-text strong {
+    font-size: 12.5px;
+  }
+  .welcome-feature-text span {
+    font-size: 11.5px;
+  }
+  .welcome-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  .welcome-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Compact Tour Popover on Mobile */
+  .tour-popover {
+    width: min(94vw, 340px);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 12px rgba(74, 158, 255, 0.25);
+  }
+  .tour-popover-header {
+    padding: 6px 12px 4px 12px;
+  }
+  .tour-step-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    letter-spacing: 0.05em;
+  }
+  .tour-close-btn {
+    font-size: 1.25rem;
+    padding: 0 2px;
+  }
+  .tour-popover-body {
+    padding: 6px 12px 6px 12px;
+  }
+  .tour-popover-title {
+    font-size: 13.5px;
+    margin: 0 0 3px 0;
+  }
+  .tour-popover-desc {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .tour-popover-footer {
+    padding: 4px 12px 6px 12px;
+  }
+  .tour-btn {
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 5px;
+  }
+  .tour-dots {
+    padding-bottom: 6px;
+    gap: 4px;
+  }
+  .tour-dot {
+    width: 5px;
+    height: 5px;
+  }
+  .tour-dot.active {
+    width: 14px;
+  }
+}

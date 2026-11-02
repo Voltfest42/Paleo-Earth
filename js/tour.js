@@ -3,11 +3,15 @@
  *
  * Provides:
  *  1. Welcome Modal on first visit with "Take 1-Minute Tour" or "Explore on My Own".
- *  2. Spotlight Guided Tour highlighting 4 key UI elements across the app.
+ *  2. 5-Step Spotlight Guided Tour highlighting key UI elements across the app.
  *  3. Preserves full live interactivity (dragging the globe, scrubbing the slider,
  *     toggling period/event buttons, and switching tabs) without closing the tour.
- *  4. Re-triggerable via Settings modal or the Tour button in viewport controls.
- *  5. Full keyboard navigation (Escape, ArrowLeft, ArrowRight) and mobile responsiveness.
+ *  4. Mobile-optimized HUD: Compact popover dimensions and strategic top/bottom docking
+ *     to prevent obscuring highlighted controls.
+ *  5. Step 4 specifically demonstrates the draggable splitter bar on mobile, smoothly
+ *     expanding the encyclopedia and AI chat panel into full view for Step 5.
+ *  6. Re-triggerable via Settings modal or the Tour button in viewport controls.
+ *  7. Full keyboard navigation (Escape, ArrowLeft, ArrowRight) and mobile responsiveness.
  */
 
 const TOUR_STORAGE_KEY = 'paleo_earth_tour_seen';
@@ -16,6 +20,8 @@ export class TourGuide {
   constructor() {
     this.currentStep = 0;
     this.isActive = false;
+    this._initialPanelHeight = undefined;
+
     this.steps = [
       {
         id: 'globe',
@@ -23,6 +29,7 @@ export class TourGuide {
         title: 'The 3D Paleoglobe',
         content: 'Click and drag anywhere to rotate Earth across 540 million years. Scroll or pinch to zoom. Use the top-right overlay buttons to toggle political borders, ancient continents, or climate atmosphere gauges.',
         placement: 'inside-top-left',
+        mobilePlacement: 'bottom',
         targetPadding: 6
       },
       {
@@ -31,6 +38,7 @@ export class TourGuide {
         title: 'Timeline & GTS Ribbon',
         content: 'Drag the timeline scrubber to travel continuously from 540 Ma (Cambrian) to Present Day. You can also click directly on any colored period block on the Geologic Time Scale ribbon to jump through time instantly.',
         placement: 'top',
+        mobilePlacement: 'top',
         targetPadding: 8
       },
       {
@@ -39,14 +47,25 @@ export class TourGuide {
         title: 'Periods and Events',
         content: 'As you scrub, the timeline snaps to geologic periods and major milestones—including evolutionary radiations, climate transitions, and extinction events. The header badge and summary update dynamically to reflect the active era.',
         placement: 'left',
+        mobilePlacement: 'top',
         targetPadding: 8
+      },
+      {
+        id: 'splitter',
+        selector: '#resizeHandle',
+        title: 'Draggable Splitter Bar',
+        content: 'Drag this divider bar to customize your split-screen view. On mobile, watch it slide up now to reveal the full encyclopedia and chat panel below!',
+        placement: 'top',
+        mobilePlacement: 'top',
+        targetPadding: 6
       },
       {
         id: 'wiki-chat',
         selector: '.panel-tabs, .panel-tab-content',
         title: 'Encyclopedia & AI Assistant',
-        content: 'Dive into detailed period summaries and encyclopedia entries. Click the speaker icon to hear audio narration, or switch to the "Ask Questions" tab to chat with our AI assistant anchored to the active time period.',
+        content: 'Dive into detailed period summaries and encyclopedia entries. Tap the speaker icon to hear audio narration, or switch to the "Ask Questions" tab to chat with our AI assistant anchored to the active time period.',
         placement: 'left',
+        mobilePlacement: 'top',
         targetPadding: 8
       }
     ];
@@ -62,7 +81,6 @@ export class TourGuide {
   init() {
     const tourSeen = localStorage.getItem(TOUR_STORAGE_KEY) === 'true';
     if (!tourSeen) {
-      // Delay slightly so initial textures and globe rendering settle
       setTimeout(() => {
         this.showWelcomeModal();
       }, 700);
@@ -88,7 +106,7 @@ export class TourGuide {
 
     this.popover.innerHTML = `
       <div class="tour-popover-header">
-        <div class="tour-step-badge" id="tourStepBadge">Step 1 of 4</div>
+        <div class="tour-step-badge" id="tourStepBadge">Step 1 of 5</div>
         <button class="tour-close-btn" id="tourCloseBtn" title="Close tour (Esc)" aria-label="Close tour">&times;</button>
       </div>
       <div class="tour-popover-body">
@@ -122,7 +140,7 @@ export class TourGuide {
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         if (this.isActive) {
-          setTimeout(() => this._renderStep(), 60);
+          setTimeout(() => this._updatePositions(), 60);
         }
       });
     });
@@ -154,7 +172,6 @@ export class TourGuide {
     if (startTourBtn) {
       startTourBtn.addEventListener('click', () => {
         handleDismiss();
-        // Brief transition delay before starting tour
         setTimeout(() => {
           this.start();
         }, 250);
@@ -180,6 +197,7 @@ export class TourGuide {
   start() {
     this.isActive = true;
     this.currentStep = 0;
+    this._initialPanelHeight = undefined;
 
     // Show tour DOM elements
     this.spotlight.classList.add('active');
@@ -208,6 +226,21 @@ export class TourGuide {
     // Hide tour elements
     this.spotlight.classList.remove('active');
     this.popover.classList.remove('active');
+
+    // Restore mobile panel height if modified
+    const isMobile = window.innerWidth <= 768;
+    const panelLeft = document.getElementById('panelLeft');
+    if (isMobile && panelLeft && this._initialPanelHeight !== undefined) {
+      panelLeft.style.transition = 'height 0.35s ease';
+      panelLeft.style.height = this._initialPanelHeight;
+      setTimeout(() => {
+        panelLeft.style.transition = '';
+        this._initialPanelHeight = undefined;
+        if (window._globeInstance && window._globeInstance.onWindowResize) {
+          window._globeInstance.onWindowResize();
+        }
+      }, 360);
+    }
 
     window.removeEventListener('resize', this._boundOnResize);
     window.removeEventListener('input', this._boundOnResize);
@@ -290,25 +323,50 @@ export class TourGuide {
   /** Position spotlight and popover for the active step */
   _renderStep() {
     const step = this.steps[this.currentStep];
-    const rect = this._getTargetRect(step.selector);
+    const isMobile = window.innerWidth <= 768;
+    const panelLeft = document.getElementById('panelLeft');
 
-    if (!rect) {
-      console.warn(`[TourGuide] Element not found for selector: ${step.selector}`);
-      return;
-    }
-
-    // If target is in panelRight and panelLeft is fullscreen, exit fullscreen so right panel is visible
-    if (this.currentStep >= 2) {
-      const panelLeft = document.getElementById('panelLeft');
-      const btnLeft = document.getElementById('fullscreenLeft');
-      if (panelLeft && panelLeft.classList.contains('fullscreen') && btnLeft) {
-        btnLeft.click();
+    // Manage mobile layout transitions for steps 3 and 4 (Splitter & Wiki/Chat)
+    if (isMobile && panelLeft) {
+      if (this.currentStep >= 3) {
+        // Entering Step 4 or 5: expand right panel
+        if (this._initialPanelHeight === undefined) {
+          this._initialPanelHeight = panelLeft.style.height || '';
+        }
+        if (panelLeft.style.height !== '32%') {
+          panelLeft.style.transition = 'height 0.4s cubic-bezier(0.2, 0.9, 0.3, 1)';
+          panelLeft.style.height = '32%';
+          setTimeout(() => {
+            if (window._globeInstance && window._globeInstance.onWindowResize) {
+              window._globeInstance.onWindowResize();
+            }
+            this._updatePositions();
+          }, 420);
+        }
+      } else if (this._initialPanelHeight !== undefined) {
+        // Back to Steps 0, 1, or 2: restore initial panel height
+        panelLeft.style.transition = 'height 0.35s ease';
+        panelLeft.style.height = this._initialPanelHeight;
+        setTimeout(() => {
+          this._initialPanelHeight = undefined;
+          panelLeft.style.transition = '';
+          if (window._globeInstance && window._globeInstance.onWindowResize) {
+            window._globeInstance.onWindowResize();
+          }
+          this._updatePositions();
+        }, 360);
       }
     }
 
-    // Auto-scroll target into view if mobile or overflowed
+    // Exit fullscreen on panelLeft if active on desktop/tablet
+    if (this.currentStep >= 2 && panelLeft && panelLeft.classList.contains('fullscreen')) {
+      const btnLeft = document.getElementById('fullscreenLeft');
+      if (btnLeft) btnLeft.click();
+    }
+
+    // Auto-scroll target into view if needed
     const firstTarget = document.querySelector(step.selector);
-    if (window.innerWidth <= 768 && firstTarget) {
+    if (isMobile && firstTarget && this.currentStep !== 3) {
       firstTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
@@ -321,7 +379,15 @@ export class TourGuide {
 
     if (stepBadge) stepBadge.textContent = `Step ${this.currentStep + 1} of ${this.steps.length}`;
     if (titleEl) titleEl.textContent = step.title;
-    if (descEl) descEl.textContent = step.content;
+
+    // Context-sensitive description for splitter on mobile vs desktop
+    let desc = step.content;
+    if (step.id === 'splitter') {
+      desc = isMobile
+        ? 'Drag this divider bar up to expand the encyclopedia and chat, or drag down to enlarge the globe. (Notice how it slid up to reveal the articles below!)'
+        : 'Drag this divider bar left or right to customize your split-screen view between the 3D globe and the information panel.';
+    }
+    if (descEl) descEl.textContent = desc;
 
     if (prevBtn) {
       prevBtn.style.visibility = this.currentStep === 0 ? 'hidden' : 'visible';
@@ -332,57 +398,73 @@ export class TourGuide {
     }
 
     this._updateDots();
+    this._updatePositions();
+  }
 
-    // Calculate bounding rect and place spotlight
+  /** Update physical positions of spotlight box and popover */
+  _updatePositions() {
+    const step = this.steps[this.currentStep];
+    const rect = this._getTargetRect(step.selector);
+    if (!rect) return;
+
     const pad = step.targetPadding || 8;
     this.spotlight.style.left = `${Math.max(0, rect.left - pad)}px`;
     this.spotlight.style.top = `${Math.max(0, rect.top - pad)}px`;
     this.spotlight.style.width = `${rect.width + pad * 2}px`;
     this.spotlight.style.height = `${rect.height + pad * 2}px`;
 
-    // Position popover relative to spotlight
-    this._positionPopover(rect, step.placement);
+    this._positionPopover(rect, step);
   }
 
   /** Smart popover placement with boundary clamping */
-  _positionPopover(targetRect, preferredPlacement) {
+  _positionPopover(targetRect, step) {
     const popoverRect = this.popover.getBoundingClientRect();
-    const pWidth = popoverRect.width || 340;
-    const pHeight = popoverRect.height || 220;
-    const margin = 16;
+    const pWidth = popoverRect.width || 330;
+    const pHeight = popoverRect.height || 150;
+    const margin = 12;
     const isMobile = window.innerWidth <= 768;
 
     let left = 0;
     let top = 0;
 
     if (isMobile) {
-      // On mobile screens, center popover in viewport or dock to bottom/top
-      left = (window.innerWidth - pWidth) / 2;
-      if (targetRect.top > window.innerHeight / 2) {
-        top = Math.max(margin, targetRect.top - pHeight - margin);
+      left = Math.max(margin, (window.innerWidth - pWidth) / 2);
+
+      const pref = step.mobilePlacement || 'auto';
+      if (pref === 'top') {
+        top = margin;
+      } else if (pref === 'bottom') {
+        top = window.innerHeight - pHeight - margin;
       } else {
-        top = Math.min(window.innerHeight - pHeight - margin, targetRect.bottom + margin);
-      }
-    } else if (preferredPlacement === 'inside-top-left') {
-      left = targetRect.left + 24;
-      top = targetRect.top + 70;
-    } else if (preferredPlacement === 'top') {
-      left = targetRect.left + (targetRect.width - pWidth) / 2;
-      top = targetRect.top - pHeight - margin;
-    } else if (preferredPlacement === 'left') {
-      left = targetRect.left - pWidth - margin;
-      top = targetRect.top + (targetRect.height - pHeight) / 2;
-      // If it overflows off the left edge, place it to the right or bottom
-      if (left < margin) {
-        left = targetRect.right + margin;
-        if (left + pWidth > window.innerWidth - margin) {
-          left = (window.innerWidth - pWidth) / 2;
-          top = targetRect.bottom + margin;
+        const targetCenterY = targetRect.top + targetRect.height / 2;
+        if (targetCenterY > window.innerHeight / 2) {
+          top = margin;
+        } else {
+          top = window.innerHeight - pHeight - margin;
         }
       }
-    } else if (preferredPlacement === 'bottom') {
-      left = targetRect.left + (targetRect.width - pWidth) / 2;
-      top = targetRect.bottom + margin;
+    } else {
+      const preferredPlacement = step.placement;
+      if (preferredPlacement === 'inside-top-left') {
+        left = targetRect.left + 24;
+        top = targetRect.top + 70;
+      } else if (preferredPlacement === 'top') {
+        left = targetRect.left + (targetRect.width - pWidth) / 2;
+        top = targetRect.top - pHeight - 16;
+      } else if (preferredPlacement === 'left') {
+        left = targetRect.left - pWidth - 16;
+        top = targetRect.top + (targetRect.height - pHeight) / 2;
+        if (left < margin) {
+          left = targetRect.right + 16;
+          if (left + pWidth > window.innerWidth - margin) {
+            left = (window.innerWidth - pWidth) / 2;
+            top = targetRect.bottom + 16;
+          }
+        }
+      } else if (preferredPlacement === 'bottom') {
+        left = targetRect.left + (targetRect.width - pWidth) / 2;
+        top = targetRect.bottom + 16;
+      }
     }
 
     // Clamp inside viewport
