@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    if (/SamsungBrowser/i.test(navigator.userAgent)) {
+      document.documentElement.classList.add('samsung-browser');
+    }
+  </script>
   <title>Paleo Earth — Interactive 3D Paleogeography &amp; Geologic Time Scale Globe</title>
   <meta name="description" content="Explore 540 million years of Earth's history on an interactive 3D paleogeography globe. Travel through the Phanerozoic timeline from the Cambrian Explosion and Pangaea to the Holocene, track continental drift, paleoclimate, and mass extinctions, and ask questions with an AI paleontology assistant.">
   <meta name="keywords" content="Paleo Earth, paleogeography, paleontology, ancient Earth, continental drift, Pangea, Pangaea, Gondwana, Laurasia, geologic time scale, Phanerozoic, Cambrian, Ordovician, Silurian, Devonian, Carboniferous, Permian, Triassic, Jurassic, Cretaceous, Paleogene, Neogene, Quaternary, mass extinctions, 3D globe, plate tectonics">

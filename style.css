@@ -14,7 +14,7 @@
   --bg-input:        #1c263b;
   --bg-card:         #151f32;
 
-  --border:          rgba(255,255,255,0.12); /* Higher contrast borders */
+  --border:          #283347; /* Solid dark slate border prevents Samsung Force Dark inversion */
   --border-accent:   rgba(100,160,255,0.25);
 
   --text-primary:    #e8edf5;
@@ -546,13 +546,13 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
   height: 3px;
-  background: rgba(255,255,255,0.25);
+  background: #3d4859;
   border-radius: 2px;
 }
 
 input[type="range"]::-moz-range-track {
   height: 3px;
-  background: rgba(255,255,255,0.25);
+  background: #3d4859;
   border-radius: 2px;
 }
 
@@ -1161,7 +1161,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   border-radius: 4px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid #2e384b;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
 }
 
@@ -1460,13 +1460,13 @@ input[type="range"]:hover::-webkit-slider-thumb {
   .resize-handle {
     width: 100%;
     height: 18px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #3b424f;
     cursor: row-resize;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid #4a5363;
+    border-bottom: 1px solid #4a5363;
   }
   
-  /* Visual pill for affordance */
+  /* Visual pill for affordance (raster PNG prevents Samsung Internet Force Dark inversion) */
   .resize-handle::after {
     content: '';
     position: absolute;
@@ -1474,7 +1474,9 @@ input[type="range"]:hover::-webkit-slider-thumb {
     transform: translate(-50%, -50%);
     width: 48px;
     height: 4px;
-    background: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAASSURBVBhXY9i669B/ZMxAugAAv24zAaw3gnsAAAAASUVORK5CYII=");
+    background-repeat: repeat;
     border-radius: 2px;
   }
 }
@@ -1611,6 +1613,8 @@ input[type="range"]:hover::-webkit-slider-thumb {
     width: auto;
     background: transparent;
     border-bottom: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     z-index: 10;
     pointer-events: none; /* Let clicks pass through */
   }
@@ -2306,5 +2310,41 @@ input[type="range"]:hover::-webkit-slider-thumb {
   .creator-link svg {
     width: 12px;
     height: 12px;
+  }
+}
+
+/* ─── Samsung Internet Force Dark Mode Compensation ─────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+html.samsung-browser {
+  --bg-space:        #161f30;
+  --bg-panel:        #22304a;
+  --bg-panel-raised: #2a3b59;
+  --bg-input:        #324669;
+  --bg-card:         #2c3e5e;
+  --border:          #3b4c6b;
+  --text-secondary:  #9ab0d4;
+  --text-muted:      #63799c;
+}
+
+html.samsung-browser input[type="range"]::-webkit-slider-runnable-track {
+  background: #55647a;
+}
+html.samsung-browser input[type="range"]::-moz-range-track {
+  background: #55647a;
+}
+html.samsung-browser .geologic-time-bar {
+  background: #141c2b;
+  border-color: #435370;
+}
+@media (max-width: 768px) {
+  html.samsung-browser .resize-handle {
+    background: #525c6e;
+    border-top-color: #647085;
+    border-bottom-color: #647085;
   }
 }

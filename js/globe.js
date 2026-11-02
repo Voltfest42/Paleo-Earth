@@ -284,9 +284,10 @@ export class Globe {
     this._renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     this._renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this._renderer.setSize(w, h);
+    const isSamsung = typeof navigator !== 'undefined' && /SamsungBrowser/i.test(navigator.userAgent);
     this._renderer.outputColorSpace = THREE.SRGBColorSpace;
     this._renderer.toneMapping = THREE.LinearToneMapping;
-    this._renderer.toneMappingExposure = 1.0;
+    this._renderer.toneMappingExposure = isSamsung ? 1.38 : 1.0;
     this._container.appendChild(this._renderer.domElement);
 
     this._loader       = new THREE.TextureLoader();
@@ -487,14 +488,15 @@ export class Globe {
 
   // ── Lights ────────────────────────────────────────────────────────────
   _addLights() {
+    const isSamsung = typeof navigator !== 'undefined' && /SamsungBrowser/i.test(navigator.userAgent);
     // Balanced ambient light so terrain colors, coastlines, and shadowed slopes
     // remain visible, readable, and true to their authored brightness:
-    this._ambientLight = new THREE.AmbientLight(0xffffff, GLOBE_AMBIENT_LIGHT);
+    this._ambientLight = new THREE.AmbientLight(0xffffff, isSamsung ? GLOBE_AMBIENT_LIGHT * 1.38 : GLOBE_AMBIENT_LIGHT);
     this._scene.add(this._ambientLight);
 
     // Directional key light mounted to the camera: provides subtle 3D curvature,
     // gentle relief enhancement, and ocean specular glints without harsh contrast
-    this._sunLight = new THREE.DirectionalLight(0xfff8ee, GLOBE_SUN_LIGHT);
+    this._sunLight = new THREE.DirectionalLight(0xfff8ee, isSamsung ? GLOBE_SUN_LIGHT * 1.30 : GLOBE_SUN_LIGHT);
     this._sunLight.position.set(1.8, 1.8, 2.5);
     this._sunLight.target.position.set(0, 0, 0);
 
