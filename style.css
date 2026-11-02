@@ -1998,18 +1998,6 @@ input[type="range"]:hover::-webkit-slider-thumb {
   visibility: visible;
 }
 
-.tour-backdrop-catcher {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 9989;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-}
-.tour-backdrop-catcher.active {
-  opacity: 1;
-  visibility: visible;
-}
 
 /* Tour Floating Popover */
 .tour-popover {

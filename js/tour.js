@@ -4,8 +4,10 @@
  * Provides:
  *  1. Welcome Modal on first visit with "Take 1-Minute Tour" or "Explore on My Own".
  *  2. Spotlight Guided Tour highlighting 4 key UI elements across the app.
- *  3. Re-triggerable via Settings modal or the Tour button in viewport controls.
- *  4. Full keyboard navigation (Escape, ArrowLeft, ArrowRight) and mobile responsiveness.
+ *  3. Preserves full live interactivity (dragging the globe, scrubbing the slider,
+ *     toggling period/event buttons, and switching tabs) without closing the tour.
+ *  4. Re-triggerable via Settings modal or the Tour button in viewport controls.
+ *  5. Full keyboard navigation (Escape, ArrowLeft, ArrowRight) and mobile responsiveness.
  */
 
 const TOUR_STORAGE_KEY = 'paleo_earth_tour_seen';
@@ -32,18 +34,18 @@ export class TourGuide {
         targetPadding: 8
       },
       {
-        id: 'keyframes',
-        selector: '.summary-card',
-        title: 'Keyframes & Mass Extinctions',
-        content: 'As you scrub, the timeline snaps to major evolutionary milestones and catastrophic mass extinction events (such as the Permian "Great Dying" and K-Pg dinosaur extinction). The header and summary update dynamically.',
+        id: 'periods-events',
+        selector: '.panel-topbar, .summary-card',
+        title: 'Periods and Events',
+        content: 'As you scrub, the timeline snaps to geologic periods and major milestones—including evolutionary radiations, climate transitions, and extinction events. The header badge and summary update dynamically to reflect the active era.',
         placement: 'left',
         targetPadding: 8
       },
       {
         id: 'wiki-chat',
-        selector: '.panel-tabs',
+        selector: '.panel-tabs, .panel-tab-content',
         title: 'Encyclopedia & AI Assistant',
-        content: 'Explore in-depth articles for each geologic era. Click the speaker icon to listen to voice narration, or switch to the "Ask Questions" tab to chat with our AI assistant anchored to the active time period.',
+        content: 'Dive into detailed period summaries and encyclopedia entries. Click the speaker icon to hear audio narration, or switch to the "Ask Questions" tab to chat with our AI assistant anchored to the active time period.',
         placement: 'left',
         targetPadding: 8
       }
@@ -69,24 +71,14 @@ export class TourGuide {
 
   /** Build DOM elements for the spotlight and floating popover */
   _createTourElements() {
-    // 1. Spotlight Box
+    // 1. Spotlight Box (pointer-events: none so clicks pass through to live app controls)
     this.spotlight = document.createElement('div');
     this.spotlight.className = 'tour-spotlight-box';
     this.spotlight.id = 'tourSpotlightBox';
     this.spotlight.setAttribute('aria-hidden', 'true');
     document.body.appendChild(this.spotlight);
 
-    // 2. Backdrop click catcher (to advance or close)
-    this.backdrop = document.createElement('div');
-    this.backdrop.className = 'tour-backdrop-catcher';
-    this.backdrop.id = 'tourBackdropCatcher';
-    this.backdrop.addEventListener('click', () => {
-      // Clicking backdrop skips/closes tour
-      this.stop();
-    });
-    document.body.appendChild(this.backdrop);
-
-    // 3. Floating Popover Card
+    // 2. Floating Popover Card
     this.popover = document.createElement('div');
     this.popover.className = 'tour-popover';
     this.popover.id = 'tourPopover';
@@ -124,6 +116,16 @@ export class TourGuide {
     if (skipBtn) skipBtn.addEventListener('click', () => this.stop());
     if (prevBtn) prevBtn.addEventListener('click', () => this.prevStep());
     if (nextBtn) nextBtn.addEventListener('click', () => this.nextStep());
+
+    // Listen to tab buttons to smoothly adjust bounds when tabs switch
+    const tabs = document.querySelectorAll('.panel-tab-btn');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        if (this.isActive) {
+          setTimeout(() => this._renderStep(), 60);
+        }
+      });
+    });
   }
 
   /** Setup Welcome Modal events and actions */
@@ -181,11 +183,11 @@ export class TourGuide {
 
     // Show tour DOM elements
     this.spotlight.classList.add('active');
-    this.backdrop.classList.add('active');
     this.popover.classList.add('active');
 
-    // Add listeners
+    // Add listeners (recalculate positions on resize or slider interaction)
     window.addEventListener('resize', this._boundOnResize);
+    window.addEventListener('input', this._boundOnResize);
     window.addEventListener('keydown', this._boundOnKeyDown);
 
     // Build dots
@@ -205,10 +207,10 @@ export class TourGuide {
 
     // Hide tour elements
     this.spotlight.classList.remove('active');
-    this.backdrop.classList.remove('active');
     this.popover.classList.remove('active');
 
     window.removeEventListener('resize', this._boundOnResize);
+    window.removeEventListener('input', this._boundOnResize);
     window.removeEventListener('keydown', this._boundOnKeyDown);
   }
 
@@ -254,12 +256,43 @@ export class TourGuide {
     });
   }
 
+  /** Compute aggregate bounding rectangle across one or more target elements */
+  _getTargetRect(selector) {
+    const targets = document.querySelectorAll(selector);
+    if (!targets || targets.length === 0) return null;
+
+    let top = Infinity;
+    let left = Infinity;
+    let right = -Infinity;
+    let bottom = -Infinity;
+
+    targets.forEach(t => {
+      const r = t.getBoundingClientRect();
+      if (r.width === 0 && r.height === 0) return;
+      top = Math.min(top, r.top);
+      left = Math.min(left, r.left);
+      right = Math.max(right, r.right);
+      bottom = Math.max(bottom, r.bottom);
+    });
+
+    if (top === Infinity) return targets[0].getBoundingClientRect();
+
+    return {
+      top,
+      left,
+      right,
+      bottom,
+      width: right - left,
+      height: bottom - top
+    };
+  }
+
   /** Position spotlight and popover for the active step */
   _renderStep() {
     const step = this.steps[this.currentStep];
-    const target = document.querySelector(step.selector);
+    const rect = this._getTargetRect(step.selector);
 
-    if (!target) {
+    if (!rect) {
       console.warn(`[TourGuide] Element not found for selector: ${step.selector}`);
       return;
     }
@@ -274,8 +307,9 @@ export class TourGuide {
     }
 
     // Auto-scroll target into view if mobile or overflowed
-    if (window.innerWidth <= 768) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const firstTarget = document.querySelector(step.selector);
+    if (window.innerWidth <= 768 && firstTarget) {
+      firstTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // Update text content
@@ -301,8 +335,6 @@ export class TourGuide {
 
     // Calculate bounding rect and place spotlight
     const pad = step.targetPadding || 8;
-    const rect = target.getBoundingClientRect();
-
     this.spotlight.style.left = `${Math.max(0, rect.left - pad)}px`;
     this.spotlight.style.top = `${Math.max(0, rect.top - pad)}px`;
     this.spotlight.style.width = `${rect.width + pad * 2}px`;
